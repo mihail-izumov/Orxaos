@@ -4,7 +4,7 @@ const { version } = pkg
 
 export default defineConfig({
   appearance: {
-    initialValue: 'dark' as any
+    initialValue: 'force-dark' as any
   },
   ignoreDeadLinks: true,
   title: 'От хаоса - к силе.',
