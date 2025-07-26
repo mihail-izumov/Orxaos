@@ -288,7 +288,7 @@ export default defineConfig({
 }
     `]
   ],
-  base: '/',
+  base: '/Orxaos/',
   cleanUrls: true,
   outDir: '.vitepress/dist',
   description: 'От хаоса - к силе.',
