@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t}from"./chunks/framework.BHpayLOB.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"ars_orxaos/apply.md","filePath":"ars_orxaos/apply.md"}'),r={name:"ars_orxaos/apply.md"};function o(s,p,c,n,_,l){return t(),e("div")}const m=a(r,[["render",o]]);export{i as __pageData,m as default};

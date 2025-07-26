@@ -6,7 +6,8 @@ export default defineConfig({
   appearance: {
     initialValue: 'light' as any
   },
-  title: 'Парк за углом',
+  ignoreDeadLinks: true,
+  title: 'От хаоса - к силе.',
   locales: {
     '/': {
       lang: 'ru-RU',
@@ -26,16 +27,14 @@ export default defineConfig({
   },
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: 'public/prkx-icon.png' }],
-    ['link', { rel: 'shortcut icon', href: '/prkx-icon.png' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     ['script', {}, `
     (function() {
     function createFooterContent() {
       const links = [
-        { text: 'Контакт', href: '89370606690' },
         { text: 'Телеграм-канал', href: 'https://t.me/runscale', target: '_blank' },
-        { text: 'Orxaos', href: 'orxaos.sbs' }
+        { text: 'Supply', href: 'https://orxaos-shop.fourthwall.com/en-eur', target: '_blank' },
+        { text: 'Архив', href: 'https://orxaos.sbs/archive', target: '_blank' }
       ];
 
       let html = '<hr style="border: 0; border-top: 1px solid var(--vp-c-divider); margin: 24px 0;">';
@@ -51,8 +50,8 @@ export default defineConfig({
       });
       html += '</div></div>';
       html += '<div style="margin-top: 24px; text-align: center;">';
-      html += '<div style="color: var(--vp-c-text-2); font-size: 14px;">Что то там</div>';
-      html += '<div style="color: var(--vp-c-text-2); margin-top: 4px; font-size: 14px; text-align: center;">© Orxaos 2025</div>';
+      html += '<div style="color: var(--vp-c-text-2); font-size: 14px;">Мечтать и действовать: расти по своим правилам</div>';
+      html += '<div style="color: var(--vp-c-text-2); margin-top: 4px; font-size: 14px; text-align: center;">© Orxaos | Михаил Изюмов 2025</div>';
       return html;
     }
 
@@ -87,7 +86,7 @@ export default defineConfig({
 
         // Создаем новую ссылку для замены
         const newLink = document.createElement('a');
-        newLink.href = '/apply';
+        newLink.href = 'ars_orxaos/apply';
         newLink.className = applyLink.className;
         newLink.setAttribute('aria-label', 'apply-link');
         newLink.setAttribute('target', '_self');
@@ -175,20 +174,6 @@ export default defineConfig({
   justify-content: center !important;
 }
 
-/* Кнопка "Войти" (прозрачная) */
-.VPSocialLink[aria-label="login-link"]::after {
-  content: "Войти";
-  font-size: 14px;
-  color: var(--vp-c-text-1);
-  padding: 6px 12px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
-  background: transparent;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  margin: 0 4px;
-}
-
 .VPSocialLink[aria-label="login-link"]:hover::after {
   background: var(--vp-c-bg-soft);
   border-color: var(--vp-c-brand);
@@ -205,7 +190,7 @@ export default defineConfig({
   background: var(--vp-c-brand);
   transition: all 0.3s ease;
   white-space: nowrap;
-  margin: 0 4px;
+  margin: 6px;
 }
 
 .VPSocialLink[aria-label="apply-link"]:hover::after {
@@ -306,19 +291,18 @@ export default defineConfig({
   base: '/',
   cleanUrls: true,
   outDir: '.vitepress/dist',
-  description: 'Эксперты по системному росту бизнеса. Помогаем владельцам компаний находить скрытые резервы прибыли через data-driven подход и глубокую диагностику процессов.',
+  description: 'От хаоса - к силе.',
   themeConfig: {
-    logo: '/prkx-favicon.png',
-    siteTitle: "Парк за углом",
+    siteTitle: "Orxaos",
     // Sidebar configuration для связанных страниц
     sidebar: {
-      '/Parks/': {
+      '/projects/': {
         items: sidebarParki()
       },
-      '/Мастерплан/': {
+      '/meet-mikhail/': {
         items: sidebarMasterplan()
       },
-      '/Почему_Парк/': {
+      '/ars_orxaos/': {
         items: sidebarWhyPark()
       }
     },
@@ -352,8 +336,7 @@ export default defineConfig({
 
     // Social links (header buttons)
     socialLinks: [
-      { icon: 'github', link: 'https://app.mplan.sbs', ariaLabel: 'login-link' },
-      { icon: 'github', link: '/apply', ariaLabel: 'apply-link', target: '_self'  }
+      { icon: 'github', link: 'ars_orxaos/apply', ariaLabel: 'apply-link', target: '_self'  }
     ],
 
     // Footer configuration - простой текст для production
@@ -368,27 +351,33 @@ export default defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: 'Парки',
+      text: 'Проекты',
       items: [
-        { text: 'Самара, Конноармейская 6', link: '/Parks/Samara/konnoarmeiskaya_6/Обзор.md' }
+        { text: 'Обзор', link: '/projects/overview' },
+        { text: 'Ключ к цифровому дневнику - Гид', link: '/projects/diary-guide/unlock/overview' },
+        { text: 'Модуль Роста', link: '/projects/runscale' },
+        { text: 'Парк за углом', link: '/projects/prkx' },
+        { text: 'Чудесная Гостиная', link: '/projects/wndr' },
+        { text: 'Гениальная простота', link: '/projects/simple is smart' },
+        { text: 'Саммари - The Creative Act: A Way of Being', link: 'projects/the-creative-act-rick-rubin/1. Природа творчества' }
       ]
     },
     {
-      text: 'Мастерплан',
+      text: 'Михаил',
       items: [
-        { text: 'Кто мы', link: '/Мастерплан/Кто_мы.md' },
-        { text: 'Чего хотим', link: '/Мастерплан/Чего_хотим.md' },
-        { text: 'В чем план', link: '/Мастерплан/В_чем_план.md' },
-        { text: 'Прогресс', link: '/Мастерплан/Прогресс.md' },
-        { text: 'Нас поддерживают', link: '/Мастерплан/Нас_поддерживают.md' }
+        { text: '100 фактов о Михаиле', link: '/meet-mikhail/cv' },
+        { text: 'Заметки', link: '/meet-mikhail/not-a-blog' },
+        { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
       ]
     },
     {
-      text: 'Почему Парк',
+      text: 'Ars Orxaos',
       items: [
-        { text: 'Идея', link: '/Почему_Парк/Идея.md' },
-        { text: 'Как это работает', link: '/Почему_Парк/Как_это_работает.md' },
-        { text: 'Комфорт+', link: '/Почему_Парк/Комфорт+.md' },
+        { text: 'Двигатель Смысла', link: '/ars_orxaos/overview' },
+        { text: 'Истории в Цифрах', link: '/ars_orxaos/by-the-numbers' },
+        { text: 'Истории в деталях', link: '/ars_orxaos/the-wonderful-stories-we-make' },
+        { text: 'Экспресс-аудит бренда', link: '/ars_orxaos/brand-express' },
+        { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' }
       ]
     }
   ]
@@ -398,16 +387,39 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarParki(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Самара, Конноармейская 6',
+      text: 'Проекты',
       collapsed: false,
       items: [
-        { text: 'Обзор', link: '/Parks/Samara/konnoarmeiskaya_6/Обзор.md' },
-        { text: 'Исходная ситуация', link: '/Parks/Samara/konnoarmeiskaya_6/Исходная_ситуация.md' },
-        { text: 'Инициатива', link: '/Parks/Samara/konnoarmeiskaya_6/Инициатива.md' },
-        { text: 'Прогресс', link: '/Parks/Samara/konnoarmeiskaya_6/Прогресс.md' },
-        { text: 'Цифры и факты', link: '/Parks/Samara/konnoarmeiskaya_6/Цифры_и_факты.md' },
-        { text: 'Публикации в СМИ', link: '/Parks/Samara/konnoarmeiskaya_6/Публикации_в_СМИ.md' },
-        { text: 'Вопросы и ответы', link: '/Parks/Samara/konnoarmeiskaya_6/Вопросы_и_ответы.md' }
+        { text: 'Обзор', link: '/projects/overview' },
+        { text: 'Проекты',
+          collapsed: false, 
+          items: [
+            { text: 'Обзор', link: '/projects/diary-guide/unlock/overview' },
+            { text: 'Что внутри', link: '/projects/diary-guide/unlock/about' },
+            { text: 'Получить доступ', link: ' /projects/diary-guide/unlock/pay/form' }
+          ]
+        },
+        { text: 'Модуль Роста', link: '/projects/runscale' },
+        { text: 'Парк за углом', link: '/projects/prkx' },
+        { text: 'Чудесная Гостиная', link: '/projects/wndr' },
+        { text: 'Гениальная простота', link: '/projects/simple is smart' },
+        { text: 'Саммари - The Creative Act: A Way of Being',
+          collapsed: true, 
+          items: [
+            { text: '1. Природа творчества', link: 'projects/the-creative-act-rick-rubin/1. Природа творчества.md' },
+            { text: '2. Зачем заниматься творчеством', link: 'projects/the-creative-act-rick-rubin/2. Зачем заниматься творчеством.md' },
+            { text: '3. Творчество - советы и практики', link: 'projects/the-creative-act-rick-rubin/3. Творчество - советы и практики.md' },
+            { text: '4. Вдохновение', link: 'projects/the-creative-act-rick-rubin/4. Вдохновение.md' },
+            { text: '5. Творческий процесс', link: 'projects/the-creative-act-rick-rubin/5. Творческий процесс.md' },
+            { text: '6. Что может помешать творчеству', link: 'projects/the-creative-act-rick-rubin/6. Что может помешать творчеству.md' },
+            { text: '7. Совместная работа', link: 'projects/the-creative-act-rick-rubin/7. Совместная работа.md' },
+            { text: 'Варианты перевода заголовка The Creative Act', link: 'projects/the-creative-act-rick-rubin/Варианты перевода заголовка The Creative Act.md' },
+            { text: 'Заключение', link: 'projects/the-creative-act-rick-rubin/Заключение.md' },
+            { text: 'Саммари The Creative Act - A Way of Being', link: 'projects/the-creative-act-rick-rubin/Саммари The Creative Act - A Way of Being.md' },
+            { text: 'Rick Rubin', link: 'projects/the-creative-act-rick-rubin/Rick Rubin.md' },
+            { text: 'The Creative Act - A Way of Being, Rick Rubin', link: 'projects/the-creative-act-rick-rubin/The Creative Act - A Way of Being, Rick Rubin.md' }
+          ]
+        }
       ]
     }
   ]
@@ -420,11 +432,9 @@ function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
       text: 'Мастерплан',
       collapsed: false,
       items: [
-        { text: 'Кто мы', link: '/Мастерплан/Кто_мы.md' },
-        { text: 'Чего хотим', link: '/Мастерплан/Чего_хотим.md' },
-        { text: 'В чем план', link: '/Мастерплан/В_чем_план.md' },
-        { text: 'Прогресс', link: '/Мастерплан/Прогресс.md' },
-        { text: 'Нас поддерживают', link: '/Мастерплан/Нас_поддерживают.md' }
+        { text: '100 фактов о Михаиле', link: '/meet-mikhail/cv' },
+        { text: 'Заметки', link: '/meet-mikhail/not-a-blog' },
+        { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
       ]
     }
   ]
@@ -437,9 +447,11 @@ function sidebarWhyPark(): DefaultTheme.SidebarItem[] {
       text: 'Технологии',
       collapsed: false,
       items: [
-        { text: 'Идея', link: '/Почему_Парк/Идея.md' },
-        { text: 'Как это работает', link: '/Почему_Парк/Как_это_работает.md' },
-        { text: 'Комфорт+', link: '/Почему_Парк/Комфорт+.md' },
+        { text: 'Двигатель Смысла', link: '/ars_orxaos/overview' },
+        { text: 'Истории в Цифрах', link: '/ars_orxaos/by-the-numbers' },
+        { text: 'Истории в деталях', link: '/ars_orxaos/the-wonderful-stories-we-make' },
+        { text: 'Экспресс-аудит бренда', link: '/ars_orxaos/brand-express' },
+        { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' }
       ]
     }
   ]
