@@ -290,7 +290,7 @@ export default defineConfig({
   ],
   base: '/Orxaos/',
   cleanUrls: true,
-  appearance: false,
+  appearance: 'force-dark',
   outDir: '.vitepress/dist',
   description: 'От хаоса - к силе.',
   themeConfig: {
