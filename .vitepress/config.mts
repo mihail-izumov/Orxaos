@@ -359,8 +359,8 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
         },
         { text: 'Модуль Роста', link: '/projects/runscale' },
         { text: 'Парк за углом', link: '/projects/prkx' },
-        { text: 'Чудесная Гостиная', link: '/projects/wndr' },
-        { text: 'Гениальная простота', link: '/projects/simple is smart' },
+        { text: 'Чудесная Гостиная', link: '/projects/nol' },
+        { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
         { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     }
