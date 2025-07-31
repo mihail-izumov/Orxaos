@@ -328,8 +328,8 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: 'Михаил',
       items: [
-        { text: '100 фактов о Михаиле', link: '/meet-mikhail/cv' },
-        { text: 'Заметки', link: '/meet-mikhail/not-a-blog' },
+        { text: 'Кто я', link: '/meet-mikhail/cv' },
+        { text: 'Заметки', link: '/projects/nol/journal' },
         { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
       ]
     },
@@ -370,11 +370,11 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
 function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Мастерплан',
+      text: 'Михаил',
       collapsed: false,
       items: [
-        { text: '100 фактов о Михаиле', link: '/meet-mikhail/cv' },
-        { text: 'Заметки', link: '/meet-mikhail/not-a-blog' },
+        { text: '100 фактов обо мне', link: '/meet-mikhail/cv' },
+        { text: 'Заметки', link: '/projects/nol/journal' },
         { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
       ]
     }
