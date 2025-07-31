@@ -336,6 +336,13 @@ export default defineConfig({
     outlineTitle: 'На этой странице',
     returnToTopLabel: 'Наверх',
     
+    // --- ПЕРЕВОД НАВИГАЦИИ ---
+    docFooter: {
+      prev: 'Предыдущая страница',
+      next: 'Следующая страница'
+    },
+    // ---------------------------
+    
     sidebar: {
       '/projects/diary-guide/keys/': {
         items: sidebarDiaryGuideKeys()
