@@ -12,9 +12,13 @@
 
 ### Практический инструмент, чтобы навести порядок в собственном мире и превратить его в источник сфокусированной силы
 
+<br>
+
 <div class="specs-button">
-  <a href="/projects/diary-guide/unlock/pay/form">Получить доступ за ₽1990 →</a>
+  <a href="/Orxaos/projects/diary-guide/unlock/pay/form">Получить доступ за ₽1990 →</a>
 </div>
+
+[Что внутри](/Orxaos/projects/diary-guide/unlock/about)
 
 <style>
 .specs-button a {
