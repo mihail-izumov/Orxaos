@@ -79,12 +79,12 @@ export default defineConfig({
       function updateApplyLinkTarget() {
         const applyLinks = document.querySelectorAll('.VPSocialLink[aria-label="apply-link"]');
         applyLinks.forEach(applyLink => {
-          applyLink.href = '/start';
+          applyLink.href = '/Orxaos/start';
           applyLink.setAttribute('target', '_self');
           applyLink.removeAttribute('rel');
 
           const newLink = document.createElement('a');
-          newLink.href = '/start';
+          newLink.href = '/Orxaos/start';
           newLink.className = applyLink.className;
           newLink.setAttribute('aria-label', 'apply-link');
           newLink.setAttribute('target', '_self');
