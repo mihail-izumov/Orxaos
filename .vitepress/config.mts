@@ -175,7 +175,7 @@ export default defineConfig({
       border-bottom-color: var(--vp-c-brand-1);
     }
     
-    /* === ✅ ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
+    /* === ✅ ОКОНЧАТЕЛЬНО ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
     /* Плавный переход для заголовка */
     .VPFeature .title {
       transition: color 0.25s ease-in-out;
@@ -187,14 +187,14 @@ export default defineConfig({
     }
     
     /* Стили для ссылки "Получить доступ" и стрелки */
-    .VPFeature .link {
-      color: var(--vp-c-brand-1) !important;
+    .VPFeature .link-text {
+      color: var(--vp-c-brand-1);
       transition: color 0.25s ease-in-out;
     }
     
     /* При наведении на карточку меняем цвет ссылки и стрелки */
-    .VPFeature:hover .link {
-      color: var(--vp-c-brand-2) !important;
+    .VPFeature:hover .link-text {
+      color: var(--vp-c-brand-2);
     }
 
     /* Убеждаемся, что основной текст описания НЕ меняет цвет */
