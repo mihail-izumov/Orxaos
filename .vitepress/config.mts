@@ -519,6 +519,7 @@ function sidebarDiaryGuide(): DefaultTheme.SidebarItem[] {
   ]
 }
 
+// ✅ ИСПРАВЛЕНО: Заменены типографские кавычки ‘ ’ на прямые ' ' и исправлены ссылки
 function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
   return [
     {
@@ -535,7 +536,7 @@ function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
             { text: '1.2 Основные причины, чтобы НЕ вести дневник', link: '/projects/diary-guide/keys/1/1.2 Основные причины, чтобы НЕ вести дневник' },
             { text: '1.3 Мой дневник – это классное место', link: '/projects/diary-guide/keys/1/1.3 Мой дневник – это классное место' },
             { text: '1.4 Почему цифровой дневник', link: '/projects/diary-guide/keys/1/1.4 Почему цифровой дневник' },
-            { text: '1.5 Страх увидеть себя со стороны', link: '/projects/diary-guide/keys/1/1.5 Страх увидеть себя со стороны.md' },
+            { text: '1.5 Страх увидеть себя со стороны', link: '/projects/diary-guide/keys/1/1.5 Страх увидеть себя со стороны' },
           ]
         },
         {
@@ -567,11 +568,11 @@ function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
           ]
         },
         {
-          text: ‘Шаблоны’,
+          text: 'Шаблоны',
           collapsed: true,
           items: [
-            { text: ‘Шаблон 1’, link: ‘/projects/diary-guide/keys/templates/Шаблон 1’ },
-            { text: ‘Шаблон 2’, link: ‘/projects/diary-guide/keys/templates/Шаблон 2’ },
+            { text: 'Шаблон 1', link: '/projects/diary-guide/keys/templates/Шаблон 1' },
+            { text: 'Шаблон 2', link: '/projects/diary-guide/keys/templates/Шаблон 2' },
           ]
         }
       ]
