@@ -3,28 +3,12 @@ import pkg from '../package.json' assert { type: 'json' }
 const { version } = pkg
 
 export default defineConfig({
-  appearance: {
-    initialValue: 'force-dark' as any
-  },
+  // Глобальные настройки, не зависящие от языка
   ignoreDeadLinks: true,
-  title: 'От хаоса - к силе.',
-  locales: {
-    '/': {
-      lang: 'ru-RU',
-      title: 'Модуль Роста® – Расти по своим правилам',
-      description: 'Расти по своим правилам с Модуль Роста®',
-    },
-  },
-
-  // Добавляем хук для обработки данных страницы
-  transformPageData(pageData) {
-    return pageData
-  },
-
-  // Добавляем buildEnd хук для модификации HTML после сборки
-  buildEnd(siteConfig) {
-    // Этот хук выполняется после сборки
-  },
+  base: '/Orxaos/',
+  cleanUrls: true,
+  appearance: 'force-dark',
+  outDir: '.vitepress/dist',
 
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
@@ -65,9 +49,9 @@ export default defineConfig({
       footer.innerHTML = createFooterContent();
       if (window.location.pathname !== '/') {
         footer.style.position = 'relative';
-        footer.style.bottom = '70px';    // уменьшили отступ с 85px до 40px
+        footer.style.bottom = '70px';
         footer.style.zIndex = '10';
-        footer.style.marginBottom = '-70px';  // уменьшили с -125px до -60px
+        footer.style.marginBottom = '-70px';
       } else {
         footer.style.position = '';
         footer.style.bottom = '';
@@ -84,21 +68,18 @@ export default defineConfig({
         applyLink.setAttribute('target', '_self');
         applyLink.removeAttribute('rel');
 
-        // Создаем новую ссылку для замены
         const newLink = document.createElement('a');
         newLink.href = 'ars_orxaos/apply';
         newLink.className = applyLink.className;
         newLink.setAttribute('aria-label', 'apply-link');
         newLink.setAttribute('target', '_self');
 
-        // Копируем все атрибуты кроме href и target
         Array.from(applyLink.attributes).forEach(attr => {
           if (attr.name !== 'href' && attr.name !== 'target' && attr.name !== 'rel') {
             newLink.setAttribute(attr.name, attr.value);
           }
         });
 
-        // Заменяем элемент
         applyLink.parentNode.replaceChild(newLink, applyLink);
       });
     }
@@ -140,215 +121,196 @@ export default defineConfig({
   })();
 `],
     ['style', {}, `
+    /* === ДОБАВЛЕННЫЙ КОД ДЛЯ HERO-СЕКЦИИ === */
+    .VPHero .name,
+    .VPHero .text,
+    .VPHero .tagline {
+      color: white !important;
+    }
+    /* === КОНЕЦ ДОБАВЛЕННОГО КОДА === */
+    
     :root {
-  --vp-c-brand-1: #2e6b5e;
-  --vp-c-brand-2: #3a7d6e;
-  --vp-c-brand-3: #2e6b5e;
-  --vp-c-brand-soft: rgba(46, 107, 94, 0.14);
-}
-    /* Логотип */
-.VPNavBarTitle .logo {
-  height: 32px !important;
-  width: auto !important;
-}
-
-/* Контейнер социальных ссылок - добавляем правильный отступ слева */
-.VPNavBarSocialLinks {
-  min-width: 4px !important;
-  justify-content: flex-end !important;
-  gap: 4px !important;
-  margin-left: 0px !important; /* Уменьшенный отступ от переключателя темы */
-}
-
-/* Убираем все иконки GitHub */
-.VPSocialLink .vpi-social-github {
-  display: none !important;
-}
-
-/* Базовые стили для социальных ссылок */
-.VPSocialLink {
-  width: auto !important;
-  height: auto !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.VPSocialLink[aria-label="login-link"]:hover::after {
-  background: var(--vp-c-bg-soft);
-  border-color: var(--vp-c-brand);
-}
-
-/* Кнопка "Расти с планом" (заполненная) */
-.VPSocialLink[aria-label="apply-link"]::after {
-  content: "Поддержать";
-  font-size: 14px;
-  color: white;
-  padding: 6px 12px;
-  border: 1px solid var(--vp-c-brand);
-  border-radius: 6px;
-  background: var(--vp-c-brand);
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  margin: 6px;
-}
-
-.VPSocialLink[aria-label="apply-link"]:hover::after {
-  background: var(--vp-c-brand-darker, var(--vp-c-brand));
-  transform: translateY(-1px);
-}
-
-/* Стили для футера */
-.custom-footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  align-items: center;
-}
-
-.footer-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.footer-row a {
-  color: var(--vp-c-text-2);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-row a:hover {
-  color: var(--vp-c-brand);
-}
-
-.dot-separator {
-  color: var(--vp-c-text-3);
-  font-weight: bold;
-}
-
-.VPFooter .copyright {
-  margin-top: 2px !important;
-}
-  /* Скрыть переключатель темы */
-.VPSwitchAppearance {
-  display: none !important;
-}
-
-/* Убрать разделители между кнопками в навигации */
-.VPNavBarSocialLinks::before,
-.VPNavBarSocialLinks .divider {
-  display: none !important;
-}
-
-/* Убрать вертикальные разделители */
-.VPNavBar .divider {
-  display: none !important;
-}
-/* Мобильные стили */
-@media (max-width: 768px) {
-  .VPNavBarSocialLinks {
-    width: 100% !important;
-    min-width: 100% !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    padding: 0 16px !important;
-    box-sizing: border-box !important;
-    margin-left: 8 !important;
-  }
-
-  .VPSocialLink {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    box-sizing: border-box !important;
-  }
-
-  .VPSocialLink[aria-label="login-link"]::after,
-  .VPSocialLink[aria-label="apply-link"]::after {
-    width: 100% !important;
-    display: block !important;
-    text-align: center;
-    padding: 10px 12px !important;
-    margin: 10 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Футер на мобильных */
-  .footer-row {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .dot-separator {
-    display: none;
-  }
-}
+      --vp-c-brand-1: #2e6b5e;
+      --vp-c-brand-2: #3a7d6e;
+      --vp-c-brand-3: #2e6b5e;
+      --vp-c-brand-soft: rgba(46, 107, 94, 0.14);
+    }
+    .VPNavBarTitle .logo {
+      height: 32px !important;
+      width: auto !important;
+    }
+    .VPNavBarSocialLinks {
+      min-width: 4px !important;
+      justify-content: flex-end !important;
+      gap: 4px !important;
+      margin-left: 0px !important;
+    }
+    .VPSocialLink .vpi-social-github {
+      display: none !important;
+    }
+    .VPSocialLink {
+      width: auto !important;
+      height: auto !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .VPSocialLink[aria-label="login-link"]:hover::after {
+      background: var(--vp-c-bg-soft);
+      border-color: var(--vp-c-brand);
+    }
+    .VPSocialLink[aria-label="apply-link"]::after {
+      content: "Поддержать";
+      font-size: 14px;
+      color: white;
+      padding: 6px 12px;
+      border: 1px solid var(--vp-c-brand);
+      border-radius: 6px;
+      background: var(--vp-c-brand);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      margin: 6px;
+    }
+    .VPSocialLink[aria-label="apply-link"]:hover::after {
+      background: var(--vp-c-brand-darker, var(--vp-c-brand));
+      transform: translateY(-1px);
+    }
+    .custom-footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      align-items: center;
+    }
+    .footer-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-row a {
+      color: var(--vp-c-text-2);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-row a:hover {
+      color: var(--vp-c-brand);
+    }
+    .dot-separator {
+      color: var(--vp-c-text-3);
+      font-weight: bold;
+    }
+    .VPFooter .copyright {
+      margin-top: 2px !important;
+    }
+    .VPSwitchAppearance {
+      display: none !important;
+    }
+    .VPNavBarSocialLinks::before,
+    .VPNavBarSocialLinks .divider {
+      display: none !important;
+    }
+    .VPNavBar .divider {
+      display: none !important;
+    }
+    @media (max-width: 768px) {
+      .VPNavBarSocialLinks {
+        width: 100% !important;
+        min-width: 100% !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+        margin-left: 8 !important;
+      }
+      .VPSocialLink {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+      }
+      .VPSocialLink[aria-label="login-link"]::after,
+      .VPSocialLink[aria-label="apply-link"]::after {
+        width: 100% !important;
+        display: block !important;
+        text-align: center;
+        padding: 10px 12px !important;
+        margin: 10 !important;
+        box-sizing: border-box !important;
+      }
+      .footer-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .dot-separator {
+        display: none;
+      }
+    }
     `]
   ],
-  base: '/Orxaos/',
-  cleanUrls: true,
-  appearance: 'force-dark',
-  outDir: '.vitepress/dist',
-  description: 'От хаоса - к силе.',
-  themeConfig: {
-    siteTitle: "Orxaos",
-    // Sidebar configuration для связанных страниц
-    sidebar: {
-      '/projects/': {
-        items: sidebarParki()
-      },
-      '/meet-mikhail/': {
-        items: sidebarMasterplan()
-      },
-      '/ars_orxaos/': {
-        items: sidebarWhyPark()
-      }
-    },
+  
+  // ✅ ИСПОЛЬЗУЕМ ЛОКАЛИЗАЦИЮ ДЛЯ ВСЕХ ТЕКСТОВЫХ НАСТРОЕК
+  locales: {
+    '/': {
+      lang: 'ru-RU',
+      title: 'От хаоса - к силе.',
+      description: 'Расти по своим правилам с Модуль Роста®',
 
-    search: {
-      provider: 'local',
-      options: {
-        placeholder: 'Поиск…',
-        translations: {
-          button: {
-            buttonText: 'Поиск',
-            buttonAriaLabel: 'Поиск'
-          },
-          modal: {
-            displayDetails: 'Показать подробные результаты',
-            resetButtonTitle: 'Сбросить поиск',
-            backButtonTitle: 'Закрыть поиск',
-            noResultsText: 'Результаты не найдены для',
-            footer: {
-              selectText: 'выбрать',
-              navigateText: 'навигация',
-              closeText: 'закрыть'
+      // ✅ ВСЕ ЯЗЫКОЗАВИСИМЫЕ НАСТРОЙКИ ТЕПЕРЬ ЗДЕСЬ
+      themeConfig: {
+        siteTitle: "Orxaos",
+        
+        // Перевод элементов интерфейса
+        sidebarMenuLabel: 'Разделы',
+        outlineTitle: 'На этой странице',
+        returnToTopLabel: 'Наверх',
+        
+        // Навигация
+        nav: nav(),
+        
+        // Боковое меню
+        sidebar: {
+          '/projects/': { items: sidebarParki() },
+          '/meet-mikhail/': { items: sidebarMasterplan() },
+          '/ars_orxaos/': { items: sidebarWhyPark() }
+        },
+        
+        // Настройки поиска
+        search: {
+          provider: 'local',
+          options: {
+            placeholder: 'Поиск…',
+            translations: {
+              button: { buttonText: 'Поиск', buttonAriaLabel: 'Поиск' },
+              modal: {
+                displayDetails: 'Показать подробные результаты',
+                resetButtonTitle: 'Сбросить поиск',
+                backButtonTitle: 'Закрыть поиск',
+                noResultsText: 'Результаты не найдены для',
+                footer: { selectText: 'выбрать', navigateText: 'навигация', closeText: 'закрыть' }
+              }
             }
           }
-        }
+        },
+
+        // Социальные ссылки (кнопки в шапке)
+        socialLinks: [
+          { icon: 'github', link: 'ars_orxaos/apply', ariaLabel: 'apply-link', target: '_self'  }
+        ],
       }
-    },
+    }
+  },
 
-    // Navigation with dropdowns
-    nav: nav(),
-
-    // Social links (header buttons)
-    socialLinks: [
-      { icon: 'github', link: 'ars_orxaos/apply', ariaLabel: 'apply-link', target: '_self'  }
-    ],
-
-    // Footer configuration - простой текст для production
-    //footer: {
-    //  message: 'Журнал  •  Телеграм-канал  •  Поддержка  •  Условия использования  •  Контакт',
-    //  copyright: '© Модуль Роста® 2010 — 2025'
-    //},
-  }
+  transformPageData(pageData) {
+    return pageData
+  },
+  buildEnd(siteConfig) {
+    // Этот хук выполняется после сборки
+  },
 })
 
-// ✅ ИСПРАВЛЕНО: Navigation with dropdown menus - добавлен раздел "Радар"
+// --- Функции для навигации и сайдбаров остаются без изменений ---
+
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
@@ -384,7 +346,6 @@ function nav(): DefaultTheme.NavItem[] {
   ]
 }
 
-// Sidebar for About section
 function sidebarParki(): DefaultTheme.SidebarItem[] {
   return [
     {
@@ -426,7 +387,6 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-// Sidebar for Method section
 function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
   return [
     {
@@ -441,7 +401,6 @@ function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-// Sidebar for Technology section
 function sidebarWhyPark(): DefaultTheme.SidebarItem[] {
   return [
     {
