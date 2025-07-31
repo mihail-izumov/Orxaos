@@ -18,7 +18,7 @@
 .specs-button a {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #42b983;
+  background-color: #347b6c;
   color: white !important;
   text-decoration: none !important;
   border-radius: 4px;
