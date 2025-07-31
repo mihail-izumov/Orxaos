@@ -26,6 +26,9 @@ export default defineConfig({
 
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+    // --- ВАША ССЫЛКА НА FAVICON ---
+    ['link', { rel: 'icon', href: '/files/orxaos-icon-white.png' }],
+    // -----------------------------
     ['script', {}, `
     (function() {
       function createFooterContent() {
