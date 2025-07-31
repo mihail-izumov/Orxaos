@@ -323,6 +323,7 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     },
+
     {
       text: 'Михаил',
       items: [
