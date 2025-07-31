@@ -6,6 +6,34 @@
 
 Это саммари удобно тем, что к нему можно возвращаться и перечитывать нужные части.  Например, если у вас возник творческий тупик или чувствуете неуверенность, вы всегда можете найти здесь подсказки, попробовать что-то сделать и вернуться, чтобы прочитать это снова уже новым взглядом. Это очень удобно и продуктивно.
 
+<div class="specs-button">
+  <a href="/projects/the-creative-act-rick-rubin/0. Содержание">Содержание →</a>
+</div>
+
+<style>
+.specs-button a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #42b983;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  /* Новые важные свойства */
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+}
+
+.specs-button a:hover {
+  background-color: #33a06f;
+  transform: translateY(-1px); /* Эффект нажатия */
+}
+</style>
+
 ## Что такое саммари
 1. Саммари — это сжатое изложение материала либо обобщение информации, которая представлена в оригинальном источнике.
 2. Вы можете найти хорошие саммари в [Smart Reading](https://smartreading.ru/), но книги Рика Рубина там нет и поэтому мне пришлось сделать своё резюме и заодно перевести её на русский.
