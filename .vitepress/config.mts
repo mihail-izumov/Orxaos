@@ -176,31 +176,21 @@ export default defineConfig({
     }
     
     /* === ✅ ОКОНЧАТЕЛЬНО ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
-    /* Плавный переход для заголовка */
-    .VPFeature .title {
+    /* Плавный переход для заголовка и ссылки */
+    .VPFeature .title,
+    .VPFeature .link-text {
       transition: color 0.25s ease-in-out;
     }
     
-    /* При наведении на карточку меняем цвет ТОЛЬКО заголовка */
-    .VPFeature:hover .title {
-      color: var(--vp-c-brand-2);
+    /* Начальный цвет для ссылки и стрелки */
+    .VPFeature .link-text {
+      color: var(--vp-c-brand-1);
     }
     
-    /* Стили для ссылки "Получить доступ" и стрелки */
-    .VPFeature a.link-text {
-      color: var(--vp-c-brand-1) !important;
-      transition: color 0.25s ease-in-out !important;
-    }
-    
-    /* При наведении на карточку меняем цвет ссылки и стрелки */
-    .VPFeature:hover a.link-text {
-      color: var(--vp-c-brand-2) !important;
-    }
-
-    /* Убеждаемся, что основной текст описания НЕ меняет цвет */
-    .VPFeature:hover .details,
-    .VPFeature:hover .details p {
-      color: var(--vp-c-text-2) !important;
+    /* При наведении на ВСЮ карточку (которая является ссылкой)... */
+    a.VPFeature.link:hover .title,
+    a.VPFeature.link:hover .link-text {
+      color: var(--vp-c-brand-2); /* ...меняем цвет и заголовка, и ссылки на яркий */
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
