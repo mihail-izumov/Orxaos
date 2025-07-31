@@ -133,14 +133,14 @@ export default defineConfig({
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ HERO-СЕКЦИИ === */
 
     /* === СТИЛИ ДЛЯ ССЫЛОК И КНОПОК НА ГЛАВНОЙ СТРАНИЦЕ === */
-    /* Ссылки в hero-секции */
-    .VPHero a {
+    /* Ссылки в hero-секции (не кнопки) */
+    .VPHero .tagline a {
       color: var(--vp-c-brand-2) !important;
       text-decoration: none;
       transition: all 0.3s ease;
     }
 
-    .VPHero a:hover {
+    .VPHero .tagline a:hover {
       color: var(--vp-c-brand-1) !important;
       text-decoration: underline;
     }
@@ -158,6 +158,7 @@ export default defineConfig({
       border-color: var(--vp-c-brand-2) !important;
       color: #000 !important; /* Черный текст на ярко-зеленом фоне */
       transform: translateY(-2px);
+      text-decoration: none !important; /* ✅ УБРАНО ПОДЧЕРКИВАНИЕ */
     }
 
     /* Ссылки в основном контенте главной страницы */
@@ -172,41 +173,21 @@ export default defineConfig({
       color: var(--vp-c-brand-1);
       border-bottom-color: var(--vp-c-brand-1);
     }
-
-    /* Ссылки в карточках функций */
-    .VPFeatures a,
-    .VPFeature a {
-      color: var(--vp-c-brand-1);
+    
+    /* === ✅ ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
+    /* Заголовок карточки */
+    .VPFeature .title {
       transition: color 0.3s ease;
     }
-
-    .VPFeatures a:hover,
-    .VPFeature a:hover {
-      color: var(--vp-c-brand-2);
-    }
-
-    /* Ссылки в заголовках карточек */
-    .VPFeature .title a {
-      color: var(--vp-c-text-1);
-      text-decoration: none;
+    /* Ссылка "Узнать больше" и стрелка */
+    .VPFeature .link-text {
+      color: var(--vp-c-brand-1); /* Изначальный цвет - темный зеленый */
       transition: color 0.3s ease;
     }
-
-    .VPFeature .title a:hover {
-      color: var(--vp-c-brand-1);
-    }
-
-    /* Дополнительные кнопки на главной странице */
-    .VPButton.brand {
-      background-color: var(--vp-c-brand-1) !important;
-      border-color: var(--vp-c-brand-1) !important;
-      color: white !important;
-    }
-
-    .VPButton.brand:hover {
-      background-color: var(--vp-c-brand-2) !important;
-      border-color: var(--vp-c-brand-2) !important;
-      color: #000 !important; /* Черный текст при hover */
+    /* При наведении на ВСЮ карточку... */
+    .VPFeature:hover .title,
+    .VPFeature:hover .link-text {
+      color: var(--vp-c-brand-2); /* ...заголовок и ссылка становятся яркими */
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
@@ -252,14 +233,12 @@ export default defineConfig({
       white-space: nowrap;
       margin: 6px;
     }
-    /* === ОБНОВЛЕННЫЙ HOVER ДЛЯ КНОПКИ "НАЧАТЬ" В НАВИГАЦИИ === */
     .VPSocialLink[aria-label="apply-link"]:hover::after {
       background: var(--vp-c-brand-2) !important; /* Ярко-зеленый фон */
       border-color: var(--vp-c-brand-2) !important;
       color: #000 !important; /* Черный текст для читаемости */
       transform: translateY(-1px);
     }
-    /* === КОНЕЦ ОБНОВЛЕННОГО HOVER === */
     .custom-footer-links {
       display: flex;
       flex-direction: column;
@@ -519,7 +498,6 @@ function sidebarDiaryGuide(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-// ✅ ИСПРАВЛЕНО: Все типографские кавычки заменены на прямые
 function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
   return [
     {
