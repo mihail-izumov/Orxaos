@@ -32,7 +32,7 @@ export default defineConfig({
     (function() {
       function createFooterContent() {
         const links = [
-          { text: 'Контакт', href: '/start' },
+          { text: 'Контакт', href: '/Orxaos/start' },
           { text: 'Телеграм-канал', href: 'https://t.me/runscale', target: '_blank' },
           { text: 'Orxaos Supply', href: 'https://orxaos-shop.fourthwall.com/en-eur', target: '_blank' }
         ];
@@ -79,12 +79,12 @@ export default defineConfig({
       function updateApplyLinkTarget() {
         const applyLinks = document.querySelectorAll('.VPSocialLink[aria-label="apply-link"]');
         applyLinks.forEach(applyLink => {
-          applyLink.href = '/apply';
+          applyLink.href = '/start';
           applyLink.setAttribute('target', '_self');
           applyLink.removeAttribute('rel');
 
           const newLink = document.createElement('a');
-          newLink.href = 'ars_orxaos/apply';
+          newLink.href = '/start';
           newLink.className = applyLink.className;
           newLink.setAttribute('aria-label', 'apply-link');
           newLink.setAttribute('target', '_self');
