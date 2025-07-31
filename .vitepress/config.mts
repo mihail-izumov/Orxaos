@@ -16,12 +16,10 @@ export default defineConfig({
     },
   },
 
-  // Добавляем хук для обработки данных страницы
   transformPageData(pageData) {
     return pageData
   },
 
-  // Добавляем buildEnd хук для модификации HTML после сборки
   buildEnd(siteConfig) {
     // Этот хук выполняется после сборки
   },
@@ -140,26 +138,19 @@ export default defineConfig({
       --vp-c-brand-3: #2e6b5e;
       --vp-c-brand-soft: rgba(46, 107, 94, 0.14);
     }
-    /* Логотип */
     .VPNavBarTitle .logo {
       height: 32px !important;
       width: auto !important;
     }
-
-    /* Контейнер социальных ссылок - добавляем правильный отступ слева */
     .VPNavBarSocialLinks {
       min-width: 4px !important;
       justify-content: flex-end !important;
       gap: 4px !important;
-      margin-left: 0px !important; /* Уменьшенный отступ от переключателя темы */
+      margin-left: 0px !important;
     }
-
-    /* Убираем все иконки GitHub */
     .VPSocialLink .vpi-social-github {
       display: none !important;
     }
-
-    /* Базовые стили для социальных ссылок */
     .VPSocialLink {
       width: auto !important;
       height: auto !important;
@@ -167,13 +158,10 @@ export default defineConfig({
       align-items: center !important;
       justify-content: center !important;
     }
-
     .VPSocialLink[aria-label="login-link"]:hover::after {
       background: var(--vp-c-bg-soft);
       border-color: var(--vp-c-brand);
     }
-
-    /* Кнопка "Начать" (заполненная) */
     .VPSocialLink[aria-label="apply-link"]::after {
       content: "Начать";
       font-size: 14px;
@@ -186,20 +174,16 @@ export default defineConfig({
       white-space: nowrap;
       margin: 6px;
     }
-
     .VPSocialLink[aria-label="apply-link"]:hover::after {
       background: var(--vp-c-brand-darker, var(--vp-c-brand));
       transform: translateY(-1px);
     }
-
-    /* Стили для футера */
     .custom-footer-links {
       display: flex;
       flex-direction: column;
       gap: 3px;
       align-items: center;
     }
-
     .footer-row {
       display: flex;
       align-items: center;
@@ -207,41 +191,31 @@ export default defineConfig({
       flex-wrap: wrap;
       justify-content: center;
     }
-
     .footer-row a {
       color: var(--vp-c-text-2);
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
     .footer-row a:hover {
       color: var(--vp-c-brand);
     }
-
     .dot-separator {
       color: var(--vp-c-text-3);
       font-weight: bold;
     }
-
     .VPFooter .copyright {
       margin-top: 2px !important;
     }
-    /* Скрыть переключатель темы */
     .VPSwitchAppearance {
       display: none !important;
     }
-
-    /* Убрать разделители между кнопками в навигации */
     .VPNavBarSocialLinks::before,
     .VPNavBarSocialLinks .divider {
       display: none !important;
     }
-
-    /* Убрать вертикальные разделители */
     .VPNavBar .divider {
       display: none !important;
     }
-    /* Мобильные стили */
     @media (max-width: 768px) {
       .VPNavBarSocialLinks {
         width: 100% !important;
@@ -252,14 +226,12 @@ export default defineConfig({
         box-sizing: border-box !important;
         margin-left: 8 !important;
       }
-
       .VPSocialLink {
         width: 100% !important;
         display: flex !important;
         justify-content: center !important;
         box-sizing: border-box !important;
       }
-
       .VPSocialLink[aria-label="login-link"]::after,
       .VPSocialLink[aria-label="apply-link"]::after {
         width: 100% !important;
@@ -269,13 +241,10 @@ export default defineConfig({
         margin: 10 !important;
         box-sizing: border-box !important;
       }
-
-      /* Футер на мобильных */
       .footer-row {
         flex-direction: column;
         gap: 8px;
       }
-
       .dot-separator {
         display: none;
       }
@@ -295,6 +264,11 @@ export default defineConfig({
     returnToTopLabel: 'Наверх',
     
     sidebar: {
+      // ✅ ДОБАВЛЕНО: Специальный сайдбар для раздела 'The Creative Act'
+      // Он должен идти ПЕРЕД более общим '/projects/'
+      '/projects/the-creative-act-rick-rubin/': {
+        items: sidebarCreativeAct()
+      },
       '/projects/': {
         items: sidebarParki()
       },
@@ -311,10 +285,7 @@ export default defineConfig({
       options: {
         placeholder: 'Поиск…',
         translations: {
-          button: {
-            buttonText: 'Поиск',
-            buttonAriaLabel: 'Поиск'
-          },
+          button: { buttonText: 'Поиск', buttonAriaLabel: 'Поиск' },
           modal: {
             displayDetails: 'Показать подробные результаты',
             resetButtonTitle: 'Сбросить поиск',
@@ -349,7 +320,8 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'Парк за углом', link: '/projects/prkx' },
         { text: 'Чудесная Гостиная', link: '/projects/wndr' },
         { text: 'Гениальная простота', link: '/projects/simple is smart' },
-        { text: 'Саммари - The Creative Act: A Way of Being', link: 'projects/the-creative-act-rick-rubin/1. Природа творчества' }
+        // ✅ ИСПРАВЛЕНО: Ссылка ведет на страницу содержания
+        { text: 'Саммари - The Creative Act: A Way of Being', link: '/projects/the-creative-act-rick-rubin/0. Содержание' }
       ]
     },
     {
@@ -385,7 +357,7 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
           items: [
             { text: 'Обзор', link: '/projects/diary-guide/unlock/overview' },
             { text: 'Что внутри', link: '/projects/diary-guide/unlock/about' },
-            { text: 'Получить доступ', link: ' /projects/diary-guide/unlock/pay/form' }
+            { text: 'Получить доступ', link: '/projects/diary-guide/unlock/pay/form' }
           ]
         },
         { text: 'Модуль Роста', link: '/projects/runscale' },
@@ -395,18 +367,9 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
         { text: 'Саммари - The Creative Act: A Way of Being',
           collapsed: true, 
           items: [
-            { text: '1. Природа творчества', link: 'projects/the-creative-act-rick-rubin/1. Природа творчества.md' },
-            { text: '2. Зачем заниматься творчеством', link: 'projects/the-creative-act-rick-rubin/2. Зачем заниматься творчеством.md' },
-            { text: '3. Творчество - советы и практики', link: 'projects/the-creative-act-rick-rubin/3. Творчество - советы и практики.md' },
-            { text: '4. Вдохновение', link: 'projects/the-creative-act-rick-rubin/4. Вдохновение.md' },
-            { text: '5. Творческий процесс', link: 'projects/the-creative-act-rick-rubin/5. Творческий процесс.md' },
-            { text: '6. Что может помешать творчеству', link: 'projects/the-creative-act-rick-rubin/6. Что может помешать творчеству.md' },
-            { text: '7. Совместная работа', link: 'projects/the-creative-act-rick-rubin/7. Совместная работа.md' },
-            { text: 'Варианты перевода заголовка The Creative Act', link: 'projects/the-creative-act-rick-rubin/Варианты перевода заголовка The Creative Act.md' },
-            { text: 'Заключение', link: 'projects/the-creative-act-rick-rubin/Заключение.md' },
-            { text: 'Саммари The Creative Act - A Way of Being', link: 'projects/the-creative-act-rick-rubin/Саммари The Creative Act - A Way of Being.md' },
-            { text: 'Rick Rubin', link: 'projects/the-creative-act-rick-rubin/Rick Rubin.md' },
-            { text: 'The Creative Act - A Way of Being, Rick Rubin', link: 'projects/the-creative-act-rick-rubin/The Creative Act - A Way of Being, Rick Rubin.md' }
+            { text: 'Содержание', link: '/projects/the-creative-act-rick-rubin/0. Содержание' },
+            { text: '1. Природа творчества', link: '/projects/the-creative-act-rick-rubin/1. Природа творчества' },
+            // и т.д.
           ]
         }
       ]
@@ -439,6 +402,28 @@ function sidebarWhyPark(): DefaultTheme.SidebarItem[] {
         { text: 'Чудесные Истории', link: '/ars_orxaos/the-wonderful-stories-we-make' },
         { text: 'Экспресс-аудит бренда', link: '/ars_orxaos/brand-express' },
         { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' }
+      ]
+    }
+  ]
+}
+
+// ✅ ДОБАВЛЕНО: Новая функция для сайдбара раздела 'The Creative Act'
+function sidebarCreativeAct(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'The Creative Act: A Way of Being',
+      collapsed: false,
+      items: [
+        { text: 'Содержание', link: '/projects/the-creative-act-rick-rubin/0. Содержание' },
+        { text: '1. Природа творчества', link: '/projects/the-creative-act-rick-rubin/1. Природа творчества' },
+        { text: '2. Зачем заниматься творчеством', link: '/projects/the-creative-act-rick-rubin/2. Зачем заниматься творчеством' },
+        { text: '3. Творчество - советы и практики', link: '/projects/the-creative-act-rick-rubin/3. Творчество - советы и практики' },
+        { text: '4. Вдохновение', link: '/projects/the-creative-act-rick-rubin/4. Вдохновение' },
+        { text: '5. Творческий процесс', link: '/projects/the-creative-act-rick-rubin/5. Творческий процесс' },
+        { text: '6. Что может помешать творчеству', link: '/projects/the-creative-act-rick-rubin/6. Что может помешать творчеству' },
+        { text: '7. Совместная работа', link: '/projects/the-creative-act-rick-rubin/7. Совместная работа' },
+        { text: 'Варианты перевода заголовка', link: '/projects/the-creative-act-rick-rubin/Варианты перевода заголовка The Creative Act' },
+        { text: 'Заключение', link: '/projects/the-creative-act-rick-rubin/Заключение' },
       ]
     }
   ]
