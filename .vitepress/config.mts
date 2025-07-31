@@ -32,9 +32,10 @@ export default defineConfig({
     (function() {
     function createFooterContent() {
       const links = [
+        { text: 'Контакт', href: '/start', target: '_blank' }        
         { text: 'Телеграм-канал', href: 'https://t.me/runscale', target: '_blank' },
-        { text: 'Supply', href: 'https://orxaos-shop.fourthwall.com/en-eur', target: '_blank' },
-        { text: 'Архив', href: 'https://orxaos.sbs/archive', target: '_blank' }
+        { text: 'Orxaos Supply', href: 'https://orxaos-shop.fourthwall.com/en-eur', target: '_blank' }
+
       ];
 
       let html = '<hr style="border: 0; border-top: 1px solid var(--vp-c-divider); margin: 24px 0;">';
