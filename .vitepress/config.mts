@@ -318,7 +318,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: 'Обзор', link: '/projects/overview' },
         { text: 'Ключ к цифровому дневнику - Гид', link: '/projects/diary-guide/unlock/overview' },
-        { text: 'Модуль Роста', link: '/projects/runscale' },
+        { text: 'Модуль Роста®', link: '/projects/runscale' },
         { text: 'Парк за углом', link: '/projects/prkx' },
         { text: 'Чудесная Гостиная', link: '/projects/nol' },
         { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
