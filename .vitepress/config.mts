@@ -175,8 +175,8 @@ export default defineConfig({
       border-bottom-color: var(--vp-c-brand-1);
     }
     
-    /* === ✅ БОЛЕЕ СИЛЬНЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
-    /* Стили для всех элементов внутри карточек VPFeature */
+    /* === ✅ ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК - ТОЛЬКО ЗАГОЛОВОК И ССЫЛКИ === */
+    /* Стили для заголовков и ссылок в карточках */
     .VPFeature .title,
     .VPFeature .link-text,
     .VPFeatures .title,
@@ -190,30 +190,25 @@ export default defineConfig({
       color: var(--vp-c-brand-1) !important;
     }
     
-    /* При наведении на карточку - универсальные селекторы */
+    /* При наведении на карточку - ТОЛЬКО заголовок и ссылки */
     .VPFeature:hover .title,
     .VPFeature:hover .link-text,
     .VPFeatures .VPFeature:hover .title,
     .VPFeatures .VPFeature:hover .link-text,
-    a.VPFeature:hover .title,
-    a.VPFeature:hover .link-text,
     .VPFeature:hover a,
-    .VPFeature:hover span {
+    .VPFeature:hover .vpi-arrow-right,
+    .VPFeature:hover .arrow {
       color: var(--vp-c-brand-2) !important;
     }
 
-    /* Дополнительные селекторы для надежности */
-    .VPFeatures .VPFeature:hover *,
-    .VPFeature:hover * {
-      color: var(--vp-c-brand-2) !important;
-    }
-    
-    /* Исключения для некоторых элементов, которые не должны менять цвет */
-    .VPFeature:hover .vp-icon,
-    .VPFeature:hover .icon,
-    .VPFeatures .VPFeature:hover .vp-icon,
-    .VPFeatures .VPFeature:hover .icon {
-      color: inherit !important;
+    /* ✅ ИСКЛЮЧАЕМ текст описания из изменения цвета */
+    .VPFeature:hover .details,
+    .VPFeature:hover .description,
+    .VPFeature:hover p,
+    .VPFeatures .VPFeature:hover .details,
+    .VPFeatures .VPFeature:hover .description,
+    .VPFeatures .VPFeature:hover p {
+      color: var(--vp-c-text-2) !important; /* Оставляем оригинальный цвет текста */
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
