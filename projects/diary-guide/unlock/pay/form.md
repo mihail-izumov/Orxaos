@@ -48,9 +48,8 @@
     <input name="shopId" type="hidden" value="1026515">
 </form>
 </div>
-<div class="payment-form-container" style="background-color: #ffffff; padding: 2rem 1rem; border-radius: 8px;">
+
 <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.25.0"></script>
-</div>
 
 <br>
 
