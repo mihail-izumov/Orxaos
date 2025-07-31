@@ -264,6 +264,10 @@ export default defineConfig({
     returnToTopLabel: 'Наверх',
     
     sidebar: {
+      // ✅ ДОБАВЛЕНО: Специальный сайдбар для Цифрового Дневника
+      '/projects/diary-guide/unlock/': {
+        items: sidebarDiaryGuide()
+      },
       '/projects/the-creative-act-rick-rubin/': {
         items: sidebarCreativeAct()
       },
@@ -349,19 +353,18 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Обзор', link: '/projects/overview' },
-        { text: 'Проекты',
-          collapsed: false, 
-          items: [
-            { text: 'Обзор', link: '/projects/diary-guide/unlock/overview' },
-            { text: 'Что внутри', link: '/projects/diary-guide/unlock/about' },
-            { text: 'Получить доступ', link: '/projects/diary-guide/unlock/pay/form' }
-          ]
+        { text: 'Ключ к Цифровому Дневнику – Гид', 
+          link: '/projects/diary-guide/unlock/overview',
+          collapsed: true,
         },
         { text: 'Модуль Роста', link: '/projects/runscale' },
         { text: 'Парк за углом', link: '/projects/prkx' },
         { text: 'Чудесная Гостиная', link: '/projects/nol' },
         { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
-        { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
+        { text: 'The Creative Act: Саммари', 
+          link: '/projects/the-creative-act_a-way-of-being_summary',
+          collapsed: true,
+        }
       ]
     }
   ]
@@ -413,6 +416,21 @@ function sidebarCreativeAct(): DefaultTheme.SidebarItem[] {
         { text: '7. Совместная работа', link: '/projects/the-creative-act-rick-rubin/7. Совместная работа' },
         { text: 'Варианты перевода заголовка', link: '/projects/the-creative-act-rick-rubin/Варианты перевода заголовка The Creative Act' },
         { text: 'Заключение', link: '/projects/the-creative-act-rick-rubin/Заключение' },
+      ]
+    }
+  ]
+}
+
+// ✅ ДОБАВЛЕНО: Новая функция для сайдбара раздела 'Цифровой Дневник'
+function sidebarDiaryGuide(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Ключ к Цифровому Дневнику – Гид',
+      collapsed: false,
+      items: [
+        { text: 'Обзор', link: '/projects/diary-guide/unlock/overview' },
+        { text: 'Что внутри', link: '/projects/diary-guide/unlock/about' },
+        { text: 'Получить доступ', link: '/projects/diary-guide/unlock/pay/form' }
       ]
     }
   ]
