@@ -264,7 +264,10 @@ export default defineConfig({
     returnToTopLabel: 'Наверх',
     
     sidebar: {
-      // ✅ ДОБАВЛЕНО: Специальное меню "Михаил" для страницы заметок
+      // ✅ ДОБАВЛЕНО: Детальное меню для раздела "Ключ к Цифровому Дневнику"
+      '/projects/diary-guide/keys/': {
+        items: sidebarDiaryGuideKeys()
+      },
       '/projects/nol/journal': {
         items: sidebarMasterplan()
       },
@@ -430,6 +433,67 @@ function sidebarDiaryGuide(): DefaultTheme.SidebarItem[] {
         { text: 'Обзор', link: '/projects/diary-guide/unlock/overview' },
         { text: 'Что внутри', link: '/projects/diary-guide/unlock/about' },
         { text: 'Получить доступ', link: '/projects/diary-guide/unlock/pay/form' }
+      ]
+    }
+  ]
+}
+
+// ✅ ДОБАВЛЕНО: Детальное меню для раздела "Ключ к Цифровому Дневнику"
+function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Ключ к Цифровому Дневнику – Гид',
+      collapsed: false,
+      items: [
+        { text: 'Начать Здесь', link: '/projects/diary-guide/keys/start' },
+        { text: 'Содержание', link: '/projects/diary-guide/keys/contents' },
+        {
+          text: '1. Введение',
+          collapsed: true,
+          items: [
+            { text: '1.1 Писать – значит думать', link: '/projects/diary-guide/keys/1/1.1 Писать – значит думать' },
+            { text: '1.2 Основные причины, чтобы НЕ вести дневник', link: '/projects/diary-guide/keys/1/1.2 Основные причины, чтобы НЕ вести дневник' },
+            { text: '1.3 Мой дневник – это классное место', link: '/projects/diary-guide/keys/1/1.3 Мой дневник – это классное место' },
+            { text: '1.4 Почему цифровой дневник', link: '/projects/diary-guide/keys/1/1.4 Почему цифровой дневник' },
+            { text: '1.5 Страх увидеть себя со стороны', link: '/projects/diary-guide/keys/1/1.5 Страх увидеть себя со стороны.md' },
+          ]
+        },
+        {
+          text: '2. Трюки',
+          collapsed: true,
+          items: [
+            { text: '2.1 Я как контекст', link: '/projects/diary-guide/keys/2/2.1 Я как контекст' },
+            { text: '2.2 Письмо себе', link: '/projects/diary-guide/keys/2/2.2 Письмо себе' },
+            { text: '2.3 Не планируйте', link: '/projects/diary-guide/keys/2/2.3 Не планируйте' },
+            { text: '2.4 Не выдумывайте', link: '/projects/diary-guide/keys/2/2.4 Не выдумывайте' },
+            { text: '2.5 Ставьте мозг в тупик', link: '/projects/diary-guide/keys/2/2.5 Ставьте мозг в тупик' },
+            { text: '2.6 Задавайте вопросы и слушайте ответы', link: '/projects/diary-guide/keys/2/2.6 Задавайте вопросы и слушайте ответы' },
+            { text: '2.7 Храните всё в одном месте', link: '/projects/diary-guide/keys/2/2.7 Храните всё в одном месте' },
+            { text: '2.8 Отмечайте то, что уже реализовалось', link: '/projects/diary-guide/keys/2/2.8 Отмечайте то, что уже реализовалось' },
+            { text: '2.9 Не пишите красиво', link: '/projects/diary-guide/keys/2/2.9 Не пишите красиво' },
+            { text: '2.10 Делайте ABC для оценки своих эмоций', link: '/projects/diary-guide/keys/2/2.10 Делайте ABC для оценки своих эмоций' },
+          ]
+        },
+        {
+          text: '3. "Страшный" модуль',
+          collapsed: true,
+          items: [
+            { text: '3.1 Карта внутренней территории. Как распознать и назвать свои страхи.', link: '/projects/diary-guide/keys/3/3.1 Карта внутренней территории. Как распознать и назвать свои страхи..' },
+            { text: '3.2 Искусство Замечать. Где искать следы ваших страхов.', link: '/projects/diary-guide/keys/3/3.2 Искусство Замечать. Где искать следы ваших страхов..' },
+            { text: '3.3 Археология души. Готовая карта для поиска источника страха.', link: '/projects/diary-guide/keys/3/3.3 Археология души. Готовая карта для поиска источника страха..' },
+            { text: '3.4 Искусство Решающего Шага. От Понимания к Действию', link: '/projects/diary-guide/keys/3/3.4 Искусство Решающего Шага. От Понимания к Действию' },
+            { text: '3.5 Как Настроить Свой Внутренний Компас', link: '/projects/diary-guide/keys/3/3.5 Как Настроить Свой Внутренний Компас' },
+            { text: '3.6 Ежедневная Практика', link: '/projects/diary-guide/keys/3/3.6 Ежедневная Практика' },
+          ]
+        },
+        {
+          text: 'Шаблоны',
+          collapsed: true,
+          items: [
+            { text: 'Шаблон 1', link: '/projects/diary-guide/keys/templates/Шаблон 1' },
+            { text: 'Шаблон 2', link: '/projects/diary-guide/keys/templates/Шаблон 2' },
+          ]
+        }
       ]
     }
   ]
