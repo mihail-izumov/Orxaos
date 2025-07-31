@@ -1,9 +1,6 @@
----
-draft:
-title: Доступ к гиду
----
+# Доступ к гиду
 
-Продукт:  **[[about|Гид «Ключ к Цифровому Дневнику»]]** <br>
+Продукт:  **[Гид «Ключ к Цифровому Дневнику»](/Orxaos/projects/diary-guide/unlock/overview)** <br>
 Формат: **Онлайн-база знаний** <br>
 Доступ: **Пожизненный** (в текущей версии гида) <br>
 Условия: Вы получаете доступ к продукту **«как есть»**. Покупка не включает будущие обновления или личную поддержку по содержанию. <br>
@@ -54,8 +51,11 @@ title: Доступ к гиду
 <div class="payment-form-container" style="background-color: #ffffff; padding: 2rem 1rem; border-radius: 8px;">
 <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.25.0"></script>
 </div>
+
+<br>
+
 После оплаты нажмите → Вернуться на сайт → Пройдите по ссылке в базу знаний <br>
-[[support|Техническая поддержка]] по вопросам оплаты и доступа
+[Техническая поддержка](Orxaos/projects/diary-guide/unlock/pay/support) по вопросам оплаты и доступа
 
 **Удачи в работе.**
 
