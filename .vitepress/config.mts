@@ -11,8 +11,8 @@ export default defineConfig({
   locales: {
     '/': {
       lang: 'ru-RU',
-      title: 'Модуль Роста® – Расти по своим правилам',
-      description: 'Расти по своим правилам с Модуль Роста®',
+      title: 'От хаоса - к силе | Orxaos',
+      description: 'Мечтать и действовать → Расти по своим правилам',
     },
   },
 
@@ -50,7 +50,7 @@ export default defineConfig({
       });
       html += '</div></div>';
       html += '<div style="margin-top: 24px; text-align: center;">';
-      html += '<div style="color: white; font-size: 14px;">Мечтать и действовать: расти по своим правилам</div>';
+      html += '<div style="color: white; font-size: 14px;">Мечтать и действовать → Расти по своим правилам</div>';
       html += '<div style="color: var(--vp-c-text-2); margin-top: 4px; font-size: 14px; text-align: center;">© Orxaos | Михаил Изюмов 2025</div>';
       return html;
     }
