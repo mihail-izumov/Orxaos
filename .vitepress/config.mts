@@ -320,8 +320,7 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'Парк за углом', link: '/projects/prkx' },
         { text: 'Чудесная Гостиная', link: '/projects/wndr' },
         { text: 'Гениальная простота', link: '/projects/simple is smart' },
-        // ✅ ИСПРАВЛЕНО: Ссылка ведет на страницу содержания
-        { text: 'Саммари - The Creative Act: A Way of Being', link: '/projects/the-creative-act-rick-rubin/0. Содержание' }
+        { text: 'Саммари - The Creative Act: A Way of Being', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     },
     {
