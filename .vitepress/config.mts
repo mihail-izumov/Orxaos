@@ -151,14 +151,15 @@ export default defineConfig({
       border-color: var(--vp-c-brand-1) !important;
       color: white !important;
       transition: all 0.3s ease;
+      text-decoration: none !important;
     }
 
     .VPHero .VPButton:hover {
       background-color: var(--vp-c-brand-2) !important;
       border-color: var(--vp-c-brand-2) !important;
-      color: #000 !important; /* Черный текст на ярко-зеленом фоне */
+      color: #000 !important;
       transform: translateY(-2px);
-      text-decoration: none !important; /* ✅ УБРАНО ПОДЧЕРКИВАНИЕ */
+      text-decoration: none !important;
     }
 
     /* Ссылки в основном контенте главной страницы */
@@ -174,20 +175,21 @@ export default defineConfig({
       border-bottom-color: var(--vp-c-brand-1);
     }
     
-    /* === ✅ ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
-    /* Заголовок карточки */
-    .VPFeature .title {
-      transition: color 0.3s ease;
+    /* === ✅ ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
+    /* Устанавливаем плавный переход для элементов внутри карточки */
+    .VPFeature .title, .VPFeature .link-text {
+      transition: color 0.25s ease-in-out;
     }
-    /* Ссылка "Узнать больше" и стрелка */
+
+    /* Устанавливаем начальный цвет для текста "Узнать больше" */
     .VPFeature .link-text {
-      color: var(--vp-c-brand-1); /* Изначальный цвет - темный зеленый */
-      transition: color 0.3s ease;
+      color: var(--vp-c-brand-1);
     }
-    /* При наведении на ВСЮ карточку... */
-    .VPFeature:hover .title,
-    .VPFeature:hover .link-text {
-      color: var(--vp-c-brand-2); /* ...заголовок и ссылка становятся яркими */
+    
+    /* При наведении на карточку (которая сама является ссылкой) */
+    a.VPFeature.link:hover .title,
+    a.VPFeature.link:hover .link-text {
+      color: var(--vp-c-brand-2); /* Меняем цвет и заголовка, и текста ссылки на яркий */
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
