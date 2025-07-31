@@ -189,7 +189,7 @@ export default defineConfig({
 
 /* Кнопка "Расти с планом" (заполненная) */
 .VPSocialLink[aria-label="apply-link"]::after {
-  content: "Поддержать";
+  content: "Начать";
   font-size: 14px;
   color: white;
   padding: 6px 12px;
@@ -351,7 +351,7 @@ export default defineConfig({
 
     // Social links (header buttons)
     socialLinks: [
-      { icon: 'github', link: 'ars_orxaos/apply', ariaLabel: 'apply-link', target: '_self'  }
+      { icon: 'github', link: '/start', ariaLabel: 'apply-link', target: '_self'  }
     ],
   }
 })
