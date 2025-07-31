@@ -26,9 +26,12 @@ export default defineConfig({
 
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
-    // --- ВАША ССЫЛКА НА FAVICON ---
-    ['link', { rel: 'icon', href: '/Orxaos/orxaos-icon-white.png' }],
-    // -----------------------------
+    // --- ОБНОВЛЕННЫЕ ССЫЛКИ НА FAVICON ---
+    // Основная иконка в формате SVG для современных браузеров
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/Orxaos/favicon.svg' }],
+    // Иконка в формате PNG как запасной вариант и для Apple-устройств
+    ['link', { rel: 'apple-touch-icon', href: '/Orxaos/orxaos-icon-white.png' }],
+    // ------------------------------------
     ['script', {}, `
     (function() {
       function createFooterContent() {
@@ -324,6 +327,9 @@ export default defineConfig({
   outDir: '.vitepress/dist',
   description: 'От хаоса - к силе.',
   themeConfig: {
+    // --- ДОБАВЛЕН ЛОГОТИП ---
+    logo: '/Orxaos/favicon.svg',
+    // -----------------------
     siteTitle: "Orxaos",
     
     sidebarMenuLabel: 'Разделы',
@@ -383,6 +389,7 @@ export default defineConfig({
   }
 })
 
+// ... здесь идут все ваши функции sidebar...
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
