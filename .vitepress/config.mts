@@ -490,7 +490,7 @@ function sidebarCreativeAct(): DefaultTheme.SidebarItem[] {
         { text: '5. Творческий процесс', link: '/projects/the-creative-act-rick-rubin/5. Творческий процесс' },
         { text: '6. Что может помешать творчеству', link: '/projects/the-creative-act-rick-rubin/6. Что может помешать творчеству' },
         { text: '7. Совместная работа', link: '/projects/the-creative-act-rick-rubin/7. Совместная работа' },
-        { text: 'Варианты перевода заголовка', link: '/projects/the-creative-act-rick-rubin/Варианты перевода заголовка The Creative Act' },
+        { text: 'Варианты перевода заголовка', link: '/projects/the-creative-act-rick-rubin/the-creative-act-translation' },
         { text: 'Заключение', link: '/projects/the-creative-act-rick-rubin/Заключение' },
       ]
     }
