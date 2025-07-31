@@ -1,4 +1,6 @@
-# Чудесная Гостиная Михаила Изюмова: Где мечты становятся планом
+# Чудесная Гостиная Михаила Изюмова
+## Где мечты становятся планом
+
 <br>
 <figure>
 <img src="https://izumov.kto1.io/~gitbook/image?url=https%3A%2F%2F3331492131-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FlfEAS6KEwWUtC2g1kCof%252Fuploads%252F3fwAsJrHXXyrxpf9XH4a%252F%25D1%2587%25D1%2583%25D0%25B4%25D0%25B5%25D1%2581%25D0%25BD%25D0%25B0%25D1%258F_%25D0%25B3%25D0%25BE%25D1%2581%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B0%25D1%258F-%25D0%25B1%25D0%25B0%25D0%25BD%25D0%25BD%25D0%25B5%25D1%2580-squashed.jpg%3Falt%3Dmedia%26token%3D422da962-4802-4013-9c97-a27d2547fb07&width=768&dpr=2&quality=100&sign=e15d769c&sv=2" alt="Гениальная простота">
