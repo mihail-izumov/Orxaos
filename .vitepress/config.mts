@@ -320,7 +320,7 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'Парк за углом', link: '/projects/prkx' },
         { text: 'Чудесная Гостиная', link: '/projects/wndr' },
         { text: 'Гениальная простота', link: '/projects/simple is smart' },
-        { text: 'Саммари - The Creative Act: A Way of Being', link: '/projects/the-creative-act_a-way-of-being_summary' }
+        { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     },
     {
@@ -363,12 +363,7 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
         { text: 'Парк за углом', link: '/projects/prkx' },
         { text: 'Чудесная Гостиная', link: '/projects/wndr' },
         { text: 'Гениальная простота', link: '/projects/simple is smart' },
-        { text: 'Саммари - The Creative Act: A Way of Being',
-          collapsed: true, 
-          items: [
-            { text: 'Содержание', link: '/projects/the-creative-act-rick-rubin/0. Содержание' },
-            { text: '1. Природа творчества', link: '/projects/the-creative-act-rick-rubin/1. Природа творчества' },
-            // и т.д.
+        { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
           ]
         }
       ]
