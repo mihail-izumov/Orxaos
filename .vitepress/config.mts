@@ -175,21 +175,45 @@ export default defineConfig({
       border-bottom-color: var(--vp-c-brand-1);
     }
     
-    /* === ✅ ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
-    /* Устанавливаем плавный переход для элементов внутри карточки */
-    .VPFeature .title, .VPFeature .link-text {
-      transition: color 0.25s ease-in-out;
+    /* === ✅ БОЛЕЕ СИЛЬНЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
+    /* Стили для всех элементов внутри карточек VPFeature */
+    .VPFeature .title,
+    .VPFeature .link-text,
+    .VPFeatures .title,
+    .VPFeatures .link-text {
+      transition: color 0.25s ease-in-out !important;
     }
 
-    /* Устанавливаем начальный цвет для текста "Узнать больше" */
-    .VPFeature .link-text {
-      color: var(--vp-c-brand-1);
+    /* Начальные цвета для текста ссылки */
+    .VPFeature .link-text,
+    .VPFeatures .link-text {
+      color: var(--vp-c-brand-1) !important;
     }
     
-    /* При наведении на карточку (которая сама является ссылкой) */
-    a.VPFeature.link:hover .title,
-    a.VPFeature.link:hover .link-text {
-      color: var(--vp-c-brand-2); /* Меняем цвет и заголовка, и текста ссылки на яркий */
+    /* При наведении на карточку - универсальные селекторы */
+    .VPFeature:hover .title,
+    .VPFeature:hover .link-text,
+    .VPFeatures .VPFeature:hover .title,
+    .VPFeatures .VPFeature:hover .link-text,
+    a.VPFeature:hover .title,
+    a.VPFeature:hover .link-text,
+    .VPFeature:hover a,
+    .VPFeature:hover span {
+      color: var(--vp-c-brand-2) !important;
+    }
+
+    /* Дополнительные селекторы для надежности */
+    .VPFeatures .VPFeature:hover *,
+    .VPFeature:hover * {
+      color: var(--vp-c-brand-2) !important;
+    }
+    
+    /* Исключения для некоторых элементов, которые не должны менять цвет */
+    .VPFeature:hover .vp-icon,
+    .VPFeature:hover .icon,
+    .VPFeatures .VPFeature:hover .vp-icon,
+    .VPFeatures .VPFeature:hover .icon {
+      color: inherit !important;
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
