@@ -124,13 +124,91 @@ export default defineConfig({
     })();
   `],
     ['style', {}, `
-    /* === ДОБАВЛЕННЫЙ КОД ДЛЯ HERO-СЕКЦИИ === */
+    /* === СТИЛИ ДЛЯ HERO-СЕКЦИИ === */
     .VPHero .name,
     .VPHero .text,
     .VPHero .tagline {
       color: white !important;
     }
-    /* === КОНЕЦ ДОБАВЛЕННОГО КОДА === */
+    /* === КОНЕЦ СТИЛЕЙ ДЛЯ HERO-СЕКЦИИ === */
+
+    /* === СТИЛИ ДЛЯ ССЫЛОК И КНОПОК НА ГЛАВНОЙ СТРАНИЦЕ === */
+    /* Ссылки в hero-секции */
+    .VPHero a {
+      color: var(--vp-c-brand-2) !important;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .VPHero a:hover {
+      color: var(--vp-c-brand-1) !important;
+      text-decoration: underline;
+    }
+
+    /* Кнопки действий в hero-секции */
+    .VPHero .VPButton {
+      background-color: var(--vp-c-brand-1) !important;
+      border-color: var(--vp-c-brand-1) !important;
+      color: white !important;
+      transition: all 0.3s ease;
+    }
+
+    .VPHero .VPButton:hover {
+      background-color: var(--vp-c-brand-2) !important;
+      border-color: var(--vp-c-brand-2) !important;
+      color: #000 !important; /* Черный текст на ярко-зеленом фоне */
+      transform: translateY(-2px);
+    }
+
+    /* Ссылки в основном контенте главной страницы */
+    .VPContent a {
+      color: var(--vp-c-brand-2);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .VPContent a:hover {
+      color: var(--vp-c-brand-1);
+      border-bottom-color: var(--vp-c-brand-1);
+    }
+
+    /* Ссылки в карточках функций */
+    .VPFeatures a,
+    .VPFeature a {
+      color: var(--vp-c-brand-1);
+      transition: color 0.3s ease;
+    }
+
+    .VPFeatures a:hover,
+    .VPFeature a:hover {
+      color: var(--vp-c-brand-2);
+    }
+
+    /* Ссылки в заголовках карточек */
+    .VPFeature .title a {
+      color: var(--vp-c-text-1);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .VPFeature .title a:hover {
+      color: var(--vp-c-brand-1);
+    }
+
+    /* Дополнительные кнопки на главной странице */
+    .VPButton.brand {
+      background-color: var(--vp-c-brand-1) !important;
+      border-color: var(--vp-c-brand-1) !important;
+      color: white !important;
+    }
+
+    .VPButton.brand:hover {
+      background-color: var(--vp-c-brand-2) !important;
+      border-color: var(--vp-c-brand-2) !important;
+      color: #000 !important; /* Черный текст при hover */
+    }
+    /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
     :root {
       --vp-c-brand-1: #347b6c; /* Новый, более яркий зеленый */
@@ -174,10 +252,14 @@ export default defineConfig({
       white-space: nowrap;
       margin: 6px;
     }
+    /* === ОБНОВЛЕННЫЙ HOVER ДЛЯ КНОПКИ "НАЧАТЬ" В НАВИГАЦИИ === */
     .VPSocialLink[aria-label="apply-link"]:hover::after {
-      background: var(--vp-c-brand-darker, var(--vp-c-brand));
+      background: var(--vp-c-brand-2) !important; /* Ярко-зеленый фон */
+      border-color: var(--vp-c-brand-2) !important;
+      color: #000 !important; /* Черный текст для читаемости */
       transform: translateY(-1px);
     }
+    /* === КОНЕЦ ОБНОВЛЕННОГО HOVER === */
     .custom-footer-links {
       display: flex;
       flex-direction: column;
@@ -443,7 +525,7 @@ function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
       text: 'Ключ к Цифровому Дневнику – Гид',
       collapsed: false,
       items: [
-        { text: 'Начать Здесь', link: '/projects/diary-guide/keys/start' },
+        { text: 'Начать Здесь', link: '/projects/diary-guide/keys/start-here' },
         { text: 'Содержание', link: '/projects/diary-guide/keys/contents' },
         {
           text: '1. Введение',
@@ -476,20 +558,20 @@ function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
           text: '3. "Страшный" модуль',
           collapsed: true,
           items: [
-            { text: '3.1 Карта внутренней территории. Как распознать и назвать свои страхи.', link: '/projects/diary-guide/keys/3/3.1%20Карта%20внутренней%20территории%20–%20Как%20распознать%20и%20назвать%20свои%20страхи' },
-            { text: '3.2 Искусство Замечать. Где искать следы ваших страхов.', link: '/projects/diary-guide/keys/3/3.2%20Искусство%20Замечать.%20Где%20искать%20следы%20ваших%20страхов.' },
-            { text: '3.3 Археология души. Готовая карта для поиска источника страха.', link: '/projects/diary-guide/keys/3/3.3%20Археология%20души.%20Готовая%20карта%20для%20поиска%20источника%20страха.' },
-            { text: '3.4 Искусство Решающего Шага. От Понимания к Действию', link: '/projects/diary-guide/keys/3/3.4%20Искусство%20Решающего%20Шага.%20От%20Понимания%20к%20Действию' },
-            { text: '3.5 Как Настроить Свой Внутренний Компас', link: '/projects/diary-guide/keys/3/3.5%20Как%20Настроить%20Свой%20Внутренний%20Компас' },
-            { text: '3.6 Ежедневная Практика', link: '/projects/diary-guide/keys/3/3.6%20Ежедневная%20Практика' },
+            { text: ‘3.1 Карта внутренней территории. Как распознать и назвать свои страхи.’, link: ‘/projects/diary-guide/keys/3/3.1%20Карта%20внутренней%20территории%20–%20Как%20распознать%20и%20назвать%20свои%20страхи’ },
+            { text: ‘3.2 Искусство Замечать. Где искать следы ваших страхов.’, link: ‘/projects/diary-guide/keys/3/3.2%20Искусство%20Замечать.%20Где%20искать%20следы%20ваших%20страхов.’ },
+            { text: ‘3.3 Археология души. Готовая карта для поиска источника страха.’, link: ‘/projects/diary-guide/keys/3/3.3%20Археология%20души.%20Готовая%20карта%20для%20поиска%20источника%20страха.’ },
+            { text: ‘3.4 Искусство Решающего Шага. От Понимания к Действию’, link: ‘/projects/diary-guide/keys/3/3.4%20Искусство%20Решающего%20Шага.%20От%20Понимания%20к%20Действию’ },
+            { text: ‘3.5 Как Настроить Свой Внутренний Компас’, link: ‘/projects/diary-guide/keys/3/3.5%20Как%20Настроить%20Свой%20Внутренний%20Компас’ },
+            { text: ‘3.6 Ежедневная Практика’, link: ‘/projects/diary-guide/keys/3/3.6%20Ежедневная%20Практика’ },
           ]
         },
         {
-          text: 'Шаблоны',
+          text: ‘Шаблоны’,
           collapsed: true,
           items: [
-            { text: 'Шаблон 1', link: '/projects/diary-guide/keys/templates/Шаблон 1' },
-            { text: 'Шаблон 2', link: '/projects/diary-guide/keys/templates/Шаблон 2' },
+            { text: ‘Шаблон 1’, link: ‘/projects/diary-guide/keys/templates/Шаблон 1’ },
+            { text: ‘Шаблон 2’, link: ‘/projects/diary-guide/keys/templates/Шаблон 2’ },
           ]
         }
       ]
