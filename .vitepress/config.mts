@@ -26,17 +26,21 @@ export default defineConfig({
     // Этот хук выполняется после сборки
   },
 
-  head: [
+ head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     ['script', {}, `
     (function() {
     function createFooterContent() {
       const links = [
-        { text: 'Контакт', href: '/start', target: '_blank' }        
+        { text: 'Контакт', href: '/start' },
         { text: 'Телеграм-канал', href: 'https://t.me/runscale', target: '_blank' },
         { text: 'Orxaos Supply', href: 'https://orxaos-shop.fourthwall.com/en-eur', target: '_blank' }
-
       ];
+    }
+    })();
+  `],
+]
+
 
       let html = '<hr style="border: 0; border-top: 1px solid var(--vp-c-divider); margin: 24px 0;">';
       html += '<div class="custom-footer-links"><div class="footer-row">';
