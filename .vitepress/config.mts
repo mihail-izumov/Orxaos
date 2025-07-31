@@ -264,7 +264,10 @@ export default defineConfig({
     returnToTopLabel: 'Наверх',
     
     sidebar: {
-      // ✅ ДОБАВЛЕНО: Специальный сайдбар для Цифрового Дневника
+      // ✅ ДОБАВЛЕНО: Специальное меню "Михаил" для страницы заметок
+      '/projects/nol/journal': {
+        items: sidebarMasterplan()
+      },
       '/projects/diary-guide/unlock/': {
         items: sidebarDiaryGuide()
       },
@@ -418,7 +421,6 @@ function sidebarCreativeAct(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-// ✅ ДОБАВЛЕНО: Новая функция для сайдбара раздела 'Цифровой Дневник'
 function sidebarDiaryGuide(): DefaultTheme.SidebarItem[] {
   return [
     {
