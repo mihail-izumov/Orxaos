@@ -7,11 +7,11 @@ export default defineConfig({
     initialValue: 'force-dark' as any
   },
   ignoreDeadLinks: true,
-  title: 'От хаоса - к силе.',
+  title: 'От хаоса - к силе | Orxaos | Михаил Изюмов',
   locales: {
     '/': {
       lang: 'ru-RU',
-      title: 'От хаоса - к силе | Orxaos',
+      title: 'От хаоса - к силе | Orxaos | Михаил Изюмов',
       description: 'Мечтать и действовать → Расти по своим правилам',
     },
   },
