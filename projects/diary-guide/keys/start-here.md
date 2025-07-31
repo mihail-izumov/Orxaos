@@ -17,7 +17,7 @@
 <br>
 
 <div class="specs-button">
-  <a href="Orxaos/projects/diary-guide/keys/contents">Содержание →</a>
+  <a href="/Orxaos/projects/diary-guide/keys/contents">Содержание →</a>
 </div>
 
 <style>
