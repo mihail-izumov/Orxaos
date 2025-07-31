@@ -1,9 +1,9 @@
 # Доступ к гиду
 
-Продукт:  **[Гид «Ключ к Цифровому Дневнику»](/Orxaos/projects/diary-guide/unlock/overview)** <br>
-Формат: **Онлайн-база знаний** <br>
-Доступ: **Пожизненный** (в текущей версии гида) <br>
-Условия: Вы получаете доступ к продукту **«как есть»**. Покупка не включает будущие обновления или личную поддержку по содержанию. <br>
+Продукт: **[Гид «Ключ к Цифровому Дневнику»](Orxaos/projects/diary-guide/unlock/overview)** <br>
+Формат: **Онлайн-база знаний** <br>
+Доступ: **Пожизненный** (в текущей версии гида) <br>
+Условия: Вы получаете доступ к продукту **«как есть»**. Покупка не включает будущие обновления или личную поддержку по содержанию. <br>
 
 <div class="payment-form-container" style="background-color: #ffffff; padding: 2rem 1rem; border-radius: 8px;">
 <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.25.0">
@@ -55,7 +55,7 @@
 <br>
 
 После оплаты нажмите → Вернуться на сайт → Пройдите по ссылке в базу знаний <br>
-[Техническая поддержка](Orxaos/projects/diary-guide/unlock/pay/support) по вопросам оплаты и доступа
+[Техническая поддержка](/Orxaos/projects/diary-guide/unlock/pay/support) по вопросам оплаты и доступа
 
 **Удачи в работе.**
 
