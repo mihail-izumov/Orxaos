@@ -175,40 +175,32 @@ export default defineConfig({
       border-bottom-color: var(--vp-c-brand-1);
     }
     
-    /* === ✅ ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК - ТОЛЬКО ЗАГОЛОВОК И ССЫЛКИ === */
-    /* Стили для заголовков и ссылок в карточках */
-    .VPFeature .title,
-    .VPFeature .link-text,
-    .VPFeatures .title,
-    .VPFeatures .link-text {
-      transition: color 0.25s ease-in-out !important;
-    }
-
-    /* Начальные цвета для текста ссылки */
-    .VPFeature .link-text,
-    .VPFeatures .link-text {
-      color: var(--vp-c-brand-1) !important;
+    /* === ✅ ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КАРТОЧЕК === */
+    /* Плавный переход для заголовка */
+    .VPFeature .title {
+      transition: color 0.25s ease-in-out;
     }
     
-    /* При наведении на карточку - ТОЛЬКО заголовок и ссылки */
-    .VPFeature:hover .title,
-    .VPFeature:hover .link-text,
-    .VPFeatures .VPFeature:hover .title,
-    .VPFeatures .VPFeature:hover .link-text,
-    .VPFeature:hover a,
-    .VPFeature:hover .vpi-arrow-right,
-    .VPFeature:hover .arrow {
+    /* При наведении на карточку меняем цвет ТОЛЬКО заголовка */
+    .VPFeature:hover .title {
+      color: var(--vp-c-brand-2);
+    }
+    
+    /* Стили для ссылки "Получить доступ" и стрелки */
+    .VPFeature .link {
+      color: var(--vp-c-brand-1) !important;
+      transition: color 0.25s ease-in-out;
+    }
+    
+    /* При наведении на карточку меняем цвет ссылки и стрелки */
+    .VPFeature:hover .link {
       color: var(--vp-c-brand-2) !important;
     }
 
-    /* ✅ ИСКЛЮЧАЕМ текст описания из изменения цвета */
+    /* Убеждаемся, что основной текст описания НЕ меняет цвет */
     .VPFeature:hover .details,
-    .VPFeature:hover .description,
-    .VPFeature:hover p,
-    .VPFeatures .VPFeature:hover .details,
-    .VPFeatures .VPFeature:hover .description,
-    .VPFeatures .VPFeature:hover p {
-      color: var(--vp-c-text-2) !important; /* Оставляем оригинальный цвет текста */
+    .VPFeature:hover .details p {
+        color: var(--vp-c-text-2) !important;
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
