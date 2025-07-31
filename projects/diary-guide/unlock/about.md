@@ -1,16 +1,5 @@
----
-draft: 
-title: Гид «Ключ к Цифровому Дневнику»
----
-# Только суть. И ничего лишнего.
+# Гид «Ключ к Цифровому Дневнику»
 
-Этот гид создан для тех, кто готов честно взглянуть на себя и свою жизнь.
-
-Вести дневник по-настоящему — это значит научиться быть честным с собой. Увидеть свои сильные стороны и то, что можно улучшить. Найти в своих слабостях источник будущей силы. Это требует смелости. Иногда — это непросто. Многие люди откладывают начало, ища «правильный момент».
-
-Этот гид для тех, кто готов начать **сегодня**.
-
-Это не просто сборник советов. Это — **практическая система**. Инструмент, который поможет вам превратить письмо в ваш главный способ обретения ясности, фокуса и внутренней энергии.
 ## Что вас ждет? 
 
 **Ваша дорожная карта:**
@@ -32,22 +21,24 @@ title: Гид «Ключ к Цифровому Дневнику»
 
 Если вы готовы к этому пути, гид даст вам всё необходимое для начала.
 
-<div style="text-align: left; margin: 20px 0;">
-    <a href="unlock/diary-guide/pay/form" target="" style="
-        display: inline-block;
-        padding: 12px 24px;
-        background: black;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: bold;
-        border: 2px solid black;
-        box-shadow: 0 0 0 2px white;
-        transition: all 0.3s;
-        position: relative;
-    " onmouseover="this.style.backgroundColor='white';this.style.color='black'" 
-    onmouseout="this.style.backgroundColor='black';this.style.color='white'">
-        → Получить доступ за ₽1990
-    </a>
+<div class="specs-button">
+  <a href="/projects/diary-guide/unlock/pay/form">Получить доступ за ₽1990 →</a>
 </div>
-<br>
+
+<style>
+.specs-button a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #347b6c;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+}
+</style>
