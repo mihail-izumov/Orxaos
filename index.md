@@ -10,8 +10,8 @@ hero:
       text: Проекты
       link: /projects/overview
     - theme: alt
-      text: 100 фактов о Михаиле
-      link: /cv
+      text: Чудесная Гостиная
+      link: /projects/nol
 
 features:
   - title: Ключ к Цифровому Дневнику → Гид
