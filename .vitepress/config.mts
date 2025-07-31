@@ -264,8 +264,6 @@ export default defineConfig({
     returnToTopLabel: 'Наверх',
     
     sidebar: {
-      // ✅ ДОБАВЛЕНО: Специальный сайдбар для раздела 'The Creative Act'
-      // Он должен идти ПЕРЕД более общим '/projects/'
       '/projects/the-creative-act-rick-rubin/': {
         items: sidebarCreativeAct()
       },
@@ -323,7 +321,6 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     },
-
     {
       text: 'Михаил',
       items: [
@@ -365,8 +362,6 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
         { text: 'Чудесная Гостиная', link: '/projects/wndr' },
         { text: 'Гениальная простота', link: '/projects/simple is smart' },
         { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
-          ]
-        }
       ]
     }
   ]
@@ -402,7 +397,6 @@ function sidebarWhyPark(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-// ✅ ДОБАВЛЕНО: Новая функция для сайдбара раздела 'The Creative Act'
 function sidebarCreativeAct(): DefaultTheme.SidebarItem[] {
   return [
     {
