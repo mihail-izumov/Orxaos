@@ -18,6 +18,35 @@
 
 Чудесная Гостиная – это уникальное пространство для тех, кто стремится к саморазвитию и глубокому пониманию мира. Канал тесно связан с моим цифровым садом и дневником, который ведется по методологии Zettelkasten уже 2 года. Также в работе канала активно участвует мой ИИ-ассистент Анна, выполняющая роли психолога и трекера.
 
+**Избранные Заметки из Чудесной Гостиной**
+<div class="specs-button">
+  <a href="/Orxaos/projects/nol/journal">Читать →</a>
+</div>
+
+<style>
+.specs-button a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #347b6c;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  /* Новые важные свойства */
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+}
+
+.specs-button a:hover {
+  background-color: #33a06f;
+  transform: translateY(-1px); /* Эффект нажатия */
+}
+</style>
+
 **Что вы найдете в Чудесной Гостиной**
 
 * Раскрытие всех граней личной и общественной эффективности
