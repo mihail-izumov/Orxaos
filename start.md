@@ -1,7 +1,5 @@
 # Начните здесь
 
-# Проекты
-
 <br>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
@@ -18,11 +16,11 @@
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Модуль Роста®</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Превращаем бизнес-хаос в отлаженную систему. Помогаем компаниям найти свой собственный путь к росту, создавая процессы, которые помогают устойчиво расти.</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Экспресс-аудит бренда</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Глубокий аудит за 1 день – айдентика и дизайн коммуникации бренда с аудиторией</p>
     </div>
-    <a href="/projects/runscale" class="project-button">
-      К росту в бизнесе
+    <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="project-button" target="_blank">
+      Провести Аудит Сейчас →
     </a>
   </div>
 
