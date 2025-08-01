@@ -2,7 +2,7 @@
 
 ## Лекция о творческой продуктивности
 
-![Альтернативный текст](/simple-is-smart-ban-cmprsd.jpg)
+![Гениальная простота](/Orxaos/simple-is-smart-ban-cmprsd.jpg)
 
 ## Видео и аудио
 
