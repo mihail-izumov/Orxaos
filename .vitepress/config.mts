@@ -132,37 +132,47 @@ export default defineConfig({
     ['style', {}, `
     /* === ПРАВИЛЬНЫЕ СТИЛИ ДЛЯ HERO-СЕКЦИИ === */
 
-    /* 1. Отключаем стандартный фон и фильтры VitePress */
+    /* 1. Используем официальные переменные VitePress для фона */
     :root {
-      --vp-home-hero-image-background-image: none;
-      --vp-home-hero-image-filter: none;
-    }
-
-    /* 2. Создаем свой фон с точно спозиционированным свечением */
-    .VPHero.VPHomeHero {
-      background-image: radial-gradient(
-        ellipse 40% 60% at 75% 50%, /* Форма и позиция свечения (справа по центру) */
-        rgba(34, 87, 71, 0.4) 0%,   /* Цвет свечения (темно-зеленый) */
-        rgba(30, 30, 30, 0) 70%     /* Плавный уход в прозрачный */
+      /* Создаем свечение с помощью градиента */
+      --vp-home-hero-image-background-image: radial-gradient(
+        ellipse 50% 70% at 50% 50%, /* Форма и позиция свечения (овал в центре) */
+        rgba(52, 123, 108, 0.4) 0%,   /* Ваш темно-зеленый цвет */
+        transparent 70%             /* Плавный уход в прозрачность */
       );
-      background-repeat: no-repeat;
-      background-color: #1b1b1f; /* Основной темный фон, чтобы избежать белой вспышки */
+      /* Добавляем размытие для мягкости свечения */
+      --vp-home-hero-image-filter: blur(50px);
     }
-
-    /* 3. Гарантированно убираем все эффекты с изображения */
+    
+    /* 2. Убираем фон с основного контейнера, чтобы избежать конфликтов */
+    .VPHero.VPHomeHero {
+      background: none !important;
+    }
+    
+    /* 3. Гарантированно отключаем любые эффекты наведения на изображение */
     .VPHero .image-src { /* Целимся в сам тег <img> */
       transition: none !important;
       transform: none !important;
-      border-radius: 50% !important; /* Убедимся, что фото круглое */
       border: none !important;
       box-shadow: none !important;
       outline: none !important;
+      border-radius: 50% !important; /* Убедимся, что фото круглое */
     }
     
-    /* 4. Отключаем любую реакцию на наведение */
-    .VPHero .image:hover .image-src,
-    a.VPFeature.link:hover {
+    .VPHero .image:hover .image-src {
       transform: none !important;
+    }
+    
+    /* 4. Адаптация для мобильных устройств */
+    @media (max-width: 960px) {
+      :root {
+        --vp-home-hero-image-background-image: radial-gradient(
+          ellipse 80% 50% at 50% 100%, /* На мобильных свечение снизу */
+          rgba(52, 123, 108, 0.3) 0%,
+          transparent 70%
+        );
+        --vp-home-hero-image-filter: blur(40px);
+      }
     }
 
     /* === ОБЩИЕ СТИЛИ (остаются без изменений) === */
@@ -231,7 +241,7 @@ export default defineConfig({
       --vp-c-brand-2: #C5F946;
       --vp-c-brand-3: #347b6c;
       --vp-c-brand-soft: rgba(52, 123, 108, 0.14);
-      --vp-c-bg-soft: #27272a; /* Добавил для консистентности */
+      --vp-c-bg-soft: #27272a;
     }
     .VPNavBarTitle .logo {
       height: 32px !important;
@@ -314,13 +324,6 @@ export default defineConfig({
       display: none !important;
     }
     @media (max-width: 768px) {
-      .VPHero.VPHomeHero {
-        background-image: radial-gradient(
-          ellipse 80% 50% at 50% 90%, /* На мобильных свечение снизу по центру */
-          rgba(34, 87, 71, 0.3) 0%,
-          rgba(30, 30, 30, 0) 70%
-        );
-      }
       .VPNavBarSocialLinks {
         width: 100% !important;
         min-width: 100% !important;
