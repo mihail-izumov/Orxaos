@@ -49,7 +49,9 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 9. Строить на десятилетия, а не на кварталы.
 10. Мечтать и действовать.
 
-## Действовать
+<br>
+
+## Действовать
 
 <br>
 
@@ -57,21 +59,21 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Ключ к Цифровому Дневнику</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Ваш личный инструмент, чтобы навести порядок в мыслях. Учимся превращать поток идей и переживаний в четкий план действий и опору для принятия решений.</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Дьявол в Деталях</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы за 20 лет.</p>
     </div>
-    <a href="/Orxaos/projects/diary-guide/unlock/overview" class="project-button">
-      Получить доступ
+    <a href="/ars_orxaos/by-the-numbers" class="project-button">
+      Изучить
     </a>
   </div>
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Модуль Роста®</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Превращаем бизнес-хаос в отлаженную систему. Помогаем компаниям найти свой собственный путь к росту, создавая процессы, которые помогают устойчиво расти.</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чудесные истории</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Галлерея изображений и видео избранных проектов.</p>
     </div>
     <a href="/Orxaos/projects/runscale" class="project-button">
-      К росту в бизнесе
+      Помечтать
     </a>
   </div>
 
