@@ -28,9 +28,9 @@ export default defineConfig({
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     // --- ОБНОВЛЕННЫЕ ССЫЛКИ НА FAVICON ---
     // Основная иконка в формате SVG для современных браузеров
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/Orxaos/favicon.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/Orxaos/orxaos-icon.svg' }],
     // Иконка в формате PNG как запасной вариант и для Apple-устройств
-    ['link', { rel: 'apple-touch-icon', href: '/Orxaos/orxaos-icon-white.png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/Orxaos/orxaos-icon.svg' }],
     // ------------------------------------
     ['script', {}, `
     (function() {
@@ -328,7 +328,7 @@ export default defineConfig({
   description: 'От хаоса - к силе.',
   themeConfig: {
     // --- ДОБАВЛЕН ЛОГОТИП ---
-    logo: '/Orxaos/favicon.svg',
+    logo: '/Orxaos/orxaos-icon.svg',
     // -----------------------
     siteTitle: "Orxaos",
     
