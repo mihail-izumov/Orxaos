@@ -130,105 +130,49 @@ export default defineConfig({
     })();
   `],
     ['style', {}, `
-    /* === СТИЛИ ДЛЯ HERO-СЕКЦИИ === */
+    /* === ПРАВИЛЬНЫЕ СТИЛИ ДЛЯ HERO-СЕКЦИИ === */
+
+    /* 1. Отключаем стандартный фон и фильтры VitePress */
+    :root {
+      --vp-home-hero-image-background-image: none;
+      --vp-home-hero-image-filter: none;
+    }
+
+    /* 2. Создаем свой фон с точно спозиционированным свечением */
+    .VPHero.VPHomeHero {
+      background-image: radial-gradient(
+        ellipse 40% 60% at 75% 50%, /* Форма и позиция свечения (справа по центру) */
+        rgba(34, 87, 71, 0.4) 0%,   /* Цвет свечения (темно-зеленый) */
+        rgba(30, 30, 30, 0) 70%     /* Плавный уход в прозрачный */
+      );
+      background-repeat: no-repeat;
+      background-color: #1b1b1f; /* Основной темный фон, чтобы избежать белой вспышки */
+    }
+
+    /* 3. Гарантированно убираем все эффекты с изображения */
+    .VPHero .image-src { /* Целимся в сам тег <img> */
+      transition: none !important;
+      transform: none !important;
+      border-radius: 50% !important; /* Убедимся, что фото круглое */
+      border: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+    
+    /* 4. Отключаем любую реакцию на наведение */
+    .VPHero .image:hover .image-src,
+    a.VPFeature.link:hover {
+      transform: none !important;
+    }
+
+    /* === ОБЩИЕ СТИЛИ (остаются без изменений) === */
+
     .VPHero .name,
     .VPHero .text,
     .VPHero .tagline {
       color: white !important;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
     
-    /* ЛОКАЛЬНАЯ ПОДСВЕТКА ЗА ИЗОБРАЖЕНИЕМ - ЯРЧЕ И СПОКОЙНЕЕ */
-    .VPHero .image {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .VPHero .image::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 140%;
-      height: 140%;
-      background: 
-        radial-gradient(ellipse at center, 
-          rgba(40, 90, 40, 0.7) 0%,       /* Основной цвет - чуть ярче */
-          rgba(52, 123, 108, 0.5) 40%,    /* Цвет бренда - чуть ярче */
-          transparent 75%
-        );
-      border-radius: 50%;
-      z-index: -1;
-      filter: blur(60px);
-      animation: pulseGlow 8s ease-in-out infinite alternate; /* Анимация медленнее */
-    }
-    
-    @keyframes pulseGlow {
-      from {
-        opacity: 0.7;
-        transform: translate(-50%, -50%) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.02);
-      }
-    }
-    
-    .VPHero .image::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%;
-      height: 80%;
-      background: 
-        radial-gradient(circle at center, 
-          rgba(40, 90, 40, 0.5) 0%, 
-          transparent 70%
-        );
-      border-radius: 50%;
-      z-index: -1;
-      filter: blur(40px);
-    }
-    
-    /* СТИЛИ ИЗОБРАЖЕНИЯ - БЕЗ ЭФФЕКТОВ НАВЕДЕНИЯ */
-    .VPHero .image img {
-      border-radius: 50% !important;
-      position: relative;
-      z-index: 1;
-      transition: none !important;
-      border: none !important;
-      transform: none !important;
-      box-shadow: none !important;
-      outline: none !important;
-    }
-    
-    /* Полностью убираем любые эффекты наведения */
-    .VPHero .image:hover,
-    .VPHero .image:focus,
-    .VPHero .image:active {
-      transform: none !important;
-    }
-    
-    .VPHero .image:hover img,
-    .VPHero .image:focus img,
-    .VPHero .image:active img {
-      transform: none !important;
-      border: none !important;
-      box-shadow: none !important;
-      outline: none !important;
-      scale: none !important;
-    }
-    
-    .VPHero {
-      background: transparent;
-      position: relative;
-    }
-    /* === КОНЕЦ СТИЛЕЙ ДЛЯ HERO-СЕКЦИИ === */
-
-    /* === СТИЛИ ДЛЯ ССЫЛОК И КНОПОК НА ГЛАВНОЙ СТРАНИЦЕ === */
     .VPHero .tagline a {
       color: var(--vp-c-brand-2) !important;
       text-decoration: none;
@@ -246,7 +190,6 @@ export default defineConfig({
       color: white !important;
       transition: all 0.3s ease;
       text-decoration: none !important;
-      box-shadow: 0 4px 12px rgba(52, 123, 108, 0.3);
     }
 
     .VPHero .VPButton:hover {
@@ -255,7 +198,6 @@ export default defineConfig({
       color: #000 !important;
       transform: translateY(-2px);
       text-decoration: none !important;
-      box-shadow: 0 6px 20px rgba(197, 249, 70, 0.4);
     }
 
     .VPContent a {
@@ -270,7 +212,6 @@ export default defineConfig({
       border-bottom-color: var(--vp-c-brand-1);
     }
     
-    /* === СТИЛИ ДЛЯ КАРТОЧЕК НА ГЛАВНОЙ СТРАНИЦЕ === */
     .VPFeature .title,
     .VPFeature .link-text {
       transition: color 0.25s ease-in-out;
@@ -284,13 +225,13 @@ export default defineConfig({
     a.VPFeature.link:hover .link-text {
       color: var(--vp-c-brand-2);
     }
-    /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
-
+    
     :root {
       --vp-c-brand-1: #347b6c;
       --vp-c-brand-2: #C5F946;
       --vp-c-brand-3: #347b6c;
       --vp-c-brand-soft: rgba(52, 123, 108, 0.14);
+      --vp-c-bg-soft: #27272a; /* Добавил для консистентности */
     }
     .VPNavBarTitle .logo {
       height: 32px !important;
@@ -373,6 +314,13 @@ export default defineConfig({
       display: none !important;
     }
     @media (max-width: 768px) {
+      .VPHero.VPHomeHero {
+        background-image: radial-gradient(
+          ellipse 80% 50% at 50% 90%, /* На мобильных свечение снизу по центру */
+          rgba(34, 87, 71, 0.3) 0%,
+          rgba(30, 30, 30, 0) 70%
+        );
+      }
       .VPNavBarSocialLinks {
         width: 100% !important;
         min-width: 100% !important;
@@ -380,7 +328,7 @@ export default defineConfig({
         gap: 8px !important;
         padding: 0 16px !important;
         box-sizing: border-box !important;
-        margin-left: 8 !important;
+        margin-left: 0 !important;
       }
       .VPSocialLink {
         width: 100% !important;
@@ -394,7 +342,7 @@ export default defineConfig({
         display: block !important;
         text-align: center;
         padding: 10px 12px !important;
-        margin: 10 !important;
+        margin: 0 !important;
         box-sizing: border-box !important;
       }
       .footer-row {
@@ -403,18 +351,6 @@ export default defineConfig({
       }
       .dot-separator {
         display: none;
-      }
-      
-      .VPHero .image::before {
-        width: 120%;
-        height: 120%;
-        filter: blur(40px);
-      }
-      
-      .VPHero .image::after {
-        width: 70%;
-        height: 70%;
-        filter: blur(20px);
       }
     }
     `]
@@ -476,7 +412,7 @@ export default defineConfig({
   }
 })
 
-// ... все остальные функции остаются точно такими же, как в предыдущем коде
+// ... все остальные функции остаются без изменений
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
