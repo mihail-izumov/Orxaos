@@ -5,12 +5,13 @@
   color: #ffffff;
   max-width: 960px; /* Ограничиваем максимальную ширину для лучшей читаемости */
   margin: 0 auto;   /* Центрируем контейнер */
-  padding: 2rem;     /* Внутренние отступы для всего содержимого */
+  padding: 2rem 0;  /* ИЗМЕНЕНО: только верхний и нижний отступы, боковые убраны */
 }
 
 /* --- Секции и отступы --- */
 .hero-section, .problem-section, .results-section, .pricing-section, .final-cta-section {
   margin-bottom: 3rem; /* Отступы между секциями */
+  padding: 0 1rem; /* Добавляем небольшие боковые отступы к секциям для читаемости */
 }
 
 .hero-section {
@@ -113,9 +114,8 @@
 
 <div class="hero-section">
 <h1>Экспресс-аудит бренда</h1>
-<p><em>Михаил Изюмов</em></p>
 <h2>Глубокий аудит за 1 день – айдентика и дизайн коммуникации бренда с аудиторией.</h2>
-<a href="https://izumov.kto1.io/brand-express#apply" class="btn btn-primary">Провести Аудит Сейчас →</a>
+<a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary">Провести Аудит Сейчас →</a>
 </div>
 
 <div class="problem-section">
