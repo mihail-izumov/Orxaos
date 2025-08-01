@@ -75,4 +75,37 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
     </a>
   </div>
 
+<style>
+.project-card {
+  background: rgba(52, 123, 108, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+}
+
+.project-button {
+  background-color: #347b6c;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.project-button:hover {
+  background-color: #C5F946 !important;
+  color: #000 !important;
+  transform: translateY(-2px);
+  text-decoration: none !important;
+  font-weight: 700 !important;
+}
+</style>
 
