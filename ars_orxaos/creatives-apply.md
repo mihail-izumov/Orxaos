@@ -6,8 +6,9 @@
 
 <div class="start-button-container">
   <!-- Основная кнопка -->
-  <a href="https://forms.fillout.com/t/fqB5icwuShus" class="btn btn-primary">Отправить портфолио →</a>
+  <a href="https://forms.fillout.com/t/fqB5icwuShus" class="btn btn-primary" target="_blank">Отправить портфолио →</a>
 </div>
+
 
 <style>
 /* --- Стили для карточек --- */
