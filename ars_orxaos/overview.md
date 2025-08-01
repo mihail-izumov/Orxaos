@@ -65,7 +65,7 @@ _– Михаил Изюмов_
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы по годам</p>
     </div>
     <!-- Второстепенная кнопка (изменено) -->
-    <a href="/Orxaos/ars_orxaos/by-the-numbers" class="btn btn-secondary">
+    <a href="/ars_orxaos/by-the-numbers" class="btn btn-secondary">
       Изучить
     </a>
   </div>
@@ -76,7 +76,7 @@ _– Михаил Изюмов_
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Галлерея вдохновляющих изображений и видео</p>
     </div>
     <!-- Второстепенная кнопка -->
-    <a href="/Orxaos/ars_orxaos/the-wonderful-stories-we-make" class="btn btn-secondary">
+    <a href="/ars_orxaos/the-wonderful-stories-we-make" class="btn btn-secondary">
       Помечтать
     </a>
   </div>
@@ -90,7 +90,7 @@ _– Михаил Изюмов_
 
 <div class="start-button-container">
   <!-- Основная кнопка -->
-  <a href="/Orxaos/start" class="btn btn-primary">Начать →</a>
+  <a href="/start" class="btn btn-primary">Начать →</a>
 </div>
 
 <style>
