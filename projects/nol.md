@@ -19,7 +19,7 @@
 ### Избранные Заметки из Чудесной Гостиной
 <br>
 <div class="specs-button">
-  <a href="/Orxaos/projects/nol/journal">Читать →</a>
+  <a href="/projects/nol/journal">Читать →</a>
 </div>
 
 <style>
