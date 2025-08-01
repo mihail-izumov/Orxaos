@@ -60,8 +60,8 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Дьявол в Деталях</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы за 20 лет</p>
     </div>
-    <!-- Основная кнопка -->
-    <a href="/Orxaos/ars_orxaos/by-the-numbers" class="btn btn-primary">
+    <!-- Второстепенная кнопка (изменено) -->
+    <a href="/Orxaos/ars_orxaos/by-the-numbers" class="btn btn-secondary">
       Изучить
     </a>
   </div>
@@ -80,6 +80,12 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 </div>
 
 <br>
+
+Вопрос не в том, готовы ли вы к новому логотипу или сайту. А в том, каким вы видите ваш бизнес.
+
+Нужна системная диагностика, чтобы найти неочевидные решения? Или точный креативный запуск, чтобы стать заметнее на рынке? А может, и то, и другое сразу?
+
+Опишите видение → обсудим возможности
 
 <div class="start-button-container">
   <!-- Основная кнопка -->
@@ -100,11 +106,11 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 
 /* --- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК --- */
 .btn {
-  display: block; /* Растягиваем на всю ширину карточки */
+  display: block;
   padding: 12px 16px;
   border-radius: 8px;
-  font-weight: 700; /* Одинаковая жирность */
-  font-size: 16px;   /* Одинаковый размер текста */
+  font-weight: 700;
+  font-size: 16px;
   text-align: center;
   margin-top: 1.5rem;
   text-decoration: none;
@@ -142,7 +148,7 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 
 /* --- Контейнер для отдельной кнопки "Начать" --- */
 .start-button-container .btn {
-  display: inline-block; /* Чтобы кнопка не растягивалась на всю ширину */
-  padding: 12px 24px; /* Делаем ее чуть шире для акцента */
+  display: inline-block;
+  padding: 12px 24px;
 }
 </style>
