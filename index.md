@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "От хаоса — к силе."
-  tagline: Мечтать и действовать → Расти по своим правилам
+  tagline: Мечтать и действовать → Расти по своим правилам1
   image:
     src: /mikhail-izyumov-ban-main-cmprsd.png
     alt: Михаил Изюмов
