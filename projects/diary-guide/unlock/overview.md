@@ -16,11 +16,9 @@
 
 ### Практический инструмент, чтобы навести порядок в собственном мире и превратить его в источник сфокусированной силы
 
-<br>
-
 <div class="start-button-container">
   <!-- Основная кнопка -->
-  <a href="/projects/diary-guide/unlock/pay/form" class="btn btn-primary" target="_blank">Получить доступ за ₽1990 →</a>
+  <a href="/projects/diary-guide/unlock/pay/form" class="btn btn-primary">Получить доступ за ₽1990 →</a>
 </div>
 
 [Что внутри](/projects/diary-guide/unlock/about)
