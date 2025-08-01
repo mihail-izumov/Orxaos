@@ -228,7 +228,7 @@
 </div>
 
 <div class="final-cta-section">
-  <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary target="_blank"">Отправить Заявку →</a>
+  <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary target="_blank">Отправить Заявку →</a>
 </div>
 
 </div>
