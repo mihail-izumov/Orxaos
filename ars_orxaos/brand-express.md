@@ -185,9 +185,6 @@
 
 </div>
 
-</div>
-
-
 <div class="start-button-container">
   <!-- Основная кнопка -->
   <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary" target="_blank">Отправить Заявку →</a>
