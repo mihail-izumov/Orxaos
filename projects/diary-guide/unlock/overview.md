@@ -19,7 +19,7 @@
 <br>
 
 <div class="specs-button">
-  <a href="/Orxaos/projects/diary-guide/unlock/pay/form">Получить доступ за ₽1990 →</a>
+  <a href="/projects/diary-guide/unlock/pay/form">Получить доступ за ₽1990 →</a>
 </div>
 
 [Что внутри](/projects/diary-guide/unlock/about)
