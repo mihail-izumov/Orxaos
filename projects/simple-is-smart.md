@@ -3,7 +3,7 @@
 ## Лекция о творческой продуктивности
 
 <figure>
-<img src="https://3331492131-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlfEAS6KEwWUtC2g1kCof%2Fuploads%2FPUBO0QSHyuqPDX4VAWKm%2F%D0%B3%D0%B5%D0%BD%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%82%D0%B0_%D0%B1%D0%B0%D0%BD%D0%BD%D0%B5%D1%80-squashed.jpg?alt=media&#x26;token=32fb7b42-16a1-4782-ac7b-b5ec4c0916c1" alt="Гениальная простота">
+<img src='/simple-is-smart-ban-cmprsd.jpg' alt="Гениальная простота">
 </figure>
 
 ## Видео и аудио
