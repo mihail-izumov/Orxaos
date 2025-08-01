@@ -53,16 +53,14 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 
 ## Действовать
 
-<br>
-
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Дьявол в Деталях</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы за 20 лет.</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы за 20 лет</p>
     </div>
-    <a href="/ars_orxaos/by-the-numbers" class="project-button">
+    <a href="/Orxaos/ars_orxaos/by-the-numbers" class="project-button">
       Изучить
     </a>
   </div>
@@ -72,12 +70,36 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чудесные истории</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Галлерея изображений и видео избранных проектов.</p>
     </div>
-    <a href="/Orxaos/projects/runscale" class="project-button">
+    <a href="/Orxaos/ars_orxaos/the-wonderful-stories-we-make" class="project-button">
       Помечтать
     </a>
   </div>
 
 </div>
+
+<br>
+
+<div class="specs-button">
+  <a href="/Orxaos/start">Начать →</a>
+</div>
+
+<style>
+.specs-button a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #347b6c;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  /* Новые важные свойства */
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+}
 
 <style>
 .project-card {
