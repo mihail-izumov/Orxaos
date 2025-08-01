@@ -2,9 +2,7 @@
 
 ## Лекция о творческой продуктивности
 
-<figure>
-<img src='/simple-is-smart-ban-cmprsd.jpg' alt="Гениальная простота">
-</figure>
+![Альтернативный текст](/simple-is-smart-ban-cmprsd.jpg)
 
 ## Видео и аудио
 
