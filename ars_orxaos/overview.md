@@ -49,6 +49,8 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 9.  Строить на десятилетия, а не на кварталы.
 10. Мечтать и действовать.
 
+<br>
+
 ## Действовать
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
@@ -58,7 +60,8 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Дьявол в Деталях</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы за 20 лет</p>
     </div>
-    <a href="/Orxaos/ars_orxaos/by-the-numbers" class="project-button">
+    <!-- Основная кнопка -->
+    <a href="/Orxaos/ars_orxaos/by-the-numbers" class="btn btn-primary">
       Изучить
     </a>
   </div>
@@ -68,7 +71,8 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чудесные истории</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Галлерея изображений и видео избранных проектов.</p>
     </div>
-    <a href="/Orxaos/ars_orxaos/the-wonderful-stories-we-make" class="project-button">
+    <!-- Второстепенная кнопка -->
+    <a href="/Orxaos/ars_orxaos/the-wonderful-stories-we-make" class="btn btn-secondary">
       Помечтать
     </a>
   </div>
@@ -77,12 +81,13 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 
 <br>
 
-<div class="specs-button">
-  <a href="/Orxaos/start">Начать →</a>
+<div class="start-button-container">
+  <!-- Основная кнопка -->
+  <a href="/Orxaos/start" class="btn btn-primary">Начать →</a>
 </div>
 
 <style>
-/* Стили для карточек */
+/* --- Стили для карточек --- */
 .project-card {
   background: rgba(52, 123, 108, 0.3);
   border-radius: 12px;
@@ -93,50 +98,51 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
   min-height: 200px;
 }
 
-/* Стили для кнопок "Изучить" и "Помечтать" */
-.project-button {
-  background-color: #347b6c; /* Темный */
-  color: white;
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК --- */
+.btn {
+  display: block; /* Растягиваем на всю ширину карточки */
   padding: 12px 16px;
   border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 700; /* Одинаковая жирность */
+  font-size: 16px;   /* Одинаковый размер текста */
   text-align: center;
-  display: block;
   margin-top: 1.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
 }
 
-.project-button:hover {
-  background-color: #C5F946 !important; /* Яркий */
-  color: #000 !important;
+.btn:hover {
   transform: translateY(-2px);
   text-decoration: none !important;
-  font-weight: 700 !important;
 }
 
-/* Стили для кнопки "Начать" — инвертированные */
-.specs-button a {
-  display: inline-block;
-  padding: 12px 24px; /* Увеличил паддинг для баланса */
-  background-color: #C5F946; /* Яркий */
+/* --- СТИЛЬ 1: ОСНОВНАЯ КНОПКА (ЯРКАЯ) --- */
+.btn-primary {
+  background-color: #C5F946; /* Яркий лаймовый */
   color: #000 !important;
-  text-decoration: none !important;
-  border-radius: 8px; /* Как у других кнопок */
-  font-family: inherit;
-  font-weight: 700; /* Как у других кнопок */
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  user-select: none;
-  line-height: 1.5;
-  font-size: 16px; /* Немного увеличил шрифт */
 }
 
-.specs-button a:hover {
+.btn-primary:hover {
+  background-color: #347b6c; /* Темный при наведении */
+  color: white !important;
+}
+
+/* --- СТИЛЬ 2: ВТОРОСТЕПЕННАЯ КНОПКА (ТЕМНАЯ) --- */
+.btn-secondary {
   background-color: #347b6c; /* Темный */
   color: white !important;
-  transform: translateY(-2px); /* Эффект при наведении */
+}
+
+.btn-secondary:hover {
+  background-color: #C5F946; /* Яркий при наведении */
+  color: #000 !important;
+}
+
+/* --- Контейнер для отдельной кнопки "Начать" --- */
+.start-button-container .btn {
+  display: inline-block; /* Чтобы кнопка не растягивалась на всю ширину */
+  padding: 12px 24px; /* Делаем ее чуть шире для акцента */
 }
 </style>
