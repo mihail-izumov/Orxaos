@@ -115,7 +115,7 @@
 <div class="hero-section">
 <h1>Экспресс-аудит бренда</h1>
 <h2>Глубокий аудит за 1 день – айдентика и дизайн коммуникации бренда с аудиторией.</h2>
-<a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary">Провести Аудит Сейчас →</a>
+<a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary" target="_blank">Провести Аудит Сейчас →</a>
 </div>
 
 <div class="problem-section">
@@ -142,8 +142,7 @@
 
 <div class="results-section">
 <h2>Результат</h2>
-<h3>Уникальная аналитика <span class="accent-text">360°</span> от креативного директора Михаила Изюмова.</h3>
-<p>24 года, тысяча проектов и много сил было потрачено на разработку уникального подхода, который теперь, объединяя дизайн-мышление и силу данных, позволяет делать бренды лучше за дни, а не недели.</p>
+<h3> Аналитика <span class="accent-text">360°</span> от [Михаила Изюмова](/meet-mikhail/cv)</h3>
 
 <div class="results-grid">
   <div class="result-column">
@@ -229,7 +228,7 @@
 </div>
 
 <div class="final-cta-section">
-  <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary">Отправить Заявку →</a>
+  <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary target="_blank"">Отправить Заявку →</a>
 </div>
 
 </div>
