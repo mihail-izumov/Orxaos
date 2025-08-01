@@ -327,7 +327,7 @@ export default defineConfig({
   outDir: '.vitepress/dist',
   description: 'От хаоса - к силе.',
   themeConfig: {
-    logo: '/Orxaos/orxaos-icon.svg',
+    logo: '/orxaos-icon.svg',
     siteTitle: "Orxaos",
     
     sidebarMenuLabel: 'Разделы',
