@@ -3,15 +3,15 @@
 .dark-theme {
   background-color: #1a1a1a;
   color: #ffffff;
-  max-width: 960px; /* Ограничиваем максимальную ширину для лучшей читаемости */
-  margin: 0 auto;   /* Центрируем контейнер */
-  padding: 2rem 0;  /* ИЗМЕНЕНО: только верхний и нижний отступы, боковые убраны */
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
 /* --- Секции и отступы --- */
 .hero-section, .problem-section, .results-section, .pricing-section, .final-cta-section {
-  margin-bottom: 3rem; /* Отступы между секциями */
-  padding: 0 1rem; /* Добавляем небольшие боковые отступы к секциям для читаемости */
+  margin-bottom: 3rem;
+  padding: 0 1rem;
 }
 
 .hero-section {
@@ -36,13 +36,11 @@
 /* --- Колонки "Результат" --- */
 .results-grid {
   display: grid;
-  /* На мобильных устройствах будет 1 колонка, чтобы текст не сжимался */
   grid-template-columns: 1fr; 
-  gap: 1.5rem; /* Уменьшаем расстояние между блоками */
+  gap: 1.5rem;
   margin-top: 1.5rem;
 }
 
-/* Для экранов шире 768px возвращаем 3 колонки */
 @media (min-width: 768px) {
   .results-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -63,7 +61,7 @@
 }
 
 .price-table-container {
-  overflow-x: auto; /* Добавляем прокрутку для таблицы на узких экранах */
+  overflow-x: auto;
 }
 
 .price-table {
@@ -142,7 +140,7 @@
 
 <div class="results-section">
 <h2>Результат</h2>
-<h3> Аналитика <span class="accent-text">360°</span> от [Михаила Изюмова](/meet-mikhail/cv)</h3>
+<h3>Аналитика <span class="accent-text">360°</span> от <a href="/meet-mikhail/cv">Михаила Изюмова</a></h3>
 
 <div class="results-grid">
   <div class="result-column">
@@ -228,7 +226,7 @@
 </div>
 
 <div class="final-cta-section">
-  <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary target="_blank">Отправить Заявку →</a>
+  <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary" target="_blank">Отправить Заявку →</a>
 </div>
 
 </div>
