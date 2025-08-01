@@ -10,30 +10,69 @@
 
 Миссия Модуля Роста® — **сделать инструменты для системного, глубокого роста доступными для всех, а не только для корпораций**. Мы верим, что бизнес, раскрывающий человеческий потенциал, становится сильным, технологичным и непобедимым.
 
-<div class="specs-button">
-  <a href="https://runscale.ru">runScale.ru →</a>
+<div class="start-button-container">
+  <!-- Основная кнопка -->
+  <a href="https://runscale.ru" class="btn btn-primary" target="_blank">runScale.ru →</a>
 </div>
 
+
 <style>
-.specs-button a {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #347b6c;
-  color: white !important;
-  text-decoration: none !important;
-  border-radius: 4px;
-  font-family: inherit;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-  /* Новые важные свойства */
-  -webkit-user-select: none;
-  user-select: none;
-  line-height: 1.5;
+/* --- Стили для карточек --- */
+.project-card {
+  background: rgba(52, 123, 108, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
 }
 
-.specs-button a:hover {
-  background-color: #33a06f;
-  transform: translateY(-1px); /* Эффект нажатия */
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК --- */
+.btn {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+/* --- СТИЛЬ 1: ОСНОВНАЯ КНОПКА (ЯРКАЯ) --- */
+.btn-primary {
+  background-color: #C5F946; /* Яркий лаймовый */
+  color: #000 !important;
+}
+
+.btn-primary:hover {
+  background-color: #347b6c; /* Темный при наведении */
+  color: white !important;
+}
+
+/* --- СТИЛЬ 2: ВТОРОСТЕПЕННАЯ КНОПКА (ТЕМНАЯ) --- */
+.btn-secondary {
+  background-color: #347b6c; /* Темный */
+  color: white !important;
+}
+
+.btn-secondary:hover {
+  background-color: #C5F946; /* Яркий при наведении */
+  color: #000 !important;
+}
+
+/* --- Контейнер для отдельной кнопки "Начать" --- */
+.start-button-container .btn {
+  display: inline-block;
+  padding: 12px 24px;
 }
 </style>
