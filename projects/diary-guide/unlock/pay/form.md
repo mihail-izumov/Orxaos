@@ -29,8 +29,8 @@
         <input name="cps_email" class="ym-input" placeholder="Email" type="text" value="">
     </div>
     <div class="ym-hidden-inputs">
-        <input name="shopSuccessURL" type="hidden" value="https://orxaos.sbs/keys/diary-guide/start-here">
-        <input name="shopFailURL" type="hidden" value="https://orxaos.sbs/unlock/diary-guide/pay/payment-failed">
+        <input name="shopSuccessURL" type="hidden" value="https://orxaos.sbs/projects/diary-guide/keys/start-here">
+        <input name="shopFailURL" type="hidden" value="https://orxaos.sbs/projects/diary-guide/unlock/pay/payment-failed">
     </div>
     <input name="customerNumber" type="hidden" value="Формат:&nbsp;Онлайн-база знаний
 Доступ: Пожизненный&nbsp;(в текущей версии гида)
