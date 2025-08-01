@@ -258,6 +258,16 @@ export default {
     </a>
   </div>
 
+  <div class="project-card">
+    <div>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чекап Модуля Роста®</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Не ещё один отчёт, а системный подход шаг за шагом: все одинаково видят цели, оценивают как работает бизнес, непрерывно его улучшают и действуют в соответствии с точным и гибким планом. <br> чекап → план DMAIC → быстрые внедрения → постоянные улучшения</p>
+    </div>
+    <a href="https://runscale.ru/checkup/overview.html" class="project-button" target="_blank">
+      Получить доступ за ₽1990 →
+    </a>
+  </div>
+
 </div>
 
 <style>
