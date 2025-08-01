@@ -138,10 +138,12 @@ export default defineConfig({
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
     
-    /* ЛОКАЛЬНАЯ ПОДСВЕТКА ЗА ИЗОБРАЖЕНИЕМ - ТЁМНО-ЗЕЛЁНАЯ */
+    /* ЛОКАЛЬНАЯ ПОДСВЕТКА ЗА ИЗОБРАЖЕНИЕМ - ЯРЧЕ И СПОКОЙНЕЕ */
     .VPHero .image {
       position: relative;
       z-index: 2;
+      /* Убираем возможность наведения на контейнер */
+      pointer-events: none;
     }
     
     .VPHero .image::before {
@@ -154,29 +156,27 @@ export default defineConfig({
       height: 140%;
       background: 
         radial-gradient(ellipse at center, 
-          rgba(26, 61, 26, 0.6) 0%, 
-          rgba(35, 69, 35, 0.4) 30%, 
-          rgba(52, 123, 108, 0.3) 60%, 
-          transparent 80%
+          rgba(40, 90, 40, 0.7) 0%,       /* Основной цвет - чуть ярче */
+          rgba(52, 123, 108, 0.5) 40%,    /* Цвет бренда - чуть ярче */
+          transparent 75%
         );
       border-radius: 50%;
       z-index: -1;
       filter: blur(60px);
-      animation: pulseGlow 6s ease-in-out infinite alternate;
+      animation: pulseGlow 8s ease-in-out infinite alternate; /* Анимация медленнее */
     }
     
     @keyframes pulseGlow {
       from {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(0.95);
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(0.98);
       }
       to {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.02);
       }
     }
     
-    /* Дополнительная подсветка для более мягкого эффекта */
     .VPHero .image::after {
       content: '';
       position: absolute;
@@ -187,45 +187,30 @@ export default defineConfig({
       height: 80%;
       background: 
         radial-gradient(circle at center, 
-          rgba(35, 69, 35, 0.4) 0%, 
-          rgba(26, 61, 26, 0.2) 50%, 
+          rgba(40, 90, 40, 0.5) 0%, 
           transparent 70%
         );
       border-radius: 50%;
       z-index: -1;
-      filter: blur(30px);
-      animation: innerGlow 4s ease-in-out infinite alternate-reverse;
+      filter: blur(40px);
     }
     
-    @keyframes innerGlow {
-      from {
-        opacity: 0.3;
-        transform: translate(-50%, -50%) scale(0.9);
-      }
-      to {
-        opacity: 0.6;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-    
-    /* Убираем все эффекты при наведении на изображение */
+    /* СТИЛИ ИЗОБРАЖЕНИЯ - БЕЗ ЭФФЕКТОВ НАВЕДЕНИЯ */
     .VPHero .image img {
       border-radius: 50%;
       position: relative;
       z-index: 1;
-      /* Убираем все переходы и эффекты */
-      transition: none;
-      border: none;
+      transition: none !important;
+      border: none !important;
+      transform: none !important;
     }
     
-    /* Убираем эффекты наведения */
+    /* Гарантированно убираем эффекты наведения */
     .VPHero .image:hover img {
-      /* Убираем все изменения при наведении */
-      border: none;
-      transform: none;
+      transform: none !important;
+      border: none !important;
     }
     
-    /* Убираем фон с общей hero-секции */
     .VPHero {
       background: transparent;
       position: relative;
@@ -233,7 +218,6 @@ export default defineConfig({
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ HERO-СЕКЦИИ === */
 
     /* === СТИЛИ ДЛЯ ССЫЛОК И КНОПОК НА ГЛАВНОЙ СТРАНИЦЕ === */
-    /* Ссылки в hero-секции (не кнопки) */
     .VPHero .tagline a {
       color: var(--vp-c-brand-2) !important;
       text-decoration: none;
@@ -245,7 +229,6 @@ export default defineConfig({
       text-decoration: underline;
     }
 
-    /* Кнопки действий в hero-секции */
     .VPHero .VPButton {
       background-color: var(--vp-c-brand-1) !important;
       border-color: var(--vp-c-brand-1) !important;
@@ -264,7 +247,6 @@ export default defineConfig({
       box-shadow: 0 6px 20px rgba(197, 249, 70, 0.4);
     }
 
-    /* Ссылки в основном контенте главной страницы */
     .VPContent a {
       color: var(--vp-c-brand-2);
       text-decoration: none;
@@ -278,27 +260,24 @@ export default defineConfig({
     }
     
     /* === СТИЛИ ДЛЯ КАРТОЧЕК НА ГЛАВНОЙ СТРАНИЦЕ === */
-    /* Плавный переход для заголовка и ссылки */
     .VPFeature .title,
     .VPFeature .link-text {
       transition: color 0.25s ease-in-out;
     }
     
-    /* Начальный цвет для ссылки и стрелки */
     .VPFeature .link-text {
       color: var(--vp-c-brand-1);
     }
     
-    /* При наведении на ВСЮ карточку (которая является ссылкой)... */
     a.VPFeature.link:hover .title,
     a.VPFeature.link:hover .link-text {
-      color: var(--vp-c-brand-2); /* ...меняем цвет и заголовка, и ссылки на яркий */
+      color: var(--vp-c-brand-2);
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
     :root {
-      --vp-c-brand-1: #347b6c; /* Зелёный из вашей схемы */
-      --vp-c-brand-2: #C5F946; /* Яркий лайм из вашей схемы */
+      --vp-c-brand-1: #347b6c;
+      --vp-c-brand-2: #C5F946;
       --vp-c-brand-3: #347b6c;
       --vp-c-brand-soft: rgba(52, 123, 108, 0.14);
     }
@@ -339,9 +318,9 @@ export default defineConfig({
       margin: 6px;
     }
     .VPSocialLink[aria-label="apply-link"]:hover::after {
-      background: var(--vp-c-brand-2) !important; /* Ярко-зеленый фон */
+      background: var(--vp-c-brand-2) !important;
       border-color: var(--vp-c-brand-2) !important;
-      color: #000 !important; /* Черный текст для читаемости */
+      color: #000 !important;
       transform: translateY(-1px);
     }
     .custom-footer-links {
@@ -415,7 +394,6 @@ export default defineConfig({
         display: none;
       }
       
-      /* Адаптация подсветки для мобильных */
       .VPHero .image::before {
         width: 120%;
         height: 120%;
@@ -443,35 +421,19 @@ export default defineConfig({
     outlineTitle: 'На этой странице',
     returnToTopLabel: 'Наверх',
     
-    // --- ПЕРЕВОД НАВИГАЦИИ ---
     docFooter: {
       prev: 'Предыдущая страница',
       next: 'Следующая страница'
     },
-    // ---------------------------
     
     sidebar: {
-      '/projects/diary-guide/keys/': {
-        items: sidebarDiaryGuideKeys()
-      },
-      '/projects/nol/journal': {
-        items: sidebarMasterplan()
-      },
-      '/projects/diary-guide/unlock/': {
-        items: sidebarDiaryGuide()
-      },
-      '/projects/the-creative-act-rick-rubin/': {
-        items: sidebarCreativeAct()
-      },
-      '/projects/': {
-        items: sidebarParki()
-      },
-      '/meet-mikhail/': {
-        items: sidebarMasterplan()
-      },
-      '/ars_orxaos/': {
-        items: sidebarWhyPark()
-      }
+      '/projects/diary-guide/keys/': { items: sidebarDiaryGuideKeys() },
+      '/projects/nol/journal': { items: sidebarMasterplan() },
+      '/projects/diary-guide/unlock/': { items: sidebarDiaryGuide() },
+      '/projects/the-creative-act-rick-rubin/': { items: sidebarCreativeAct() },
+      '/projects/': { items: sidebarParki() },
+      '/meet-mikhail/': { items: sidebarMasterplan() },
+      '/ars_orxaos/': { items: sidebarWhyPark() }
     },
 
     search: {
