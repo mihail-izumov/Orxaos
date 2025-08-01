@@ -135,6 +135,49 @@ export default defineConfig({
     .VPHero .text,
     .VPHero .tagline {
       color: white !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* КРАСИВЫЙ ГРАДИЕНТНЫЙ ФОН */
+    .VPHero {
+      background: 
+        radial-gradient(ellipse at 20% 80%, rgba(52, 123, 108, 0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(197, 249, 70, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 40% 40%, rgba(46, 125, 50, 0.5) 0%, transparent 50%),
+        linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 25%, #1f3d1f 50%, #243824 75%, #1a2e1a 100%);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Добавляем тонкий оверлей для улучшения читаемости */
+    .VPHero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+      z-index: 1;
+    }
+    
+    /* Поднимаем контент выше оверлея */
+    .VPHero .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Добавляем тонкую нижнюю границу с градиентом */
+    .VPHero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--vp-c-brand-1), var(--vp-c-brand-2), var(--vp-c-brand-1));
+      z-index: 3;
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ HERO-СЕКЦИИ === */
 
@@ -158,6 +201,7 @@ export default defineConfig({
       color: white !important;
       transition: all 0.3s ease;
       text-decoration: none !important;
+      box-shadow: 0 4px 12px rgba(52, 123, 108, 0.3);
     }
 
     .VPHero .VPButton:hover {
@@ -166,6 +210,7 @@ export default defineConfig({
       color: #000 !important;
       transform: translateY(-2px);
       text-decoration: none !important;
+      box-shadow: 0 6px 20px rgba(197, 249, 70, 0.4);
     }
 
     /* Ссылки в основном контенте главной страницы */
@@ -201,8 +246,8 @@ export default defineConfig({
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
 
     :root {
-      --vp-c-brand-1: #347b6c; /* Новый, более яркий зеленый */
-      --vp-c-brand-2: #C5F946;
+      --vp-c-brand-1: #347b6c; /* Зелёный из вашей схемы */
+      --vp-c-brand-2: #C5F946; /* Яркий лайм из вашей схемы */
       --vp-c-brand-3: #347b6c;
       --vp-c-brand-soft: rgba(52, 123, 108, 0.14);
     }
@@ -556,11 +601,11 @@ function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
           text: '3. "Страшный" модуль',
           collapsed: true,
           items: [
-            { text: '3.1 Карта внутренней территории. Как распознать и назвать свои страхи.', link: '/projects/diary-guide/keys/3/3.1%20Карта%20внутренней%20территории%20–%20Как%20распознать%20и%20назвать%20свои%20страхи' },
+            { text: '3.1 Карта внутренней территории. Как распознать и назвать свои страхи.', link: '/projects/diary-guide/keys/3/3.1%20Карта%20внутренней%20территории%20–%20Как%20распознать%20и%20назвать%20свои%20страхи' },
             { text: '3.2 Искусство Замечать. Где искать следы ваших страхов.', link: '/projects/diary-guide/keys/3/3.2%20Искусство%20Замечать.%20Где%20искать%20следы%20ваших%20страхов.' },
             { text: '3.3 Археология души. Готовая карта для поиска источника страха.', link: '/projects/diary-guide/keys/3/3.3%20Археология%20души.%20Готовая%20карта%20для%20поиска%20источника%20страха.' },
-            { text: '3.4 Искусство Решающего Шага. От Понимания к Действию', link: '/projects/diary-guide/keys/3/3.4%20Искусство%20Решающего%20Шага.%20От%20Понимания%20к%20Действию' },
-            { text: '3.5 Как Настроить Свой Внутренний Компас', link: '/projects/diary-guide/keys/3/3.5%20Как%20Настроить%20Свой%20Внутренний%20Компас' }
+            { text: '3.4 Искусство Решающего Шага. От Понимания к Действию', link: '/projects/diary-guide/keys/3/3.4%20Искусство%20Решающего%20Шага.%20От%20Понимания%20к%20Действию' },
+            { text: '3.5 Как Настроить Свой Внутренний Компас', link: '/projects/diary-guide/keys/3/3.5%20Как%20Настроить%20Свой%20Внутренний%20Компас' }
           ]
         },
         {
