@@ -9,7 +9,7 @@
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Ключ к Цифровому Дневнику</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Ваш личный инструмент, чтобы навести порядок в мыслях. Учимся превращать поток идей и переживаний в четкий план действий и опору для принятия решений.</p>
     </div>
-    <a href="/Orxaos/projects/diary-guide/unlock/overview" class="project-button">
+    <a href="/projects/diary-guide/unlock/overview" class="project-button">
       Получить доступ
     </a>
   </div>
@@ -19,7 +19,7 @@
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Модуль Роста®</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Превращаем бизнес-хаос в отлаженную систему. Помогаем компаниям найти свой собственный путь к росту, создавая процессы, которые помогают устойчиво расти.</p>
     </div>
-    <a href="/Orxaos/projects/runscale" class="project-button">
+    <a href="/projects/runscale" class="project-button">
       К росту в бизнесе
     </a>
   </div>
@@ -29,7 +29,7 @@
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чудесная Гостиная</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Пространство для тех, кто мечтает и действует. Здесь мы исследуем идеи и находим способы превратить их в работающие проекты и системы.</p>
     </div>
-    <a href="/Orxaos/projects/nol" class="project-button">
+    <a href="/projects/nol" class="project-button">
       Войти
     </a>
   </div>
@@ -39,7 +39,7 @@
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Гениальная простота</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Лекция о творческой продуктивности. О том, как управлять вниманием, находить неочевидные решения и вдохновлять людей, делая сложное простым.</p>
     </div>
-    <a href="/Orxaos/projects/simple-is-smart" class="project-button">
+    <a href="/projects/simple-is-smart" class="project-button">
       Смотреть и читать
     </a>
   </div>
@@ -49,7 +49,7 @@
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Гид по книге «The Creative Act: A Way of Being, Rick Rubin»</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Не просто саммари, а практическое руководство по книге Рика Рубина. Помогает творческим профессионалам взять ключевые идеи и сразу применить их в работе и жизни.</p>
     </div>
-    <a href="/Orxaos/projects/the-creative-act_a-way-of-being_summary" class="project-button">
+    <a href="/projects/the-creative-act_a-way-of-being_summary" class="project-button">
       Читать
     </a>
   </div>
@@ -59,7 +59,7 @@
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Парк за углом</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Инициатива жителей Самары, которая доказывает: общая мечта может стать реальностью. Вместе мы превращаем заброшенный участок в уютное пространство для всех.</p>
     </div>
-    <a href="/Orxaos/projects/prkx" class="project-button">
+    <a href="/projects/prkx" class="project-button">
       Поддержать
     </a>
   </div>
