@@ -1,6 +1,7 @@
-# Экспресс-аудит бренда
-
-## Глубокий аудит за 1 день – айдентика и дизайн коммуникации бренда с аудиторией
+---
+title: Экспресс-аудит бренда | Bureau Izumov
+description: Глубокий аудит за 1 день – айдентика и дизайн коммуникации бренда с аудиторией.
+---
 
 <style>
 .dark-theme {
@@ -10,7 +11,7 @@
 }
 
 .hero-section {
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
 }
 
@@ -22,7 +23,7 @@
 }
 
 .problem-card {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  background: linear-gradient(135deg, #347b6c, #2a5c50);
   padding: 1.5rem;
   border-radius: 8px;
   color: white;
@@ -39,10 +40,11 @@
   background: #2a2a2a;
   padding: 1.5rem;
   border-radius: 8px;
+  font-size: 0.9em;
 }
 
 .accent-text {
-  color: #ff6b6b;
+  color: #C5F946;
   font-weight: bold;
 }
 
@@ -54,7 +56,7 @@
 }
 
 .cta-button {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  background: linear-gradient(135deg, #347b6c, #2a5c50);
   color: white;
   padding: 12px 24px;
   border-radius: 6px;
@@ -70,6 +72,65 @@
   border-radius: 8px;
   margin-top: 2rem;
   font-size: 0.9em;
+}
+
+/* --- Стили для карточек --- */
+.project-card {
+  background: rgba(52, 123, 108, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК --- */
+.btn {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+/* --- СТИЛЬ 1: ОСНОВНАЯ КНОПКА (ЯРКАЯ) --- */
+.btn-primary {
+  background-color: #C5F946; /* Яркий лаймовый */
+  color: #000 !important;
+}
+
+.btn-primary:hover {
+  background-color: #347b6c; /* Темный при наведении */
+  color: white !important;
+}
+
+/* --- СТИЛЬ 2: ВТОРОСТЕПЕННАЯ КНОПКА (ТЕМНАЯ) --- */
+.btn-secondary {
+  background-color: #347b6c; /* Темный */
+  color: white !important;
+}
+
+.btn-secondary:hover {
+  background-color: #C5F946; /* Яркий при наведении */
+  color: #000 !important;
+}
+
+/* --- Контейнер для отдельной кнопки "Начать" --- */
+.start-button-container .btn {
+  display: inline-block;
+  padding: 12px 24px;
 }
 </style>
 
@@ -179,11 +240,15 @@
 | **Цена** | **от 19 900 ₽** | от 100 000 ₽ | от 30 000 ₽ |
 | **Время** | **24 часа** | 5–10 дней | 3–5 дней |
 | **Доработки** | **24 часа** | Нет | Нет |
-| | <a href="https://izumov.kto1.io/brand-express#apply" class="cta-button">↗ Провести Экспресс-аудит Сейчас</a> | | |
 
 </div>
 
 </div>
+
+<div class="start-button-container">
+  <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="btn btn-primary" target="_blank">Отправить Заявку →</a>
+</div>
+
 
 <div class="start-button-container">
   <!-- Основная кнопка -->
