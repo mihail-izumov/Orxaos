@@ -75,6 +75,8 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
     </a>
   </div>
 
+</div>
+
 <style>
 .project-card {
   background: rgba(52, 123, 108, 0.3);
