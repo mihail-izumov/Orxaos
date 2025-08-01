@@ -142,8 +142,6 @@ export default defineConfig({
     .VPHero .image {
       position: relative;
       z-index: 2;
-      /* Убираем возможность наведения на контейнер */
-      pointer-events: none;
     }
     
     .VPHero .image::before {
@@ -197,18 +195,31 @@ export default defineConfig({
     
     /* СТИЛИ ИЗОБРАЖЕНИЯ - БЕЗ ЭФФЕКТОВ НАВЕДЕНИЯ */
     .VPHero .image img {
-      border-radius: 50%;
+      border-radius: 50% !important;
       position: relative;
       z-index: 1;
       transition: none !important;
       border: none !important;
       transform: none !important;
+      box-shadow: none !important;
+      outline: none !important;
     }
     
-    /* Гарантированно убираем эффекты наведения */
-    .VPHero .image:hover img {
+    /* Полностью убираем любые эффекты наведения */
+    .VPHero .image:hover,
+    .VPHero .image:focus,
+    .VPHero .image:active {
+      transform: none !important;
+    }
+    
+    .VPHero .image:hover img,
+    .VPHero .image:focus img,
+    .VPHero .image:active img {
       transform: none !important;
       border: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+      scale: none !important;
     }
     
     .VPHero {
@@ -465,7 +476,7 @@ export default defineConfig({
   }
 })
 
-// ... все остальные функции остаются без изменений
+// ... все остальные функции остаются точно такими же, как в предыдущем коде
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
