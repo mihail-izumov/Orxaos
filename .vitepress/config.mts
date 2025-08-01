@@ -135,49 +135,97 @@ export default defineConfig({
     .VPHero .text,
     .VPHero .tagline {
       color: white !important;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
     
-    /* КРАСИВЫЙ ГРАДИЕНТНЫЙ ФОН */
-    .VPHero {
-      background: 
-        radial-gradient(ellipse at 20% 80%, rgba(52, 123, 108, 0.6) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(197, 249, 70, 0.4) 0%, transparent 60%),
-        radial-gradient(ellipse at 40% 40%, rgba(46, 125, 50, 0.5) 0%, transparent 50%),
-        linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 25%, #1f3d1f 50%, #243824 75%, #1a2e1a 100%);
-      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    /* Добавляем тонкий оверлей для улучшения читаемости */
-    .VPHero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
-      z-index: 1;
-    }
-    
-    /* Поднимаем контент выше оверлея */
-    .VPHero .container {
+    /* ЛОКАЛЬНАЯ ПОДСВЕТКА ЗА ИЗОБРАЖЕНИЕМ */
+    .VPHero .image {
       position: relative;
       z-index: 2;
     }
     
-    /* Добавляем тонкую нижнюю границу с градиентом */
-    .VPHero::after {
+    .VPHero .image::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--vp-c-brand-1), var(--vp-c-brand-2), var(--vp-c-brand-1));
-      z-index: 3;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140%;
+      height: 140%;
+      background: 
+        radial-gradient(ellipse at center, 
+          rgba(52, 123, 108, 0.4) 0%, 
+          rgba(52, 123, 108, 0.3) 30%, 
+          rgba(197, 249, 70, 0.2) 60%, 
+          transparent 80%
+        );
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(60px);
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+    }
+    
+    @keyframes pulseGlow {
+      from {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+    
+    /* Дополнительная подсветка для более яркого эффекта */
+    .VPHero .image::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      background: 
+        radial-gradient(circle at center, 
+          rgba(197, 249, 70, 0.3) 0%, 
+          rgba(52, 123, 108, 0.2) 50%, 
+          transparent 70%
+        );
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(30px);
+      animation: innerGlow 3s ease-in-out infinite alternate-reverse;
+    }
+    
+    @keyframes innerGlow {
+      from {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      to {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    
+    /* Стилизация самого изображения */
+    .VPHero .image img {
+      border-radius: 50%;
+      border: 3px solid rgba(197, 249, 70, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .VPHero .image:hover img {
+      border-color: rgba(197, 249, 70, 0.6);
+      transform: scale(1.05);
+    }
+    
+    /* Убираем фон с общей hero-секции */
+    .VPHero {
+      background: transparent;
+      position: relative;
     }
     /* === КОНЕЦ СТИЛЕЙ ДЛЯ HERO-СЕКЦИИ === */
 
@@ -363,6 +411,19 @@ export default defineConfig({
       .dot-separator {
         display: none;
       }
+      
+      /* Адаптация подсветки для мобильных */
+      .VPHero .image::before {
+        width: 120%;
+        height: 120%;
+        filter: blur(40px);
+      }
+      
+      .VPHero .image::after {
+        width: 70%;
+        height: 70%;
+        filter: blur(20px);
+      }
     }
     `]
   ],
@@ -439,7 +500,7 @@ export default defineConfig({
   }
 })
 
-// ... здесь идут все ваши функции sidebar...
+// ... все остальные функции остаются без изменений
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
@@ -561,7 +622,6 @@ function sidebarDiaryGuide(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-// ✅ ИСПРАВЛЕННЫЕ ССЫЛКИ ДЛЯ 3-го МОДУЛЯ
 function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
   return [
     {
