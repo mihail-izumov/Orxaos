@@ -38,18 +38,16 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 
 ## Искусство точных решений
 
-1. Начинать с главного.
-2. Искать сигнал в шуме.
-3. Создавать инструменты, а не украшения.
-4. Верить, что новая форма создает новое будущее.
-5. Выбирать партнеров, а не просто клиентов.
-6. Соединять систему и смысл.
-7. Искать причину, а не симптом.
-8. Стремиться к яростной простоте.
-9. Строить на десятилетия, а не на кварталы.
+1.  Начинать с главного.
+2.  Искать сигнал в шуме.
+3.  Создавать инструменты, а не украшения.
+4.  Верить, что новая форма создает новое будущее.
+5.  Выбирать партнеров, а не просто клиентов.
+6.  Соединять систему и смысл.
+7.  Искать причину, а не симптом.
+8.  Стремиться к яростной простоте.
+9.  Строить на десятилетия, а не на кварталы.
 10. Мечтать и действовать.
-
-<br>
 
 ## Действовать
 
@@ -84,24 +82,7 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 </div>
 
 <style>
-.specs-button a {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #347b6c;
-  color: white !important;
-  text-decoration: none !important;
-  border-radius: 4px;
-  font-family: inherit;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-  /* Новые важные свойства */
-  -webkit-user-select: none;
-  user-select: none;
-  line-height: 1.5;
-}
-
-<style>
+/* Стили для карточек */
 .project-card {
   background: rgba(52, 123, 108, 0.3);
   border-radius: 12px;
@@ -112,8 +93,9 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
   min-height: 200px;
 }
 
+/* Стили для кнопок "Изучить" и "Помечтать" */
 .project-button {
-  background-color: #347b6c;
+  background-color: #347b6c; /* Темный */
   color: white;
   padding: 12px 16px;
   border-radius: 8px;
@@ -127,11 +109,34 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
 }
 
 .project-button:hover {
-  background-color: #C5F946 !important;
+  background-color: #C5F946 !important; /* Яркий */
   color: #000 !important;
   transform: translateY(-2px);
   text-decoration: none !important;
   font-weight: 700 !important;
 }
-</style>
 
+/* Стили для кнопки "Начать" — инвертированные */
+.specs-button a {
+  display: inline-block;
+  padding: 12px 24px; /* Увеличил паддинг для баланса */
+  background-color: #C5F946; /* Яркий */
+  color: #000 !important;
+  text-decoration: none !important;
+  border-radius: 8px; /* Как у других кнопок */
+  font-family: inherit;
+  font-weight: 700; /* Как у других кнопок */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  line-height: 1.5;
+  font-size: 16px; /* Немного увеличил шрифт */
+}
+
+.specs-button a:hover {
+  background-color: #347b6c; /* Темный */
+  color: white !important;
+  transform: translateY(-2px); /* Эффект при наведении */
+}
+</style>
