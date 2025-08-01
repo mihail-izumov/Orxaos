@@ -138,7 +138,7 @@ export default defineConfig({
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
     
-    /* ЛОКАЛЬНАЯ ПОДСВЕТКА ЗА ИЗОБРАЖЕНИЕМ */
+    /* ЛОКАЛЬНАЯ ПОДСВЕТКА ЗА ИЗОБРАЖЕНИЕМ - ТЁМНО-ЗЕЛЁНАЯ */
     .VPHero .image {
       position: relative;
       z-index: 2;
@@ -154,29 +154,29 @@ export default defineConfig({
       height: 140%;
       background: 
         radial-gradient(ellipse at center, 
-          rgba(52, 123, 108, 0.4) 0%, 
-          rgba(52, 123, 108, 0.3) 30%, 
-          rgba(197, 249, 70, 0.2) 60%, 
+          rgba(26, 61, 26, 0.6) 0%, 
+          rgba(35, 69, 35, 0.4) 30%, 
+          rgba(52, 123, 108, 0.3) 60%, 
           transparent 80%
         );
       border-radius: 50%;
       z-index: -1;
       filter: blur(60px);
-      animation: pulseGlow 4s ease-in-out infinite alternate;
+      animation: pulseGlow 6s ease-in-out infinite alternate;
     }
     
     @keyframes pulseGlow {
       from {
-        opacity: 0.6;
-        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.95);
       }
       to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.05);
       }
     }
     
-    /* Дополнительная подсветка для более яркого эффекта */
+    /* Дополнительная подсветка для более мягкого эффекта */
     .VPHero .image::after {
       content: '';
       position: absolute;
@@ -187,39 +187,42 @@ export default defineConfig({
       height: 80%;
       background: 
         radial-gradient(circle at center, 
-          rgba(197, 249, 70, 0.3) 0%, 
-          rgba(52, 123, 108, 0.2) 50%, 
+          rgba(35, 69, 35, 0.4) 0%, 
+          rgba(26, 61, 26, 0.2) 50%, 
           transparent 70%
         );
       border-radius: 50%;
       z-index: -1;
       filter: blur(30px);
-      animation: innerGlow 3s ease-in-out infinite alternate-reverse;
+      animation: innerGlow 4s ease-in-out infinite alternate-reverse;
     }
     
     @keyframes innerGlow {
       from {
-        opacity: 0.4;
-        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(0.9);
       }
       to {
-        opacity: 0.8;
+        opacity: 0.6;
         transform: translate(-50%, -50%) scale(1);
       }
     }
     
-    /* Стилизация самого изображения */
+    /* Убираем все эффекты при наведении на изображение */
     .VPHero .image img {
       border-radius: 50%;
-      border: 3px solid rgba(197, 249, 70, 0.3);
-      transition: all 0.3s ease;
       position: relative;
       z-index: 1;
+      /* Убираем все переходы и эффекты */
+      transition: none;
+      border: none;
     }
     
+    /* Убираем эффекты наведения */
     .VPHero .image:hover img {
-      border-color: rgba(197, 249, 70, 0.6);
-      transform: scale(1.05);
+      /* Убираем все изменения при наведении */
+      border: none;
+      transform: none;
     }
     
     /* Убираем фон с общей hero-секции */
