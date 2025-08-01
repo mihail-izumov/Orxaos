@@ -1,9 +1,6 @@
----
-description: ✨ Чудесные Истории
----
-# Истории в деталях
+# ✨ Чудесные Истории
 
-## Изучаем прошлое, бросаем вызов настоящему, исследуем будущее.
+## Изучаем прошлое, бросаем вызов настоящему, исследуем будущее
 
 ### World Plastics Summit 2022
 
@@ -34,6 +31,8 @@ description: ✨ Чудесные Истории
 </ClientOnly>
 
 <figure><img src="https://3331492131-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlfEAS6KEwWUtC2g1kCof%2Fuploads%2F9O1bVMztPJn3LvLBknuR%2Fwps-web-cmrsd.jpg?alt=media&token=2e4a2204-897c-495b-9d7a-ab6c59c4d2aa" alt="World Plastics Summit 2022 Website"><figcaption><p>World Plastics Summit 2022 – <a href="https://www.behance.net/gallery/156308617/World-Plastics-Summit-Brand-Identity-Website">Behance</a></p></figcaption></figure>
+
+<br>
 
 <ClientOnly>
   <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
