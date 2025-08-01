@@ -6,37 +6,27 @@
 
 <br>
 <form id="myForm" class="custom-form">
-  <!-- Поле Имя -->
+  <!-- Поля формы остаются без изменений -->
   <div class="form-group">
     <label for="name">Имя:</label>
     <input type="text" id="name" name="name" class="form-input" placeholder="Как к вам обращаться?" required>
   </div>
-
-  <!-- Поле Контакт -->
   <div class="form-group">
     <label for="contact">Удобный способ связи (Telegram или Email):</label>
     <input type="text" id="contact" name="contact" class="form-input" placeholder="Где удобнее получить ответ?" required>
   </div>
-
-  <!-- Поле Точка А -->
   <div class="form-group">
     <label for="pointA">Точка А — где вы сейчас?</label>
     <textarea id="pointA" name="pointA" class="form-input" rows="4" placeholder="Кратко опишите, что вас беспокоит или волнует." required></textarea>
   </div>
-
-  <!-- Поле Точка Б -->
   <div class="form-group">
     <label for="pointB">Точка Б — куда хотите прийти?</label>
     <textarea id="pointB" name="pointB" class="form-input" rows="4" placeholder="Какой перемены или состояния вы ждёте?" required></textarea>
   </div>
-  
-  <!-- Поле Препятствие (необязательное) -->
   <div class="form-group">
     <label for="obstacle">Главное препятствие (необязательно):</label>
     <textarea id="obstacle" name="obstacle" class="form-input" rows="3" placeholder="Что, по вашему ощущению, мешает изменить ситуацию?"></textarea>
   </div>
-  
-  <!-- Согласие -->
   <div class="form-group checkbox-group">
     <input type="checkbox" id="consent" name="consent" required>
     <label for="consent">
@@ -47,17 +37,18 @@
   </div>
   
   <button type="submit" class="submit-btn" disabled>
-    Начать путь →
+    Получить разбор →
   </button>
 </form>
 
 <div id="successMessage" class="success-message" style="display: none;">
-  Ваше намерение принято. Я скоро свяжусь с вами.
+  Ваш запрос принят. Готовлю разбор вашей ситуации и скоро вернусь с ответом.
 </div>
 
 <style>
 .custom-form {
-  max-width: 500px;
+  /* Убираем ограничение по ширине, чтобы форма заняла весь контейнер */
+  max-width: none; 
   margin: 0;
   padding: 20px;
   background-color: #000000;
@@ -99,14 +90,20 @@
 }
 .submit-btn:hover { opacity: 0.9; }
 .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
 .success-message {
   margin-top: 15px;
+  /* Цвет фона, как у ссылок, для единства стиля */
+  background-color: #4CAF50; 
   color: white;
   font-weight: normal;
   font-size: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
+  /* Добавляем внутренние отступы для красоты */
+  padding: 15px;
+  border-radius: 5px;
 }
 .success-message::before {
   content: "✓";
@@ -116,6 +113,7 @@
 </style>
 
 <script>
+// Скрипт остается без изменений, его логика уже безупречна
 export default {
   mounted() {
     this.initForm();
@@ -186,9 +184,10 @@ export default {
 }
 </script>
 
+
 <br>
 
-## Вопрос не в том, готовы ли вы к изменениям. А в том, как именно вы хотите действовать.
+## Как вы хотите действовать?
 
 Нужна системная диагностика, чтобы найти неочевидные решения? Или точный креативный запуск, чтобы стать заметнее на рынке? А может, и то, и другое сразу?
 
