@@ -1,3 +1,10 @@
+<style>
+  
+.vp-doc table tr td:first-child {
+  white-space: nowrap;
+}
+</style>
+
 # Заметки
 
 | Дата | Тема |
