@@ -130,59 +130,16 @@ export default defineConfig({
     })();
   `],
     ['style', {}, `
-    /* === ПРАВИЛЬНЫЕ СТИЛИ ДЛЯ HERO-СЕКЦИИ === */
-
-    /* 1. Используем официальные переменные VitePress для фона */
-    :root {
-      /* Создаем свечение с помощью градиента */
-      --vp-home-hero-image-background-image: radial-gradient(
-        ellipse 50% 70% at 50% 50%, /* Форма и позиция свечения (овал в центре) */
-        rgba(52, 123, 108, 0.4) 0%,   /* Ваш темно-зеленый цвет */
-        transparent 70%             /* Плавный уход в прозрачность */
-      );
-      /* Добавляем размытие для мягкости свечения */
-      --vp-home-hero-image-filter: blur(50px);
-    }
-    
-    /* 2. Убираем фон с основного контейнера, чтобы избежать конфликтов */
-    .VPHero.VPHomeHero {
-      background: none !important;
-    }
-    
-    /* 3. Гарантированно отключаем любые эффекты наведения на изображение */
-    .VPHero .image-src { /* Целимся в сам тег <img> */
-      transition: none !important;
-      transform: none !important;
-      border: none !important;
-      box-shadow: none !important;
-      outline: none !important;
-      border-radius: 50% !important; /* Убедимся, что фото круглое */
-    }
-    
-    .VPHero .image:hover .image-src {
-      transform: none !important;
-    }
-    
-    /* 4. Адаптация для мобильных устройств */
-    @media (max-width: 960px) {
-      :root {
-        --vp-home-hero-image-background-image: radial-gradient(
-          ellipse 80% 50% at 50% 100%, /* На мобильных свечение снизу */
-          rgba(52, 123, 108, 0.3) 0%,
-          transparent 70%
-        );
-        --vp-home-hero-image-filter: blur(40px);
-      }
-    }
-
-    /* === ОБЩИЕ СТИЛИ (остаются без изменений) === */
-
+    /* === СТИЛИ ДЛЯ HERO-СЕКЦИИ === */
     .VPHero .name,
     .VPHero .text,
     .VPHero .tagline {
       color: white !important;
     }
-    
+    /* === КОНЕЦ СТИЛЕЙ ДЛЯ HERO-СЕКЦИИ === */
+
+    /* === СТИЛИ ДЛЯ ССЫЛОК И КНОПОК НА ГЛАВНОЙ СТРАНИЦЕ === */
+    /* Ссылки в hero-секции (не кнопки) */
     .VPHero .tagline a {
       color: var(--vp-c-brand-2) !important;
       text-decoration: none;
@@ -194,6 +151,7 @@ export default defineConfig({
       text-decoration: underline;
     }
 
+    /* Кнопки действий в hero-секции */
     .VPHero .VPButton {
       background-color: var(--vp-c-brand-1) !important;
       border-color: var(--vp-c-brand-1) !important;
@@ -210,6 +168,7 @@ export default defineConfig({
       text-decoration: none !important;
     }
 
+    /* Ссылки в основном контенте главной страницы */
     .VPContent a {
       color: var(--vp-c-brand-2);
       text-decoration: none;
@@ -222,26 +181,30 @@ export default defineConfig({
       border-bottom-color: var(--vp-c-brand-1);
     }
     
+    /* === СТИЛИ ДЛЯ КАРТОЧЕК НА ГЛАВНОЙ СТРАНИЦЕ === */
+    /* Плавный переход для заголовка и ссылки */
     .VPFeature .title,
     .VPFeature .link-text {
       transition: color 0.25s ease-in-out;
     }
     
+    /* Начальный цвет для ссылки и стрелки */
     .VPFeature .link-text {
       color: var(--vp-c-brand-1);
     }
     
+    /* При наведении на ВСЮ карточку (которая является ссылкой)... */
     a.VPFeature.link:hover .title,
     a.VPFeature.link:hover .link-text {
-      color: var(--vp-c-brand-2);
+      color: var(--vp-c-brand-2); /* ...меняем цвет и заголовка, и ссылки на яркий */
     }
-    
+    /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
+
     :root {
-      --vp-c-brand-1: #347b6c;
+      --vp-c-brand-1: #347b6c; /* Новый, более яркий зеленый */
       --vp-c-brand-2: #C5F946;
       --vp-c-brand-3: #347b6c;
       --vp-c-brand-soft: rgba(52, 123, 108, 0.14);
-      --vp-c-bg-soft: #27272a;
     }
     .VPNavBarTitle .logo {
       height: 32px !important;
@@ -280,9 +243,9 @@ export default defineConfig({
       margin: 6px;
     }
     .VPSocialLink[aria-label="apply-link"]:hover::after {
-      background: var(--vp-c-brand-2) !important;
+      background: var(--vp-c-brand-2) !important; /* Ярко-зеленый фон */
       border-color: var(--vp-c-brand-2) !important;
-      color: #000 !important;
+      color: #000 !important; /* Черный текст для читаемости */
       transform: translateY(-1px);
     }
     .custom-footer-links {
@@ -331,7 +294,7 @@ export default defineConfig({
         gap: 8px !important;
         padding: 0 16px !important;
         box-sizing: border-box !important;
-        margin-left: 0 !important;
+        margin-left: 8 !important;
       }
       .VPSocialLink {
         width: 100% !important;
@@ -345,7 +308,7 @@ export default defineConfig({
         display: block !important;
         text-align: center;
         padding: 10px 12px !important;
-        margin: 0 !important;
+        margin: 10 !important;
         box-sizing: border-box !important;
       }
       .footer-row {
@@ -371,19 +334,35 @@ export default defineConfig({
     outlineTitle: 'На этой странице',
     returnToTopLabel: 'Наверх',
     
+    // --- ПЕРЕВОД НАВИГАЦИИ ---
     docFooter: {
       prev: 'Предыдущая страница',
       next: 'Следующая страница'
     },
+    // ---------------------------
     
     sidebar: {
-      '/projects/diary-guide/keys/': { items: sidebarDiaryGuideKeys() },
-      '/projects/nol/journal': { items: sidebarMasterplan() },
-      '/projects/diary-guide/unlock/': { items: sidebarDiaryGuide() },
-      '/projects/the-creative-act-rick-rubin/': { items: sidebarCreativeAct() },
-      '/projects/': { items: sidebarParki() },
-      '/meet-mikhail/': { items: sidebarMasterplan() },
-      '/ars_orxaos/': { items: sidebarWhyPark() }
+      '/projects/diary-guide/keys/': {
+        items: sidebarDiaryGuideKeys()
+      },
+      '/projects/nol/journal': {
+        items: sidebarMasterplan()
+      },
+      '/projects/diary-guide/unlock/': {
+        items: sidebarDiaryGuide()
+      },
+      '/projects/the-creative-act-rick-rubin/': {
+        items: sidebarCreativeAct()
+      },
+      '/projects/': {
+        items: sidebarParki()
+      },
+      '/meet-mikhail/': {
+        items: sidebarMasterplan()
+      },
+      '/ars_orxaos/': {
+        items: sidebarWhyPark()
+      }
     },
 
     search: {
@@ -415,7 +394,7 @@ export default defineConfig({
   }
 })
 
-// ... все остальные функции остаются без изменений
+// ... здесь идут все ваши функции sidebar...
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
@@ -537,6 +516,7 @@ function sidebarDiaryGuide(): DefaultTheme.SidebarItem[] {
   ]
 }
 
+// ✅ ИСПРАВЛЕННЫЕ ССЫЛКИ ДЛЯ 3-го МОДУЛЯ
 function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
   return [
     {
@@ -576,11 +556,11 @@ function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
           text: '3. "Страшный" модуль',
           collapsed: true,
           items: [
-            { text: '3.1 Карта внутренней территории. Как распознать и назвать свои страхи.', link: '/projects/diary-guide/keys/3/3.1%20Карта%20внутренней%20территории%20–%20Как%20распознать%20и%20назвать%20свои%20страхи' },
+            { text: '3.1 Карта внутренней территории. Как распознать и назвать свои страхи.', link: '/projects/diary-guide/keys/3/3.1%20Карта%20внутренней%20территории%20–%20Как%20распознать%20и%20назвать%20свои%20страхи' },
             { text: '3.2 Искусство Замечать. Где искать следы ваших страхов.', link: '/projects/diary-guide/keys/3/3.2%20Искусство%20Замечать.%20Где%20искать%20следы%20ваших%20страхов.' },
             { text: '3.3 Археология души. Готовая карта для поиска источника страха.', link: '/projects/diary-guide/keys/3/3.3%20Археология%20души.%20Готовая%20карта%20для%20поиска%20источника%20страха.' },
-            { text: '3.4 Искусство Решающего Шага. От Понимания к Действию', link: '/projects/diary-guide/keys/3/3.4%20Искусство%20Решающего%20Шага.%20От%20Понимания%20к%20Действию' },
-            { text: '3.5 Как Настроить Свой Внутренний Компас', link: '/projects/diary-guide/keys/3/3.5%20Как%20Настроить%20Свой%20Внутренний%20Компас' }
+            { text: '3.4 Искусство Решающего Шага. От Понимания к Действию', link: '/projects/diary-guide/keys/3/3.4%20Искусство%20Решающего%20Шага.%20От%20Понимания%20к%20Действию' },
+            { text: '3.5 Как Настроить Свой Внутренний Компас', link: '/projects/diary-guide/keys/3/3.5%20Как%20Настроить%20Свой%20Внутренний%20Компас' }
           ]
         },
         {
