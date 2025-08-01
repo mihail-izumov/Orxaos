@@ -1,6 +1,6 @@
 # Гениальная простота
 
-![Гениальная простота](/Orxaos/simple-is-smart-ban-cmprsd.jpg)
+![Гениальная простота](/simple-is-smart-ban-cmprsd.jpg)
 
 ## Лекция о творческой продуктивности
 
