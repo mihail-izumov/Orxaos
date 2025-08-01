@@ -325,7 +325,7 @@ export default defineConfig({
   cleanUrls: true,
   appearance: 'force-dark',
   outDir: '.vitepress/dist',
-  description: 'От хаоса - к силе.',
+  description: 'Мечтать и действовать → Расти по своим правилам',
   themeConfig: {
     logo: '/orxaos-icon.svg',
     siteTitle: "Orxaos",
