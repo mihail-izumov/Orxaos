@@ -58,7 +58,7 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Дьявол в Деталях</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы за 20 лет</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы по годам</p>
     </div>
     <!-- Второстепенная кнопка (изменено) -->
     <a href="/Orxaos/ars_orxaos/by-the-numbers" class="btn btn-secondary">
@@ -69,7 +69,7 @@ _Ars (лат. «мастерство», «технология»)._ **Ars Orxaos
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чудесные истории</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Галлерея изображений и видео избранных проектов.</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Галлерея вдохновляющих изображений и видео</p>
     </div>
     <!-- Второстепенная кнопка -->
     <a href="/Orxaos/ars_orxaos/the-wonderful-stories-we-make" class="btn btn-secondary">
