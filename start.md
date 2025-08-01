@@ -250,7 +250,7 @@ export default {
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Ключ к Цифровому Дневнику – Гид</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Ваш личный инструмент, чтобы навести порядок в мыслях. Учимся превращать поток идей и переживаний в четкий план действий и опору для принятия решений.</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Ваш личный инструмент, чтобы навести порядок в мыслях. Только суть. И ничего лишнего.</p>
     </div>
     <a href="/projects/diary-guide/unlock/pay/form" class="project-button">
       Получить доступ за ₽1990 →
