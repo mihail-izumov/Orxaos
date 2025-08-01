@@ -2,43 +2,53 @@
 
 <br>
 <form id="myForm" class="custom-form">
+  <!-- Поле Имя -->
   <div class="form-group">
     <label for="name">Имя:</label>
-    <input type="text" id="name" name="name" class="form-input" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="phone">Телефон:</label>
-    <input type="tel" id="phone" name="phone" class="form-input" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" class="form-input" required>
+    <input type="text" id="name" name="name" class="form-input" placeholder="Как к вам обращаться?" required>
   </div>
 
-  <!-- Добавленное поле "Сообщение" -->
+  <!-- Поле Контакт -->
   <div class="form-group">
-    <label for="message">Сообщение:</label>
-    <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
+    <label for="contact">Удобный способ связи (Telegram или Email):</label>
+    <input type="text" id="contact" name="contact" class="form-input" placeholder="Где удобнее получить ответ?" required>
+  </div>
+
+  <!-- Поле Точка А -->
+  <div class="form-group">
+    <label for="pointA">Точка А — где вы сейчас?</label>
+    <textarea id="pointA" name="pointA" class="form-input" rows="4" placeholder="Кратко опишите, что вас беспокоит или волнует." required></textarea>
+  </div>
+
+  <!-- Поле Точка Б -->
+  <div class="form-group">
+    <label for="pointB">Точка Б — куда хотите прийти?</label>
+    <textarea id="pointB" name="pointB" class="form-input" rows="4" placeholder="Какой перемены или состояния вы ждёте?" required></textarea>
   </div>
   
+  <!-- Поле Препятствие (необязательное) -->
+  <div class="form-group">
+    <label for="obstacle">Главное препятствие (необязательно):</label>
+    <textarea id="obstacle" name="obstacle" class="form-input" rows="3" placeholder="Что, по вашему ощущению, мешает изменить ситуацию?"></textarea>
+  </div>
+  
+  <!-- Согласие -->
   <div class="form-group checkbox-group">
     <input type="checkbox" id="consent" name="consent" required>
     <label for="consent">
       Нажимая на кнопку, вы соглашаетесь с 
-      <a href="/terms/policy" target="_blank" class="policy-link">политикой конфиденциальности</a>, 
-      <a href="/terms/privacy" target="_blank" class="policy-link">согласием на обработку персональных данных</a>
+      <a href="/terms/policy" target="_blank" class="policy-link">политикой конфиденциальности</a> и 
+      <a href="/terms/privacy" target="_blank" class="policy-link">согласием на обработку персональных данных</a>.
     </label>
   </div>
   
   <button type="submit" class="submit-btn" disabled>
-    Отправить →
+    Начать путь →
   </button>
 </form>
 
 <div id="successMessage" class="success-message" style="display: none;">
-  Заявка успешно отправлена. Скоро свяжемся.
+  Ваше намерение принято. Я скоро свяжусь с вами.
 </div>
 
 <style>
@@ -50,12 +60,7 @@
   border-radius: 5px;
   color: #ffffff;
 }
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-/* Стили .form-input применятся и к input, и к textarea */
+.form-group { margin-bottom: 15px; }
 .form-input {
   width: 100%;
   padding: 10px;
@@ -65,32 +70,17 @@
   font-size: 16px;
   background-color: #000000;
   color: #ffffff;
-  /* Для textarea убираем возможность изменения размера */
   resize: vertical; 
 }
-
 .checkbox-group {
   display: flex;
   align-items: flex-start;
   gap: 8px;
   margin-bottom: 20px;
 }
-
-.checkbox-group input {
-  margin-top: 3px;
-  width: auto;
-}
-
-.checkbox-group label {
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.policy-link {
-  color: #4CAF50;
-  text-decoration: underline;
-}
-
+.checkbox-group input { margin-top: 3px; width: auto; }
+.checkbox-group label { font-size: 14px; line-height: 1.4; }
+.policy-link { color: #4CAF50; text-decoration: underline; }
 .submit-btn {
   background-color: #ffffff;
   color: #000000;
@@ -103,16 +93,8 @@
   font-weight: bold;
   transition: opacity 0.3s;
 }
-
-.submit-btn:hover {
-  opacity: 0.9;
-}
-
-.submit-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
+.submit-btn:hover { opacity: 0.9; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .success-message {
   margin-top: 15px;
   color: white;
@@ -122,7 +104,6 @@
   align-items: center;
   gap: 8px;
 }
-
 .success-message::before {
   content: "✓";
   color: white;
@@ -131,14 +112,12 @@
 </style>
 
 <script>
-// Используем export default для совместимости с VitePress
 export default {
   mounted() {
     this.initForm();
   },
   methods: {
     initForm() {
-      // Проверка выполнения в браузере
       if (typeof document === 'undefined') return;
       
       const form = document.getElementById('myForm');
@@ -146,31 +125,20 @@ export default {
       
       const successMessage = document.getElementById('successMessage');
       const submitBtn = form.querySelector('.submit-btn');
-      // Теперь textarea с required тоже попадет в этот массив
       const requiredInputs = Array.from(form.querySelectorAll('[required]'));
-      const checkbox = document.getElementById('consent');
       
-      // Функция проверки валидности формы
       const checkFormValidity = () => {
-        const nameValid = document.getElementById('name').value.trim() !== '';
-        const phoneValid = document.getElementById('phone').value.trim() !== '';
-        const emailValid = document.getElementById('email').value.trim() !== '';
-        // Добавляем проверку для поля "Сообщение"
-        const messageValid = document.getElementById('message').value.trim() !== '';
-        const consentValid = checkbox.checked;
-        
-        // Обновляем условие для активации кнопки
-        submitBtn.disabled = !(nameValid && phoneValid && emailValid && messageValid && consentValid);
+        const allRequiredFilled = requiredInputs.every(input => {
+          if (input.type === 'checkbox') return input.checked;
+          return input.value.trim() !== '';
+        });
+        submitBtn.disabled = !allRequiredFilled;
       };
       
-      // Назначение обработчиков событий
       requiredInputs.forEach(input => {
         input.addEventListener('input', checkFormValidity);
       });
       
-      checkbox.addEventListener('change', checkFormValidity);
-      
-      // Обработка отправки формы
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -178,38 +146,29 @@ export default {
         
         const formData = {
           name: form.name.value,
-          phone: form.phone.value,
-          email: form.email.value,
-          // Добавляем данные из поля "Сообщение"
-          message: form.message.value, 
-          consent: checkbox.checked ? 'Да' : 'Нет',
-          _subject: 'Новая заявка с сайта'
+          contact: form.contact.value,
+          pointA: form.pointA.value,
+          pointB: form.pointB.value,
+          obstacle: form.obstacle.value,
+          consent: form.consent.checked ? 'Да' : 'Нет',
+          _subject: `Новая заявка с сайта orxaos.sbs`
         };
         
-        // Очищаем форму сразу
         form.reset();
         successMessage.style.display = 'flex';
         submitBtn.disabled = true;
         
         fetch('https://formspree.io/f/mdkzjopz', {
           method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
-        })
-        .then(response => {
-          if (!response.ok) throw new Error('Ошибка сервера');
         })
         .catch(error => {
           console.error('Error:', error);
-          // Добавляем сообщение в тело письма для резервной отправки
-          const mailtoBody = `Имя: ${formData.name}%0AТелефон: ${formData.phone}%0AEmail: ${formData.email}%0AСообщение: ${formData.message}`;
-          window.location.href = `mailto:theorchestramanco@gmail.com?subject=Заявка&body=${mailtoBody}`;
+          const mailtoBody = `Имя: ${formData.name}%0AКонтакт: ${formData.contact}%0AТочка А: ${formData.pointA}%0AТочка Б: ${formData.pointB}%0AПрепятствие: ${formData.obstacle}`;
+          window.location.href = `mailto:theorchestramanco@gmail.com?subject=Заявка с сайта orxaos.sbs&body=${mailtoBody}`;
         })
         .finally(() => {
-          // Скрываем сообщение через 15 секунд
           setTimeout(() => {
             successMessage.style.display = 'none';
             checkFormValidity();
