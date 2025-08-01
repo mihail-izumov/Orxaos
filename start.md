@@ -8,11 +8,11 @@
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Ключ к Цифровому Дневнику</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Ваш личный инструмент, чтобы навести порядок в мыслях. Учимся превращать поток идей и переживаний в четкий план действий и опору для принятия решений.</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Заявка на бренд</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Знаете, что хотите? Подробная форма заявки + калькулятор на айдентику, сайт и стратегию.</p>
     </div>
-    <a href="/projects/diary-guide/unlock/overview" class="project-button">
-      Получить доступ
+    <a href="https://forms.fillout.com/t/3FfWoFXwKeus" class="project-button" target="_blank">
+      Отправить заявку →
     </a>
   </div>
 
