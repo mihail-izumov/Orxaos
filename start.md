@@ -189,14 +189,12 @@ export default {
 
 ## Как вы хотите действовать?
 
-Нужна системная диагностика, чтобы найти неочевидные решения? Или точный креативный запуск, чтобы стать заметнее на рынке? А может, и то, и другое сразу?
-
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Заявка на бренд</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Знаете, что хотите? Подробная форма заявки + калькулятор на айдентику, сайт и стратегию.</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Подробная форма с калькулятором на айдентику, сайт и стратегию.</p>
     </div>
     <a href="https://forms.fillout.com/t/3FfWoFXwKeus" class="project-button" target="_blank">
       Отправить заявку →
@@ -206,7 +204,7 @@ export default {
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Экспресс-аудит бренда</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Глубокий аудит за 1 день – айдентика и дизайн коммуникации бренда с аудиторией</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Аудит айдентики и дизайна коммуникации бренда с аудиторией.</p>
     </div>
     <a href="https://forms.fillout.com/t/14NhL22Rj3us" class="project-button" target="_blank">
       Провести Аудит Сейчас →
