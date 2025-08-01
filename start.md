@@ -2,7 +2,7 @@
 
 Люди видят то, что хотят видеть. Одни ищут быстрые решения, другие — гарантии. Я ищу тех, кто создает бизнесы нового типа — с маленькими командами, но потенциалом единорогов.
 
-Опишите видение → обсудим возможности
+**Опишите видение → Обсудим возможности**
 
 <br>
 <form id="myForm" class="custom-form">
@@ -192,8 +192,6 @@ export default {
 
 Нужна системная диагностика, чтобы найти неочевидные решения? Или точный креативный запуск, чтобы стать заметнее на рынке? А может, и то, и другое сразу?
 
-<br>
-
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
   <div class="project-card">
@@ -219,7 +217,7 @@ export default {
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Ключ к Цифровому Дневнику – Гид</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Ваш личный инструмент, чтобы навести порядок в мыслях. Только суть. И ничего лишнего.</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Устойчивые системы в бизнесе начинаются с ясности в голове основателя. Первый шаг к такому мышлению — навести порядок в собственном мире.</p>
     </div>
     <a href="/projects/diary-guide/unlock/pay/form" class="project-button">
       Получить доступ за ₽1990 →
