@@ -321,7 +321,7 @@ export default defineConfig({
     }
     `]
   ],
-  base: '/Orxaos/',
+  base: '/',
   cleanUrls: true,
   appearance: 'force-dark',
   outDir: '.vitepress/dist',
