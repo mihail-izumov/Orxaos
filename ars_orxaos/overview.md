@@ -72,12 +72,12 @@ _– Михаил Изюмов_
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чудесные истории</h3>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чудесные Истории</h3>
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Галерея вдохновляющих изображений и видео</p>
     </div>
     <!-- Второстепенная кнопка -->
     <a href="/ars_orxaos/the-wonderful-stories-we-make" class="btn btn-secondary">
-      Помечтать
+      Вдохновиться
     </a>
   </div>
 
