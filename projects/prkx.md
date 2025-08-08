@@ -2,7 +2,7 @@
 
 <br>
 
-![Парк за углом](/prkx-ban-cmprsd.jpg)
+![BREW-intro](/brew_intro_ban.svg)
 
 ## Создаём наше будущее вместе
 
