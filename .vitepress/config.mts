@@ -38,6 +38,7 @@ export default defineConfig({
         const links = [
           { text: 'Контакт', href: '/start' },
           { text: 'Телеграм-канал', href: 'https://t.me/runscale', target: '_blank' },
+          { text: 'Реквизиты', href: '/credits' },
           { text: 'Orxaos Supply', href: 'https://orxaos-shop.fourthwall.com/en-eur', target: '_blank' }
         ];
 
