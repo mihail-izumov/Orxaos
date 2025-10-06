@@ -37,7 +37,7 @@ export default defineConfig({
       function createFooterContent() {
         const links = [
           { text: 'Контакт', href: '/start' },
-          { text: 'Телеграм-канал', href: 'https://t.me/runscale', target: '_blank' },
+          { text: 'Телеграм-канал', href: 'https://t.me/izumov', target: '_blank' },
           { text: 'Реквизиты', href: '/credits' },
           { text: 'Orxaos Supply', href: 'https://orxaos-shop.fourthwall.com/en-eur', target: '_blank' }
         ];
