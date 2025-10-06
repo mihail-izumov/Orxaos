@@ -439,7 +439,6 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
         { text: 'Обзор', link: '/projects/overview' },
         { text: 'Ключ к Цифровому Дневнику', link: '/projects/diary-guide/unlock/overview' },
         { text: 'Модуль Роста®', link: '/projects/runscale' },
-        { text: 'Парк за углом', link: '/projects/prkx' },
         { text: 'Чудесная Гостиная', link: '/projects/nol' },
         { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
         { text: 'The Creative Act: A Way of Being', 
