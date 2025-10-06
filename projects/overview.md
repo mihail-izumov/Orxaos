@@ -54,16 +54,6 @@
     </a>
   </div>
 
-  <div class="project-card">
-    <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Парк за углом</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Инициатива жителей Самары, которая доказывает: общая мечта может стать реальностью. Вместе мы превращаем заброшенный участок в уютное пространство для всех.</p>
-    </div>
-    <a href="/projects/prkx" class="project-button">
-      Поддержать
-    </a>
-  </div>
-
 </div>
 
 <style>
