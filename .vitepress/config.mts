@@ -422,7 +422,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: 'Двигатель Смысла', link: '/ars_orxaos/overview' },
         { text: 'Истории в Цифрах', link: '/ars_orxaos/by-the-numbers' },
-        { text: 'Истории в деталях', link: '/ars_orxaos/the-wonderful-stories-we-make' },
+        { text: 'Истории в Деталях', link: '/ars_orxaos/the-wonderful-stories-we-make' },
         { text: 'Экспресс-аудит бренда', link: '/ars_orxaos/brand-express' },
         { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' }
       ]
