@@ -402,9 +402,8 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Проекты',
       items: [
         { text: 'Обзор', link: '/projects/overview' },
-        { text: 'Ключ к цифровому дневнику - Гид', link: '/projects/diary-guide/unlock/overview' },
         { text: 'Модуль Роста®', link: '/projects/runscale' },
-        { text: 'Парк за углом', link: '/projects/prkx' },
+        { text: 'Ключ к цифровому дневнику - Гид', link: '/projects/diary-guide/unlock/overview' },
         { text: 'Чудесная Гостиная', link: '/projects/nol' },
         { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
         { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
