@@ -28,7 +28,7 @@ export default defineConfig({
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     // --- ОБНОВЛЕННЫЕ ССЫЛКИ НА FAVICON ---
     // Основная иконка в формате SVG для современных браузеров
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/orxaos-icon.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/-icon.svg' }],
     // Иконка в формате PNG как запасной вариант и для Apple-устройств
     ['link', { rel: 'apple-touch-icon', href: '/orxaos-icon.svg' }],
     // ------------------------------------
@@ -55,7 +55,7 @@ export default defineConfig({
         });
         html += '</div></div>';
         html += '<div style="margin-top: 24px; text-align: center;">';
-        html += '<div style="color: white; font-size: 14px;">От хаоса — к силе</div>';
+        html += '<div style="color: white; font-size: 14px;">Модуль Роста® - Сигнал - Ars Orxaos</div>';
         html += '<div style="color: var(--vp-c-text-2); margin-top: 4px; font-size: 14px; text-align: center;">© Orxaos 2025</div>';
         return html;
       }
