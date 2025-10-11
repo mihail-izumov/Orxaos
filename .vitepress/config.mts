@@ -28,7 +28,7 @@ export default defineConfig({
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     // --- ОБНОВЛЕННЫЕ ССЫЛКИ НА FAVICON ---
     // Основная иконка в формате SVG для современных браузеров
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/-icon.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/orxaos-icon.svg' }],
     // Иконка в формате PNG как запасной вариант и для Apple-устройств
     ['link', { rel: 'apple-touch-icon', href: '/orxaos-icon.svg' }],
     // ------------------------------------
