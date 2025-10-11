@@ -397,6 +397,7 @@ export default defineConfig({
 
 // ... здесь идут все ваши функции sidebar...
 function nav(): DefaultTheme.NavItem[] {
+function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Гид', link: '/projects/diary-guide/unlock/overview' },
     { text: 'Модуль Роста®', link: '/runscale' },
@@ -416,7 +417,9 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'Дьявол в Деталях', link: '/ars_orxaos/by-the-numbers' },
         { text: 'Чудесные Истории', link: '/ars_orxaos/the-wonderful-stories-we-make' },
         { text: 'Экспресс-аудит бренда', link: '/ars_orxaos/brand-express' },
-        { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' },
+        { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' }
+      ]
+    },
     {
       text: 'Михаил',
       items: [
@@ -425,10 +428,9 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
       ]
     }
-      ]
-    }
   ]
 }
+
 
 function sidebarParki(): DefaultTheme.SidebarItem[] {
   return [
