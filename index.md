@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Orxaos"
-  text: "От хаоса — к силе"
+  text: "От хаоса – к силе"
   tagline: Место для тех, кто мечтает и действует
   image:
     src: /mikhail-izyumov-ban-main-cmprsd.png
