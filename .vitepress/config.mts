@@ -21,7 +21,7 @@ export default defineConfig({
   },
 
   buildEnd(siteConfig) {
-    // Этот хук выполняется после сборки
+    // Этот хук выполняется сразу после сборки
   },
 
   head: [
