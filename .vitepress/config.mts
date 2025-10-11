@@ -7,12 +7,12 @@ export default defineConfig({
     initialValue: 'force-dark' as any
   },
   ignoreDeadLinks: true,
-  title: 'От хаоса - к силе | Orxaos',
+  title: 'Orxaos',
   locales: {
     '/': {
       lang: 'ru-RU',
-      title: 'От хаоса - к силе | Orxaos',
-      description: 'Мечтать и действовать → Расти по своим правилам',
+      title: 'Orxaos',
+      description: 'От хаоса - к силе',
     },
   },
 
