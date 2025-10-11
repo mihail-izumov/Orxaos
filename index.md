@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "От хаоса — к силе."
-  tagline: Мечтать и действовать → Расти по своим правилам
+  name: "Orxaos"
+  tagline: От хаоса — к силе
   image:
     src: /mikhail-izyumov-ban-main-cmprsd.png
     alt: Михаил Изюмов
