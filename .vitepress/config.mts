@@ -398,23 +398,15 @@ export default defineConfig({
 // ... здесь идут все ваши функции sidebar...
 function nav(): DefaultTheme.NavItem[] {
   return [
+    { text: 'Гид', link: '/projects/diary-guide/unlock/overview' },
+    { text: 'Модуль Роста®', link: '/projects/runscale' },
     {
       text: 'Проекты',
       items: [
         { text: 'Обзор', link: '/projects/overview' },
-        { text: 'Модуль Роста®', link: '/projects/runscale' },
-        { text: 'Ключ к цифровому дневнику - Гид', link: '/projects/diary-guide/unlock/overview' },
         { text: 'Чудесная Гостиная', link: '/projects/nol' },
         { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
         { text: 'The Creative Act: A Way of Being – Саммари', link: '/projects/the-creative-act_a-way-of-being_summary' }
-      ]
-    },
-    {
-      text: 'Михаил',
-      items: [
-        { text: 'Кто я', link: '/meet-mikhail/cv' },
-        { text: 'Заметки', link: '/projects/nol/journal' },
-        { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
       ]
     },
     {
@@ -424,7 +416,15 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'Дьявол в Деталях', link: '/ars_orxaos/by-the-numbers' },
         { text: 'Чудесные Истории', link: '/ars_orxaos/the-wonderful-stories-we-make' },
         { text: 'Экспресс-аудит бренда', link: '/ars_orxaos/brand-express' },
-        { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' }
+        { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' },
+    {
+      text: 'Михаил',
+      items: [
+        { text: 'Кто я', link: '/meet-mikhail/cv' },
+        { text: 'Заметки', link: '/projects/nol/journal' },
+        { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
+      ]
+    }
       ]
     }
   ]
@@ -437,8 +437,6 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Обзор', link: '/projects/overview' },
-        { text: 'Ключ к Цифровому Дневнику', link: '/projects/diary-guide/unlock/overview' },
-        { text: 'Модуль Роста®', link: '/projects/runscale' },
         { text: 'Чудесная Гостиная', link: '/projects/nol' },
         { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
         { text: 'The Creative Act: A Way of Being', 
