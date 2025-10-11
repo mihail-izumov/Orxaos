@@ -399,7 +399,7 @@ export default defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Гид', link: '/projects/diary-guide/unlock/overview' },
-    { text: 'Модуль Роста®', link: '/projects/runscale' },
+    { text: 'Модуль Роста®', link: '/runscale' },
     {
       text: 'Проекты',
       items: [
