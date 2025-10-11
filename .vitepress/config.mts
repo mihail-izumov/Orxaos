@@ -1,5 +1,5 @@
 import { defineConfig, DefaultTheme } from 'vitepress'
-import pkg from '../package.json' assert { type: 'json' }
+import pkg from '../package.json' with { type: 'json' }
 const { version } = pkg
 
 export default defineConfig({
@@ -55,7 +55,7 @@ export default defineConfig({
         });
         html += '</div></div>';
         html += '<div style="margin-top: 24px; text-align: center;">';
-        html += '<div style="color: white; font-size: 14px;">Модуль Роста® – Сигнал – Ars Orxaos</div>';
+        html += '<div style="color: white; font-size: 14px;">Модуль Роста® – Сигнал – Ars Orxaos</div>';
         html += '<div style="color: var(--vp-c-text-2); margin-top: 4px; font-size: 14px; text-align: center;">© Orxaos 2025</div>';
         return html;
       }
@@ -395,8 +395,6 @@ export default defineConfig({
   }
 })
 
-// ... здесь идут все ваши функции sidebar...
-function nav(): DefaultTheme.NavItem[] {
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Гид', link: '/projects/diary-guide/unlock/overview' },
@@ -430,7 +428,6 @@ function nav(): DefaultTheme.NavItem[] {
     }
   ]
 }
-
 
 function sidebarParki(): DefaultTheme.SidebarItem[] {
   return [
@@ -515,7 +512,6 @@ function sidebarDiaryGuide(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-// ✅ ИСПРАВЛЕННЫЕ ССЫЛКИ ДЛЯ 3-го МОДУЛЯ
 function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
   return [
     {
@@ -555,11 +551,11 @@ function sidebarDiaryGuideKeys(): DefaultTheme.SidebarItem[] {
           text: '3. "Страшный" модуль',
           collapsed: true,
           items: [
-            { text: '3.1 Карта внутренней территории. Как распознать и назвать свои страхи.', link: '/projects/diary-guide/keys/3/3.1%20Карта%20внутренней%20территории%20–%20Как%20распознать%20и%20назвать%20свои%20страхи' },
+            { text: '3.1 Карта внутренней территории. Как распознать и назвать свои страхи.', link: '/projects/diary-guide/keys/3/3.1%20Карта%20внутренней%20территории%20–%20Как%20распознать%20и%20назвать%20свои%20страхи' },
             { text: '3.2 Искусство Замечать. Где искать следы ваших страхов.', link: '/projects/diary-guide/keys/3/3.2%20Искусство%20Замечать.%20Где%20искать%20следы%20ваших%20страхов.' },
             { text: '3.3 Археология души. Готовая карта для поиска источника страха.', link: '/projects/diary-guide/keys/3/3.3%20Археология%20души.%20Готовая%20карта%20для%20поиска%20источника%20страха.' },
-            { text: '3.4 Искусство Решающего Шага. От Понимания к Действию', link: '/projects/diary-guide/keys/3/3.4%20Искусство%20Решающего%20Шага.%20От%20Понимания%20к%20Действию' },
-            { text: '3.5 Как Настроить Свой Внутренний Компас', link: '/projects/diary-guide/keys/3/3.5%20Как%20Настроить%20Свой%20Внутренний%20Компас' }
+            { text: '3.4 Искусство Решающего Шага. От Понимания к Действию', link: '/projects/diary-guide/keys/3/3.4%20Искусство%20Решающего%20Шага.%20От%20Понимания%20к%20Действию' },
+            { text: '3.5 Как Настроить Свой Внутренний Компас', link: '/projects/diary-guide/keys/3/3.5%20Как%20Настроить%20Свой%20Внутренний%20Компас' }
           ]
         },
         {
