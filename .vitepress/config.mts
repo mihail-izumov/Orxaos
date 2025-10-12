@@ -316,7 +316,13 @@ socialLinks: [
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Гид', link: '/projects/diary-guide/unlock/overview' },
-    { text: 'Модуль Роста®', link: '/runscale' },
+    {
+      text: 'Компании',
+      items: [
+        { text: 'Модуль Роста®', link: '/runscale' },
+        { text: 'Сигнал', link: '/cffx' }
+      ]
+    },
     {
       text: 'Проекты',
       items: [
@@ -356,7 +362,7 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
         { text: 'Обзор', link: '/projects/overview' },
         { text: 'Чудесная Гостиная', link: '/projects/nol' },
         { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
-        { text: 'The Creative Act...', 
+        { text: 'Саммари - The Creative Act: A Way of Being, Rick Rubin', 
           link: '/projects/the-creative-act_a-way-of-being_summary',
           collapsed: true,
         }
