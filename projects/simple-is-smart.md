@@ -3,7 +3,7 @@
 <div style="text-align: center; margin: 2rem 0;">
   <img 
     src="/simple-is-smart-ban-cmprsd.jpg" 
-    alt="ениальная простота"
+    alt="Гениальная простота"
     style="
       width: 100%;
       max-width: 800px;
