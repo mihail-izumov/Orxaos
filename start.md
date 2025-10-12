@@ -1,6 +1,18 @@
-# Начните Здесь
+# Как вы хотите действовать?
 
-## Как вы хотите действовать?
+### Личный рост
+
+  <div class="project-card">
+    <div>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Ключ к Цифровому Дневнику – Гид</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Устойчивые системы в бизнесе начинаются с ясности в голове основателя. Первый шаг к такому мышлению — навести порядок в собственном мире.</p>
+    </div>
+    <a href="/projects/diary-guide/unlock/pay/form" class="project-button">
+      Получить доступ за ₽1990 →
+    </a>
+  </div>
+
+### Креативный рост
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
@@ -24,23 +36,25 @@
     </a>
   </div>
 
+### Системный рост
+
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Ключ к Цифровому Дневнику – Гид</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Устойчивые системы в бизнесе начинаются с ясности в голове основателя. Первый шаг к такому мышлению — навести порядок в собственном мире.</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Глубокий аудит эффективности для компаний, готовых к радикальной оптимизации</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Cистемный анализ бизнеса шаг за шагом. <br><br> чекап → план DMAIC → быстрые внедрения → постоянные улучшения</p>
     </div>
-    <a href="/projects/diary-guide/unlock/pay/form" class="project-button">
-      Получить доступ за ₽1990 →
+    <a href="https://runscale.ru/checkup/overview.html" class="project-button" target="_blank">
+      Пройти Чекап →
     </a>
   </div>
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чекап Модуля Роста®</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Cистемный анализ бизнеса шаг за шагом. <br><br> чекап → план DMAIC → быстрые внедрения → постоянные улучшения</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Начните инвестировать в кофейный рынок прямо сейчас</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Первая кофейня или расширение сети? <br><br> Инвестируйте вместе с Сигналом. Узнайте, где и как открыть следующую точку для максимальной прибыли.</p>
     </div>
-    <a href="https://runscale.ru/checkup/overview.html" class="project-button" target="_blank">
-      Получить ответ →
+    <a href="https://cffx.ru/invest/pulse.html" class="project-button" target="_blank">
+      Инвестировать в кофейни →
     </a>
   </div>
 
