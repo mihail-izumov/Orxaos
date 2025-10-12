@@ -8,7 +8,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 ---
 
 # Ars Orxaos
-
+<br>
 <Badge type="tip" text="Ars (лат. «мастерство», «технология»)" />
 <br>
 
