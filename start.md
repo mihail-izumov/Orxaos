@@ -45,7 +45,7 @@
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Глубокий аудит эффективности для компаний, готовых к радикальной оптимизации</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Cистемный анализ бизнеса шаг за шагом. <br><br> чекап → план DMAIC → быстрые внедрения → постоянные улучшения</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);"><strong>Cистемный анализ бизнеса шаг за шагом.</strong><br><br> чекап → план DMAIC → быстрые внедрения → постоянные улучшения</p>
     </div>
     <a href="https://runscale.ru/checkup/overview.html" class="project-button" target="_blank">
       Пройти Чекап →
@@ -55,7 +55,7 @@
   <div class="project-card">
     <div>
       <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Начните инвестировать в кофейный рынок прямо сейчас</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Первая кофейня или расширение сети? Инвестируйте вместе с Сигналом. <br><br> Узнайте, где и как открыть следующую точку для максимальной прибыли.</p>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);"><strong>Первая кофейня или расширение сети? Инвестируйте вместе с Сигналом.</strong>strong><br><br> Узнайте, где и как открыть следующую точку для максимальной прибыли.</p>
     </div>
     <a href="https://cffx.ru/invest/pulse.html" class="project-button" target="_blank">
       Инвестировать в кофейни →
