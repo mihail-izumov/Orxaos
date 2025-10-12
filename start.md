@@ -1,6 +1,6 @@
 # Как вы хотите действовать?
 
-### Личный рост
+## Личный рост
 
   <div class="project-card">
     <div>
@@ -12,7 +12,7 @@
     </a>
   </div>
 
-### Креативный рост
+## Креативный рост
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
@@ -36,7 +36,9 @@
     </a>
   </div>
 
-### Системный рост
+## Системный рост
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
   <div class="project-card">
     <div>
