@@ -2,8 +2,6 @@
 
 Автор: ©2023 Михаил Изюмов 
 
-<br>
-
 <div style="text-align: center; margin: 2rem 0;">
   <img 
     src="/the-creative-act-ban-cmprsd.jpg" 
