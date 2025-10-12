@@ -16,7 +16,7 @@ description: Где начинается ваша кофейня
 
 <div class="start-button-container">
   <!-- Основная кнопка -->
-  <a href="https://runscale.ru" class="btn btn-primary" target="_blank">Где начинается ваша кофейня →</a>
+  <a href="https://cffx.ru" class="btn btn-primary" target="_blank">Где начинается ваша кофейня →</a>
 </div>
 
 
