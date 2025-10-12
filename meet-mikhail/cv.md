@@ -1,6 +1,15 @@
+---
+outline: false
+prev: false
+next: false
+pageClass: centered-page
+title: Михаил Изюмов
+description: Основатель Модуля Роста® и Сигнала
+---
+
 # Привет
 
-Я — Михаил Изюмов, основатель [Модуля Роста®](https://runscale.ru)
+Я — Михаил Изюмов, основатель <a href="https://runscale.ru" target="_blank">Модуля Роста®</a> и <a href="https://cffx.ru/" target="_blank">Сигнала</a>
 
 ## Мой текущий фокус
 
