@@ -21,17 +21,12 @@ export default defineConfig({
   },
 
   buildEnd(siteConfig) {
-    // Этот хук выполняется сразу после сборки
   },
 
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
-    // --- ОБНОВЛЕННЫЕ ССЫЛКИ НА FAVICON ---
-    // Основная иконка в формате SVG для современных браузеров
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/orxaos-icon.svg' }],
-    // Иконка в формате PNG как запасной вариант и для Apple-устройств
     ['link', { rel: 'apple-touch-icon', href: '/orxaos-icon.svg' }],
-    // ------------------------------------
     ['script', {}, `
     (function() {
       function createFooterContent() {
@@ -131,195 +126,119 @@ export default defineConfig({
     })();
   `],
     ['style', {}, `
-    /* === СТИЛИ ДЛЯ HERO-СЕКЦИИ === */
-    .VPHero .name,
-    .VPHero .text,
-    .VPHero .tagline {
-      color: white !important;
-    }
-    /* === КОНЕЦ СТИЛЕЙ ДЛЯ HERO-СЕКЦИИ === */
-
-    /* === СТИЛИ ДЛЯ ССЫЛОК И КНОПОК НА ГЛАВНОЙ СТРАНИЦЕ === */
-    /* Ссылки в hero-секции (не кнопки) */
-    .VPHero .tagline a {
-      color: var(--vp-c-brand-2) !important;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .VPHero .tagline a:hover {
-      color: var(--vp-c-brand-1) !important;
-      text-decoration: underline;
-    }
-
-    /* Кнопки действий в hero-секции */
-    .VPHero .VPButton {
-      background-color: var(--vp-c-brand-1) !important;
-      border-color: var(--vp-c-brand-1) !important;
-      color: white !important;
-      transition: all 0.3s ease;
-      text-decoration: none !important;
-    }
-
-    .VPHero .VPButton:hover {
-      background-color: var(--vp-c-brand-2) !important;
-      border-color: var(--vp-c-brand-2) !important;
-      color: #000 !important;
-      transform: translateY(-2px);
-      text-decoration: none !important;
-    }
-
-    /* Ссылки в основном контенте главной страницы */
-    .VPContent a {
-      color: var(--vp-c-brand-2);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: all 0.3s ease;
-    }
-
-    .VPContent a:hover {
-      color: var(--vp-c-brand-1);
-      border-bottom-color: var(--vp-c-brand-1);
+    .VPSwitchAppearance{display:none!important}
+    .VPHero .name,.VPHero .text,.VPHero .tagline{color:white!important}
+    .VPHero .tagline a{color:var(--vp-c-brand-2)!important;text-decoration:none;transition:all .3s ease}
+    .VPHero .tagline a:hover{color:var(--vp-c-brand-1)!important;text-decoration:underline}
+    .VPHero .VPButton{background-color:var(--vp-c-brand-1)!important;border-color:var(--vp-c-brand-1)!important;color:white!important;transition:all .3s ease;text-decoration:none!important}
+    .VPHero .VPButton:hover{background-color:var(--vp-c-brand-2)!important;border-color:var(--vp-c-brand-2)!important;color:#000!important;transform:translateY(-2px);text-decoration:none!important}
+    .VPContent a{color:var(--vp-c-brand-2);text-decoration:none;border-bottom:1px solid transparent;transition:all .3s ease}
+    .VPContent a:hover{color:var(--vp-c-brand-1);border-bottom-color:var(--vp-c-brand-1)}
+    .VPFeature .title,.VPFeature .link-text{transition:color .25s ease-in-out}
+    .VPFeature .link-text{color:var(--vp-c-brand-1)}
+    a.VPFeature.link:hover .title,a.VPFeature.link:hover .link-text{color:var(--vp-c-brand-2)}
+    html:not(.dark) .VPFeature{background-color:#202124!important;border-color:#3c3c3c!important}
+    html:not(.dark) .VPFeature .title{color:#C5F946!important}
+    html:not(.dark) .VPFeature .details{color:rgba(235,235,245,.6)!important}
+    html:not(.dark) .VPFeature .link-text{color:#347b6c!important}
+    html:not(.dark) .VPFeature .link-text .icon{fill:#347b6c!important}
+    html:not(.dark) a.VPFeature.link:hover{background-color:#2f2f2f!important;border-color:#555!important}
+    
+    :root{
+      --vp-c-brand-1:#347b6c;
+      --vp-c-brand-2:#C5F946;
+      --vp-c-brand-3:#347b6c;
+      --vp-c-brand-soft:rgba(52,123,108,.14);
+      --vp-c-bg-mute:rgba(52,123,108,.1);
+      --vp-c-bg-soft:rgba(52,123,108,.1);
+      --vp-c-divider:rgba(52,123,108,.2);
+      --vp-c-gutter:rgba(52,123,108,.1);
+      --vp-c-text-2:#b3b3b3;
     }
     
-    /* === СТИЛИ ДЛЯ КАРТОЧЕК НА ГЛАВНОЙ СТРАНИЦЕ === */
-    /* Плавный переход для заголовка и ссылки */
-    .VPFeature .title,
-    .VPFeature .link-text {
-      transition: color 0.25s ease-in-out;
+    .VPNavBarTitle .logo{height:32px!important;width:auto!important}
+    .VPNavBarSocialLinks{min-width:auto!important;justify-content:flex-end!important;gap:16px!important;margin-left:0!important;flex-shrink:0!important}
+    
+    @media (min-width:961px){
+      .VPNavBar .content{gap:0!important}
+      .VPNavBarMenu{margin-right:0!important}
+      .VPSocialLink:not(:last-child){margin-right:4px!important}
     }
     
-    /* Начальный цвет для ссылки и стрелки */
-    .VPFeature .link-text {
-      color: var(--vp-c-brand-1);
+    @media (max-width:960px) and (min-width:769px){
+      .VPNavBar .content{gap:0!important}
+      .VPNavBarMenu{margin-right:0!important}
+      .VPNavBarSocialLinks{margin-left:4px!important;gap:12px!important}
+      .VPSocialLink:not(:last-child){margin-right:2px!important}
     }
     
-    /* При наведении на ВСЮ карточку (которая является ссылкой)... */
-    a.VPFeature.link:hover .title,
-    a.VPFeature.link:hover .link-text {
-      color: var(--vp-c-brand-2); /* ...меняем цвет и заголовка, и ссылки на яркий */
-    }
-    /* === КОНЕЦ СТИЛЕЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
-
-    :root {
-      --vp-c-brand-1: #347b6c; /* Новый, более яркий зеленый */
-      --vp-c-brand-2: #C5F946;
-      --vp-c-brand-3: #347b6c;
-      --vp-c-brand-soft: rgba(52, 123, 108, 0.14);
-    }
-    .VPNavBarTitle .logo {
-      height: 32px !important;
-      width: auto !important;
-    }
-    .VPNavBarSocialLinks {
-      min-width: 4px !important;
-      justify-content: flex-end !important;
-      gap: 4px !important;
-      margin-left: 0px !important;
-    }
-    .VPSocialLink .vpi-social-github {
-      display: none !important;
-    }
-    .VPSocialLink {
-      width: auto !important;
-      height: auto !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-    }
-    .VPSocialLink[aria-label="login-link"]:hover::after {
-      background: var(--vp-c-bg-soft);
-      border-color: var(--vp-c-brand);
-    }
-    .VPSocialLink[aria-label="apply-link"]::after {
-      content: "Начать";
-      font-size: 14px;
-      color: white;
-      padding: 6px 12px;
-      border: 1px solid var(--vp-c-brand);
-      border-radius: 6px;
-      background: var(--vp-c-brand);
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      margin: 6px;
-    }
-    .VPSocialLink[aria-label="apply-link"]:hover::after {
-      background: var(--vp-c-brand-2) !important; /* Ярко-зеленый фон */
-      border-color: var(--vp-c-brand-2) !important;
-      color: #000 !important; /* Черный текст для читаемости */
-      transform: translateY(-1px);
-    }
-    .custom-footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      align-items: center;
-    }
-    .footer-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .footer-row a {
-      color: var(--vp-c-text-2);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .footer-row a:hover {
-      color: var(--vp-c-brand);
-    }
-    .dot-separator {
-      color: var(--vp-c-text-3);
-      font-weight: bold;
-    }
-    .VPFooter .copyright {
-      margin-top: 2px !important;
-    }
-    .VPSwitchAppearance {
-      display: none !important;
-    }
-    .VPNavBarSocialLinks::before,
-    .VPNavBarSocialLinks .divider {
-      display: none !important;
-    }
-    .VPNavBar .divider {
-      display: none !important;
-    }
-    @media (max-width: 768px) {
-      .VPNavBarSocialLinks {
-        width: 100% !important;
-        min-width: 100% !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
-        margin-left: 8 !important;
+    @media (max-width:768px){
+      .VPNavBar .VPNavBarSocialLinks{display:none!important}
+      .VPNavScreen{overflow-y:auto!important}
+      .VPNavScreen .VPNavScreenMenu{padding-bottom:16px!important}
+      .VPNavScreen .VPNavScreenSocialLinks,.VPNavScreen .VPNavScreenAppearance{margin:16px!important;padding:16px!important;border:1px solid var(--vp-c-divider)!important;border-radius:8px!important;background:var(--vp-c-bg-soft)!important}
+      .VPNavScreen .VPNavScreenAppearance{display:none!important}
+      .VPNavScreen .VPNavScreenSocialLinks{display:flex!important;flex-direction:column!important;gap:12px!important}
+      .VPNavScreen .VPSocialLink{display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;background:transparent!important;border-radius:0!important;border:none!important;transition:all .3s ease!important;text-decoration:none!important}
+      .VPNavScreen .VPSocialLink:hover{background:transparent!important;border-color:transparent!important}
+      .VPNavScreen .VPSocialLink[aria-label="apply-link"]::after{
+        display:flex!important;
+        align-items:center!important;
+        justify-content:center!important;
+        width:100%!important;
+        content:"Начать"!important;
+        background-image:linear-gradient(-45deg, #c5f946, #85a931, #c5f946, #85a931);
+        background-size:400% 400%;
+        animation:liquid-fluid 6s ease infinite;
+        color:#000!important;
+        border:none!important;
+        font-size:18px!important;
+        font-weight:600!important;
+        border-radius:12px!important;
+        padding:18px!important;
+        margin:0!important;
+        height:52px!important;
+        min-height:52px!important;
       }
-      .VPSocialLink {
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        box-sizing: border-box !important;
-      }
-      .VPSocialLink[aria-label="login-link"]::after,
-      .VPSocialLink[aria-label="apply-link"]::after {
-        width: 100% !important;
-        display: block !important;
-        text-align: center;
-        padding: 10px 12px !important;
-        margin: 10 !important;
-        box-sizing: border-box !important;
-      }
-      .footer-row {
-        flex-direction: column;
-        gap: 8px;
-      }
-      .dot-separator {
-        display: none;
-      }
+      .footer-row{flex-direction:column!important;gap:8px!important}
+      .dot-separator{display:none!important}
     }
+    
+    @keyframes liquid-fluid {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    .VPSocialLink .vpi-social-github{display:none!important}
+    .VPSocialLink{width:auto!important;height:auto!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important}
+    .VPSocialLink[aria-label="apply-link"]::after{
+      content:"Начать";
+      font-size:14px;
+      color:#000;
+      padding:8px 16px;
+      border-radius:12px;
+      background-image:linear-gradient(-45deg, #c5f946, #85a931, #c5f946, #85a931);
+      background-size:400% 400%;
+      animation:liquid-fluid 6s ease infinite;
+      transition:all 0.3s ease;
+      white-space:nowrap;
+      margin:0;
+      flex-shrink:0;
+      font-weight:600;
+      border:none;
+    }
+    .VPSocialLink[aria-label="apply-link"]:hover::after{
+      background-image:linear-gradient(-45deg, #85a931, #c5f946, #85a931, #c5f946);
+      color:#000;
+      transform:translateY(-2px);
+    }
+    
+    .custom-footer-links{display:flex;flex-direction:column;gap:3px;align-items:center}
+    .footer-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+    .footer-row a{color:var(--vp-c-text-2);text-decoration:none;transition:color .3s ease}
+    .footer-row a:hover{color:var(--vp-c-brand)}
+    .dot-separator{color:var(--vp-c-text-3);font-weight:bold}
+    .VPFooter .copyright{margin-top:2px!important}
     `]
   ],
   base: '/',
@@ -335,12 +254,10 @@ export default defineConfig({
     outlineTitle: 'На этой странице',
     returnToTopLabel: 'Наверх',
     
-    // --- ПЕРЕВОД НАВИГАЦИИ ---
     docFooter: {
       prev: 'Предыдущая страница',
       next: 'Следующая страница'
     },
-    // ---------------------------
     
     sidebar: {
       '/projects/diary-guide/keys/': {
