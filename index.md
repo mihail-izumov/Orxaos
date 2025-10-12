@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Orxaos"
   text: "От хаоса – к силе."
-  tagline: Место для тех, кто мечтает и действует.
+  tagline: Ясность внутри. Сила выражения. Бизнес, который растёт по вашим правилам.
   image:
     src: /mikhail-izyumov-ban-main-cmprsd.png
     alt: Михаил Изюмов
