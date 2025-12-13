@@ -1,6 +1,7 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: Orxaos | От хаоса – к силе
+description: Ясность внутри. Сила выражения. Бизнес, который растёт по вашим правилам.
 
 hero:
   name: "Orxaos"
