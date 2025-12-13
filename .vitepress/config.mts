@@ -186,7 +186,7 @@ export default defineConfig({
         align-items:center!important;
         justify-content:center!important;
         width:100%!important;
-        content:"Начать"!important;
+        content:"Получить ответ"!important;
         background-image:linear-gradient(-45deg, #c5f946, #85a931, #c5f946, #85a931);
         background-size:400% 400%;
         animation:liquid-fluid 6s ease infinite;
@@ -212,7 +212,7 @@ export default defineConfig({
     .VPSocialLink .vpi-social-github{display:none!important}
     .VPSocialLink{width:auto!important;height:auto!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important}
     .VPSocialLink[aria-label="apply-link"]::after{
-      content:"Начать";
+      content:"Получить ответ";
       font-size:14px;
       color:#000;
       padding:8px 16px;
