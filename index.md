@@ -7,7 +7,7 @@ hero:
   text: "От хаоса – к силе."
   tagline: Ясность внутри. Сила выражения. Бизнес, который растёт по вашим правилам.
   image:
-    src: /izumov-orxaos-avatar-12-12-2025 2.png
+    src: /izumov-orxaos-avatar-12-12-2025.png
     alt: Михаил Изюмов
   actions:
     - theme: brand
