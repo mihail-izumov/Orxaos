@@ -13,8 +13,6 @@ description: Основатель Сигнала и Модуля Роста®
 
 <a href="https://t.me/izumov/696" target="_blank">Читать манифест</a
 
-[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/86845476/9c4164f3-9e77-44bd-a284-f948e13fb358/Vchera-vyshlo-bolshoe-obnovlenie-Signala.md)
-
 ## Мой подход
 
 Любопытно наблюдать, как владельцы бизнеса делятся на типы. Одни гоняются за симптомами с азартом охотников, другие коллекционируют стратегии, но боятся шагнуть. Третьи ждут готовых рецептов.
