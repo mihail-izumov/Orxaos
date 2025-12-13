@@ -1,15 +1,19 @@
 ---
 title: Михаил Изюмов
-description: Основатель Модуля Роста® и Сигнала
+description: Основатель Сигнала и Модуля Роста®
 ---
 
 # Привет
 
-Я — Михаил Изюмов, основатель <a href="https://runscale.ru" target="_blank">Модуля Роста®</a> и <a href="https://cffx.ru/" target="_blank">Сигнала</a>.
+Я — Михаил Изюмов, основатель <a href="https://cffx.ru/" target="_blank">Сигнала</a> и <a href="https://runscale.ru" target="_blank">Модуля Роста®</a>.
 
 ## Мой текущий фокус
 
-Сделать [Модуль Роста®](https://runscale.ru/) №1 на рынке ИИ-автоматизации малого и среднего бизнеса в России.
+Сделать <a href="https://cffx.ru/" target="_blank">Сигнал</a живой системой между людьми и бизнесом, в которой любой отклик человека быстро превращается в понятное действие, измеримый результат и новый уровень партнёрства, а не в ещё одну жалобу или звёздочку.
+
+<a href="https://t.me/izumov/696" target="_blank">Читать манифест</a
+
+[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/86845476/9c4164f3-9e77-44bd-a284-f948e13fb358/Vchera-vyshlo-bolshoe-obnovlenie-Signala.md)
 
 ## Мой подход
 
