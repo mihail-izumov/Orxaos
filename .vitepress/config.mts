@@ -335,11 +335,11 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: 'Ars Orxaos',
       items: [
-        { text: 'Двигатель Смысла', link: '/ars_orxaos/overview' },
-        { text: 'Дьявол в Деталях', link: '/ars_orxaos/by-the-numbers' },
-        { text: 'Чудесные Истории', link: '/ars_orxaos/the-wonderful-stories-we-make' },
-        { text: 'Экспресс-аудит бренда', link: '/ars_orxaos/brand-express' },
-        { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' }
+        { text: 'Дизайн и айдентика', link: '/ars/index' },
+        { text: 'Проекты', link: '/ars/by-the-numbers' },
+        { text: 'Галерея', link: '/ars/the-wonderful-stories-we-make' },
+        { text: 'Экспресс-аудит бренда', link: '/ars/brand-express' },
+        { text: 'Креативным профессионалам', link: '/ars/creatives-apply' }
       ]
     },
     {
@@ -391,11 +391,11 @@ function sidebarWhyPark(): DefaultTheme.SidebarItem[] {
       text: 'Ars Orxaos',
       collapsed: false,
       items: [
-        { text: 'Двигатель Смысла', link: '/ars_orxaos/overview' },
-        { text: 'Дьявол в Деталях', link: '/ars_orxaos/by-the-numbers' },
-        { text: 'Чудесные Истории', link: '/ars_orxaos/the-wonderful-stories-we-make' },
-        { text: 'Экспресс-аудит бренда', link: '/ars_orxaos/brand-express' },
-        { text: 'Вы – креативный профессионал?', link: '/ars_orxaos/creatives-apply' }
+        { text: 'Дизайн и айдентика', link: '/ars/index' },
+        { text: 'Проекты', link: '/ars/by-the-numbers' },
+        { text: 'Галерея', link: '/ars/the-wonderful-stories-we-make' },
+        { text: 'Экспресс-аудит бренда', link: '/ars/brand-express' },
+        { text: 'Креативным профессионалам', link: '/ars/creatives-apply' }
       ]
     }
   ]
