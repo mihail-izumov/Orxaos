@@ -262,9 +262,6 @@ export default defineConfig({
       '/projects/diary-guide/keys/': {
         items: sidebarDiaryGuideKeys()
       },
-      '/projects/nol/journal': {
-        items: sidebarGuides()
-      },
       '/projects/diary-guide/unlock/': {
         items: sidebarDiaryGuide()
       },
