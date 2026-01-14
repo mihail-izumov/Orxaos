@@ -10,21 +10,21 @@ const cards = [
     badge: '₽50.000',
     status: 'Занято',
     description: 'Аналитика 29,600+ уникальных отзывов',
-    iconSrc: '/favicon.svg',
+    iconSrc: '/img/korzh/gifts/signalka-gift.png',
     iconAlt: 'Signalka Gift'
   },
   {
     badge: '₽150.000',
     status: 'Хочу',
     description: 'Кофейни сейчас и целевой масштаб сети',
-    iconSrc: '/favicon.svg',
+    iconSrc: '/img/korzh/gifts/heartdrop-gift.png',
     iconAlt: 'Heartdrop Gift'
   },
   {
     badge: '₽250.000',
     status: 'Хочу',
     description: 'Сила эффекта на рынок Самары',
-    iconSrc: '/favicon.svg',
+    iconSrc: '/img/korzh/gifts/signalka-gift.png',
     iconAlt: 'Signalka Gift'
   }
 ]
@@ -63,13 +63,15 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
       <div class="stats-grid">
         <div v-for="(card, idx) in cards" :key="idx" class="stat-card">
           <div class="stat-content">
-            <!-- Заголовок: на десктопе визуально центр, на мобилке цена слева, иконка справа -->
+            <!-- ДЕСКТОП: фон-картинка строго по центру карточки -->
+            <div class="stat-bg-icon" aria-hidden="true">
+              <img :src="card.iconSrc" :alt="card.iconAlt" />
+            </div>
+
+            <!-- МОБИЛКА: отдельная инлайн-иконка в первой строке -->
             <div class="stat-header">
               <div class="stat-title">{{ card.badge }}</div>
-
-              <!-- Одна и та же иконка: на десктопе уходит в абсолютный центр фоном,
-                   на мобилке становится обычным элементом справа -->
-              <div class="stat-icon-holder" aria-hidden="true">
+              <div class="stat-inline-icon" aria-hidden="true">
                 <img :src="card.iconSrc" :alt="card.iconAlt" />
               </div>
             </div>
@@ -83,10 +85,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
                 {{ card.status }}
               </a>
 
-              <div
-                v-else
-                class="stat-metric-badge busy-badge"
-              >
+              <div v-else class="stat-metric-badge busy-badge">
                 {{ card.status }}
               </div>
             </div>
@@ -134,7 +133,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   box-sizing: border-box;
 }
 
-/* Монохром-палитра */
+/* Монохром */
 .main-card {
   --bg: #2a2a2a;
   --card: #1f1f1f;
@@ -225,7 +224,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.14) 60%, rgba(255,255,255,0) 100%);
 }
 
-/* ДЕСКТОП: центрируем всё внутри карточки */
+/* ДЕСКТОП: всё по центру */
 .stat-content {
   position: relative;
   z-index: 2;
@@ -235,23 +234,24 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;     /* центр по горизонтали */
-  text-align: center;      /* текст по центру */
+  align-items: center;
+  text-align: center;
+
+  /* контролируем вертикальные интервалы, чтобы не "схлопывались" */
+  gap: 18px;
 
   background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%);
   transition: background 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Свечение ПОВЕРХ картинки */
+/* Свечение поверх картинки */
 .stat-content::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 20px;
   pointer-events: none;
-  z-index: 2;
-
+  z-index: 3; /* выше картинки */
   background:
     radial-gradient(120% 85% at 22% 0%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.07) 38%, rgba(255,255,255,0) 70%),
     radial-gradient(100% 70% at 55% 0%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 72%);
@@ -270,15 +270,39 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     radial-gradient(100% 70% at 55% 0%, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.00) 72%);
 }
 
-/* Заголовок внутри карточки — по центру */
+/* ФОН-КАРТИНКА: строго в центре карточки + масштаб 1.5 */
+.stat-bg-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2; /* под свечением (::after), но над фоном карточки */
+  opacity: 0.34;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1.5);
+  transform-origin: center center;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.stat-bg-icon img {
+  width: 210px;   /* базовый размер, scale(1.5) даст ~315px */
+  height: 210px;
+  object-fit: contain;
+  display: block;
+}
+
+.stat-card:hover .stat-bg-icon {
+  opacity: 0.50;
+  transform: translate(-50%, -58%) scale(1.5);
+}
+
+/* Заголовок */
 .stat-header {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
   position: relative;
-  z-index: 3;
+  z-index: 4; /* выше свечения */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .stat-title {
@@ -294,82 +318,41 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   color: rgba(255,255,255,0.92);
 }
 
-/* Картинка: абсолютный центр, под свечением и под текстом */
-.stat-icon-holder {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* строго по центру */
-  z-index: 1;
-  opacity: 0.34;
-  pointer-events: none;
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+/* МОБИЛЬНАЯ инлайн-иконка по умолчанию скрыта на десктопе */
+.stat-inline-icon {
+  display: none;
 }
 
-/* +1.5x: 170px -> 255px */
-.stat-icon-holder img {
-  width: 255px;
-  height: 255px;
-  object-fit: contain;
-}
-
-.stat-card:hover .stat-icon-holder {
-  opacity: 0.50;
-  transform: translate(-50%, -58%);
-}
-
-/* Бейдж — строго центр */
+/* Бейдж-центр */
 .stat-main {
   width: 100%;
-  flex: 1;
+  position: relative;
+  z-index: 4;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 3;
 }
 
+/* Бейджи */
 .stat-metric-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 10px 18px;
   border-radius: 12px;
-
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.18);
-
   color: rgba(255,255,255,0.95);
   font-weight: 700;
   letter-spacing: 0.06em;
   font-size: clamp(14px, 2.5vw, 18px);
   white-space: nowrap;
-
-  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
   text-transform: uppercase;
-
   text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-.stat-description {
-  width: 100%;
-  position: relative;
-  z-index: 3;
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.48);
-  line-height: 1.4;
-  text-align: center;
-  transition: color 0.4s ease;
-  margin-top: 12px;
-}
-
-.stat-card:hover .stat-description {
-  color: rgba(255,255,255,0.68);
-}
-
-/* ХОЧУ: кликабельно + shimmer */
+/* ХОЧУ: shimmer */
 .want-badge {
   position: relative;
   overflow: hidden;
@@ -406,13 +389,26 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   transform: translateY(-1px);
 }
 
-.want-badge:focus-visible {
-  outline: 2px solid rgba(255,255,255,0.35);
-  outline-offset: 2px;
+/* ЗАНЯТО: не подсвечивать при hover */
+.busy-badge {}
+
+/* Описание: на десктопе визуально ближе к низу, но без схлопывания */
+.stat-description {
+  width: 100%;
+  position: relative;
+  z-index: 4;
+  margin-top: 22px; /* фиксируем «воздух» */
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.4;
+  text-align: center;
+  transition: color 0.4s ease;
 }
 
-/* ЗАНЯТО: не подсвечивать при наведении */
-.busy-badge {}
+.stat-card:hover .stat-description {
+  color: rgba(255,255,255,0.68);
+}
 
 /* Пульт */
 .control-panel { margin-top: 24px; }
@@ -445,7 +441,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   color: rgba(255, 255, 255, 0.7);
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
-
 .ticket-button:hover {
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
@@ -458,7 +453,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   border: none;
   box-shadow: none;
 }
-
 .review-button:hover {
   background: #ffffff;
   color: #000000;
@@ -489,7 +483,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   padding: 24px;
 }
-
 .modal-header { display: flex; align-items: center; margin-bottom: 12px; }
 .modal-title { font-weight: 700; font-size: 18px; }
 .modal-body { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.5; }
@@ -505,7 +498,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 }
 .modal-ok:hover { background: #444; }
 
-/* Мобильная версия: цена слева от картинки (3 ряда) */
+/* Мобильная версия: 3 ряда + нормальные расстояния (НЕ схлопываем) */
 @media (max-width: 768px) {
   .main-card { padding: 20px; border-radius: 20px; }
 
@@ -522,51 +515,47 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   .stat-content {
     padding: 18px 16px;
     min-height: auto;
+    align-items: stretch;
     text-align: left;
-    align-items: stretch; /* на мобилке ширину отдаём строкам */
+    gap: 14px; /* возвращаем воздух между рядами */
   }
 
-  /* На мобилке свечению оставляем быть, но смотрим аккуратно */
-  .stat-description {
-    text-align: left;
-    margin: 0;
-  }
+  /* На мобилке фон-картинку выключаем, чтобы не мешала */
+  .stat-bg-icon { display: none; }
 
-  /* header — строка: цена слева, иконка справа */
+  /* Ряд 1: цена слева, иконка справа */
   .stat-header {
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    gap: 12px;
   }
 
   .stat-title {
-    margin: 0;
     font-size: 12px;
     letter-spacing: 1.6px;
   }
 
-  /* Иконка на мобилке — обычная справа, не фон */
-  .stat-icon-holder {
-    position: static;
-    transform: none;
-    opacity: 0.65;
-    z-index: 3;
+  .stat-inline-icon {
+    display: block;
+    opacity: 0.85;
+    flex: 0 0 auto;
   }
 
-  .stat-icon-holder img {
-    width: 44px;
-    height: 44px;
+  .stat-inline-icon img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    display: block;
   }
 
-  .stat-card:hover .stat-icon-holder {
-    opacity: 0.65;
-    transform: none;
-  }
-
+  /* Ряд 2: бейдж */
   .stat-main {
-    flex: none;
     justify-content: flex-start;
+    margin-top: 4px; /* чуть воздуха после первого ряда */
+  }
+
+  /* Ряд 3: описание — увеличенный отступ от бейджа */
+  .stat-description {
+    text-align: left;
+    margin-top: 10px;
   }
 
   .stat-metric-badge {
