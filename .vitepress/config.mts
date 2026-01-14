@@ -244,7 +244,7 @@ export default defineConfig({
   cleanUrls: true,
   appearance: 'force-dark',
   outDir: '.vitepress/dist',
-  description: 'Мечтать и действовать → Расти по своим правилам',
+  description: 'Мечтать и действовать',
   themeConfig: {
     logo: '/orxaos-icon.svg',
     siteTitle: "Orxaos",
@@ -263,7 +263,7 @@ export default defineConfig({
         items: sidebarDiaryGuideKeys()
       },
       '/projects/nol/journal': {
-        items: sidebarMasterplan()
+        items: sidebarGuides()
       },
       '/projects/diary-guide/unlock/': {
         items: sidebarDiaryGuide()
