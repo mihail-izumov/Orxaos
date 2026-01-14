@@ -10,26 +10,25 @@ const cards = [
     badge: '₽50.000',
     status: 'Занято',
     description: 'Аналитика 29,600+ уникальных отзывов',
-    iconSrc: '/favicon.svg',
+    iconSrc: '/img/korzh/gifts/signalka-gift.png',
     iconAlt: 'Signalka Gift'
   },
   {
     badge: '₽150.000',
     status: 'Хочу',
     description: 'Кофейни сейчас и целевой масштаб сети',
-    iconSrc: '/favicon.svg',
+    iconSrc: '/img/korzh/gifts/heartdrop-gift.png',
     iconAlt: 'Heartdrop Gift'
   },
   {
     badge: '₽250.000',
     status: 'Хочу',
     description: 'Сила эффекта на рынок Самары',
-    iconSrc: '/favicon.svg',
+    iconSrc: '/img/korzh/gifts/signalka-gift.png',
     iconAlt: 'Signalka Gift'
   }
 ]
 
-// Дата-бейдж (svg внутри) — переведён в монохром
 const currentDateBadge = computed(() => {
   const today = new Date()
   const day = String(today.getDate()).padStart(2, '0')
@@ -49,13 +48,8 @@ const onKeydown = (e) => {
   if (e.key === 'Escape') showInfoModal.value = false
 }
 
-onMounted(() => {
-  window.addEventListener('keydown', onKeydown)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', onKeydown)
-})
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 </script>
 
 <template>
@@ -69,17 +63,18 @@ onUnmounted(() => {
       <div class="stats-grid">
         <div v-for="(card, idx) in cards" :key="idx" class="stat-card">
           <div class="stat-content">
+            <!-- Заголовок: на десктопе визуально центр, на мобилке цена слева, иконка справа -->
             <div class="stat-header">
               <div class="stat-title">{{ card.badge }}</div>
 
-              <!-- Иконка: на десктопе — большой фон, на мобилке — компактно справа -->
+              <!-- Одна и та же иконка: на десктопе уходит в абсолютный центр фоном,
+                   на мобилке становится обычным элементом справа -->
               <div class="stat-icon-holder" aria-hidden="true">
                 <img :src="card.iconSrc" :alt="card.iconAlt" />
               </div>
             </div>
 
             <div class="stat-main">
-              <!-- "Хочу" кликабельно -->
               <a
                 v-if="card.status === 'Хочу'"
                 class="stat-metric-badge want-badge"
@@ -88,7 +83,6 @@ onUnmounted(() => {
                 {{ card.status }}
               </a>
 
-              <!-- "Занято" НЕ подсвечиваем на hover -->
               <div
                 v-else
                 class="stat-metric-badge busy-badge"
@@ -147,11 +141,6 @@ onUnmounted(() => {
   --text: rgba(255,255,255,0.92);
   --muted: rgba(255,255,255,0.62);
   --muted2: rgba(255,255,255,0.48);
-  --stroke: rgba(255,255,255,0.12);
-  --stroke2: rgba(255,255,255,0.20);
-  --stroke3: rgba(255,255,255,0.28);
-  --glow: rgba(255,255,255,0.10);
-  --glowHover: rgba(255,255,255,0.16);
 
   background: var(--bg);
   border-radius: 24px;
@@ -236,7 +225,7 @@ onUnmounted(() => {
   background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.14) 60%, rgba(255,255,255,0) 100%);
 }
 
-/* Контент карточки + слои (важно для "свечения поверх картинки") */
+/* ДЕСКТОП: центрируем всё внутри карточки */
 .stat-content {
   position: relative;
   z-index: 2;
@@ -247,13 +236,14 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;     /* центр по горизонтали */
+  text-align: center;      /* текст по центру */
 
-  /* базовое внутреннее свечение */
   background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%);
   transition: background 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* ВАЖНО: дополнительный слой свечения, который гарантированно лежит ПОВЕРХ картинки */
+/* Свечение ПОВЕРХ картинки */
 .stat-content::after {
   content: '';
   position: absolute;
@@ -262,7 +252,6 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 2;
 
-  /* чуть более «собранное» свечение сверху, как на рефе */
   background:
     radial-gradient(120% 85% at 22% 0%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.07) 38%, rgba(255,255,255,0) 70%),
     radial-gradient(100% 70% at 55% 0%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 72%);
@@ -281,15 +270,15 @@ onUnmounted(() => {
     radial-gradient(100% 70% at 55% 0%, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.00) 72%);
 }
 
-/* Хедер внутри карточки */
+/* Заголовок внутри карточки — по центру */
 .stat-header {
+  width: 100%;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   position: relative;
-  z-index: 3; /* выше свечения и картинки */
+  z-index: 3;
 }
 
 .stat-title {
@@ -305,21 +294,22 @@ onUnmounted(() => {
   color: rgba(255,255,255,0.92);
 }
 
-/* Картинка: на десктопе как большой фон (но всё равно под свечением) */
+/* Картинка: абсолютный центр, под свечением и под текстом */
 .stat-icon-holder {
   position: absolute;
-  top: 52%;
-  left: 52%;
-  transform: translate(-50%, -50%);
-  z-index: 1; /* под ::after и под текстом */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* строго по центру */
+  z-index: 1;
   opacity: 0.34;
   pointer-events: none;
   transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* +1.5x: 170px -> 255px */
 .stat-icon-holder img {
-  width: 170px;   /* чуть больше */
-  height: 170px;  /* чуть больше */
+  width: 255px;
+  height: 255px;
   object-fit: contain;
 }
 
@@ -328,17 +318,17 @@ onUnmounted(() => {
   transform: translate(-50%, -58%);
 }
 
-/* Основной блок */
+/* Бейдж — строго центр */
 .stat-main {
+  width: 100%;
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
-  z-index: 3; /* выше свечения */
+  z-index: 3;
 }
 
-/* Бейджи */
 .stat-metric-badge {
   display: inline-flex;
   align-items: center;
@@ -363,13 +353,14 @@ onUnmounted(() => {
 }
 
 .stat-description {
+  width: 100%;
   position: relative;
   z-index: 3;
   font-size: 13px;
   font-weight: 400;
   color: rgba(255,255,255,0.48);
   line-height: 1.4;
-  text-align: left;
+  text-align: center;
   transition: color 0.4s ease;
   margin-top: 12px;
 }
@@ -378,7 +369,7 @@ onUnmounted(() => {
   color: rgba(255,255,255,0.68);
 }
 
-/* ХОЧУ: кликабельно + shimmer + hover (монохром) */
+/* ХОЧУ: кликабельно + shimmer */
 .want-badge {
   position: relative;
   overflow: hidden;
@@ -420,10 +411,8 @@ onUnmounted(() => {
   outline-offset: 2px;
 }
 
-/* ЗАНЯТО: на hover НЕ подсвечиваем */
-.busy-badge {
-  /* оставляем базовые стили и не трогаем их в hover */
-}
+/* ЗАНЯТО: не подсвечивать при наведении */
+.busy-badge {}
 
 /* Пульт */
 .control-panel { margin-top: 24px; }
@@ -516,7 +505,7 @@ onUnmounted(() => {
 }
 .modal-ok:hover { background: #444; }
 
-/* Мобильная версия: компактно — цена слева от картинки, 3 ряда */
+/* Мобильная версия: цена слева от картинки (3 ряда) */
 @media (max-width: 768px) {
   .main-card { padding: 20px; border-radius: 20px; }
 
@@ -534,12 +523,21 @@ onUnmounted(() => {
     padding: 18px 16px;
     min-height: auto;
     text-align: left;
-    gap: 10px;
+    align-items: stretch; /* на мобилке ширину отдаём строкам */
   }
 
-  /* В мобильной: header становится строкой "цена + иконка" */
+  /* На мобилке свечению оставляем быть, но смотрим аккуратно */
+  .stat-description {
+    text-align: left;
+    margin: 0;
+  }
+
+  /* header — строка: цена слева, иконка справа */
   .stat-header {
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
 
   .stat-title {
@@ -548,12 +546,12 @@ onUnmounted(() => {
     letter-spacing: 1.6px;
   }
 
-  /* Иконка в мобилке — компактно справа (и не как фон) */
+  /* Иконка на мобилке — обычная справа, не фон */
   .stat-icon-holder {
     position: static;
     transform: none;
     opacity: 0.65;
-    z-index: 3; /* чтобы не терялась */
+    z-index: 3;
   }
 
   .stat-icon-holder img {
@@ -574,11 +572,6 @@ onUnmounted(() => {
   .stat-metric-badge {
     font-size: 1.05rem !important;
     padding: 8px 14px !important;
-  }
-
-  .stat-description {
-    margin: 0;
-    width: 100%;
   }
 
   .button-container { flex-direction: column; gap: 8px; }
