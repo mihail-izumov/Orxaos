@@ -16,8 +16,8 @@
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Гид по книге «The Creative Act: A Way of Being, Rick Rubin»</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Не просто саммари, а практическое руководство по книге Рика Рубина. Помогает творческим профессионалам взять ключевые идеи и сразу применить их в работе и жизни.</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">«The Creative Act: A Way of Being, Rick Rubin»</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Руководство по книге Рика Рубина. Помогает творческим профессионалам взять ключевые идеи и сразу применить их в работе и жизни.</p>
     </div>
     <a href="/projects/the-creative-act_a-way-of-being_summary" class="project-button">
       Читать
