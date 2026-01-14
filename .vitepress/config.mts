@@ -272,7 +272,7 @@ export default defineConfig({
         items: sidebarCreativeAct()
       },
       '/projects/': {
-        items: sidebarGuidues()
+        items: sidebarGuides()
       },
       '/meet-mikhail/': {
         items: sidebarMikhail()
