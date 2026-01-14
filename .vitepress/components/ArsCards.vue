@@ -10,21 +10,21 @@ const cards = [
     badge: '₽50.000',
     status: 'Занято',
     description: 'Аналитика 29,600+ уникальных отзывов',
-    iconSrc: '/img/korzh/gifts/signalka-gift.png',
+    iconSrc: '/favicon.svg',
     iconAlt: 'Signalka Gift'
   },
   {
     badge: '₽150.000',
     status: 'Хочу',
     description: 'Кофейни сейчас и целевой масштаб сети',
-    iconSrc: '/img/korzh/gifts/heartdrop-gift.png',
+    iconSrc: '/favicon.svg',
     iconAlt: 'Heartdrop Gift'
   },
   {
     badge: '₽250.000',
     status: 'Хочу',
     description: 'Сила эффекта на рынок Самары',
-    iconSrc: '/img/korzh/gifts/signalka-gift.png',
+    iconSrc: '/favicon.svg',
     iconAlt: 'Signalka Gift'
   }
 ]
