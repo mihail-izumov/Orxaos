@@ -167,7 +167,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <div class="start-button-container">
   <!-- Основная кнопка -->
-  <a href="/start" class="btn btn-primary">Начать →</a>
+  <a href="/start#для-консультации-и-новых-проектов" class="btn btn-primary">Начать →</a>
 </div>
 
 <style>
