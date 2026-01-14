@@ -319,6 +319,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: 'Обзор', link: '/projects/overview' },
         { text: 'Ключ к Цифровому Дневнику', link: '/projects/diary-guide/unlock/overview' },
+        { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
         { text: 'The Creative Act...', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     },
@@ -344,8 +345,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: '100 фактов обо мне', link: '/meet-mikhail/cv' },
         { text: 'Заметки', link: '/projects/nol/journal' },
-        { text: 'Чудесная Гостиная', link: '/projects/nol' },
-        { text: 'Гениальная простота', link: '/projects/simple-is-smart' }
+        { text: 'Телеграм-канал', link: '/projects/nol' }
       ]
     }
   ]
@@ -359,6 +359,7 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Обзор', link: '/projects/overview' },
         { text: 'Ключ к Цифровому Дневнику', link: '/projects/diary-guide/unlock/overview' },
+        { text: 'Гениальная простота', link: '/projects/simple-is-smart' }
         { text: 'The Creative Act...', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     }
