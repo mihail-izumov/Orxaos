@@ -277,8 +277,8 @@ export default defineConfig({
       '/meet-mikhail/': {
         items: sidebarMasterplan()
       },
-      '/ars_orxaos/': {
-        items: sidebarWhyPark()
+      '/ars/': {
+        items: sidebarArs()
       }
     },
 
@@ -381,7 +381,7 @@ function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-function sidebarWhyPark(): DefaultTheme.SidebarItem[] {
+function sidebarArs(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'Дизайн',
