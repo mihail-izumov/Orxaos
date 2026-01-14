@@ -14,12 +14,12 @@
     </a>
   </div>
 
-<div class=«project-card»>
+<div class="project-card">
     <div>
-      <h3 style=«color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;»>Гениальная простота</h3>
-      <p style=«margin: 0; line-height: 1.6; color: var(—vp-c-text-1);»>Лекция о творческой продуктивности. О том, как управлять вниманием, находить неочевидные решения и вдохновлять людей, делая сложное простым.</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Гениальная простота</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(—vp-c-text-1);">Лекция о творческой продуктивности. О том, как управлять вниманием, находить неочевидные решения и вдохновлять людей, делая сложное простым.</p>
     </div>
-    <a href=«/projects/simple-is-smart» class=«project-button»>
+    <a href="/projects/simple-is-smart" class="project-button">
       Смотреть и читать
     </a>
   </div>
