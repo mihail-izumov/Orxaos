@@ -2,35 +2,34 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const establishment = {
-  name: 'Корж'
+  name: 'Слоты на айдентику'
 }
 
-// Данные по 3 карточкам (иконки можно заменить на свои при необходимости)
 const cards = [
   {
     badge: '₽50.000',
     status: 'Занято',
     description: 'Аналитика 29,600+ уникальных отзывов',
-    iconSrc: '/izumov-orxaos-avatar-12-12-2025.png',
+    iconSrc: '/favicon.svg',
     iconAlt: 'Signalka Gift'
   },
   {
     badge: '₽150.000',
     status: 'Хочу',
     description: 'Кофейни сейчас и целевой масштаб сети',
-    iconSrc: '/izumov-orxaos-avatar-12-12-2025.png',
+    iconSrc: '/favicon.svg',
     iconAlt: 'Heartdrop Gift'
   },
   {
-    badge: '₽150.000',
+    badge: '₽250.000',
     status: 'Хочу',
     description: 'Сила эффекта на рынок Самары',
-    iconSrc: '/izumov-orxaos-avatar-12-12-2025.png',
+    iconSrc: '/favicon.svg',
     iconAlt: 'Signalka Gift'
   }
 ]
 
-// Бейдж с датой — 1 в 1 по логике из второго компонента
+// Дата-бейдж (svg внутри) — переведён в монохром
 const currentDateBadge = computed(() => {
   const today = new Date()
   const day = String(today.getDate()).padStart(2, '0')
@@ -42,10 +41,9 @@ const currentDateBadge = computed(() => {
   ]
   const monthName = monthNames[today.getMonth()]
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="signal-radio-icon" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><path d="M16.247 7.761a6 6 0 0 1 0 8.478"/><path d="M19.075 4.933a10 10 0 0 1 0 14.134"/><path d="M4.925 19.067a10 10 0 0 1 0-14.134"/><path d="M7.753 16.239a6 6 0 0 1 0-8.478"/><circle cx="12" cy="12" r="2"/></svg> ${day}.${month} → ${monthName} ${year}`
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#bdbdbd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="signal-radio-icon" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M16.247 7.761a6 6 0 0 1 0 8.478"/><path d="M19.075 4.933a10 10 0 0 1 0 14.134"/><path d="M4.925 19.067a10 10 0 0 1 0-14.134"/><path d="M7.753 16.239a6 6 0 0 1 0-8.478"/><circle cx="12" cy="12" r="2"/></svg> ${day}.${month} → ${monthName} ${year}`
 })
 
-// Modal (оставлен как был)
 const showInfoModal = ref(false)
 const onKeydown = (e) => {
   if (e.key === 'Escape') showInfoModal.value = false
@@ -63,7 +61,6 @@ onUnmounted(() => {
 <template>
   <div class="reviews-widget-content">
     <div class="main-card">
-      <!-- Новый хедер: слева "Корж", справа бейдж с датой -->
       <div class="signal-establishment-header">
         <h3 class="signal-cafe-name">{{ establishment.name }}</h3>
         <div class="signal-status-badge" v-html="currentDateBadge"></div>
@@ -72,20 +69,29 @@ onUnmounted(() => {
       <div class="stats-grid">
         <div v-for="(card, idx) in cards" :key="idx" class="stat-card">
           <div class="stat-content">
-            <!-- Иконка-картинка внутри карточки (эффект как в signal-stat-icon) -->
-            <div class="stat-bg-icon">
-              <img :src="card.iconSrc" :alt="card.iconAlt" />
-            </div>
-
             <div class="stat-header">
               <div class="stat-title">{{ card.badge }}</div>
+
+              <!-- Иконка: на десктопе — большой фон, на мобилке — компактно справа -->
+              <div class="stat-icon-holder" aria-hidden="true">
+                <img :src="card.iconSrc" :alt="card.iconAlt" />
+              </div>
             </div>
 
             <div class="stat-main">
-              <!-- Shimmer только для "Хочу" -->
+              <!-- "Хочу" кликабельно -->
+              <a
+                v-if="card.status === 'Хочу'"
+                class="stat-metric-badge want-badge"
+                href="/start"
+              >
+                {{ card.status }}
+              </a>
+
+              <!-- "Занято" НЕ подсвечиваем на hover -->
               <div
-                class="stat-metric-badge"
-                :class="{ 'want-badge': card.status === 'Хочу' }"
+                v-else
+                class="stat-metric-badge busy-badge"
               >
                 {{ card.status }}
               </div>
@@ -98,21 +104,11 @@ onUnmounted(() => {
 
       <div class="control-panel">
         <div class="button-container">
-          <a
-            href="/invest/sim"
-            class="action-button ticket-button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="/invest/sim" class="action-button ticket-button" target="_blank" rel="noopener noreferrer">
             Поделиться
           </a>
 
-          <a
-            href="/invest/smr"
-            class="action-button review-button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="/invest/smr" class="action-button review-button" target="_blank" rel="noopener noreferrer">
             Заявка на проект
             <svg class="button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="m9 18 6-6-6-6" />
@@ -144,16 +140,28 @@ onUnmounted(() => {
   box-sizing: border-box;
 }
 
+/* Монохром-палитра */
 .main-card {
-  background: #2a2a2a;
+  --bg: #2a2a2a;
+  --card: #1f1f1f;
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.62);
+  --muted2: rgba(255,255,255,0.48);
+  --stroke: rgba(255,255,255,0.12);
+  --stroke2: rgba(255,255,255,0.20);
+  --stroke3: rgba(255,255,255,0.28);
+  --glow: rgba(255,255,255,0.10);
+  --glowHover: rgba(255,255,255,0.16);
+
+  background: var(--bg);
   border-radius: 24px;
   padding: 48px;
   width: 100%;
   box-sizing: border-box;
-  color: #e0e0e0;
+  color: var(--text);
 }
 
-/* Хедер 1 в 1 по структуре/стилю из второго компонента */
+/* Хедер */
 .signal-establishment-header {
   display: flex;
   justify-content: space-between;
@@ -169,15 +177,15 @@ onUnmounted(() => {
 }
 
 .signal-status-badge {
-  background: linear-gradient(135deg, rgba(169, 140, 246, 0.2), rgba(0, 0, 0, 0.2));
-  color: rgba(220, 210, 255, 0.9);
-  border: 1px solid rgba(169, 140, 246, 0.3);
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(0,0,0,0.15));
+  color: rgba(255,255,255,0.78);
+  border: 1px solid rgba(255,255,255,0.16);
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.35);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   display: flex;
@@ -190,7 +198,7 @@ onUnmounted(() => {
   margin-right: 4px;
 }
 
-/* СЕТКА СТАТИСТИКИ */
+/* Сетка */
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -199,13 +207,10 @@ onUnmounted(() => {
 
 .stat-card {
   position: relative;
-  background: #1f1f1f;
+  background: var(--card);
   border-radius: 22px;
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   overflow: hidden;
-  border: none;
-  background-clip: padding-box;
-  box-shadow: inset 0 0 0 1px transparent;
 }
 
 .stat-card::before {
@@ -214,7 +219,7 @@ onUnmounted(() => {
   inset: 0;
   border-radius: 22px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.35) 0%, rgba(193, 154, 107, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 60%, rgba(255,255,255,0) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -228,101 +233,156 @@ onUnmounted(() => {
 }
 
 .stat-card:hover::before {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.6) 0%, rgba(155, 118, 83, 0.3) 60%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.14) 60%, rgba(255,255,255,0) 100%);
 }
 
+/* Контент карточки + слои (важно для "свечения поверх картинки") */
 .stat-content {
-  background: radial-gradient(circle at 50% 0%, rgba(193, 154, 107, 0.08) 0%, transparent 70%);
+  position: relative;
+  z-index: 2;
   border-radius: 20px;
   padding: 24px 20px;
+  min-height: 240px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 240px;
-  text-align: center;
-  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  position: relative;
+
+  /* базовое внутреннее свечение */
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%);
+  transition: background 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ВАЖНО: дополнительный слой свечения, который гарантированно лежит ПОВЕРХ картинки */
+.stat-content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
   z-index: 2;
+
+  /* чуть более «собранное» свечение сверху, как на рефе */
+  background:
+    radial-gradient(120% 85% at 22% 0%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.07) 38%, rgba(255,255,255,0) 70%),
+    radial-gradient(100% 70% at 55% 0%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 72%);
+  mix-blend-mode: screen;
+  opacity: 0.95;
 }
 
 .stat-card:hover .stat-content {
-  background: radial-gradient(circle at 50% 0%, rgba(193, 154, 107, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.09) 0%, transparent 70%);
 }
 
-/* Иконка-картинка как в signal-stat-icon */
-.stat-bg-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  opacity: 0.35;
-  pointer-events: none;
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+.stat-card:hover .stat-content::after {
+  opacity: 1;
+  background:
+    radial-gradient(120% 85% at 22% 0%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.10) 40%, rgba(255,255,255,0) 72%),
+    radial-gradient(100% 70% at 55% 0%, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.00) 72%);
 }
 
-.stat-bg-icon img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-}
-
-.stat-card:hover .stat-bg-icon {
-  opacity: 0.5;
-  transform: translate(-50%, -58%);
-}
-
-/* HEADER СТАТИСТИКИ */
+/* Хедер внутри карточки */
 .stat-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 12px;
-  height: auto;
-  justify-content: flex-start;
+
+  position: relative;
+  z-index: 3; /* выше свечения и картинки */
 }
 
 .stat-title {
   font-size: 14px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255,255,255,0.78);
   text-transform: uppercase;
   letter-spacing: 2px;
-  transition: all 0.4s ease;
+  transition: color 0.4s ease;
 }
 
 .stat-card:hover .stat-title {
-  color: #d4af37;
+  color: rgba(255,255,255,0.92);
 }
 
+/* Картинка: на десктопе как большой фон (но всё равно под свечением) */
+.stat-icon-holder {
+  position: absolute;
+  top: 52%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* под ::after и под текстом */
+  opacity: 0.34;
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.stat-icon-holder img {
+  width: 170px;   /* чуть больше */
+  height: 170px;  /* чуть больше */
+  object-fit: contain;
+}
+
+.stat-card:hover .stat-icon-holder {
+  opacity: 0.50;
+  transform: translate(-50%, -58%);
+}
+
+/* Основной блок */
 .stat-main {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 3; /* выше свечения */
 }
 
+/* Бейджи */
 .stat-metric-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   padding: 10px 18px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+
+  color: rgba(255,255,255,0.95);
+  font-weight: 700;
+  letter-spacing: 0.06em;
   font-size: clamp(14px, 2.5vw, 18px);
   white-space: nowrap;
-  transition: all 0.4s ease;
+
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
   text-transform: uppercase;
+
+  text-decoration: none;
 }
 
-/* Shimmer-анимация для "Хочу" (как signal-100-badge) */
+.stat-description {
+  position: relative;
+  z-index: 3;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.4;
+  text-align: left;
+  transition: color 0.4s ease;
+  margin-top: 12px;
+}
+
+.stat-card:hover .stat-description {
+  color: rgba(255,255,255,0.68);
+}
+
+/* ХОЧУ: кликабельно + shimmer + hover (монохром) */
 .want-badge {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .want-badge::before {
@@ -332,11 +392,11 @@ onUnmounted(() => {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    transparent 20%,
-    rgba(212, 175, 55, 0.28) 40%,
-    rgba(193, 154, 107, 0.45) 50%,
-    rgba(212, 175, 55, 0.28) 60%,
-    transparent 80%,
+    transparent 22%,
+    rgba(255,255,255,0.18) 42%,
+    rgba(255,255,255,0.30) 50%,
+    rgba(255,255,255,0.18) 58%,
+    transparent 78%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -348,29 +408,25 @@ onUnmounted(() => {
   50% { background-position: 200% 0; }
 }
 
-.stat-card:hover .stat-metric-badge {
-  border-color: #c19a6b;
-  background: rgba(193, 154, 107, 0.2);
-  color: #d4af37;
+.stat-card:hover .want-badge {
+  border-color: rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.98);
+  transform: translateY(-1px);
 }
 
-.stat-description {
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.4;
-  text-align: center;
-  transition: color 0.4s ease;
-  margin-top: 12px;
+.want-badge:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.35);
+  outline-offset: 2px;
 }
 
-.stat-card:hover .stat-description {
-  color: rgba(255, 255, 255, 0.8);
+/* ЗАНЯТО: на hover НЕ подсвечиваем */
+.busy-badge {
+  /* оставляем базовые стили и не трогаем их в hover */
 }
 
-.control-panel {
-  margin-top: 24px;
-}
+/* Пульт */
+.control-panel { margin-top: 24px; }
 
 .button-container {
   display: flex;
@@ -395,7 +451,6 @@ onUnmounted(() => {
   text-decoration: none;
 }
 
-/* КНОПКА 1 */
 .ticket-button {
   background: transparent;
   color: rgba(255, 255, 255, 0.7);
@@ -408,7 +463,6 @@ onUnmounted(() => {
   border-color: transparent;
 }
 
-/* КНОПКА 2 */
 .review-button {
   background: #e0e0e0;
   color: #1a1a1a;
@@ -422,19 +476,14 @@ onUnmounted(() => {
   transform: translateY(-2px);
 }
 
-.button-icon {
-  transition: transform 0.3s ease;
-}
+.button-icon { transition: transform 0.3s ease; }
+.review-button:hover .button-icon { transform: translateX(4px); }
 
-.review-button:hover .button-icon {
-  transform: translateX(4px);
-}
-
-/* МОДАЛЬНОЕ ОКНО */
+/* Модалка */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -445,136 +494,93 @@ onUnmounted(() => {
 .modal {
   background: #1f1f1f;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 16px;
   width: min(520px, 90vw);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   padding: 24px;
 }
 
-.modal-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.modal-title {
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.modal-body {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.5;
-}
-
-.modal-footer {
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-}
+.modal-header { display: flex; align-items: center; margin-bottom: 12px; }
+.modal-title { font-weight: 700; font-size: 18px; }
+.modal-body { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+.modal-footer { margin-top: 20px; display: flex; justify-content: flex-end; }
 
 .modal-ok {
   background: #333;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255,255,255,0.1);
   color: #fff;
   border-radius: 8px;
   padding: 8px 16px;
   cursor: pointer;
 }
+.modal-ok:hover { background: #444; }
 
-.modal-ok:hover {
-  background: #444;
-}
-
-/* МОБИЛЬНАЯ ВЕРСИЯ */
+/* Мобильная версия: компактно — цена слева от картинки, 3 ряда */
 @media (max-width: 768px) {
-  .main-card {
-    padding: 20px;
-    border-radius: 20px;
-  }
+  .main-card { padding: 20px; border-radius: 20px; }
 
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .stat-card {
-    border-radius: 16px;
-  }
+  .stat-card,
+  .stat-card::before { border-radius: 16px; }
 
-  .stat-card::before {
-    border-radius: 16px;
-  }
-
-  .stat-card:hover {
-    transform: none;
-  }
+  .stat-card:hover { transform: none; }
 
   .stat-content {
-    padding: 20px;
+    padding: 18px 16px;
     min-height: auto;
-    background: radial-gradient(circle at 20% 50%, rgba(193, 154, 107, 0.08) 0%, transparent 70%) !important;
-    gap: 16px;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     text-align: left;
+    gap: 10px;
   }
 
-  /* На мобилке делаем иконку компактной и обычной (без absolute-фона) */
-  .stat-bg-icon {
-    position: static;
-    transform: none;
-    z-index: auto;
-    opacity: 0.6;
-  }
-
-  .stat-bg-icon img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .stat-card:hover .stat-bg-icon {
-    opacity: 0.6;
-    transform: none;
-  }
-
+  /* В мобильной: header становится строкой "цена + иконка" */
   .stat-header {
-    flex-direction: row;
     align-items: center;
-    gap: 12px;
-    width: 100%;
-    justify-content: flex-start;
   }
 
   .stat-title {
-    font-size: 12px;
     margin: 0;
+    font-size: 12px;
+    letter-spacing: 1.6px;
+  }
+
+  /* Иконка в мобилке — компактно справа (и не как фон) */
+  .stat-icon-holder {
+    position: static;
+    transform: none;
+    opacity: 0.65;
+    z-index: 3; /* чтобы не терялась */
+  }
+
+  .stat-icon-holder img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .stat-card:hover .stat-icon-holder {
+    opacity: 0.65;
+    transform: none;
   }
 
   .stat-main {
-    width: 100%;
     flex: none;
     justify-content: flex-start;
   }
 
   .stat-metric-badge {
-    font-size: 1.2rem !important;
-    padding: 8px 16px !important;
-    border-color: rgba(255, 255, 255, 0.15);
+    font-size: 1.05rem !important;
+    padding: 8px 14px !important;
   }
 
   .stat-description {
-    text-align: left;
     margin: 0;
     width: 100%;
   }
 
-  .button-container {
-    flex-direction: column;
-    gap: 8px;
-  }
+  .button-container { flex-direction: column; gap: 8px; }
 }
 </style>
