@@ -315,27 +315,18 @@ socialLinks: [
 
 function nav(): DefaultTheme.NavItem[] {
   return [
-    { text: 'Гид', link: '/projects/diary-guide/unlock/overview' },
     {
-      text: 'Компании',
-      items: [
-        { text: 'Модуль Роста®', link: '/runscale' },
-        { text: 'Сигнал', link: '/cffx' }
-      ]
-    },
-    {
-      text: 'Проекты',
+      text: 'Гиды',
       items: [
         { text: 'Обзор', link: '/projects/overview' },
-        { text: 'Чудесная Гостиная', link: '/projects/nol' },
-        { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
+        { text: 'Ключ к Цифровому Дневнику', link: '/projects/diary-guide/unlock/overview' },
         { text: 'The Creative Act...', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     },
     {
-      text: 'Ars Orxaos',
+      text: 'Дизайн',
       items: [
-        { text: 'Дизайн и айдентика', link: '/ars/index' },
+        { text: 'Ars Orxaos', link: '/ars/index' },
         { text: 'Проекты', link: '/ars/by-the-numbers' },
         { text: 'Галерея', link: '/ars/the-wonderful-stories-we-make' },
         { text: 'Экспресс-аудит бренда', link: '/ars/brand-express' },
@@ -343,11 +334,19 @@ function nav(): DefaultTheme.NavItem[] {
       ]
     },
     {
+          text: 'Компании',
+          items: [
+            { text: 'Модуль Роста®', link: '/runscale' },
+            { text: 'Сигнал', link: '/cffx' }
+          ]
+        },
+    {
       text: 'Михаил',
       items: [
-        { text: 'Кто я', link: '/meet-mikhail/cv' },
+        { text: '100 фактов обо мне', link: '/meet-mikhail/cv' },
         { text: 'Заметки', link: '/projects/nol/journal' },
-        { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
+        { text: 'Чудесная Гостиная', link: '/projects/nol' },
+        { text: 'Гениальная простота', link: '/projects/simple-is-smart' }
       ]
     }
   ]
@@ -356,16 +355,12 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarParki(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Проекты',
+      text: 'Гиды',
       collapsed: false,
       items: [
         { text: 'Обзор', link: '/projects/overview' },
-        { text: 'Чудесная Гостиная', link: '/projects/nol' },
-        { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
-        { text: 'Саммари - The Creative Act: A Way of Being, Rick Rubin', 
-          link: '/projects/the-creative-act_a-way-of-being_summary',
-          collapsed: true,
-        }
+        { text: 'Ключ к Цифровому Дневнику', link: '/projects/diary-guide/unlock/overview' },
+        { text: 'The Creative Act...', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     }
   ]
@@ -379,7 +374,8 @@ function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '100 фактов обо мне', link: '/meet-mikhail/cv' },
         { text: 'Заметки', link: '/projects/nol/journal' },
-        { text: 'Телеграм-канал', link: 'https://t.me/izumov' }
+        { text: 'Чудесная Гостиная', link: '/projects/nol' },
+        { text: 'Гениальная простота', link: '/projects/simple-is-smart' }
       ]
     }
   ]
@@ -388,10 +384,10 @@ function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
 function sidebarWhyPark(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Ars Orxaos',
+      text: 'Дизайн',
       collapsed: false,
       items: [
-        { text: 'Дизайн и айдентика', link: '/ars/index' },
+        { text: 'Ars Orxaos', link: '/ars/index' },
         { text: 'Проекты', link: '/ars/by-the-numbers' },
         { text: 'Галерея', link: '/ars/the-wonderful-stories-we-make' },
         { text: 'Экспресс-аудит бренда', link: '/ars/brand-express' },
