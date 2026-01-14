@@ -320,7 +320,7 @@ function nav(): DefaultTheme.NavItem[] {
         { text: 'Обзор', link: '/projects/overview' },
         { text: 'Ключ к Цифровому Дневнику', link: '/projects/diary-guide/unlock/overview' },
         { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
-        { text: 'The Creative Act...', link: '/projects/the-creative-act_a-way-of-being_summary' }
+        { text: 'Rick Rubin – «The Creative Act...»', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     },
     {
