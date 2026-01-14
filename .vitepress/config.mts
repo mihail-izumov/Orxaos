@@ -272,10 +272,10 @@ export default defineConfig({
         items: sidebarCreativeAct()
       },
       '/projects/': {
-        items: sidebarParki()
+        items: sidebarGuidues()
       },
       '/meet-mikhail/': {
-        items: sidebarMasterplan()
+        items: sidebarMikhail()
       },
       '/ars/': {
         items: sidebarArs()
@@ -351,7 +351,7 @@ function nav(): DefaultTheme.NavItem[] {
   ]
 }
 
-function sidebarParki(): DefaultTheme.SidebarItem[] {
+function sidebarGuides(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'Гиды',
@@ -366,7 +366,7 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
+function sidebarMikhail(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'Михаил',
@@ -374,8 +374,7 @@ function sidebarMasterplan(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '100 фактов обо мне', link: '/meet-mikhail/cv' },
         { text: 'Заметки', link: '/projects/nol/journal' },
-        { text: 'Чудесная Гостиная', link: '/projects/nol' },
-        { text: 'Гениальная простота', link: '/projects/simple-is-smart' }
+        { text: 'Чудесная Гостиная', link: '/projects/nol' }
       ]
     }
   ]
