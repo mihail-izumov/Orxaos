@@ -33,7 +33,6 @@ export default defineConfig({
         const links = [
           { text: 'Контакт', href: '/start' },
           { text: 'Телеграм-канал', href: 'https://t.me/izumov', target: '_blank' },
-          { text: 'Реквизиты', href: '/credits' },
           { text: 'Orxaos Supply', href: 'https://orxaos-shop.fourthwall.com/en-eur', target: '_blank' }
         ];
 
