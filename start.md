@@ -1,3 +1,12 @@
+---
+outline: false
+prev: false
+next: false
+pageClass: centered-page
+title: Получить ответ
+description: Честно опишите, где вы сейчас, и я дам вам план для уверенного роста.
+---
+
 # Как вы хотите действовать?
 
 ## Личный рост
