@@ -142,7 +142,7 @@ description: ДНК бренда в сайте, вывеске и интерье
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы по годам</p>
     </div>
     <!-- Второстепенная кнопка (изменено) -->
-    <a href="/ars_orxaos/by-the-numbers" class="btn btn-secondary">
+    <a href="/ars/by-the-numbers" class="btn btn-secondary">
       Изучить
     </a>
   </div>
@@ -153,7 +153,7 @@ description: ДНК бренда в сайте, вывеске и интерье
       <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Видео и графика</p>
     </div>
     <!-- Второстепенная кнопка -->
-    <a href="/ars_orxaos/the-wonderful-stories-we-make" class="btn btn-secondary">
+    <a href="/ars/the-wonderful-stories-we-make" class="btn btn-secondary">
       Смотреть
     </a>
   </div>
