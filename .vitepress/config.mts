@@ -359,8 +359,8 @@ function sidebarParki(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Обзор', link: '/projects/overview' },
         { text: 'Ключ к Цифровому Дневнику', link: '/projects/diary-guide/unlock/overview' },
-        { text: 'Гениальная простота', link: '/projects/simple-is-smart' }
-        { text: 'The Creative Act...', link: '/projects/the-creative-act_a-way-of-being_summary' }
+        { text: 'Гениальная простота', link: '/projects/simple-is-smart' },
+        { text: '«The Creative Act: A Way of Being, Rick Rubin»', link: '/projects/the-creative-act_a-way-of-being_summary' }
       ]
     }
   ]
