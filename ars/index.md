@@ -22,7 +22,7 @@ _– [Михаил Изюмов](/meet-mikhail/cv)_
 
 <div style="text-align: center; margin: 2rem 0;">
   <img 
-    src="/ars-orxaos-ban-cmprsd.jpg" 
+    src="/ars/ars-orxaos_banner.jpg" 
     alt="BREW intro"
     style="
       width: 100%;
