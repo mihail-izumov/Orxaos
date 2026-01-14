@@ -49,8 +49,8 @@ export default defineConfig({
         });
         html += '</div></div>';
         html += '<div style="margin-top: 24px; text-align: center;">';
-        html += '<div style="color: white; font-size: 14px;"><a href="https://runscale.ru" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Модуль Роста®</a> – <a href="https://cffx.ru" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Сигнал</a> – <a href="/ars_orxaos/overview" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Ars Orxaos</a></div>';
-        html += '<div style="color: var(--vp-c-text-2); margin-top: 4px; font-size: 14px; text-align: center;">© Orxaos 2025</div>';
+        html += '<div style="color: white; font-size: 14px;"><a href="https://runscale.ru" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Модуль Роста®</a> – <a href="https://cffx.ru" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Сигнал</a> – <a href="/ars" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Ars Orxaos</a></div>';
+        html += '<div style="color: var(--vp-c-text-2); margin-top: 4px; font-size: 14px; text-align: center;">© Orxaos 2026</div>';
         return html;
       }
 
