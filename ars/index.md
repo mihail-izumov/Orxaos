@@ -7,7 +7,69 @@ title: Ars Orxaos
 description: ДНК бренда в сайте, вывеске и интерьере. Меняет не просто восприятие, а саму реальность вашего бизнеса. Помогает притянуть нужных людей и воплотить смелые идеи.
 ---
 
-# Ars Orxaos
+<div align="center">
+
+<h1 class="orxaos-heading">Ars Orxaos</h1>
+
+<p>
+<strong>Каждая чашка кофе </strong> делает <br class="mobile-break">Вашу любимую кофейню еще лучше.
+</p>
+
+</div>
+
+<style>
+
+.vp-doc h1.orxaos-heading {
+  font-size: 52px !important;
+  line-height: 1.1 !important;
+  margin: 0 0 20px 0 !important;
+  padding-top: 0 !important;
+  font-weight: 600 !important;
+}
+
+/* ПЛАНШЕТЫ (от 601px до 768px)
+Используем min-width, чтобы это правило НЕ касалось телефонов */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  .vp-doc h1.orxaos-heading {
+    font-size: 42px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 15px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .vp-doc h1.orxaos-heading {
+    font-size: 38px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 15px !important;
+  }
+}
+</style>
+
+<style>
+/* По умолчанию скрываем тег <br> с классом .mobile-break */
+.mobile-break {
+  display: none;
+}
+
+/* Показываем <br> только на мобильных устройствах (экраны до 767px включительно) */
+@media (max-width: 767px) {
+  .mobile-break {
+    display: inline;
+  }
+}
+
+/* НОВОЕ: Убираем ограничение ширины VitePress для виджета */
+.vp-doc {
+  max-width: 100% !important;
+}
+
+.vp-doc .content-container,
+.vp-doc .container {
+  max-width: 100% !important;
+}
+</style>
+
 <br>
 <Badge type="tip" text="Ars (лат. «мастерство», «технология»)" />
 <br>
