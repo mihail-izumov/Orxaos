@@ -1,27 +1,16 @@
-# Проекты
+# Гиды
 
 <br>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
-
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Чудесная Гостиная</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Пространство для тех, кто мечтает и действует. Здесь мы исследуем идеи и находим способы превратить их в работающие проекты и системы.</p>
+      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Ключ к Цифровому Дневнику</h3>
+      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Практическая система, которая поможет вам превратить письмо в ваш главный способ обретения ясности, фокуса и внутренней энергии.</p>
     </div>
-    <a href="/projects/nol" class="project-button">
-      Войти
-    </a>
-  </div>
-
-  <div class="project-card">
-    <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Гениальная простота</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Лекция о творческой продуктивности. О том, как управлять вниманием, находить неочевидные решения и вдохновлять людей, делая сложное простым.</p>
-    </div>
-    <a href="/projects/simple-is-smart" class="project-button">
-      Смотреть и читать
+    <a href="/projects/diary-guide/unlock/overview" class="project-button">
+      Получить доступ
     </a>
   </div>
 
