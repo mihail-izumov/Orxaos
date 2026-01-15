@@ -73,17 +73,16 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <div align="center">
 
-# Искусство точных решений
+Всегда есть выбор: продолжать шум или выбрать ясный знак. Ниже — три слота на январь.
 
 </div>
 
 <br>
 
-<ArsMainAccordion />
-
-<br>
-
-<ArsGalleryImageSlider />
+<!-- СЛОТЫ НА АЙДЕНТИКУ — блок со слотами под видео -->
+<div id="slots-anchor">
+  <ArsSlots />
+</div>
 
 <br>
 
@@ -93,7 +92,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 </div>
 
-<!-- Добавлен компонент ArsCards с отступами -->
+<!-- Дополнительные карточки под заголовком "Действовать" -->
 <div class="ars-cards-wrapper">
   <ArsCards />
 </div>
@@ -122,6 +121,25 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 </div>
 
+<br>
+
+<!-- Аккордеон перенесён НИЖЕ кейсов и галереи -->
+<div align="center">
+
+# Искусство точных решений
+
+</div>
+
+<br>
+
+<ArsMainAccordion />
+
+<br>
+
+<ArsGalleryImageSlider />
+
+<br>
+
 <div align="center">
 
 Вопрос не в том, готовы ли вы к новому логотипу или сайту. А в том, каким вы видите ваш бизнес или проект.
@@ -129,8 +147,8 @@ description: ДНК бренда в сайте, вывеске и интерье
 **Опишите видение → Обсудим возможности**
 
 <div class="start-button-container">
-  <a href="/start#для-консультации-и-новых-проектов" class="btn btn-primary">
-    <span class="btn-text">Начать</span>
+  <a href="#slots-anchor" class="btn btn-primary">
+    <span class="btn-text">Заявка на проект</span>
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
       <path d="M5 12h14"/>
       <path d="m12 5 7 7-7 7"/>
@@ -287,7 +305,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* ИСПРАВЛЕНИЕ: явные стили для SVG иконки (не сбрасываем!) */
+/* SVG-иконка */
 .vp-doc a.btn .btn-icon {
   display: inline-block !important;
   width: 20px !important;
@@ -354,7 +372,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 18px rgba(196, 163, 115, 0.10) !important;
 }
 
-/* ===== Primary (Начать) — ПРЕМИАЛЬНАЯ ВЕРСИЯ ===== */
+/* ===== Primary (Заявка на проект) ===== */
 .vp-doc a.btn-primary {
   color: #14161c !important;
 
@@ -400,7 +418,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 18px rgba(196, 163, 115, 0.14) !important;
 }
 
-/* Контейнер "Начать" */
+/* Контейнер CTA */
 .start-button-container {
   margin-top: 2.5rem !important;
   min-height: 100px !important;
@@ -410,12 +428,12 @@ description: ДНК бренда в сайте, вывеске и интерье
   justify-content: center !important;
 }
 
-/* DESKTOP: увеличена на 30% */
+/* DESKTOP: увеличена на ~30% */
 .start-button-container .btn {
-  padding: 20px 62px !important; /* было 16/48, +30% ≈ 20/62 */
-  font-size: 23px !important; /* было 18, +30% ≈ 23 */
+  padding: 20px 62px !important;
+  font-size: 23px !important;
   font-weight: 700 !important;
-  border-radius: 14px !important; /* было 12, +30% ≈ 14-16 */
+  border-radius: 14px !important;
 }
 
 .start-button-container .btn .btn-icon {
@@ -423,7 +441,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   height: 24px !important;
 }
 
-/* Мобилка (расширенный диапазон до 960px) */
+/* Мобилка */
 @media (max-width: 960px) {
   .project-card { 
     padding: 24px !important; 
@@ -439,30 +457,18 @@ description: ДНК бренда в сайте, вывеске и интерье
     font-size: 14px !important; 
   }
 
-  /* РАДИКАЛЬНОЕ ИСПРАВЛЕНИЕ для растягивания */
   .start-button-container {
-    /* Сбрасываем все ограничения */
-    width: 100vw !important;
-    max-width: 100vw !important;
-    
-    /* Выходим за границы родителя через отрицательные margins */
-    margin-left: calc(-50vw + 50%) !important;
-    margin-right: calc(-50vw + 50%) !important;
-    
-    /* Padding для контента внутри */
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    box-sizing: border-box !important;
-    
+    width: 100% !important;
+    max-width: 100% !important;
     min-height: 85px !important;
     height: 85px !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
   }
 
   .start-button-container .btn {
-    /* Кнопка занимает всю доступную ширину минус padding */
     width: 100% !important;
     max-width: 100% !important;
-    
     padding: 18px 32px !important;
     font-size: 18px !important;
   }
@@ -490,8 +496,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   .start-button-container { 
     min-height: 78px !important; 
     height: 78px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding: 0 20px !important;
   }
   
   .start-button-container .btn {
