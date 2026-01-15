@@ -242,47 +242,41 @@ description: ДНК бренда в сайте, вывеске и интерье
   color: var(--orx-text-muted) !important;
 }
 
-/* ===== НОВЫЙ ПОДХОД: убираем ВСЕ стили VitePress для ссылок-кнопок ===== */
+/* ===== КНОПКИ: полный сброс стилей VitePress ===== */
 .vp-doc a.btn,
 .vp-doc a.btn * {
   all: unset !important;
 }
 
-/* Затем задаём стили заново с чистого листа */
+/* Затем задаём стили заново */
 .vp-doc a.btn {
-  /* Layout */
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   box-sizing: border-box !important;
 
-  /* Размеры */
   padding: 12px 20px !important;
   border-radius: 10px !important;
 
-  /* Типографика */
   font-family: inherit !important;
   font-weight: 650 !important;
   font-size: 15px !important;
   line-height: 1.4 !important;
   text-align: center !important;
 
-  /* Отступы */
   margin-top: 1.5rem !important;
   
-  /* Интерактив */
   cursor: pointer !important;
   user-select: none !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
   
-  /* Позиционирование для transform */
   position: relative !important;
   
-  /* Плавная анимация */
   transition: 
     transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.35s ease-out !important;
 }
 
 .vp-doc a.btn:hover { 
@@ -293,11 +287,11 @@ description: ДНК бренда в сайте, вывеске и интерье
   transform: translateY(0px) !important; 
 }
 
-/* НОВЫЙ ПОДХОД К ОБВОДКЕ: используем box-shadow вместо border */
-/* Secondary: "Изучить / Смотреть" */
+/* Secondary: "Изучить / Смотреть" — С ЗАЛИВКОЙ */
 .vp-doc a.btn-secondary {
   color: var(--orx-text) !important;
   
+  /* ВОССТАНОВЛЕНО: градиентная заливка */
   background: 
     linear-gradient(
       135deg,
@@ -310,17 +304,15 @@ description: ДНК бренда в сайте, вывеске и интерье
   backdrop-filter: blur(10px) saturate(120%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
 
-  /* НОВОЕ: обводка через box-shadow (работает всегда!) */
+  /* Обводка через box-shadow (работает!) */
   box-shadow:
-    /* Внутренняя подсветка */
     inset 0 1px 0 rgba(245, 223, 177, 0.06),
-    /* Обводка через inset тень */
     inset 0 0 0 1px rgba(196, 163, 115, 0.35),
-    /* Внешняя тень */
     0 10px 22px rgba(0,0,0,0.26) !important;
 }
 
 .vp-doc a.btn-secondary:hover {
+  /* ВОССТАНОВЛЕНО: градиент при hover */
   background: 
     linear-gradient(
       135deg,
@@ -332,13 +324,21 @@ description: ДНК бренда в сайте, вывеске и интерье
   
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.10),
-    /* Обводка ярче при hover */
     inset 0 0 0 1px rgba(245, 223, 177, 0.45),
     0 14px 28px rgba(0,0,0,0.32),
     0 0 24px rgba(196, 163, 115, 0.14) !important;
 }
 
 .vp-doc a.btn-secondary:active {
+  background: 
+    linear-gradient(
+      135deg,
+      rgba(196, 163, 115, 0.10) 0%,
+      rgba(20, 22, 28, 0.82) 38%,
+      rgba(245, 223, 177, 0.07) 100%
+    ),
+    rgba(20, 22, 28, 0.62) !important;
+  
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.08),
     inset 0 0 0 1px rgba(245, 223, 177, 0.40),
@@ -346,7 +346,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 18px rgba(196, 163, 115, 0.10) !important;
 }
 
-/* Primary: "Начать" — МАКСИМАЛЬНО ПЛАВНАЯ АНИМАЦИЯ */
+/* Primary: "Начать" */
 .vp-doc a.btn-primary {
   color: #14161c !important;
   
@@ -356,17 +356,12 @@ description: ДНК бренда в сайте, вывеске и интерье
     rgba(196, 163, 115, 0.92) 100%
   ) !important;
   
-  /* Обводка через box-shadow */
   box-shadow:
-    /* Внутреннее свечение */
     inset 0 1px 1px rgba(255, 255, 255, 0.20),
-    /* Обводка */
     inset 0 0 0 1px rgba(245, 223, 177, 0.30),
-    /* Внешние тени */
     0 12px 26px rgba(0,0,0,0.32),
     0 0 20px rgba(196, 163, 115, 0.14) !important;
   
-  /* ИСПРАВЛЕНИЕ: очень плавная анимация с ease-out */
   transition: 
     transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -374,7 +369,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-primary:hover {
-  /* ИСПРАВЛЕНИЕ: плавный переход градиента */
   background: linear-gradient(135deg,
     rgba(245, 223, 177, 0.98) 0%,
     rgba(196, 163, 115, 0.92) 45%,
@@ -382,13 +376,9 @@ description: ДНК бренда в сайте, вывеске и интерье
   ) !important;
   
   box-shadow:
-    /* Усиленное внутреннее свечение */
     inset 0 1px 2px rgba(255, 255, 255, 0.30),
-    /* Обводка ярче */
     inset 0 0 0 1px rgba(245, 223, 177, 0.45),
-    /* Глубокие тени */
     0 18px 40px rgba(0,0,0,0.42),
-    /* Яркое золотое свечение */
     0 0 45px rgba(196, 163, 115, 0.35) !important;
 }
 
@@ -406,10 +396,9 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 18px rgba(196, 163, 115, 0.14) !important;
 }
 
-/* ИСПРАВЛЕНИЕ: Фиксированная высота контейнера кнопки "Начать" */
+/* Контейнер кнопки "Начать" с фиксированной высотой */
 .start-button-container { 
   margin-top: 2.5rem !important;
-  /* Фиксированная высота = высота кнопки + запас на transform */
   min-height: 80px !important;
   height: 80px !important;
   display: flex !important;
@@ -440,16 +429,15 @@ description: ДНК бренда в сайте, вывеске и интерье
     font-size: 14px !important; 
   }
   
+  /* ИСПРАВЛЕНИЕ: контейнер и кнопка на всю ширину */
   .start-button-container { 
     width: 100% !important;
-    max-width: 100% !important;
     min-height: 75px !important;
     height: 75px !important;
   }
   
   .start-button-container .btn { 
     width: 100% !important;
-    max-width: 100% !important;
     padding: 16px 24px !important;
     font-size: 17px !important;
   }
