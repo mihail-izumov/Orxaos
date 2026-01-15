@@ -73,7 +73,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <div align="center">
 
-Всегда есть выбор: продолжать шум или выбрать ясный знак. Ниже — три слота на январь.
+Всегда есть выбор. Угодить всем, гнаться за конкурентами, шоу вместо результата. Или ясный сигнал.
 
 </div>
 
@@ -88,11 +88,11 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <div align="center">
 
-# Действовать
+# Слоты на январь
 
 </div>
 
-<!-- Дополнительные карточки под заголовком "Действовать" -->
+<!-- Дополнительные карточки под заголовком -->
 <div class="ars-cards-wrapper">
   <ArsCards />
 </div>
@@ -123,7 +123,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <br>
 
-<!-- Аккордеон перенесён НИЖЕ кейсов и галереи -->
 <div align="center">
 
 # Искусство точных решений
@@ -138,26 +137,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <ArsGalleryImageSlider />
 
-<br>
-
-<div align="center">
-
-Вопрос не в том, готовы ли вы к новому логотипу или сайту. А в том, каким вы видите ваш бизнес или проект.
-
-**Опишите видение → Обсудим возможности**
-
-<div class="start-button-container">
-  <a href="#slots-anchor" class="btn btn-primary">
-    <span class="btn-text">Заявка на проект</span>
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
-      <path d="M5 12h14"/>
-      <path d="m12 5 7 7-7 7"/>
-    </svg>
-  </a>
-</div>
-
-</div>
-
 <style>
 /* Wrapper для ArsCards */
 .ars-cards-wrapper {
@@ -165,7 +144,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   width: 100% !important;
 }
 
-/* Сетка блока "Действовать" */
+/* Сетка блока "Слоты на январь" */
 .actions-grid {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
@@ -305,7 +284,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* SVG-иконка */
+/* SVG-иконка для кнопок (если нужна где-то ещё) */
 .vp-doc a.btn .btn-icon {
   display: inline-block !important;
   width: 20px !important;
@@ -370,144 +349,6 @@ description: ДНК бренда в сайте, вывеске и интерье
     inset 0 0 0 1px rgba(245, 223, 177, 0.40),
     0 8px 18px rgba(0,0,0,0.28),
     0 0 18px rgba(196, 163, 115, 0.10) !important;
-}
-
-/* ===== Primary (Заявка на проект) ===== */
-.vp-doc a.btn-primary {
-  color: #14161c !important;
-
-  background: linear-gradient(
-    110deg,
-    rgba(196, 163, 115, 0.95) 0%,
-    rgba(245, 223, 177, 0.95) 25%,
-    rgba(196, 163, 115, 0.95) 50%,
-    rgba(245, 223, 177, 0.95) 75%,
-    rgba(196, 163, 115, 0.95) 100%
-  ) !important;
-  background-size: 200% auto !important;
-
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.20),
-    inset 0 0 0 1px rgba(245, 223, 177, 0.30),
-    0 12px 26px rgba(0,0,0,0.32),
-    0 0 20px rgba(196, 163, 115, 0.14) !important;
-
-  transition:
-    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-    box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-    background-position 0.6s ease !important;
-}
-
-.vp-doc a.btn-primary:hover {
-  background-position: right center !important;
-
-  box-shadow:
-    inset 0 1px 2px rgba(255, 255, 255, 0.30),
-    inset 0 0 0 1px rgba(245, 223, 177, 0.45),
-    0 18px 40px rgba(0,0,0,0.42),
-    0 0 45px rgba(196, 163, 115, 0.35) !important;
-}
-
-.vp-doc a.btn-primary:active {
-  background-size: 100% auto !important;
-  
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.15),
-    inset 0 0 0 1px rgba(245, 223, 177, 0.35),
-    0 10px 22px rgba(0,0,0,0.32),
-    0 0 18px rgba(196, 163, 115, 0.14) !important;
-}
-
-/* Контейнер CTA */
-.start-button-container {
-  margin-top: 2.5rem !important;
-  min-height: 100px !important;
-  height: 100px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-/* DESKTOP: увеличена на ~30% */
-.start-button-container .btn {
-  padding: 20px 62px !important;
-  font-size: 23px !important;
-  font-weight: 700 !important;
-  border-radius: 14px !important;
-}
-
-.start-button-container .btn .btn-icon {
-  width: 24px !important;
-  height: 24px !important;
-}
-
-/* Мобилка */
-@media (max-width: 960px) {
-  .project-card { 
-    padding: 24px !important; 
-    min-height: 180px !important; 
-  }
-  
-  .card-title { 
-    font-size: 1.15rem !important; 
-  }
-
-  .vp-doc a.btn { 
-    padding: 10px 16px !important; 
-    font-size: 14px !important; 
-  }
-
-  .start-button-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: 85px !important;
-    height: 85px !important;
-    padding: 0 24px !important;
-    box-sizing: border-box !important;
-  }
-
-  .start-button-container .btn {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 18px 32px !important;
-    font-size: 18px !important;
-  }
-
-  .start-button-container .btn .btn-icon {
-    width: 22px !important;
-    height: 22px !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .project-card { 
-    padding: 20px !important; 
-  }
-  
-  .card-title { 
-    font-size: 1.1rem !important; 
-    margin-bottom: 0.75rem !important; 
-  }
-  
-  .vp-doc a.btn { 
-    margin-top: 1rem !important; 
-  }
-
-  .start-button-container { 
-    min-height: 78px !important; 
-    height: 78px !important;
-    padding: 0 20px !important;
-  }
-  
-  .start-button-container .btn {
-    padding: 16px 28px !important; 
-    font-size: 17px !important;
-  }
-
-  .start-button-container .btn .btn-icon {
-    width: 20px !important;
-    height: 20px !important;
-  }
 }
 </style>
 
