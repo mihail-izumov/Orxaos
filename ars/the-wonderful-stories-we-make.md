@@ -32,7 +32,7 @@ description: Изучаем прошлое, бросаем вызов насто
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/wps22-main-movie_sd.mp4"
   sd-src="https://orxaos.sbs/ars/video/wps22-main-movie_sd.mp4"
-  poster="/ars/video-placers/wps22-main-movie_placer.jpg"
+  poster="/ars/video/wps22-main-movie_placer.jpg"
   :autoplay="false"
 />
 
@@ -41,7 +41,7 @@ description: Изучаем прошлое, бросаем вызов насто
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/wps-website.mp4"
   sd-src="https://orxaos.sbs/ars/video/wps-website.mp4"
-  poster="/ars/video-placers/wps-website_placer.jpg"
+  poster="/ars/video/wps-website_placer.jpg"
   :autoplay="false"
 />
 
@@ -64,7 +64,7 @@ description: Изучаем прошлое, бросаем вызов насто
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/intro_hvorostovsky_foundation.mp4"
   sd-src="https://orxaos.sbs/ars/video/intro_hvorostovsky_foundation.mp4"
-  poster="/ars/video-placers/intro_hvorostovsky_foundation_placer.jpg"
+  poster="/ars/video/intro_hvorostovsky_foundation_placer.jpg"
   :autoplay="false"
 />
 
@@ -73,7 +73,7 @@ description: Изучаем прошлое, бросаем вызов насто
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/hvorostovsky-timeline.mp4"
   sd-src="https://orxaos.sbs/ars/video/hvorostovsky-timeline.mp4"
-  poster="/ars/video-placers/hvorostovsky-timeline_placer.jpg"
+  poster="/ars/video/hvorostovsky-timeline_placer.jpg"
   :autoplay="false"
 />
 
@@ -95,7 +95,7 @@ description: Изучаем прошлое, бросаем вызов насто
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/gala_russe_icon_reveal.mp4"
   sd-src="https://orxaos.sbs/ars/video/gala_russe_icon_reveal.mp4"
-  poster="/ars/video-placers/gala_russe_icon_reveal_placer.jpg"
+  poster="/ars/video/gala_russe_icon_reveal_placer.jpg"
   :autoplay="false"
 />
 
@@ -116,7 +116,7 @@ description: Изучаем прошлое, бросаем вызов насто
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/bloomkids_video.mp4"
   sd-src="https://orxaos.sbs/ars/video/bloomkids_video.mp4"
-  poster="/ars/video-placers/bloomkids_video_placer.jpg"
+  poster="/ars/video/bloomkids_video_placer.jpg"
   :autoplay="false"
 />
 
@@ -137,7 +137,7 @@ description: Изучаем прошлое, бросаем вызов насто
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/modelex_riviera_style_banners.mp4"
   sd-src="https://orxaos.sbs/ars/video/modelex_riviera_style_banners.mp4"
-  poster="/ars/video-placers/modelex_riviera_style_banners_placer.jpg"
+  poster="/ars/video/modelex_riviera_style_banners_placer.jpg"
   :autoplay="false"
 />
 
@@ -158,14 +158,14 @@ description: Изучаем прошлое, бросаем вызов насто
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/buroarchdesign_com.mp4"
   sd-src="https://orxaos.sbs/ars/video/buroarchdesign_com.mp4"
-  poster="/ars/video-placers/buroarchdesign_com_placer.jpg"
+  poster="/ars/video/buroarchdesign_com_placer.jpg"
   :autoplay="false"
 />
 
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/tanurkova-logo-reveal.mp4"
   sd-src="https://orxaos.sbs/ars/video/tanurkova-logo-reveal.mp4"
-  poster="/ars/video-placers/tanurkova-logo-reveal_placer.jpg"
+  poster="/ars/video/tanurkova-logo-reveal_placer.jpg"
   :autoplay="false"
 />
 
