@@ -196,9 +196,7 @@ onUnmounted(() => {
   border-radius: 16px;
   background: #2c2c2c;
   touch-action: pan-y pinch-zoom;
-  
-  /* Задаем пропорции контейнера */
-  aspect-ratio: 16 / 9;
+  display: flex;
 }
 
 .sliderImage {
@@ -219,7 +217,9 @@ onUnmounted(() => {
 }
 
 .sliderImage:first-child {
-  position: absolute;
+  position: relative;
+  opacity: 1;
+  height: auto;
 }
 
 .sliderImage.active {
@@ -286,11 +286,6 @@ onUnmounted(() => {
   
   .sliderProgressBar {
     display: block;
-  }
-  
-  /* Можно изменить пропорции для мобильных */
-  .sliderContainer {
-    aspect-ratio: 1 / 1;
   }
 }
 </style>
