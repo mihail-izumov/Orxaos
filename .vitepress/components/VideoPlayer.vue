@@ -1,9 +1,16 @@
 <template>
   <div class="video-player-container">
     <div class="video-wrapper">
+      <!-- Постер как отдельный img элемент для надежности на iOS -->
+      <img 
+        v-if="!videoLoaded && poster" 
+        :src="poster" 
+        class="video-poster"
+        alt="Video poster"
+      />
+      
       <video 
         ref="videoElement"
-        :poster="poster"
         :controls="videoLoaded"
         :class="{ 'video-initialized': videoLoaded }"
         preload="none"
@@ -126,41 +133,36 @@ const currentVideoSrc = computed(() => {
   return isHDQuality.value ? props.hdSrc : props.sdSrc
 })
 
-// Определяем мобильное устройство
 onMounted(() => {
   isMobile.value = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  console.log('Device:', isMobile.value ? 'Mobile' : 'Desktop')
 })
 
 const handleTouchStart = () => {
-  // Улучшение отклика на мобильных
   console.log('Touch detected')
 }
 
 const initializeVideo = () => {
   if (!videoElement.value || videoLoaded.value) return
   
+  console.log('Initializing video...')
   videoLoaded.value = true
   
   setTimeout(() => {
     if (videoElement.value) {
       videoElement.value.load()
       
-      // Для мобильных: пытаемся воспроизвести с обработкой ошибок
       const playPromise = videoElement.value.play()
       
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            console.log('Видео запущено успешно')
+            console.log('✓ Video started successfully')
             isLoading.value = false
           })
           .catch(e => {
-            console.log('Autoplay заблокирован:', e)
+            console.log('Autoplay blocked:', e)
             isLoading.value = false
-            // На мобильных может потребоваться второй клик
-            if (isMobile.value) {
-              console.log('Требуется взаимодействие пользователя')
-            }
           })
       }
     }
@@ -184,7 +186,7 @@ const toggleQuality = () => {
     }
     if (isPlaying.value) {
       videoElement.value.play().catch(e => {
-        console.log('Autoplay заблокирован:', e)
+        console.log('Autoplay blocked:', e)
       })
     }
   }, { once: true })
@@ -209,7 +211,7 @@ const onCanPlay = () => {
 }
 
 const onError = (event) => {
-  console.error('Ошибка видео:', event)
+  console.error('Video error:', event)
   isLoading.value = false
   hasError.value = true
   
@@ -246,39 +248,31 @@ const onPause = () => {
   isPlaying.value = false
 }
 
-// Улучшенный обработчик окончания видео для iOS
+// Упрощенный обработчик для iOS
 const onVideoEnded = () => {
-  console.log('Видео закончилось, возвращаемся к постеру')
+  console.log('Video ended - resetting to poster')
   
-  // Сбрасываем состояние
+  if (videoElement.value) {
+    videoElement.value.pause()
+    videoElement.value.currentTime = 0
+  }
+  
+  // Просто сбрасываем флаг - это покажет img с постером
   videoLoaded.value = false
   isPlaying.value = false
   isLoading.value = false
   
-  if (videoElement.value) {
-    // Важно для iOS: сначала паузим
-    videoElement.value.pause()
-    
-    // Сбрасываем время
-    videoElement.value.currentTime = 0
-    
-    // Удаляем источник
-    videoElement.value.removeAttribute('src')
-    
-    // Явно устанавливаем постер снова (для iOS)
-    if (props.poster) {
-      videoElement.value.setAttribute('poster', props.poster)
+  // Даем время на отрисовку постера, потом чистим видео
+  setTimeout(() => {
+    if (videoElement.value && !videoLoaded.value) {
+      videoElement.value.removeAttribute('src')
+      videoElement.value.load()
     }
-    
-    // Перезагружаем элемент
-    videoElement.value.load()
-  }
+  }, 100)
 }
 
-// Обработчик выхода из fullscreen на iOS
 const onExitFullscreen = () => {
-  console.log('Вышли из fullscreen на iOS')
-  // Можно добавить дополнительную логику если нужно
+  console.log('Exited fullscreen on iOS')
 }
 
 const retryLoad = () => {
@@ -290,17 +284,10 @@ const retryLoad = () => {
   if (videoElement.value) {
     videoElement.value.pause()
     videoElement.value.removeAttribute('src')
-    
-    // Восстанавливаем постер
-    if (props.poster) {
-      videoElement.value.setAttribute('poster', props.poster)
-    }
-    
     videoElement.value.load()
   }
 }
 
-// Очистка при размонтировании
 onUnmounted(() => {
   if (videoElement.value) {
     videoElement.value.pause()
@@ -324,11 +311,24 @@ onUnmounted(() => {
   border-radius: 12px;
   overflow: hidden;
   aspect-ratio: 16/9;
-  /* Улучшенная поддержка mask для мобильных */
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   mask-image: radial-gradient(white, black);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  /* Фикс для iOS Safari */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Постер как img элемент - надежное решение для iOS */
+.video-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 5;
+  background: #000;
+  /* Hardware acceleration для плавности */
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
 }
@@ -339,7 +339,6 @@ video {
   object-fit: contain;
   display: block;
   background: #000;
-  /* Важно для iOS */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
@@ -367,7 +366,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   z-index: 15;
   background: transparent;
   transition: background 0.3s ease;
-  /* Улучшение для тач-событий */
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
@@ -379,7 +377,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
 .play-button {
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.9;
-  /* Улучшение рендеринга на мобильных */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
@@ -413,7 +410,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
 .quality-label {
   cursor: pointer;
   display: block;
-  /* Улучшение для тач-событий */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -585,7 +581,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
-  /* Улучшение для тач-событий */
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
@@ -606,7 +601,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
-  /* Улучшение для тач-событий */
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
@@ -656,7 +650,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   .error-text { font-size: 16px; }
 }
 
-/* Улучшения для iOS landscape */
 @media (max-width: 768px) and (orientation: landscape) {
   .video-wrapper {
     aspect-ratio: unset;
