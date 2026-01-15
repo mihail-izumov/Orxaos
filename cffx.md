@@ -3,10 +3,10 @@ outline: false
 prev: false
 next: false
 title: Сигнал
-description: Где начинается ваша кофейня
+description: Система обратной связи высокого качества
 ---
 
-# Ваш Сигнал — тому, кто решает.
+# Сигнал
 
 <div style="text-align: center; margin: 2rem 0;">
   <img 
@@ -25,15 +25,14 @@ description: Где начинается ваша кофейня
   />
 </div>
 
-## Сигнал – это экосистема для гостей кофеен, владельцев и инвесторов. 
+## Система обратной связи высокого качества.
 
-- **Гостям:** Умные отзывы и ИИ-ассистент Анна 
-- **Кофейням:** Диалоги и Радар
-- **Инвесторам:** Индекс Роста, Симулятор и Прогноз выручки
+Живая система между людьми и бизнесом, в которой любой отклик человека быстро превращается в понятное действие, измеримый результат и новый уровень партнёрства, а не в ещё одну жалобу или звёздочку.
 
-<div class="start-button-container">
-  <!-- Основная кнопка -->
-  <a href="https://cffx.ru" class="btn btn-primary" target="_blank">Где начинается ваша кофейня →</a>
+Каждый Сигнал помогает бизнесу стать лучше для Вас уже сегодня. 
+
+<div class="signal-cta-wrapper">
+  <a href="https://cffx.ru" class="signal-btn signal-btn-primary" target="_blank">На сайт Сигнала →</a>
 </div>
 
 
@@ -49,8 +48,8 @@ description: Где начинается ваша кофейня
   min-height: 200px;
 }
 
-/* --- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК --- */
-.btn {
+/* --- ОБЩИЕ СТИЛИ ДЛЯ КНОПОК СИГНАЛА --- */
+.signal-btn {
   display: block;
   padding: 12px 16px;
   border-radius: 8px;
@@ -64,35 +63,35 @@ description: Где начинается ваша кофейня
   border: none;
 }
 
-.btn:hover {
+.signal-btn:hover {
   transform: translateY(-2px);
   text-decoration: none !important;
 }
 
-/* --- СТИЛЬ 1: ОСНОВНАЯ КНОПКА (ЯРКАЯ) --- */
-.btn-primary {
+/* --- ОСНОВНАЯ КНОПКА СИГНАЛА (ЯРКАЯ) --- */
+.signal-btn-primary {
   background-color: #C5F946; /* Яркий лаймовый */
   color: #000 !important;
 }
 
-.btn-primary:hover {
+.signal-btn-primary:hover {
   background-color: #347b6c; /* Темный при наведении */
   color: white !important;
 }
 
-/* --- СТИЛЬ 2: ВТОРОСТЕПЕННАЯ КНОПКА (ТЕМНАЯ) --- */
-.btn-secondary {
+/* --- ВТОРОСТЕПЕННАЯ КНОПКА СИГНАЛА (ТЕМНАЯ) --- */
+.signal-btn-secondary {
   background-color: #347b6c; /* Темный */
   color: white !important;
 }
 
-.btn-secondary:hover {
+.signal-btn-secondary:hover {
   background-color: #C5F946; /* Яркий при наведении */
   color: #000 !important;
 }
 
-/* --- Контейнер для отдельной кнопки "Начать" --- */
-.start-button-container .btn {
+/* --- Контейнер для CTA кнопки --- */
+.signal-cta-wrapper .signal-btn {
   display: inline-block;
   padding: 12px 24px;
 }
