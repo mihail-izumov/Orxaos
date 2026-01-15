@@ -273,11 +273,9 @@ description: ДНК бренда в сайте, вывеске и интерье
 .vp-doc a.btn:active { transform: translateY(0px) !important; }
 
 /* ===== Secondary (кнопки в карточках) ===== */
-/* Вернул внутреннюю заливку (subtle), при этом обводка остаётся через inset-shadow */
 .vp-doc a.btn-secondary {
   color: var(--orx-text) !important;
 
-  /* внутренняя заливка как раньше: тихий “технологичный” градиент */
   background:
     linear-gradient(
       135deg,
@@ -373,7 +371,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 18px rgba(196, 163, 115, 0.14) !important;
 }
 
-/* Контейнер “Начать” фиксированной высоты (анти-дёрганье) */
+/* Контейнер "Начать" фиксированной высоты */
 .start-button-container {
   margin-top: 2.5rem !important;
   min-height: 80px !important;
@@ -397,18 +395,20 @@ description: ДНК бренда в сайте, вывеске и интерье
 
   .vp-doc a.btn { padding: 10px 16px !important; font-size: 14px !important; }
 
-  /* Вернул “Начать” на всю ширину */
+  /* ИСПРАВЛЕНИЕ: растягиваем контейнер и кнопку на всю ширину */
   .start-button-container {
     width: 100% !important;
-    max-width: 100% !important;
     min-height: 78px !important;
     height: 78px !important;
-    justify-content: stretch !important;
+    /* Растягиваем на всю ширину, включая padding родителя */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .start-button-container .btn {
+    /* display: flex уже установлен выше, меняем на block для растяжения */
+    display: flex !important;
     width: 100% !important;
-    max-width: 100% !important;
     padding: 16px 24px !important;
     font-size: 17px !important;
   }
@@ -419,8 +419,15 @@ description: ДНК бренда в сайте, вывеске и интерье
   .card-title { font-size: 1.1rem !important; margin-bottom: 0.75rem !important; }
   .vp-doc a.btn { margin-top: 1rem !important; }
 
-  .start-button-container { min-height: 72px !important; height: 72px !important; }
-  .start-button-container .btn { padding: 14px 20px !important; font-size: 16px !important; }
+  .start-button-container { 
+    min-height: 72px !important; 
+    height: 72px !important; 
+  }
+  
+  .start-button-container .btn { 
+    padding: 14px 20px !important; 
+    font-size: 16px !important; 
+  }
 }
 </style>
 
