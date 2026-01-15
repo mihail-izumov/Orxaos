@@ -44,7 +44,7 @@ description: Изучаем прошлое, бросаем вызов насто
 ## Hvorostovsky Foundation
 
 <div class="card-behance">
-  <div class="card-behance__title">Проект в деталях</div>
+  <div class="card-behance__title">Сайт фонда в деталях</div>
   <a
     class="card-behance__button"
     href="https://runscale.ru/journal/cases/kak-my-prevratili-nasledie-khvorostovskogo-v-instrument-dlya-pomoshi-detyam.html"
@@ -55,12 +55,24 @@ description: Изучаем прошлое, бросаем вызов насто
   </a>
 </div>
 
+### Обзорный фильм на сайт
+
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/intro_hvorostovsky_foundation.mp4"
   sd-src="https://orxaos.sbs/ars/video/intro_hvorostovsky_foundation.mp4"
   poster="/ars/ignite_video_ban.jpg"
   :autoplay="false"
 />
+
+### Линия времени Дмитрия Хворостовского
+
+<VideoPlayer 
+  hd-src="https://orxaos.sbs/ars/video/hvorostovsky-timeline.mp4"
+  sd-src="https://orxaos.sbs/ars/video/hvorostovsky-timeline.mp4"
+  poster="/ars/ignite_video_ban.jpg"
+  :autoplay="false"
+/>
+
 
 ## GALA RUSSE Monaco
 
