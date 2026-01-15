@@ -404,24 +404,32 @@ description: ДНК бренда в сайте, вывеске и интерье
     font-size: 14px !important; 
   }
 
-  /* ИСПРАВЛЕНИЕ: кнопка "Начать" на всю ширину */
+  /* ИСПРАВЛЕНИЕ: радикально перебиваем все для контейнера */
   .start-button-container {
-    width: 100% !important;
-    max-width: 100% !important;
+    /* Перебиваем родительский align="center" */
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    
+    /* Отступы по бокам как у контента */
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+    
     min-height: 78px !important;
     height: 78px !important;
     
-    /* Убираем flex, чтобы кнопка растянулась */
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .start-button-container .btn {
-    display: block !important;
+    /* Теперь кнопка flex-ребенок на всю доступную ширину */
+    flex: 1 1 auto !important;
     width: 100% !important;
     max-width: 100% !important;
-    
-    margin-left: auto !important;
-    margin-right: auto !important;
     
     padding: 16px 24px !important;
     font-size: 17px !important;
@@ -444,7 +452,9 @@ description: ДНК бренда в сайте, вывеске и интерье
 
   .start-button-container { 
     min-height: 72px !important; 
-    height: 72px !important; 
+    height: 72px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   
   .start-button-container .btn {
