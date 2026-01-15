@@ -153,7 +153,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <ArsMainAccordion />
 
-<br>
+<br><br>
 
 <ArsGalleryImageSlider />
 
