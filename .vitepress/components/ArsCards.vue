@@ -8,8 +8,8 @@ const establishment = {
 const cards = [
   {
     badge: '₽50.000',
-    status: 'Резерв',
-    description: 'Аналитика 29,600+ уникальных отзывов',
+    status: 'Февраль 2026',
+    description: 'Логотип. Один вариант.',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
     colorScheme: 'gray',
@@ -18,7 +18,7 @@ const cards = [
   {
     badge: '₽150.000',
     status: 'Заявка',
-    description: 'Кофейни сейчас и целевой масштаб сети',
+    description: 'Логотип + айдентика (шрифт, цвета) + на выбор: профиль в соцсетях / лендинг / упаковка',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
     colorScheme: 'blue',
