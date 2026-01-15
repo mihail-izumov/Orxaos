@@ -9,7 +9,7 @@ description: Изучаем прошлое, бросаем вызов насто
 
 # Изучаем прошлое, бросаем вызов настоящему, исследуем будущее.
 
-<br><br>
+<br>
 
 <ArsGalleryImageSlider />
 
@@ -27,12 +27,15 @@ description: Изучаем прошлое, бросаем вызов насто
   </a>
 </div>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0;">
-  <iframe src="https://player.vimeo.com/video/689285539" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
+<VideoPlayer 
+  hd-src="https://orxaos.sbs/ars/video/wps22-main-movie_sd.mp4"
+  sd-src="https://orxaos.sbs/ars/video/wps22-main-movie_sd.mp4"
+  poster="/ars/ignite_video_ban.jpg"
+  :autoplay="false"
+/>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0;">
-  <iframe src="https://player.vimeo.com/video/688340278" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe src="https://player.vimeo.com/video/689285539" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0;">
