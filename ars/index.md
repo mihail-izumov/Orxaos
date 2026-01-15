@@ -148,7 +148,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   --orx-text-muted: rgba(245, 223, 177, 0.72);
 }
 
-/* --- Карточки с плавной анимацией --- */
+/* --- Карточки --- */
 .project-card {
   background: var(--orx-bg) !important;
   backdrop-filter: blur(10px) saturate(120%) !important;
@@ -163,7 +163,6 @@ description: ДНК бренда в сайте, вывеске и интерье
   justify-content: space-between !important;
 
   position: relative !important;
-  
   border: 1px solid rgba(196, 163, 115, 0.35) !important;
 
   box-shadow:
@@ -176,38 +175,32 @@ description: ДНК бренда в сайте, вывеске и интерье
     border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Тонкий диагональный градиент внутри карточки 1 */
 .project-card-1::after {
   content: '' !important;
   position: absolute !important;
   inset: 0 !important;
   border-radius: 16px !important;
-  
   background: radial-gradient(
     ellipse 600px 400px at 15% 80%,
     rgba(196, 163, 115, 0.18) 0%,
     rgba(245, 223, 177, 0.08) 35%,
     transparent 70%
   ) !important;
-  
   pointer-events: none !important;
   z-index: 0 !important;
 }
 
-/* Тонкий диагональный градиент внутри карточки 2 */
 .project-card-2::after {
   content: '' !important;
   position: absolute !important;
   inset: 0 !important;
   border-radius: 16px !important;
-  
   background: radial-gradient(
     ellipse 500px 450px at 85% 75%,
     rgba(245, 223, 177, 0.16) 0%,
     rgba(196, 163, 115, 0.10) 40%,
     transparent 70%
   ) !important;
-  
   pointer-events: none !important;
   z-index: 0 !important;
 }
@@ -220,14 +213,12 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 30px rgba(196, 163, 115, 0.18) !important;
 }
 
-/* Контент карточек поверх градиента */
 .project-card > div,
 .project-card > a {
   position: relative !important;
   z-index: 2 !important;
 }
 
-/* Текст карточек */
 .card-title {
   color: var(--orx-text) !important;
   margin: 0 0 1rem 0 !important;
@@ -242,13 +233,13 @@ description: ДНК бренда в сайте, вывеске и интерье
   color: var(--orx-text-muted) !important;
 }
 
-/* ===== КНОПКИ: полный сброс стилей VitePress ===== */
+/* ===== Сброс VitePress для ссылок-кнопок ===== */
 .vp-doc a.btn,
 .vp-doc a.btn * {
   all: unset !important;
 }
 
-/* Затем задаём стили заново */
+/* База кнопок */
 .vp-doc a.btn {
   display: inline-flex !important;
   align-items: center !important;
@@ -265,46 +256,41 @@ description: ДНК бренда в сайте, вывеске и интерье
   text-align: center !important;
 
   margin-top: 1.5rem !important;
-  
+
   cursor: pointer !important;
   user-select: none !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
-  
+
   position: relative !important;
-  
+
   transition: 
     transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.35s ease-out !important;
+    box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-.vp-doc a.btn:hover { 
-  transform: translateY(-2px) !important; 
-}
+.vp-doc a.btn:hover { transform: translateY(-2px) !important; }
+.vp-doc a.btn:active { transform: translateY(0px) !important; }
 
-.vp-doc a.btn:active { 
-  transform: translateY(0px) !important; 
-}
-
-/* Secondary: "Изучить / Смотреть" — С ЗАЛИВКОЙ */
+/* ===== Secondary (кнопки в карточках) ===== */
+/* Вернул внутреннюю заливку (subtle), при этом обводка остаётся через inset-shadow */
 .vp-doc a.btn-secondary {
   color: var(--orx-text) !important;
-  
-  /* ВОССТАНОВЛЕНО: градиентная заливка */
-  background: 
+
+  /* внутренняя заливка как раньше: тихий “технологичный” градиент */
+  background:
     linear-gradient(
       135deg,
-      rgba(196, 163, 115, 0.08) 0%,
-      rgba(20, 22, 28, 0.85) 40%,
-      rgba(245, 223, 177, 0.05) 100%
+      rgba(245, 223, 177, 0.06) 0%,
+      rgba(196, 163, 115, 0.06) 18%,
+      rgba(20, 22, 28, 0.92) 55%,
+      rgba(245, 223, 177, 0.04) 100%
     ),
-    rgba(20, 22, 28, 0.60) !important;
-  
+    rgba(20, 22, 28, 0.68) !important;
+
   backdrop-filter: blur(10px) saturate(120%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
 
-  /* Обводка через box-shadow (работает!) */
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.06),
     inset 0 0 0 1px rgba(196, 163, 115, 0.35),
@@ -312,16 +298,16 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-secondary:hover {
-  /* ВОССТАНОВЛЕНО: градиент при hover */
-  background: 
+  background:
     linear-gradient(
       135deg,
-      rgba(196, 163, 115, 0.14) 0%,
-      rgba(20, 22, 28, 0.80) 35%,
-      rgba(245, 223, 177, 0.10) 100%
+      rgba(245, 223, 177, 0.10) 0%,
+      rgba(196, 163, 115, 0.10) 18%,
+      rgba(20, 22, 28, 0.88) 55%,
+      rgba(245, 223, 177, 0.07) 100%
     ),
-    rgba(20, 22, 28, 0.65) !important;
-  
+    rgba(20, 22, 28, 0.70) !important;
+
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.10),
     inset 0 0 0 1px rgba(245, 223, 177, 0.45),
@@ -330,15 +316,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-secondary:active {
-  background: 
-    linear-gradient(
-      135deg,
-      rgba(196, 163, 115, 0.10) 0%,
-      rgba(20, 22, 28, 0.82) 38%,
-      rgba(245, 223, 177, 0.07) 100%
-    ),
-    rgba(20, 22, 28, 0.62) !important;
-  
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.08),
     inset 0 0 0 1px rgba(245, 223, 177, 0.40),
@@ -346,23 +323,23 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 18px rgba(196, 163, 115, 0.10) !important;
 }
 
-/* Primary: "Начать" */
+/* ===== Primary (Начать) ===== */
 .vp-doc a.btn-primary {
   color: #14161c !important;
-  
+
   background: linear-gradient(135deg,
     rgba(196, 163, 115, 0.95) 0%,
     rgba(245, 223, 177, 0.90) 45%,
     rgba(196, 163, 115, 0.92) 100%
   ) !important;
-  
+
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.20),
     inset 0 0 0 1px rgba(245, 223, 177, 0.30),
     0 12px 26px rgba(0,0,0,0.32),
     0 0 20px rgba(196, 163, 115, 0.14) !important;
-  
-  transition: 
+
+  transition:
     transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
     background 0.5s ease-out !important;
@@ -374,7 +351,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     rgba(196, 163, 115, 0.92) 45%,
     rgba(245, 223, 177, 0.95) 100%
   ) !important;
-  
+
   box-shadow:
     inset 0 1px 2px rgba(255, 255, 255, 0.30),
     inset 0 0 0 1px rgba(245, 223, 177, 0.45),
@@ -388,7 +365,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     rgba(245, 223, 177, 0.85) 45%,
     rgba(196, 163, 115, 0.88) 100%
   ) !important;
-  
+
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.15),
     inset 0 0 0 1px rgba(245, 223, 177, 0.35),
@@ -396,8 +373,8 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 18px rgba(196, 163, 115, 0.14) !important;
 }
 
-/* Контейнер кнопки "Начать" с фиксированной высотой */
-.start-button-container { 
+/* Контейнер “Начать” фиксированной высоты (анти-дёрганье) */
+.start-button-container {
   margin-top: 2.5rem !important;
   min-height: 80px !important;
   height: 80px !important;
@@ -406,7 +383,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   justify-content: center !important;
 }
 
-.start-button-container .btn { 
+.start-button-container .btn {
   padding: 16px 48px !important;
   font-size: 18px !important;
   font-weight: 700 !important;
@@ -415,57 +392,35 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 /* Мобилка */
 @media (max-width: 768px) {
-  .project-card { 
-    padding: 24px !important; 
-    min-height: 180px !important; 
-  }
-  
-  .card-title { 
-    font-size: 1.15rem !important; 
-  }
-  
-  .vp-doc a.btn { 
-    padding: 10px 16px !important; 
-    font-size: 14px !important; 
-  }
-  
-  /* ИСПРАВЛЕНИЕ: контейнер и кнопка на всю ширину */
-  .start-button-container { 
+  .project-card { padding: 24px !important; min-height: 180px !important; }
+  .card-title { font-size: 1.15rem !important; }
+
+  .vp-doc a.btn { padding: 10px 16px !important; font-size: 14px !important; }
+
+  /* Вернул “Начать” на всю ширину */
+  .start-button-container {
     width: 100% !important;
-    min-height: 75px !important;
-    height: 75px !important;
+    max-width: 100% !important;
+    min-height: 78px !important;
+    height: 78px !important;
+    justify-content: stretch !important;
   }
-  
-  .start-button-container .btn { 
+
+  .start-button-container .btn {
     width: 100% !important;
+    max-width: 100% !important;
     padding: 16px 24px !important;
     font-size: 17px !important;
   }
 }
 
 @media (max-width: 480px) {
-  .project-card { 
-    padding: 20px !important; 
-  }
-  
-  .card-title { 
-    font-size: 1.1rem !important; 
-    margin-bottom: 0.75rem !important; 
-  }
-  
-  .vp-doc a.btn { 
-    margin-top: 1rem !important; 
-  }
-  
-  .start-button-container {
-    min-height: 70px !important;
-    height: 70px !important;
-  }
-  
-  .start-button-container .btn {
-    padding: 14px 20px !important;
-    font-size: 16px !important;
-  }
+  .project-card { padding: 20px !important; }
+  .card-title { font-size: 1.1rem !important; margin-bottom: 0.75rem !important; }
+  .vp-doc a.btn { margin-top: 1rem !important; }
+
+  .start-button-container { min-height: 72px !important; height: 72px !important; }
+  .start-button-container .btn { padding: 14px 20px !important; font-size: 16px !important; }
 }
 </style>
 
