@@ -14,6 +14,7 @@
         @error="onError"
         @play="onPlay"
         @pause="onPause"
+        @ended="onVideoEnded"
       >
         <!-- Источник добавляется динамически после первого клика -->
         <source 
@@ -218,6 +219,26 @@ const onPause = () => {
   isPlaying.value = false
 }
 
+// Новый обработчик окончания видео
+const onVideoEnded = () => {
+  console.log('Видео закончилось, возвращаемся к постеру')
+  
+  // Сбрасываем состояние в исходное
+  videoLoaded.value = false
+  isPlaying.value = false
+  isLoading.value = false
+  
+  // Сбрасываем время воспроизведения
+  if (videoElement.value) {
+    videoElement.value.currentTime = 0
+    videoElement.value.pause()
+    
+    // Удаляем источник, чтобы вернуть постер
+    videoElement.value.removeAttribute('src')
+    videoElement.value.load()
+  }
+}
+
 const retryLoad = () => {
   hasError.value = false
   errorMessage.value = ''
@@ -237,30 +258,26 @@ const retryLoad = () => {
   position: relative;
   max-width: 100%;
   margin: 1rem 0;
-  /* Убираем фон контейнера для решения проблемы с углами */
   background: transparent !important; 
 }
 
 .video-wrapper {
   position: relative;
-  /* Черный фон только внутри скругления */
   background: #000;
   border-radius: 12px;
   overflow: hidden;
   aspect-ratio: 16/9;
-  /* Важно: это убирает "выглядывание" контента за скругления в некоторых браузерах */
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
-  /* Тень для объема */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 video {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Изменил на contain, чтобы видео не обрезалось */
+  object-fit: contain;
   display: block;
-  background: #000; /* Фон самого видео черный */
+  background: #000;
 }
 
 /* Скрываем нативные контролы ТОЛЬКО до инициализации */
@@ -330,7 +347,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
 .quality-slider {
   width: 80px;
   height: 32px;
-  /* Темный фон подложки */
   background: #1a1d24; 
   border-radius: 20px;
   position: relative;
@@ -338,7 +354,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
     inset 0 2px 4px rgba(0, 0, 0, 0.5),
     0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-  /* Тонкая золотая обводка */
   border: 1px solid rgba(196, 163, 115, 0.3);
 }
 
@@ -354,7 +369,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-/* Ползунок (активное состояние) */
 .quality-slider-inner::before {
   content: '';
   position: absolute;
@@ -362,7 +376,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   left: 0;
   width: 50%;
   height: 100%;
-  /* Золотой градиент */
   background: linear-gradient(135deg, #c4a373 0%, #a88b60 100%);
   border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -374,18 +387,15 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
 
 .quality-checkbox:checked + .quality-label .quality-slider-inner::before {
   transform: translateX(100%);
-  /* Тот же золотой градиент */
   background: linear-gradient(135deg, #c4a373 0%, #a88b60 100%);
 }
 
-/* Текст SD/HD */
 .quality-text {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 10px;
   font-weight: 700;
-  /* Неактивный текст - серый */
   color: #6b7280; 
   transition: all 0.3s ease;
   z-index: 2;
@@ -397,7 +407,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
 .quality-sd { left: 0; }
 .quality-hd { right: 0; }
 
-/* Активный текст - темный (на золотом фоне) */
 .quality-text.active {
   color: #1a1d24;
   text-shadow: none;
@@ -413,7 +422,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
 .quality-slider:active {
   transform: scale(0.98);
 }
-/* ------------------------------------- */
 
 /* Золотой лоадер */
 .loading-overlay {
@@ -436,7 +444,7 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   height: 40px;
   border: 3px solid rgba(196, 163, 115, 0.3);
   border-radius: 50%;
-  border-top-color: #f5dfb1; /* Светло-золотой */
+  border-top-color: #f5dfb1;
   animation: spin 1s ease-in-out infinite;
   margin-bottom: 16px;
   box-shadow: 0 0 15px rgba(196, 163, 115, 0.2);
@@ -449,7 +457,6 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   letter-spacing: 0.5px;
 }
 
-/* Ошибка */
 .error-overlay {
   position: absolute;
   top: 0;
@@ -468,6 +475,30 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   color: #f5dfb1;
   padding: 20px;
   max-width: 400px;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.error-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.error-details {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .retry-button {
@@ -495,6 +526,7 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .direct-link:hover {
@@ -507,6 +539,7 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
 
 /* Адаптивный дизайн */
 @media (max-width: 1024px) and (min-width: 769px) {
+  .video-wrapper { border-radius: 10px; }
   .video-controls { top: 12px; right: 12px; }
   .quality-slider { width: 75px; height: 30px; }
   .quality-text { font-size: 9px; }
@@ -515,12 +548,15 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
 
 @media (max-width: 768px) {
   .video-wrapper { border-radius: 8px; }
+  video { object-fit: cover; }
   .video-controls { top: 8px; right: 8px; }
   .quality-slider { width: 70px; height: 28px; }
   .quality-text { font-size: 8px; }
   .play-button svg { width: 60px; height: 60px; }
   .error-actions { flex-direction: column; align-items: center; }
   .retry-button, .direct-link { width: 100%; max-width: 200px; }
+  .loading-text { font-size: 14px; }
+  .error-content { padding: 16px; }
 }
 
 @media (max-width: 480px) {
@@ -529,5 +565,23 @@ video:not(.video-initialized)::-moz-media-controls { display: none !important; }
   .quality-slider { width: 65px; height: 26px; }
   .quality-text { font-size: 7px; }
   .play-button svg { width: 50px; height: 50px; }
+  .loading-spinner { width: 32px; height: 32px; border-width: 2px; }
+  .error-icon { font-size: 36px; }
+  .error-text { font-size: 16px; }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .video-wrapper {
+    aspect-ratio: unset;
+    height: 100vh;
+    max-height: 400px;
+  }
+  .video-controls { top: 12px; right: 12px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .video-player-container {
+    background: transparent !important;
+  }
 }
 </style>
