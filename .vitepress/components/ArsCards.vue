@@ -178,7 +178,7 @@ onUnmounted(() => {
             </svg>
           </button>
 
-          <a href="/invest/smr" class="action-button review-button" target="_blank" rel="noopener noreferrer">
+          <a href="/start#для-консультации-и-новых-проектов" class="action-button review-button" target="_blank" rel="noopener noreferrer">
             Заявка на проект
             <svg class="button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="m9 18 6-6-6-6" />
