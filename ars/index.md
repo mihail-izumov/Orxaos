@@ -148,7 +148,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   --orx-text-muted: rgba(245, 223, 177, 0.72);
 }
 
-/* --- Карточки с тонкими градиентами (стиль Apple M4) --- */
+/* --- Карточки с тонкими градиентами --- */
 .project-card {
   background: var(--orx-bg) !important;
   backdrop-filter: blur(10px) saturate(120%) !important;
@@ -163,9 +163,9 @@ description: ДНК бренда в сайте, вывеске и интерье
   justify-content: space-between !important;
 
   position: relative !important;
-  border: 1px solid transparent !important;
-  background-clip: padding-box !important;
-  overflow: hidden !important;
+  
+  /* ИСПРАВЛЕНИЕ: убрал overflow: hidden, чтобы была видна обводка */
+  /* overflow: hidden !important; */
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.38),
@@ -174,7 +174,12 @@ description: ДНК бренда в сайте, вывеске и интерье
   transition: transform 0.25s ease, box-shadow 0.25s ease !important;
 }
 
-/* Тонкий диагональный градиент внутри карточки 1 (тёплое золото) */
+/* ИСПРАВЛЕНИЕ: Более яркая видимая обводка через простой border */
+.project-card {
+  border: 1px solid rgba(196, 163, 115, 0.35) !important;
+}
+
+/* Тонкий диагональный градиент внутри карточки 1 */
 .project-card-1::after {
   content: '' !important;
   position: absolute !important;
@@ -192,7 +197,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   z-index: 0 !important;
 }
 
-/* Тонкий диагональный градиент внутри карточки 2 (холодное золото) */
+/* Тонкий диагональный градиент внутри карточки 2 */
 .project-card-2::after {
   content: '' !important;
   position: absolute !important;
@@ -210,31 +215,9 @@ description: ДНК бренда в сайте, вывеске и интерье
   z-index: 0 !important;
 }
 
-/* Градиентная обводка через псевдоэлемент */
-.project-card::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: -1px !important;
-  border-radius: 16px !important;
-  padding: 1px !important;
-
-  background: linear-gradient(
-    135deg,
-    rgba(245, 223, 177, 0.32) 0%,
-    rgba(196, 163, 115, 0.16) 35%,
-    rgba(245, 223, 177, 0.10) 60%,
-    rgba(196, 163, 115, 0.28) 100%
-  ) !important;
-
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-  -webkit-mask-composite: xor !important;
-  mask-composite: exclude !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-}
-
 .project-card:hover {
   transform: translateY(-3px) !important;
+  border-color: rgba(245, 223, 177, 0.45) !important;
   box-shadow:
     0 14px 36px rgba(0,0,0,0.45),
     0 0 26px rgba(196, 163, 115, 0.16) !important;
@@ -262,7 +245,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   color: var(--orx-text-muted) !important;
 }
 
-/* ===== Кнопки: жёстко перебиваем VitePress (underline/артефакты) ===== */
+/* ===== Кнопки: жёстко перебиваем VitePress ===== */
 .vp-doc a.btn,
 .vp-doc a.btn:visited,
 .vp-doc a.btn:hover,
@@ -271,7 +254,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 .vp-doc a.btn:focus-visible {
   text-decoration: none !important;
   border-bottom: 0 !important;
-  box-shadow: none;
+  /* ИСПРАВЛЕНИЕ: убрал box-shadow: none, чтобы не сбрасывать тени кнопок */
 }
 
 .vp-doc a.btn {
@@ -298,7 +281,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 .vp-doc a.btn:hover { transform: translateY(-2px) !important; }
 .vp-doc a.btn:active { transform: translateY(-1px) !important; }
 
-/* Primary: "Начать" — самая яркая, акцентная */
+/* Primary: "Начать" */
 .vp-doc a.btn-primary {
   color: #14161c !important;
   background: linear-gradient(135deg,
@@ -306,6 +289,9 @@ description: ДНК бренда в сайте, вывеске и интерье
     rgba(245, 223, 177, 0.90) 45%,
     rgba(196, 163, 115, 0.92) 100%
   ) !important;
+  
+  /* ИСПРАВЛЕНИЕ: border для чёткости краёв */
+  border: 1px solid rgba(245, 223, 177, 0.20) !important;
 
   box-shadow:
     0 10px 22px rgba(0,0,0,0.30),
@@ -313,9 +299,16 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-primary:hover {
+  border-color: rgba(245, 223, 177, 0.30) !important;
   box-shadow:
     0 14px 28px rgba(0,0,0,0.36),
     0 0 28px rgba(196, 163, 115, 0.18) !important;
+}
+
+.vp-doc a.btn-primary:active {
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.30),
+    0 0 15px rgba(196, 163, 115, 0.12) !important;
 }
 
 .vp-doc a.btn-primary:focus-visible {
@@ -323,11 +316,10 @@ description: ДНК бренда в сайте, вывеске и интерье
   outline-offset: 3px !important;
 }
 
-/* Secondary: "Изучить / Смотреть" — тёмная с лёгким градиентом */
+/* Secondary: "Изучить / Смотреть" */
 .vp-doc a.btn-secondary {
   color: var(--orx-text) !important;
   
-  /* Тонкий градиент фона (неяркий, не отвлекает) */
   background: 
     linear-gradient(
       135deg,
@@ -348,7 +340,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-secondary:hover {
-  /* При hover — чуть больше золота */
   background: 
     linear-gradient(
       135deg,
@@ -359,10 +350,19 @@ description: ДНК бренда в сайте, вывеске и интерье
     rgba(20, 22, 28, 0.65) !important;
   
   border-color: rgba(245, 223, 177, 0.40) !important;
+  
+  /* ИСПРАВЛЕНИЕ: сохраняем все тени при hover */
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.10),
     0 14px 28px rgba(0,0,0,0.32),
     0 0 22px rgba(196, 163, 115, 0.12) !important;
+}
+
+.vp-doc a.btn-secondary:active {
+  box-shadow:
+    inset 0 1px 0 rgba(245, 223, 177, 0.08),
+    0 8px 18px rgba(0,0,0,0.28),
+    0 0 18px rgba(196, 163, 115, 0.10) !important;
 }
 
 .start-button-container { margin-top: 2rem !important; }
