@@ -20,6 +20,9 @@
   line-height: 1.5;
   cursor: default;
   
+  /* Отступ снизу для создания пространства перед заголовком */
+  margin-bottom: 14px;
+  
   /* Добавляем внешнее золотое свечение */
   box-shadow: 0 0 12px rgba(196, 163, 115, 0.3);
   transition: box-shadow 0.3s ease;
