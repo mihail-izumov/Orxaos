@@ -11,8 +11,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <OrxaosBadge>Ars (лат.) — мастерство + технология</OrxaosBadge>
 
-<br>
-
 <h1 class="orxaos-heading">Ars Orxaos</h1>
 
 <p>
