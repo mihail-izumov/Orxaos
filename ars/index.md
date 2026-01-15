@@ -95,7 +95,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <div class="actions-grid">
 
-  <div class="project-card">
+  <div class="project-card project-card-1">
     <div>
       <h3 class="card-title">Дьявол в Деталях</h3>
       <p class="card-description">Избранные клиенты, проекты и кейсы по годам</p>
@@ -105,7 +105,7 @@ description: ДНК бренда в сайте, вывеске и интерье
     </a>
   </div>
 
-  <div class="project-card">
+  <div class="project-card project-card-2">
     <div>
       <h3 class="card-title">Галерея</h3>
       <p class="card-description">Видео и графика</p>
@@ -130,7 +130,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 </div>
 
 <style>
-/* Сетка блока “Действовать” */
+/* Сетка блока "Действовать" */
 .actions-grid {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
@@ -148,7 +148,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   --orx-text-muted: rgba(245, 223, 177, 0.72);
 }
 
-/* --- Карточки --- */
+/* --- Карточки с тонкими градиентами (стиль Apple M4) --- */
 .project-card {
   background: var(--orx-bg) !important;
   backdrop-filter: blur(10px) saturate(120%) !important;
@@ -165,6 +165,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   position: relative !important;
   border: 1px solid transparent !important;
   background-clip: padding-box !important;
+  overflow: hidden !important;
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.38),
@@ -173,6 +174,43 @@ description: ДНК бренда в сайте, вывеске и интерье
   transition: transform 0.25s ease, box-shadow 0.25s ease !important;
 }
 
+/* Тонкий диагональный градиент внутри карточки 1 (тёплое золото) */
+.project-card-1::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 16px !important;
+  
+  background: radial-gradient(
+    ellipse 600px 400px at 15% 80%,
+    rgba(196, 163, 115, 0.18) 0%,
+    rgba(245, 223, 177, 0.08) 35%,
+    transparent 70%
+  ) !important;
+  
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Тонкий диагональный градиент внутри карточки 2 (холодное золото) */
+.project-card-2::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 16px !important;
+  
+  background: radial-gradient(
+    ellipse 500px 450px at 85% 75%,
+    rgba(245, 223, 177, 0.16) 0%,
+    rgba(196, 163, 115, 0.10) 40%,
+    transparent 70%
+  ) !important;
+  
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Градиентная обводка через псевдоэлемент */
 .project-card::before {
   content: '' !important;
   position: absolute !important;
@@ -192,6 +230,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   -webkit-mask-composite: xor !important;
   mask-composite: exclude !important;
   pointer-events: none !important;
+  z-index: 1 !important;
 }
 
 .project-card:hover {
@@ -199,6 +238,13 @@ description: ДНК бренда в сайте, вывеске и интерье
   box-shadow:
     0 14px 36px rgba(0,0,0,0.45),
     0 0 26px rgba(196, 163, 115, 0.16) !important;
+}
+
+/* Контент карточек поверх градиента */
+.project-card > div,
+.project-card > a {
+  position: relative !important;
+  z-index: 2 !important;
 }
 
 /* Текст карточек */
@@ -252,7 +298,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 .vp-doc a.btn:hover { transform: translateY(-2px) !important; }
 .vp-doc a.btn:active { transform: translateY(-1px) !important; }
 
-/* Primary: “Начать” — премиальный, без “кислоты” */
+/* Primary: "Начать" — самая яркая, акцентная */
 .vp-doc a.btn-primary {
   color: #14161c !important;
   background: linear-gradient(135deg,
@@ -277,10 +323,20 @@ description: ДНК бренда в сайте, вывеске и интерье
   outline-offset: 3px !important;
 }
 
-/* Secondary: “Изучить / Смотреть” — тёмная стеклянная */
+/* Secondary: "Изучить / Смотреть" — тёмная с лёгким градиентом */
 .vp-doc a.btn-secondary {
   color: var(--orx-text) !important;
-  background: rgba(20, 22, 28, 0.60) !important;
+  
+  /* Тонкий градиент фона (неяркий, не отвлекает) */
+  background: 
+    linear-gradient(
+      135deg,
+      rgba(196, 163, 115, 0.08) 0%,
+      rgba(20, 22, 28, 0.85) 40%,
+      rgba(245, 223, 177, 0.05) 100%
+    ),
+    rgba(20, 22, 28, 0.60) !important;
+  
   backdrop-filter: blur(10px) saturate(120%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
 
@@ -292,6 +348,16 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-secondary:hover {
+  /* При hover — чуть больше золота */
+  background: 
+    linear-gradient(
+      135deg,
+      rgba(196, 163, 115, 0.14) 0%,
+      rgba(20, 22, 28, 0.80) 35%,
+      rgba(245, 223, 177, 0.10) 100%
+    ),
+    rgba(20, 22, 28, 0.65) !important;
+  
   border-color: rgba(245, 223, 177, 0.40) !important;
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.10),
