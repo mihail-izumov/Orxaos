@@ -99,23 +99,9 @@ description: ДНК бренда в сайте, вывеске и интерье
   <ArsCards />
 </div>
 
-<div style="text-align: center; margin: 2rem 0;">
-  <img 
-    src="/ars/ars-orxaos_main_banner.png" 
-    alt="ARS Orxaos"
-    style="
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      border-radius: max(12px, min(24px, 3vw));
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.30), 0 0 20px rgba(196, 163, 115, 0.10);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    "
-    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(0, 0, 0, 0.40), 0 0 30px rgba(196, 163, 115, 0.18)'"
-    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.30), 0 0 20px rgba(196, 163, 115, 0.10)'"
-  />
-</div>
+<br>
 
+<ArsGalleryImageSlider />
 
 <div class="actions-grid">
 
@@ -152,10 +138,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 <br>
 
 <ArsMainAccordion />
-
-<br><br>
-
-<ArsGalleryImageSlider />
 
 <style>
 /* Wrapper для ArsCards */
@@ -373,3 +355,20 @@ description: ДНК бренда в сайте, вывеске и интерье
 </style>
 
 <br>
+
+<div style="text-align: center; margin: 2rem 0;">
+  <img 
+    src="/ars/ars-orxaos_main_banner.png" 
+    alt="ARS Orxaos"
+    style="
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: max(12px, min(24px, 3vw));
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.30), 0 0 20px rgba(196, 163, 115, 0.10);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(0, 0, 0, 0.40), 0 0 30px rgba(196, 163, 115, 0.18)'"
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.30), 0 0 20px rgba(196, 163, 115, 0.10)'"
+  />
+</div>
