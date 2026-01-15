@@ -48,7 +48,7 @@ description: Изучаем прошлое, бросаем вызов насто
 ## Hvorostovsky Foundation
 
 <div class="card-behance">
-  <div class="card-behance__title">Сайт фонда в деталях</div>
+  <div class="card-behance__title">Айдентика и сайт благотворительного фонда</div>
   <a
     class="card-behance__button"
     href="https://runscale.ru/journal/cases/kak-my-prevratili-nasledie-khvorostovskogo-v-instrument-dlya-pomoshi-detyam.html"
@@ -102,7 +102,7 @@ description: Изучаем прошлое, бросаем вызов насто
 ## Блумкидс
 
 <div class="card-behance">
-  <div class="card-behance__title">Айдентика и сайт</div>
+  <div class="card-behance__title">Айдентика и сайт детского бассейна</div>
   <a
     class="card-behance__button"
     href="https://www.behance.net/gallery/175530883/blumkids-ajdentika-i-veb-sajt"
