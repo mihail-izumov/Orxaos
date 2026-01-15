@@ -13,8 +13,7 @@ description: Почувствуйте силу данных и любовь кл
 Мы верим, что бизнес, раскрывающий человеческий потенциал, становится сильным, технологичным и непобедимым. Миссия Модуля Роста® — сделать инструменты для системного, глубокого роста **доступными для всех**. 
 
 <div class="start-button-container">
-  <!-- Основная кнопка -->
-  <a href="https://runscale.ru" class="btn btn-primary" target="_blank">На сайт Модуля Роста →</a>
+  <a href="https://runscale.ru" class="btn-hero" target="_blank">На сайт Модуля Роста →</a>
 </div>
 
 
@@ -52,29 +51,46 @@ description: Почувствуйте силу данных и любовь кл
 
 /* --- СТИЛЬ 1: ОСНОВНАЯ КНОПКА (ЯРКАЯ) --- */
 .btn-primary {
-  background-color: #C5F946; /* Яркий лаймовый */
+  background-color: #C5F946;
   color: #000 !important;
 }
 
 .btn-primary:hover {
-  background-color: #347b6c; /* Темный при наведении */
+  background-color: #347b6c;
   color: white !important;
 }
 
 /* --- СТИЛЬ 2: ВТОРОСТЕПЕННАЯ КНОПКА (ТЕМНАЯ) --- */
 .btn-secondary {
-  background-color: #347b6c; /* Темный */
+  background-color: #347b6c;
   color: white !important;
 }
 
 .btn-secondary:hover {
-  background-color: #C5F946; /* Яркий при наведении */
+  background-color: #C5F946;
   color: #000 !important;
 }
 
-/* --- Контейнер для отдельной кнопки "Начать" --- */
-.start-button-container .btn {
+/* --- СТИЛЬ 3: HERO КНОПКА (УНИКАЛЬНАЯ) --- */
+.btn-hero {
   display: inline-block;
   padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  background-color: #C5F946;
+  color: #000 !important;
+}
+
+.btn-hero:hover {
+  transform: translateY(-2px);
+  background-color: #347b6c;
+  color: white !important;
+  text-decoration: none !important;
 }
 </style>
