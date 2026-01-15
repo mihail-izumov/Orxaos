@@ -90,7 +90,7 @@ const copyLink = async () => {
 }
 
 const shareTelegram = () => {
-  const text = 'Январь. 3 места. Логотип + айдентика. <br> Ars Orxaos'
+  const text = 'Январь. 3 места. Логотип + айдентика. Ars Orxaos'
   const url = window.location.href
   window.open(
     `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
