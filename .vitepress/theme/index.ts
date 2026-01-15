@@ -6,6 +6,7 @@ import ArsCards from '../components/ArsCards.vue'
 import ArsGalleryImageSlider from '../components/ArsGalleryImageSlider.vue'
 import ArsMainAccordion from '../components/ArsMainAccordion.vue'
 import OrxaosBadge from '../components/OrxaosBadge.vue'
+import VideoPlayer from '../components/VideoPlayer.vue'
 
 export default {
   extends: DefaultTheme,
@@ -17,6 +18,7 @@ export default {
     app.component('ArsGalleryImageSlider', ArsGalleryImageSlider)
     app.component('ArsMainAccordion', ArsMainAccordion)
     app.component('OrxaosBadge', OrxaosBadge)
+    app.component('VideoPlayer', VideoPlayer)
     
     
   }
