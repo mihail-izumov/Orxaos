@@ -103,8 +103,8 @@ description: ДНК бренда в сайте, вывеске и интерье
 
   <div class="project-card project-card-1">
     <div>
-      <h3 class="card-title">Дьявол в Деталях</h3>
-      <p class="card-description">Избранные клиенты, проекты и кейсы по годам</p>
+      <h3 class="card-title">Дьявол в деталях</h3>
+      <p class="card-description">Навигатор проектов по годам</p>
     </div>
     <a href="/ars/by-the-numbers" class="btn btn-secondary">
       Изучить
@@ -114,7 +114,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   <div class="project-card project-card-2">
     <div>
       <h3 class="card-title">Галерея</h3>
-      <p class="card-description">Видео и графика</p>
+      <p class="card-description">Кейсы и истории в деталях</p>
     </div>
     <a href="/ars/the-wonderful-stories-we-make" class="btn btn-secondary">
       Смотреть
