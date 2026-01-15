@@ -1,5 +1,7 @@
 # Изучаем прошлое, бросаем вызов настоящему, исследуем будущее
 
+<ArsGalleryImageSlider />
+
 ## World Plastics Summit 2022
 
 <figure><img src="https://3331492131-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlfEAS6KEwWUtC2g1kCof%2Fuploads%2FJYgfBUM1MMv8RldpuyC1%2Fwps-main-desktop.jpg?alt=media&token=6b9bc7a4-1002-4729-af54-b14fa577b661" alt="World Plastics Summit 2022"><figcaption><p>World Plastics Summit 2022 – <a href="https://www.behance.net/gallery/156308617/World-Plastics-Summit-Brand-Identity-Website" target="_blank" rel="noopener noreferrer">Behance</a></p></figcaption></figure>
