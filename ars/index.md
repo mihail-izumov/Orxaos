@@ -390,43 +390,66 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 /* Мобилка */
 @media (max-width: 768px) {
-  .project-card { padding: 24px !important; min-height: 180px !important; }
-  .card-title { font-size: 1.15rem !important; }
+  .project-card { 
+    padding: 24px !important; 
+    min-height: 180px !important; 
+  }
+  
+  .card-title { 
+    font-size: 1.15rem !important; 
+  }
 
-  .vp-doc a.btn { padding: 10px 16px !important; font-size: 14px !important; }
+  .vp-doc a.btn { 
+    padding: 10px 16px !important; 
+    font-size: 14px !important; 
+  }
 
-  /* ИСПРАВЛЕНИЕ: растягиваем контейнер и кнопку на всю ширину */
+  /* ИСПРАВЛЕНИЕ: кнопка "Начать" на всю ширину */
   .start-button-container {
     width: 100% !important;
+    max-width: 100% !important;
     min-height: 78px !important;
     height: 78px !important;
-    /* Растягиваем на всю ширину, включая padding родителя */
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    
+    /* Убираем flex, чтобы кнопка растянулась */
+    display: block !important;
   }
 
   .start-button-container .btn {
-    /* display: flex уже установлен выше, меняем на block для растяжения */
-    display: flex !important;
+    display: block !important;
     width: 100% !important;
+    max-width: 100% !important;
+    
+    margin-left: auto !important;
+    margin-right: auto !important;
+    
     padding: 16px 24px !important;
     font-size: 17px !important;
   }
 }
 
 @media (max-width: 480px) {
-  .project-card { padding: 20px !important; }
-  .card-title { font-size: 1.1rem !important; margin-bottom: 0.75rem !important; }
-  .vp-doc a.btn { margin-top: 1rem !important; }
+  .project-card { 
+    padding: 20px !important; 
+  }
+  
+  .card-title { 
+    font-size: 1.1rem !important; 
+    margin-bottom: 0.75rem !important; 
+  }
+  
+  .vp-doc a.btn { 
+    margin-top: 1rem !important; 
+  }
 
   .start-button-container { 
     min-height: 72px !important; 
     height: 72px !important; 
   }
   
-  .start-button-container .btn { 
+  .start-button-container .btn {
     padding: 14px 20px !important; 
-    font-size: 16px !important; 
+    font-size: 16px !important;
   }
 }
 </style>
