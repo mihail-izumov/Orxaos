@@ -74,6 +74,15 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <br>
 
+<VideoPlayer 
+  hd-src="https://orxaos.sbs/ars/video/ars-orxaos_ignite_1920x1080.mp4"
+  sd-src="https://orxaos.sbs/ars/video/ars-orxaos_ignite_1920x1080.mp4"
+  poster="/ars/ignite_video_ban.jpg"
+  :autoplay="false"
+/>
+
+<br>
+
 <div align="center">
 
 # Искусство точных решений
