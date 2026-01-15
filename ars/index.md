@@ -98,13 +98,6 @@ description: ДНК бренда в сайте, вывеске и интерье
   <ArsCards />
 </div>
 
-<style>
-.ars-cards-wrapper {
-  margin: 3rem 0 !important;
-  width: 100% !important;
-}
-</style>
-
 <div class="actions-grid">
 
   <div class="project-card project-card-1">
@@ -137,15 +130,23 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <div class="start-button-container">
   <a href="/start#для-консультации-и-новых-проектов" class="btn btn-primary">
-    Начать
-    <!-- Новая SVG иконка -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    <span class="btn-text">Начать</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+      <path d="M5 12h14"/>
+      <path d="m12 5 7 7-7 7"/>
+    </svg>
   </a>
 </div>
 
 </div>
 
 <style>
+/* Wrapper для ArsCards */
+.ars-cards-wrapper {
+  margin: 3rem 0 !important;
+  width: 100% !important;
+}
+
 /* Сетка блока "Действовать" */
 .actions-grid {
   display: grid !important;
@@ -249,9 +250,9 @@ description: ДНК бренда в сайте, вывеске и интерье
   color: var(--orx-text-muted) !important;
 }
 
-/* ===== Сброс VitePress для ссылок-кнопок ===== */
+/* ===== Сброс VitePress только для текста, НЕ для SVG ===== */
 .vp-doc a.btn,
-.vp-doc a.btn * {
+.vp-doc a.btn .btn-text {
   all: unset !important;
 }
 
@@ -261,7 +262,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   align-items: center !important;
   justify-content: center !important;
   box-sizing: border-box !important;
-  gap: 8px !important; /* Отступ для иконки */
+  gap: 10px !important;
 
   padding: 12px 20px !important;
   border-radius: 10px !important;
@@ -286,14 +287,17 @@ description: ДНК бренда в сайте, вывеске и интерье
     box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* Стили для иконки внутри кнопки */
-.btn-icon {
+/* ИСПРАВЛЕНИЕ: явные стили для SVG иконки (не сбрасываем!) */
+.vp-doc a.btn .btn-icon {
+  display: inline-block !important;
   width: 20px !important;
   height: 20px !important;
+  flex-shrink: 0 !important;
+  stroke: currentColor !important;
+  fill: none !important;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* Анимация иконки при наведении */
 .vp-doc a.btn:hover .btn-icon {
   transform: translateX(4px) !important;
 }
@@ -354,7 +358,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 .vp-doc a.btn-primary {
   color: #14161c !important;
 
-  /* Градиент в 200% ширины для плавной анимации */
   background: linear-gradient(
     110deg,
     rgba(196, 163, 115, 0.95) 0%,
@@ -371,7 +374,6 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 12px 26px rgba(0,0,0,0.32),
     0 0 20px rgba(196, 163, 115, 0.14) !important;
 
-  /* Плавный переход для фона (background-position) и трансформации */
   transition:
     transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
     box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
@@ -379,7 +381,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-primary:hover {
-  /* Сдвиг градиента при ховере */
   background-position: right center !important;
 
   box-shadow:
@@ -390,7 +391,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-primary:active {
-  background-size: 100% auto !important; /* Стоп анимации при клике */
+  background-size: 100% auto !important;
   
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.15),
@@ -402,22 +403,28 @@ description: ДНК бренда в сайте, вывеске и интерье
 /* Контейнер "Начать" */
 .start-button-container {
   margin-top: 2.5rem !important;
-  min-height: 80px !important;
-  height: 80px !important;
+  min-height: 100px !important;
+  height: 100px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
 
+/* DESKTOP: увеличена на 30% */
 .start-button-container .btn {
-  padding: 16px 48px !important;
-  font-size: 18px !important;
+  padding: 20px 62px !important; /* было 16/48, +30% ≈ 20/62 */
+  font-size: 23px !important; /* было 18, +30% ≈ 23 */
   font-weight: 700 !important;
-  border-radius: 12px !important;
+  border-radius: 14px !important; /* было 12, +30% ≈ 14-16 */
 }
 
-/* Мобилка */
-@media (max-width: 768px) {
+.start-button-container .btn .btn-icon {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Мобилка (расширенный диапазон до 960px) */
+@media (max-width: 960px) {
   .project-card { 
     padding: 24px !important; 
     min-height: 180px !important; 
@@ -432,37 +439,41 @@ description: ДНК бренда в сайте, вывеске и интерье
     font-size: 14px !important; 
   }
 
-  /* Исправление для растягивания на всю ширину */
+  /* РАДИКАЛЬНОЕ ИСПРАВЛЕНИЕ для растягивания */
   .start-button-container {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    /* Сбрасываем все ограничения */
+    width: 100vw !important;
+    max-width: 100vw !important;
     
-    padding-left: 0 !important; /* Убираем отступы контейнера, если нужны края */
-    padding-right: 0 !important;
+    /* Выходим за границы родителя через отрицательные margins */
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
     
-    min-height: 78px !important;
-    height: 78px !important;
+    /* Padding для контента внутри */
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
     
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    min-height: 85px !important;
+    height: 85px !important;
   }
 
-  /* Принудительно растягиваем саму кнопку */
   .start-button-container .btn {
-    flex: 1 1 auto !important;
+    /* Кнопка занимает всю доступную ширину минус padding */
     width: 100% !important;
     max-width: 100% !important;
-    display: flex !important; /* Гарантирует flex внутри кнопки */
     
-    padding: 16px 24px !important;
-    font-size: 17px !important;
+    padding: 18px 32px !important;
+    font-size: 18px !important;
+  }
+
+  .start-button-container .btn .btn-icon {
+    width: 22px !important;
+    height: 22px !important;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .project-card { 
     padding: 20px !important; 
   }
@@ -477,13 +488,39 @@ description: ДНК бренда в сайте, вывеске и интерье
   }
 
   .start-button-container { 
-    min-height: 72px !important; 
-    height: 72px !important;
+    min-height: 78px !important; 
+    height: 78px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   
   .start-button-container .btn {
-    padding: 14px 20px !important; 
-    font-size: 16px !important;
+    padding: 16px 28px !important; 
+    font-size: 17px !important;
+  }
+
+  .start-button-container .btn .btn-icon {
+    width: 20px !important;
+    height: 20px !important;
   }
 }
 </style>
+
+<br>
+
+<div style="text-align: center; margin: 2rem 0;">
+  <img 
+    src="/ars/ars-orxaos_main_banner.png" 
+    alt="ARS Orxaos"
+    style="
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: max(12px, min(24px, 3vw));
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.30), 0 0 20px rgba(196, 163, 115, 0.10);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(0, 0, 0, 0.40), 0 0 30px rgba(196, 163, 115, 0.18)'"
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.30), 0 0 20px rgba(196, 163, 115, 0.10)'"
+  />
+</div>
