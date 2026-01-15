@@ -88,6 +88,8 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <ArsGalleryImageSlider />
 
+<br>
+
 <div align="center">
 
 # Действовать
@@ -120,6 +122,8 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 </div>
 
+<div align="center">
+
 Вопрос не в том, готовы ли вы к новому логотипу или сайту. <br>
 А в том, каким вы видите ваш бизнес или проект.
 
@@ -128,6 +132,8 @@ description: ДНК бренда в сайте, вывеске и интерье
 <div class="start-button-container">
   <!-- Основная кнопка -->
   <a href="/start#для-консультации-и-новых-проектов" class="btn btn-primary">Начать →</a>
+</div>
+
 </div>
 
 <style>
