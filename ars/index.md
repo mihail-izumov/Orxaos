@@ -103,7 +103,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <ArsGalleryImageSlider />
 
-<br>
+<br><br>
 
 <div align="center">
 
