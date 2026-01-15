@@ -21,7 +21,7 @@ const sections = [
 `
   },
   {
-    title: 'Искусство точных решений',
+    title: '10 правил Ars Orxaos',
     content: `
 <ol style="margin: 0; padding-left: 24px; line-height: 1.8;">
 <li>Начинать с главного.</li>
