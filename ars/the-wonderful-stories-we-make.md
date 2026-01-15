@@ -1,5 +1,7 @@
 # Изучаем прошлое, бросаем вызов настоящему, исследуем будущее
 
+<br>
+
 <ArsGalleryImageSlider />
 
 ## World Plastics Summit 2022
