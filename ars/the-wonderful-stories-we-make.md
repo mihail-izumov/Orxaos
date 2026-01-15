@@ -1,13 +1,22 @@
-# Изучаем прошлое, бросаем вызов настоящему, исследуем будущее
+---
+outline: false
+prev: false
+next: false
+pageClass: centered-page
+title: Галерея – Ars Orxaos
+description: Изучаем прошлое, бросаем вызов настоящему, исследуем будущее
+---
 
-<br>
+# Изучаем прошлое, бросаем вызов настоящему, исследуем будущее.
+
+<br><br>
 
 <ArsGalleryImageSlider />
 
 ## World Plastics Summit 2022
 
 <div class="card-behance">
-  <div class="card-behance__title">World Plastics Summit 2022</div>
+  <div class="card-behance__title">Проект в деталях</div>
   <a
     class="card-behance__button"
     href="https://www.behance.net/gallery/156308617/World-Plastics-Summit-Brand-Identity-Website"
