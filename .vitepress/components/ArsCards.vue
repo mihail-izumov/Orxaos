@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 
 const establishment = {
   name: 'Слоты на айдентику'
@@ -12,7 +12,7 @@ const cards = [
     description: 'Аналитика 29,600+ уникальных отзывов',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
-    colorScheme: 'gray' // серая — неактивная
+    colorScheme: 'gray'
   },
   {
     badge: '₽150.000',
@@ -20,7 +20,7 @@ const cards = [
     description: 'Кофейни сейчас и целевой масштаб сети',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
-    colorScheme: 'blue' // голубой градиент (M4 PRO)
+    colorScheme: 'blue'
   },
   {
     badge: '₽250.000',
@@ -28,7 +28,7 @@ const cards = [
     description: 'Сила эффекта на рынок Самары',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
-    colorScheme: 'purple' // фиолетовый градиент (M4 MAX)
+    colorScheme: 'purple'
   }
 ]
 
@@ -43,17 +43,73 @@ const currentDateBadge = computed(() => {
   ]
   const monthName = monthNames[today.getMonth()]
 
-  // Убрали радио-иконку, заменили стрелку
   return `${day}.${month} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bdbdbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon" style="display:inline-block;vertical-align:middle;margin:0 4px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> ${monthName} ${year}`
 })
 
 const showInfoModal = ref(false)
-const onKeydown = (e) => {
-  if (e.key === 'Escape') showInfoModal.value = false
+const showShareModal = ref(false)
+const showCopyToast = ref(false)
+const showCopyTooltip = ref(false)
+const showTelegramTooltip = ref(false)
+
+// Открыть Telegram с нужным текстом
+const openTelegramChat = (price) => {
+  const text = `Хочу Свой Знак за ${price}`
+  const url = `https://t.me/mikhail_izumov?text=${encodeURIComponent(text)}`
+  window.open(url, '_blank')
 }
 
-onMounted(() => window.addEventListener('keydown', onKeydown))
-onUnmounted(() => window.removeEventListener('keydown', onKeydown))
+// Модалка Share
+const openShareModal = () => {
+  showShareModal.value = true
+}
+
+const closeShareModal = () => {
+  showShareModal.value = false
+  showCopyTooltip.value = false
+  showTelegramTooltip.value = false
+}
+
+watch(showShareModal, (isOpen) => {
+  if (typeof document === 'undefined') return
+  document.body.style.overflow = isOpen ? 'hidden' : ''
+})
+
+const copyLink = async () => {
+  try {
+    await navigator.clipboard.writeText(window.location.href)
+    closeShareModal()
+    showCopyToast.value = true
+    setTimeout(() => (showCopyToast.value = false), 3000)
+  } catch (err) {
+    console.error('Failed to copy', err)
+  }
+}
+
+const shareTelegram = () => {
+  const text = 'Проверьте новую возможность поддержать Корж'
+  const url = window.location.href
+  window.open(
+    `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
+    '_blank'
+  )
+}
+
+const onKeydown = (e) => {
+  if (e.key === 'Escape') {
+    if (showShareModal.value) closeShareModal()
+    if (showInfoModal.value) showInfoModal.value = false
+  }
+}
+
+onMounted(() => {
+  if (typeof window !== 'undefined') window.addEventListener('keydown', onKeydown)
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') window.removeEventListener('keydown', onKeydown)
+  if (typeof document !== 'undefined') document.body.style.overflow = ''
+})
 </script>
 
 <template>
@@ -77,30 +133,30 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
               <img :src="card.iconSrc" :alt="card.iconAlt" />
             </div>
 
-            <!-- Заголовок (только цена) -->
+            <!-- Заголовок -->
             <div class="stat-header">
               <div class="stat-title">{{ card.badge }}</div>
             </div>
 
-            <!-- Бейдж строго по центру -->
+            <!-- Бейдж -->
             <div class="stat-main">
-              <a
+              <button
                 v-if="card.status === 'Хочу'"
                 class="stat-metric-badge want-badge"
-                href="/start"
+                @click="openTelegramChat(card.badge)"
               >
                 {{ card.status }}
-              </a>
+              </button>
 
               <div v-else class="stat-metric-badge busy-badge">
                 {{ card.status }}
               </div>
             </div>
 
-            <!-- Описание прижато к низу -->
+            <!-- Описание -->
             <div class="stat-description">{{ card.description }}</div>
 
-            <!-- МОБИЛКА: иконка справа крупно с эффектом фона -->
+            <!-- МОБИЛКА: иконка справа с отступом -->
             <div class="stat-mobile-icon" aria-hidden="true">
               <img :src="card.iconSrc" :alt="card.iconAlt" />
             </div>
@@ -110,9 +166,13 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
       <div class="control-panel">
         <div class="button-container">
-          <a href="/invest/sim" class="action-button ticket-button" target="_blank" rel="noopener noreferrer">
+          <button class="action-button ticket-button" @click="openShareModal">
             Поделиться
-          </a>
+            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+            </svg>
+          </button>
 
           <a href="/invest/smr" class="action-button review-button" target="_blank" rel="noopener noreferrer">
             Заявка на проект
@@ -124,9 +184,68 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
       </div>
     </div>
 
-    <!-- Modal -->
+    <!-- МОДАЛКА Share -->
+    <div v-if="showShareModal" class="modal-overlay blur-bg" @click.self="closeShareModal">
+      <div class="modal-card white-theme">
+        <button class="modal-close-icon" @click="closeShareModal" aria-label="Закрыть">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+
+        <h3>Поделитесь</h3>
+        <p>Пригласите друзей отправить подарок в Корж</p>
+
+        <div class="share-buttons">
+          <div
+            class="share-btn-circle"
+            @click="copyLink"
+            @mouseenter="showCopyTooltip = true"
+            @mouseleave="showCopyTooltip = false"
+            role="button"
+            tabindex="0"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+            <div v-if="showCopyTooltip" class="tooltip">Скопировать ссылку</div>
+          </div>
+
+          <div
+            class="share-btn-circle telegram"
+            @click="shareTelegram"
+            @mouseenter="showTelegramTooltip = true"
+            @mouseleave="showTelegramTooltip = false"
+            role="button"
+            tabindex="0"
+            style="background: #f0f0f0;"
+          >
+            <div class="niftybutton-telegram-black-white" style="display:inline-flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;color:#000;transition:.3s;opacity:1;padding:18px;pointer-events:none;">
+              <svg viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" style="display:block;fill:#000;width:100%;height:100%;" role="img" aria-label="telegram">
+                <path d="M 200.894531 323.863281 L 192.425781 442.988281 C 204.542969 442.988281 209.792969 437.78125 216.085938 431.53125 L 272.894531 377.238281 L 390.613281 463.445312 C 412.203125 475.476562 427.414062 469.140625 433.238281 443.585938 L 510.507812 81.515625 L 510.527344 81.492188 C 517.375 49.578125 498.988281 37.097656 477.953125 44.929688 L 23.765625 218.816406 C -7.230469 230.847656 -6.761719 248.128906 18.496094 255.957031 L 134.613281 292.074219 L 404.332031 123.308594 C 417.023438 114.902344 428.566406 119.550781 419.070312 127.957031 Z M 200.894531 323.863281 " />
+              </svg>
+            </div>
+            <div v-if="showTelegramTooltip" class="tooltip">Отправить в Telegram</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ТОСТ -->
+    <Transition name="fade">
+      <div v-if="showCopyToast" class="toast-notification">
+        <div class="check-circle">✓</div>
+        <div>
+          <strong>Скопировано в буфер</strong><br />
+          Поделитесь ссылкой с друзьями.
+        </div>
+      </div>
+    </Transition>
+
+    <!-- Modal Info -->
     <div v-if="showInfoModal" class="modal-overlay" @click.self="showInfoModal = false">
-      <div class="modal" role="dialog" aria-modal="true" id="index-dialog" aria-label="Что такое Индекс Роста">
+      <div class="modal" role="dialog" aria-modal="true">
         <div class="modal-header">
           <div class="modal-title">Что такое Индекс Роста</div>
         </div>
@@ -210,7 +329,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   overflow: hidden;
 }
 
-/* Цветовые схемы карточек */
+/* Цветовые схемы */
 .stat-card.color-gray {
   --card-bg: #1f1f1f;
   --border-1: rgba(255,255,255,0.22);
@@ -225,7 +344,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   --glow-top-hover-2: rgba(255,255,255,0.10);
 }
 
-/* Голубой градиент (M4 PRO) */
 .stat-card.color-blue {
   --card-bg: #1f1f1f;
   --border-1: rgba(100,200,255,0.35);
@@ -240,7 +358,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   --glow-top-hover-2: rgba(50,150,220,0.16);
 }
 
-/* Фиолетовый градиент (M4 MAX) */
 .stat-card.color-purple {
   --card-bg: #1f1f1f;
   --border-1: rgba(200,140,255,0.35);
@@ -278,24 +395,20 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   background: linear-gradient(135deg, var(--border-hover-1) 0%, var(--border-hover-2) 60%, rgba(255,255,255,0) 100%);
 }
 
-/* Контент карточки: flexbox с выравниванием */
 .stat-content {
   position: relative;
   z-index: 2;
   border-radius: 20px;
   padding: 24px 20px;
   min-height: 240px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   background: radial-gradient(circle at 50% 0%, var(--glow-base) 0%, transparent 70%);
   transition: background 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Свечение поверх */
 .stat-content::after {
   content: '';
   position: absolute;
@@ -321,7 +434,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     radial-gradient(100% 70% at 55% 0%, var(--glow-top-hover-2) 0%, rgba(255,255,255,0) 72%);
 }
 
-/* ФОН-КАРТИНКА: строго по центру */
+/* ФОН-КАРТИНКА */
 .stat-bg-icon {
   position: absolute;
   top: 50%;
@@ -346,12 +459,10 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   transform: translate(-50%, -58%) scale(1.5);
 }
 
-/* Мобильная иконка — по умолчанию скрыта */
 .stat-mobile-icon {
   display: none;
 }
 
-/* Заголовок */
 .stat-header {
   width: 100%;
   position: relative;
@@ -375,9 +486,8 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   color: rgba(255,255,255,0.92);
 }
 
-/* Бейдж: строго по центру (гориз. + верт.) */
 .stat-main {
-  flex: 1; /* занимает всё оставшееся пространство */
+  flex: 1;
   width: 100%;
   position: relative;
   z-index: 4;
@@ -400,15 +510,13 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   font-size: clamp(14px, 2.5vw, 18px);
   white-space: nowrap;
   text-transform: uppercase;
-  text-decoration: none;
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
 }
 
-/* ХОЧУ: shimmer */
 .want-badge {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .want-badge::before {
@@ -446,15 +554,13 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   outline-offset: 2px;
 }
 
-/* ЗАНЯТО: не подсвечивать */
 .busy-badge {}
 
-/* Описание: прижато к низу (без flex:1, фиксированное положение) */
 .stat-description {
   width: 100%;
   position: relative;
   z-index: 4;
-  margin-top: 0; /* бейдж растянут на flex:1, этот блок — внизу */
+  margin-top: 0;
   font-size: 13px;
   font-weight: 400;
   color: rgba(255,255,255,0.48);
@@ -491,6 +597,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   justify-content: center;
   gap: 8px;
   text-decoration: none;
+  border: none;
 }
 
 .ticket-button {
@@ -507,8 +614,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 .review-button {
   background: #e0e0e0;
   color: #1a1a1a;
-  border: none;
-  box-shadow: none;
 }
 .review-button:hover {
   background: #ffffff;
@@ -518,19 +623,147 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
 .button-icon { transition: transform 0.3s ease; }
 .review-button:hover .button-icon { transform: translateX(4px); }
+.ticket-button:hover .button-icon { transform: scale(1.1); }
 
-/* Модалка */
+/* Модалка Share */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.8);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
 }
 
+.modal-overlay.blur-bg {
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-card {
+  background: #fff;
+  color: #000;
+  padding: 40px;
+  border-radius: 24px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: opacity 0.2s;
+  opacity: 0.6;
+  color: #000;
+}
+
+.modal-close-icon:hover {
+  opacity: 1;
+}
+
+.modal-card h3 {
+  margin-top: 12px;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.modal-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  opacity: 0.8;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.share-btn-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+  color: #000;
+}
+
+.share-btn-circle:hover {
+  transform: scale(1.1);
+  background: #e0e0e0;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+/* Тост */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 2000;
+  width: max-content;
+  max-width: 90vw;
+  text-align: left;
+}
+
+.check-circle {
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  color: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Modal Info */
 .modal {
   background: #1f1f1f;
   color: #fff;
@@ -577,15 +810,14 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     gap: 0;
   }
 
-  /* Фон-иконку выключаем на мобилке */
   .stat-bg-icon { display: none; }
 
-  /* Мобильная иконка: справа, крупно, с эффектом фона */
+  /* Мобильная иконка справа с отступом */
   .stat-mobile-icon {
     display: block;
     position: absolute;
     top: 50%;
-    right: 12px;
+    right: 24px; /* ОТСТУП ОТ КРАЯ */
     transform: translateY(-50%) scale(1.3);
     z-index: 2;
     opacity: 0.38;
@@ -605,7 +837,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     transform: translateY(-52%) scale(1.3);
   }
 
-  /* Ряд 1: цена слева */
   .stat-header {
     justify-content: flex-start;
     margin-bottom: 10px;
@@ -616,7 +847,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     letter-spacing: 1.6px;
   }
 
-  /* Ряд 2: бейдж */
   .stat-main {
     flex: none;
     justify-content: flex-start;
@@ -628,7 +858,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     padding: 8px 14px !important;
   }
 
-  /* Ряд 3: описание прижато вниз */
   .stat-description {
     text-align: left;
     margin-top: 0;
