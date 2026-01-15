@@ -9,9 +9,9 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <div align="center">
 
-<h1 class="orxaos-heading">Ars Orxaos</h1>
-
 <Badge type="tip" text="Ars (лат.) — мастерство, технология" />
+
+<h1 class="orxaos-heading">Ars Orxaos</h1>
 
 <p>
 <strong>ДНК бренда в сайте, вывеске и интерьере. </strong> <br class="mobile-break"> Меняет не просто восприятие, а саму реальность вашего бизнеса. Помогает притянуть нужных людей и воплотить смелые идеи.
@@ -75,7 +75,11 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <br>
 
-## Искусство точных решений
+<div align="center">
+
+# Искусство точных решений
+
+</div>
 
 <ArsMainAccordion />
 
