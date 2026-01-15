@@ -170,7 +170,6 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 10px 30px rgba(0,0,0,0.38),
     0 0 18px rgba(196, 163, 115, 0.10) !important;
 
-  /* ИСПРАВЛЕНИЕ: более плавная анимация (0.4s вместо 0.25s) */
   transition: 
     transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -243,25 +242,32 @@ description: ДНК бренда в сайте, вывеске и интерье
   color: var(--orx-text-muted) !important;
 }
 
-/* ===== МАКСИМАЛЬНО АГРЕССИВНОЕ ПЕРЕБИВАНИЕ VITEPRESS ===== */
+/* ===== УЛЬТРА-АГРЕССИВНОЕ ПЕРЕБИВАНИЕ VITEPRESS ===== */
+/* ИСПРАВЛЕНИЕ: добавляем ::before и ::after для border-bottom */
 .vp-doc a.btn,
+.vp-doc a.btn::before,
+.vp-doc a.btn::after,
 .vp-doc a.btn:link,
+.vp-doc a.btn:link::before,
+.vp-doc a.btn:link::after,
 .vp-doc a.btn:visited,
+.vp-doc a.btn:visited::before,
+.vp-doc a.btn:visited::after,
 .vp-doc a.btn:hover,
+.vp-doc a.btn:hover::before,
+.vp-doc a.btn:hover::after,
 .vp-doc a.btn:active,
+.vp-doc a.btn:active::before,
+.vp-doc a.btn:active::after,
 .vp-doc a.btn:focus,
-.vp-doc a.btn:focus-visible,
-.vp-doc a.btn:focus-within {
-  /* Убираем все возможные подчёркивания и границы VitePress */
+.vp-doc a.btn:focus::before,
+.vp-doc a.btn:focus::after {
   text-decoration: none !important;
   text-decoration-line: none !important;
-  text-decoration-style: none !important;
-  border-bottom: 0 !important;
+  border-bottom: none !important;
   border-bottom-width: 0 !important;
+  border-bottom-color: transparent !important;
   border-bottom-style: none !important;
-  outline: none !important;
-  outline-width: 0 !important;
-  outline-style: none !important;
 }
 
 .vp-doc a.btn {
@@ -281,65 +287,86 @@ description: ДНК бренда в сайте, вывеске и интерье
   user-select: none !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
+  
+  /* ИСПРАВЛЕНИЕ: изолируем transform чтобы не сдвигать layout */
+  position: relative !important;
+  will-change: transform !important;
 
-  /* Плавная анимация для кнопок */
   transition: 
     transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
+/* ИСПРАВЛЕНИЕ: hover без влияния на layout (только visual) */
 .vp-doc a.btn:hover { 
-  transform: translateY(-2px) !important; 
+  transform: translateY(-2px) translateZ(0) !important; 
 }
 
 .vp-doc a.btn:active { 
-  transform: translateY(0px) !important; 
+  transform: translateY(0px) translateZ(0) !important; 
 }
 
-/* Primary: "Начать" — УВЕЛИЧЕНА */
+/* Primary: "Начать" — ЯРКИЙ HOVER */
 .vp-doc a.btn-primary {
   color: #14161c !important;
+  
   background: linear-gradient(135deg,
     rgba(196, 163, 115, 0.95) 0%,
     rgba(245, 223, 177, 0.90) 45%,
     rgba(196, 163, 115, 0.92) 100%
   ) !important;
   
-  /* ИСПРАВЛЕНИЕ: явная граница во всех состояниях */
-  border: 1px solid rgba(245, 223, 177, 0.25) !important;
-  border-width: 1px !important;
-  border-style: solid !important;
+  /* Явная граница со всех сторон */
+  border-top: 1px solid rgba(245, 223, 177, 0.25) !important;
+  border-right: 1px solid rgba(245, 223, 177, 0.25) !important;
+  border-bottom: 1px solid rgba(196, 163, 115, 0.40) !important;
+  border-left: 1px solid rgba(245, 223, 177, 0.25) !important;
 
   box-shadow:
     0 12px 26px rgba(0,0,0,0.32),
-    0 0 20px rgba(196, 163, 115, 0.14) !important;
+    0 0 20px rgba(196, 163, 115, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
+/* ИСПРАВЛЕНИЕ: более выразительный hover */
 .vp-doc a.btn-primary:hover {
-  border: 1px solid rgba(245, 223, 177, 0.35) !important;
-  border-width: 1px !important;
-  border-style: solid !important;
+  /* Более яркий градиент */
+  background: linear-gradient(135deg,
+    rgba(245, 223, 177, 0.98) 0%,
+    rgba(196, 163, 115, 0.92) 45%,
+    rgba(245, 223, 177, 0.95) 100%
+  ) !important;
   
+  border-top: 1px solid rgba(245, 223, 177, 0.40) !important;
+  border-right: 1px solid rgba(245, 223, 177, 0.40) !important;
+  border-bottom: 1px solid rgba(196, 163, 115, 0.55) !important;
+  border-left: 1px solid rgba(245, 223, 177, 0.40) !important;
+  
+  /* Усиленные тени + легкое свечение */
   box-shadow:
-    0 16px 32px rgba(0,0,0,0.38),
-    0 0 32px rgba(196, 163, 115, 0.20) !important;
+    0 16px 36px rgba(0,0,0,0.40),
+    0 0 40px rgba(196, 163, 115, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
 }
 
 .vp-doc a.btn-primary:active {
-  border: 1px solid rgba(245, 223, 177, 0.30) !important;
-  border-width: 1px !important;
-  border-style: solid !important;
+  background: linear-gradient(135deg,
+    rgba(196, 163, 115, 0.90) 0%,
+    rgba(245, 223, 177, 0.85) 45%,
+    rgba(196, 163, 115, 0.88) 100%
+  ) !important;
+  
+  border-top: 1px solid rgba(245, 223, 177, 0.30) !important;
+  border-right: 1px solid rgba(245, 223, 177, 0.30) !important;
+  border-bottom: 1px solid rgba(196, 163, 115, 0.45) !important;
+  border-left: 1px solid rgba(245, 223, 177, 0.30) !important;
   
   box-shadow:
     0 10px 22px rgba(0,0,0,0.32),
-    0 0 18px rgba(196, 163, 115, 0.14) !important;
-}
-
-.vp-doc a.btn-primary:focus-visible {
-  outline: 2px solid rgba(245, 223, 177, 0.40) !important;
-  outline-offset: 4px !important;
+    0 0 18px rgba(196, 163, 115, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
 }
 
 /* Secondary: "Изучить / Смотреть" */
@@ -358,10 +385,11 @@ description: ДНК бренда в сайте, вывеске и интерье
   backdrop-filter: blur(10px) saturate(120%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
 
-  /* ИСПРАВЛЕНИЕ: явная граница во всех состояниях */
-  border: 1px solid rgba(196, 163, 115, 0.32) !important;
-  border-width: 1px !important;
-  border-style: solid !important;
+  /* Явная граница со всех сторон */
+  border-top: 1px solid rgba(196, 163, 115, 0.32) !important;
+  border-right: 1px solid rgba(196, 163, 115, 0.32) !important;
+  border-bottom: 1px solid rgba(196, 163, 115, 0.40) !important;
+  border-left: 1px solid rgba(196, 163, 115, 0.32) !important;
 
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.06),
@@ -378,9 +406,10 @@ description: ДНК бренда в сайте, вывеске и интерье
     ),
     rgba(20, 22, 28, 0.65) !important;
   
-  border: 1px solid rgba(245, 223, 177, 0.40) !important;
-  border-width: 1px !important;
-  border-style: solid !important;
+  border-top: 1px solid rgba(245, 223, 177, 0.40) !important;
+  border-right: 1px solid rgba(245, 223, 177, 0.40) !important;
+  border-bottom: 1px solid rgba(245, 223, 177, 0.48) !important;
+  border-left: 1px solid rgba(245, 223, 177, 0.40) !important;
   
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.10),
@@ -389,9 +418,10 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .vp-doc a.btn-secondary:active {
-  border: 1px solid rgba(245, 223, 177, 0.36) !important;
-  border-width: 1px !important;
-  border-style: solid !important;
+  border-top: 1px solid rgba(245, 223, 177, 0.36) !important;
+  border-right: 1px solid rgba(245, 223, 177, 0.36) !important;
+  border-bottom: 1px solid rgba(245, 223, 177, 0.42) !important;
+  border-left: 1px solid rgba(245, 223, 177, 0.36) !important;
   
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.08),
@@ -399,9 +429,11 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 0 18px rgba(196, 163, 115, 0.10) !important;
 }
 
-/* Контейнер кнопки "Начать" — УВЕЛИЧЕНА */
+/* Контейнер кнопки "Начать" */
 .start-button-container { 
-  margin-top: 2.5rem !important; 
+  margin-top: 2.5rem !important;
+  /* ИСПРАВЛЕНИЕ: изолируем от следующих элементов */
+  margin-bottom: 0 !important;
 }
 
 .start-button-container .btn { 
@@ -409,6 +441,8 @@ description: ДНК бренда в сайте, вывеске и интерье
   font-size: 18px !important;
   font-weight: 700 !important;
   border-radius: 12px !important;
+  /* ИСПРАВЛЕНИЕ: добавляем margin-bottom для отступа от картинки */
+  margin-bottom: 0 !important;
 }
 
 /* Мобилка */
@@ -427,7 +461,6 @@ description: ДНК бренда в сайте, вывеске и интерье
     font-size: 14px !important; 
   }
   
-  /* ИСПРАВЛЕНИЕ: кнопка "Начать" на всю ширину на мобильных */
   .start-button-container { 
     width: 100% !important;
     max-width: 100% !important;
