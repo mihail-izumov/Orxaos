@@ -16,7 +16,7 @@ description: Изучаем прошлое, бросаем вызов насто
 ## World Plastics Summit 2022
 
 <div class="card-behance">
-  <div class="card-behance__title">Проект в деталях</div>
+  <div class="card-behance__title">Айдентика и сайт саммита на Ocean Week</div>
   <a
     class="card-behance__button"
     href="https://www.behance.net/gallery/156308617/World-Plastics-Summit-Brand-Identity-Website"
@@ -27,12 +27,16 @@ description: Изучаем прошлое, бросаем вызов насто
   </a>
 </div>
 
+### Презентация на открытие саммита
+
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/wps22-main-movie_sd.mp4"
   sd-src="https://orxaos.sbs/ars/video/wps22-main-movie_sd.mp4"
   poster="/ars/ignite_video_ban.jpg"
   :autoplay="false"
 />
+
+### Сайт для участников саммита
 
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/wps-website.mp4"
@@ -55,7 +59,7 @@ description: Изучаем прошлое, бросаем вызов насто
   </a>
 </div>
 
-### Обзорный фильм на сайт
+### Обзорный фильм для главной страницы
 
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/intro_hvorostovsky_foundation.mp4"
@@ -64,7 +68,7 @@ description: Изучаем прошлое, бросаем вызов насто
   :autoplay="false"
 />
 
-### Линия времени Дмитрия Хворостовского
+### Линия времени Дмитрия Хворостовского, презентация для интерактивной панели
 
 <VideoPlayer 
   hd-src="https://orxaos.sbs/ars/video/hvorostovsky-timeline.mp4"
@@ -77,7 +81,7 @@ description: Изучаем прошлое, бросаем вызов насто
 ## GALA RUSSE Monaco
 
 <div class="card-behance">
-  <div class="card-behance__title">GALA RUSSE Monaco</div>
+  <div class="card-behance__title">Айдентика и сайт</div>
   <a
     class="card-behance__button"
     href="https://www.behance.net/gallery/175498363/GALA-RUSSE-Identity-website"
@@ -88,9 +92,12 @@ description: Изучаем прошлое, бросаем вызов насто
   </a>
 </div>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0;">
-  <iframe src="https://player.vimeo.com/video/784965356" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
+<VideoPlayer 
+  hd-src="https://orxaos.sbs/ars/video/gala_russe_icon_reveal.mp4"
+  sd-src="https://orxaos.sbs/ars/video/gala_russe_icon_reveal.mp4"
+  poster="/ars/ignite_video_ban.jpg"
+  :autoplay="false"
+/>
 
 ## Easy Home
 
