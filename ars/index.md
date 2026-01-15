@@ -109,10 +109,10 @@ description: ДНК бренда в сайте, вывеске и интерье
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Дьявол в Деталях</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Избранные клиенты, проекты и кейсы по годам</p>
+      <h3 class="card-title">Дьявол в Деталях</h3>
+      <p class="card-description">Избранные клиенты, проекты и кейсы по годам</p>
     </div>
-    <!-- Второстепенная кнопка (изменено) -->
+    <!-- Второстепенная кнопка -->
     <a href="/ars/by-the-numbers" class="btn btn-secondary">
       Изучить
     </a>
@@ -120,8 +120,8 @@ description: ДНК бренда в сайте, вывеске и интерье
 
   <div class="project-card">
     <div>
-      <h3 style="color: #C5F946; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">Галерея</h3>
-      <p style="margin: 0; line-height: 1.6; color: var(--vp-c-text-1);">Видео и графика</p>
+      <h3 class="card-title">Галерея</h3>
+      <p class="card-description">Видео и графика</p>
     </div>
     <!-- Второстепенная кнопка -->
     <a href="/ars/the-wonderful-stories-we-make" class="btn btn-secondary">
@@ -133,7 +133,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <div align="center">
 
-Вопрос не в том, готовы ли вы к новому логотипу или сайту. А в том, каким вы видите ваш бизнес или проект.
+Вопрос не в том, готовы ли вы к новому логотипу или сайту. А в том, каким вы видите ваш бизнес или проект.
 
 **Опишите видение → Обсудим возможности**
 
@@ -145,30 +145,88 @@ description: ДНК бренда в сайте, вывеске и интерье
 </div>
 
 <style>
-/* --- Стили для карточек --- */
+/* --- ЗОЛОТЫЕ КАРТОЧКИ С GLASSMORPHISM --- */
 .project-card {
-  background: rgba(52, 123, 108, 0.3);
-  border-radius: 12px;
-  padding: 24px;
+  background: #1a1d24;
+  border-radius: 16px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 200px;
+  position: relative;
+  
+  /* Золотая обводка с градиентом */
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  
+  /* Тонкое золотое свечение */
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(196, 163, 115, 0.15);
+  
+  transition: all 0.3s ease;
+}
+
+/* Градиентная обводка через псевдоэлемент */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg, 
+    rgba(196, 163, 115, 0.6) 0%,
+    rgba(245, 223, 177, 0.8) 50%,
+    rgba(196, 163, 115, 0.6) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(196, 163, 115, 0.3);
+}
+
+/* Заголовки карточек */
+.card-title {
+  color: #f5dfb1 !important;
+  margin: 0 0 1rem 0 !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+}
+
+/* Описание карточек */
+.card-description {
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  color: rgba(245, 223, 177, 0.8) !important;
 }
 
 /* --- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК --- */
 .btn {
   display: block;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 16px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
   text-align: center;
   margin-top: 1.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
+  position: relative;
+  overflow: hidden;
+  /* Улучшение для тач-устройств */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .btn:hover {
@@ -176,32 +234,104 @@ description: ДНК бренда в сайте, вывеске и интерье
   text-decoration: none !important;
 }
 
-/* --- СТИЛЬ 1: ОСНОВНАЯ КНОПКА (ЯРКАЯ) --- */
+/* --- СТИЛЬ 1: ОСНОВНАЯ КНОПКА (ЗОЛОТАЯ ЯРКАЯ) --- */
 .btn-primary {
-  background-color: #C5F946; /* Яркий лаймовый */
-  color: #000 !important;
+  background: linear-gradient(135deg, #c4a373 0%, #f5dfb1 50%, #c4a373 100%);
+  color: #1a1d24 !important;
+  font-weight: 700;
+  box-shadow: 
+    0 4px 15px rgba(196, 163, 115, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: #347b6c; /* Темный при наведении */
-  color: white !important;
+  background: linear-gradient(135deg, #f5dfb1 0%, #c4a373 50%, #f5dfb1 100%);
+  box-shadow: 
+    0 6px 25px rgba(196, 163, 115, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
 }
 
-/* --- СТИЛЬ 2: ВТОРОСТЕПЕННАЯ КНОПКА (ТЕМНАЯ) --- */
+.btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 2px 10px rgba(196, 163, 115, 0.3),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* --- СТИЛЬ 2: ВТОРОСТЕПЕННАЯ КНОПКА (ТЕМНАЯ С ЗОЛОТОЙ ОБВОДКОЙ) --- */
 .btn-secondary {
-  background-color: #347b6c; /* Темный */
-  color: white !important;
+  background: #1a1d24;
+  color: #f5dfb1 !important;
+  border: 1px solid rgba(196, 163, 115, 0.5);
+  box-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(245, 223, 177, 0.1);
 }
 
 .btn-secondary:hover {
-  background-color: #C5F946; /* Яркий при наведении */
-  color: #000 !important;
+  background: linear-gradient(135deg, rgba(196, 163, 115, 0.15) 0%, rgba(245, 223, 177, 0.1) 100%);
+  border-color: rgba(196, 163, 115, 0.8);
+  color: #f5dfb1 !important;
+  box-shadow: 
+    0 4px 20px rgba(196, 163, 115, 0.2),
+    0 0 15px rgba(196, 163, 115, 0.15),
+    inset 0 1px 2px rgba(245, 223, 177, 0.2);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* --- Контейнер для отдельной кнопки "Начать" --- */
+.start-button-container {
+  margin-top: 2rem;
+}
+
 .start-button-container .btn {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 14px 32px;
+  font-size: 16px;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+  .project-card {
+    padding: 24px;
+    min-height: 180px;
+  }
+  
+  .card-title {
+    font-size: 1.15rem !important;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .start-button-container .btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .btn {
+    margin-top: 1rem;
+  }
 }
 </style>
 
@@ -216,10 +346,10 @@ description: ДНК бренда в сайте, вывеске и интерье
       max-width: 800px;
       height: auto;
       border-radius: max(12px, min(24px, 3vw));
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(196, 163, 115, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     "
-    onmouseover="this.style.transform='scale(1.02)'"
-    onmouseout="this.style.transform='scale(1)'"
+    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(196, 163, 115, 0.2)'"
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(196, 163, 115, 0.1)'"
   />
 </div>
