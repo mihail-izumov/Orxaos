@@ -8,7 +8,7 @@ const establishment = {
 const cards = [
   {
     badge: '₽50.000',
-    status: 'Занято',
+    status: 'Резерв',
     description: 'Аналитика 29,600+ уникальных отзывов',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
@@ -16,7 +16,7 @@ const cards = [
   },
   {
     badge: '₽150.000',
-    status: 'Хочу',
+    status: 'Заявка',
     description: 'Кофейни сейчас и целевой масштаб сети',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
@@ -24,7 +24,7 @@ const cards = [
   },
   {
     badge: '₽250.000',
-    status: 'Хочу',
+    status: 'Заявка',
     description: 'Сила эффекта на рынок Самары',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
@@ -194,7 +194,7 @@ onUnmounted(() => {
         </button>
 
         <h3>Поделитесь</h3>
-        <p>Пригласите друзей отправить подарок в Корж</p>
+        <p>Поделитесь с теми, чей бизнес вырос, а бренд — нет</p>
 
         <div class="share-buttons">
           <div
