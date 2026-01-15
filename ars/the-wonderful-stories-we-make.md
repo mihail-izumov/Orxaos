@@ -99,16 +99,10 @@ description: Изучаем прошлое, бросаем вызов насто
   :autoplay="false"
 />
 
-## Easy Home
-
-<figure>
-  <figcaption><p>Easy Home</p></figcaption>
-</figure>
-
 ## Блумкидс
 
 <div class="card-behance">
-  <div class="card-behance__title">Блумкидс</div>
+  <div class="card-behance__title">Айдентика и сайт</div>
   <a
     class="card-behance__button"
     href="https://www.behance.net/gallery/175530883/blumkids-ajdentika-i-veb-sajt"
@@ -119,9 +113,12 @@ description: Изучаем прошлое, бросаем вызов насто
   </a>
 </div>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0;">
-  <iframe src="https://player.vimeo.com/video/784956566" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
+<VideoPlayer 
+  hd-src="https://orxaos.sbs/ars/video/bloomkids_video.mp4"
+  sd-src="https://orxaos.sbs/ars/video/bloomkids_video.mp4"
+  poster="/ars/ignite_video_ban.jpg"
+  :autoplay="false"
+/>
 
 ## Modelex Education
 
@@ -162,23 +159,6 @@ description: Изучаем прошлое, бросаем вызов насто
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0%;">
   <iframe src="https://player.vimeo.com/video/784964502" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
-
-## WOODLED
-
-<figure>
-  <figcaption>
-    <p>
-      WOODLED –
-      <a
-        href="https://journal.kto1.io/contents/cases/lakonichnyi-ekodizain-dlya-komfortnoi-zhizni"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Проект
-      </a>
-    </p>
-  </figcaption>
-</figure>
 
 <style>
 .card-behance {
