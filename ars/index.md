@@ -148,7 +148,7 @@ description: ДНК бренда в сайте, вывеске и интерье
   --orx-text-muted: rgba(245, 223, 177, 0.72);
 }
 
-/* --- Карточки с тонкими градиентами --- */
+/* --- Карточки с плавной анимацией --- */
 .project-card {
   background: var(--orx-bg) !important;
   backdrop-filter: blur(10px) saturate(120%) !important;
@@ -164,19 +164,17 @@ description: ДНК бренда в сайте, вывеске и интерье
 
   position: relative !important;
   
-  /* ИСПРАВЛЕНИЕ: убрал overflow: hidden, чтобы была видна обводка */
-  /* overflow: hidden !important; */
+  border: 1px solid rgba(196, 163, 115, 0.35) !important;
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.38),
     0 0 18px rgba(196, 163, 115, 0.10) !important;
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
-}
-
-/* ИСПРАВЛЕНИЕ: Более яркая видимая обводка через простой border */
-.project-card {
-  border: 1px solid rgba(196, 163, 115, 0.35) !important;
+  /* ИСПРАВЛЕНИЕ: более плавная анимация (0.4s вместо 0.25s) */
+  transition: 
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* Тонкий диагональный градиент внутри карточки 1 */
@@ -216,11 +214,11 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 
 .project-card:hover {
-  transform: translateY(-3px) !important;
+  transform: translateY(-4px) !important;
   border-color: rgba(245, 223, 177, 0.45) !important;
   box-shadow:
-    0 14px 36px rgba(0,0,0,0.45),
-    0 0 26px rgba(196, 163, 115, 0.16) !important;
+    0 16px 40px rgba(0,0,0,0.45),
+    0 0 30px rgba(196, 163, 115, 0.18) !important;
 }
 
 /* Контент карточек поверх градиента */
@@ -245,16 +243,25 @@ description: ДНК бренда в сайте, вывеске и интерье
   color: var(--orx-text-muted) !important;
 }
 
-/* ===== Кнопки: жёстко перебиваем VitePress ===== */
+/* ===== МАКСИМАЛЬНО АГРЕССИВНОЕ ПЕРЕБИВАНИЕ VITEPRESS ===== */
 .vp-doc a.btn,
+.vp-doc a.btn:link,
 .vp-doc a.btn:visited,
 .vp-doc a.btn:hover,
 .vp-doc a.btn:active,
 .vp-doc a.btn:focus,
-.vp-doc a.btn:focus-visible {
+.vp-doc a.btn:focus-visible,
+.vp-doc a.btn:focus-within {
+  /* Убираем все возможные подчёркивания и границы VitePress */
   text-decoration: none !important;
+  text-decoration-line: none !important;
+  text-decoration-style: none !important;
   border-bottom: 0 !important;
-  /* ИСПРАВЛЕНИЕ: убрал box-shadow: none, чтобы не сбрасывать тени кнопок */
+  border-bottom-width: 0 !important;
+  border-bottom-style: none !important;
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
 }
 
 .vp-doc a.btn {
@@ -275,13 +282,23 @@ description: ДНК бренда в сайте, вывеске и интерье
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease !important;
+  /* Плавная анимация для кнопок */
+  transition: 
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.vp-doc a.btn:hover { transform: translateY(-2px) !important; }
-.vp-doc a.btn:active { transform: translateY(-1px) !important; }
+.vp-doc a.btn:hover { 
+  transform: translateY(-2px) !important; 
+}
 
-/* Primary: "Начать" */
+.vp-doc a.btn:active { 
+  transform: translateY(0px) !important; 
+}
+
+/* Primary: "Начать" — УВЕЛИЧЕНА */
 .vp-doc a.btn-primary {
   color: #14161c !important;
   background: linear-gradient(135deg,
@@ -290,30 +307,39 @@ description: ДНК бренда в сайте, вывеске и интерье
     rgba(196, 163, 115, 0.92) 100%
   ) !important;
   
-  /* ИСПРАВЛЕНИЕ: border для чёткости краёв */
-  border: 1px solid rgba(245, 223, 177, 0.20) !important;
+  /* ИСПРАВЛЕНИЕ: явная граница во всех состояниях */
+  border: 1px solid rgba(245, 223, 177, 0.25) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
 
   box-shadow:
-    0 10px 22px rgba(0,0,0,0.30),
-    0 0 18px rgba(196, 163, 115, 0.12) !important;
+    0 12px 26px rgba(0,0,0,0.32),
+    0 0 20px rgba(196, 163, 115, 0.14) !important;
 }
 
 .vp-doc a.btn-primary:hover {
-  border-color: rgba(245, 223, 177, 0.30) !important;
+  border: 1px solid rgba(245, 223, 177, 0.35) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  
   box-shadow:
-    0 14px 28px rgba(0,0,0,0.36),
-    0 0 28px rgba(196, 163, 115, 0.18) !important;
+    0 16px 32px rgba(0,0,0,0.38),
+    0 0 32px rgba(196, 163, 115, 0.20) !important;
 }
 
 .vp-doc a.btn-primary:active {
+  border: 1px solid rgba(245, 223, 177, 0.30) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  
   box-shadow:
-    0 8px 18px rgba(0,0,0,0.30),
-    0 0 15px rgba(196, 163, 115, 0.12) !important;
+    0 10px 22px rgba(0,0,0,0.32),
+    0 0 18px rgba(196, 163, 115, 0.14) !important;
 }
 
 .vp-doc a.btn-primary:focus-visible {
-  outline: 2px solid rgba(245, 223, 177, 0.35) !important;
-  outline-offset: 3px !important;
+  outline: 2px solid rgba(245, 223, 177, 0.40) !important;
+  outline-offset: 4px !important;
 }
 
 /* Secondary: "Изучить / Смотреть" */
@@ -332,7 +358,10 @@ description: ДНК бренда в сайте, вывеске и интерье
   backdrop-filter: blur(10px) saturate(120%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
 
+  /* ИСПРАВЛЕНИЕ: явная граница во всех состояниях */
   border: 1px solid rgba(196, 163, 115, 0.32) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
 
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.06),
@@ -349,37 +378,87 @@ description: ДНК бренда в сайте, вывеске и интерье
     ),
     rgba(20, 22, 28, 0.65) !important;
   
-  border-color: rgba(245, 223, 177, 0.40) !important;
+  border: 1px solid rgba(245, 223, 177, 0.40) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
   
-  /* ИСПРАВЛЕНИЕ: сохраняем все тени при hover */
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.10),
     0 14px 28px rgba(0,0,0,0.32),
-    0 0 22px rgba(196, 163, 115, 0.12) !important;
+    0 0 24px rgba(196, 163, 115, 0.14) !important;
 }
 
 .vp-doc a.btn-secondary:active {
+  border: 1px solid rgba(245, 223, 177, 0.36) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  
   box-shadow:
     inset 0 1px 0 rgba(245, 223, 177, 0.08),
     0 8px 18px rgba(0,0,0,0.28),
     0 0 18px rgba(196, 163, 115, 0.10) !important;
 }
 
-.start-button-container { margin-top: 2rem !important; }
-.start-button-container .btn { padding: 14px 32px !important; font-size: 16px !important; }
+/* Контейнер кнопки "Начать" — УВЕЛИЧЕНА */
+.start-button-container { 
+  margin-top: 2.5rem !important; 
+}
+
+.start-button-container .btn { 
+  padding: 16px 48px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+}
 
 /* Мобилка */
 @media (max-width: 768px) {
-  .project-card { padding: 24px !important; min-height: 180px !important; }
-  .card-title { font-size: 1.15rem !important; }
-  .vp-doc a.btn { padding: 10px 16px !important; font-size: 14px !important; }
-  .start-button-container .btn { padding: 12px 24px !important; font-size: 15px !important; }
+  .project-card { 
+    padding: 24px !important; 
+    min-height: 180px !important; 
+  }
+  
+  .card-title { 
+    font-size: 1.15rem !important; 
+  }
+  
+  .vp-doc a.btn { 
+    padding: 10px 16px !important; 
+    font-size: 14px !important; 
+  }
+  
+  /* ИСПРАВЛЕНИЕ: кнопка "Начать" на всю ширину на мобильных */
+  .start-button-container { 
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .start-button-container .btn { 
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px 24px !important;
+    font-size: 17px !important;
+  }
 }
 
 @media (max-width: 480px) {
-  .project-card { padding: 20px !important; }
-  .card-title { font-size: 1.1rem !important; margin-bottom: 0.75rem !important; }
-  .vp-doc a.btn { margin-top: 1rem !important; }
+  .project-card { 
+    padding: 20px !important; 
+  }
+  
+  .card-title { 
+    font-size: 1.1rem !important; 
+    margin-bottom: 0.75rem !important; 
+  }
+  
+  .vp-doc a.btn { 
+    margin-top: 1rem !important; 
+  }
+  
+  .start-button-container .btn {
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+  }
 }
 </style>
 
