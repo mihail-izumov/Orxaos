@@ -12,7 +12,8 @@ const cards = [
     description: 'Аналитика 29,600+ уникальных отзывов',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
-    colorScheme: 'gray'
+    colorScheme: 'gray',
+    isActive: false // НЕ активна - не открывает Telegram
   },
   {
     badge: '₽150.000',
@@ -20,7 +21,8 @@ const cards = [
     description: 'Кофейни сейчас и целевой масштаб сети',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
-    colorScheme: 'blue'
+    colorScheme: 'blue',
+    isActive: true // Активна - открывает Telegram
   },
   {
     badge: '₽250.000',
@@ -28,7 +30,8 @@ const cards = [
     description: 'Сила эффекта на рынок Самары',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
-    colorScheme: 'purple'
+    colorScheme: 'purple',
+    isActive: true // Активна - открывает Telegram
   }
 ]
 
@@ -140,8 +143,9 @@ onUnmounted(() => {
 
             <!-- Бейдж -->
             <div class="stat-main">
+              <!-- ИЗМЕНЕНО: теперь проверяем card.isActive -->
               <button
-                v-if="card.status === 'Заявка'"
+                v-if="card.isActive"
                 class="stat-metric-badge want-badge"
                 @click="openTelegramChat(card.badge)"
               >
@@ -259,6 +263,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+/* Весь CSS остается таким же, как в предыдущем коде */
 .reviews-widget-content {
   padding: 0;
   width: 100%;
@@ -278,7 +283,6 @@ onUnmounted(() => {
   color: var(--text);
 }
 
-/* Хедер */
 .signal-establishment-header {
   display: flex;
   justify-content: space-between;
@@ -314,7 +318,6 @@ onUnmounted(() => {
   vertical-align: middle;
 }
 
-/* Сетка */
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -329,7 +332,6 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-/* Цветовые схемы */
 .stat-card.color-gray {
   --card-bg: #1f1f1f;
   --border-1: rgba(255,255,255,0.22);
@@ -434,7 +436,6 @@ onUnmounted(() => {
     radial-gradient(100% 70% at 55% 0%, var(--glow-top-hover-2) 0%, rgba(255,255,255,0) 72%);
 }
 
-/* ФОН-КАРТИНКА */
 .stat-bg-icon {
   position: absolute;
   top: 50%;
@@ -511,12 +512,12 @@ onUnmounted(() => {
   white-space: nowrap;
   text-transform: uppercase;
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
-  cursor: pointer;
 }
 
 .want-badge {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .want-badge::before {
@@ -554,7 +555,9 @@ onUnmounted(() => {
   outline-offset: 2px;
 }
 
-.busy-badge {}
+.busy-badge {
+  cursor: default;
+}
 
 .stat-description {
   width: 100%;
@@ -573,7 +576,6 @@ onUnmounted(() => {
   color: rgba(255,255,255,0.68);
 }
 
-/* Пульт */
 .control-panel { margin-top: 24px; }
 
 .button-container {
@@ -625,7 +627,6 @@ onUnmounted(() => {
 .review-button:hover .button-icon { transform: translateX(4px); }
 .ticket-button:hover .button-icon { transform: scale(1.1); }
 
-/* Модалка Share */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -721,7 +722,6 @@ onUnmounted(() => {
   margin-bottom: 10px;
 }
 
-/* Тост */
 .toast-notification {
   position: fixed;
   bottom: 30px;
@@ -763,7 +763,6 @@ onUnmounted(() => {
   opacity: 0;
 }
 
-/* Modal Info */
 .modal {
   background: #1f1f1f;
   color: #fff;
@@ -788,7 +787,6 @@ onUnmounted(() => {
 }
 .modal-ok:hover { background: #444; }
 
-/* Мобильная версия */
 @media (max-width: 768px) {
   .main-card { padding: 20px; border-radius: 20px; }
 
@@ -812,12 +810,11 @@ onUnmounted(() => {
 
   .stat-bg-icon { display: none; }
 
-  /* Мобильная иконка справа с отступом */
   .stat-mobile-icon {
     display: block;
     position: absolute;
     top: 50%;
-    right: 24px; /* ОТСТУП ОТ КРАЯ */
+    right: 24px;
     transform: translateY(-50%) scale(1.3);
     z-index: 2;
     opacity: 0.38;
