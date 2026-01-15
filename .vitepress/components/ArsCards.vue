@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 
 const establishment = {
-  name: 'Слоты на айдентику'
+  name: 'Свой Знак'
 }
 
 const cards = [
