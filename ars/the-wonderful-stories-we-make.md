@@ -123,7 +123,7 @@ description: Изучаем прошлое, бросаем вызов насто
 ## Modelex Education
 
 <div class="card-behance">
-  <div class="card-behance__title">Modelex Education</div>
+  <div class="card-behance__title">Айдентика и сайт школы в Монако</div>
   <a
     class="card-behance__button"
     href="https://www.behance.net/gallery/175486955/Modelex-Identity-Website"
@@ -134,14 +134,17 @@ description: Изучаем прошлое, бросаем вызов насто
   </a>
 </div>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0%;">
-  <iframe src="https://player.vimeo.com/video/806814880" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
+<VideoPlayer 
+  hd-src="https://orxaos.sbs/ars/video/modelex_riviera_style_banners.mp4"
+  sd-src="https://orxaos.sbs/ars/video/modelex_riviera_style_banners.mp4"
+  poster="/ars/ignite_video_ban.jpg"
+  :autoplay="false"
+/>
 
 ## Tanurkova Arch. Design
 
 <div class="card-behance">
-  <div class="card-behance__title">Tanurkova Arch. Design</div>
+  <div class="card-behance__title">Айдентика и сайт архитектора Ирины Танурковой</div>
   <a
     class="card-behance__button"
     href="https://www.behance.net/gallery/175565499/Tanurkova-Arch-Design-Identity-Website"
