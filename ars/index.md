@@ -20,7 +20,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 </div>
 
 <style>
-
 .vp-doc h1.orxaos-heading {
   font-size: 52px !important;
   line-height: 1.1 !important;
@@ -29,8 +28,6 @@ description: ДНК бренда в сайте, вывеске и интерье
   font-weight: 600 !important;
 }
 
-/* ПЛАНШЕТЫ (от 601px до 768px)
-Используем min-width, чтобы это правило НЕ касалось телефонов */
 @media screen and (min-width: 601px) and (max-width: 768px) {
   .vp-doc h1.orxaos-heading {
     font-size: 42px !important;
@@ -49,22 +46,13 @@ description: ДНК бренда в сайте, вывеске и интерье
 </style>
 
 <style>
-/* По умолчанию скрываем тег <br> с классом .mobile-break */
-.mobile-break {
-  display: none;
-}
+.mobile-break { display: none; }
 
-/* Показываем <br> только на мобильных устройствах (экраны до 767px включительно) */
 @media (max-width: 767px) {
-  .mobile-break {
-    display: inline;
-  }
+  .mobile-break { display: inline; }
 }
 
-/* НОВОЕ: Убираем ограничение ширины VitePress для виджета */
-.vp-doc {
-  max-width: 100% !important;
-}
+.vp-doc { max-width: 100% !important; }
 
 .vp-doc .content-container,
 .vp-doc .container {
@@ -105,14 +93,13 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+<div class="actions-grid">
 
   <div class="project-card">
     <div>
       <h3 class="card-title">Дьявол в Деталях</h3>
       <p class="card-description">Избранные клиенты, проекты и кейсы по годам</p>
     </div>
-    <!-- Второстепенная кнопка -->
     <a href="/ars/by-the-numbers" class="btn btn-secondary">
       Изучить
     </a>
@@ -123,7 +110,6 @@ description: ДНК бренда в сайте, вывеске и интерье
       <h3 class="card-title">Галерея</h3>
       <p class="card-description">Видео и графика</p>
     </div>
-    <!-- Второстепенная кнопка -->
     <a href="/ars/the-wonderful-stories-we-make" class="btn btn-secondary">
       Смотреть
     </a>
@@ -138,200 +124,196 @@ description: ДНК бренда в сайте, вывеске и интерье
 **Опишите видение → Обсудим возможности**
 
 <div class="start-button-container">
-  <!-- Основная кнопка -->
   <a href="/start#для-консультации-и-новых-проектов" class="btn btn-primary">Начать →</a>
 </div>
 
 </div>
 
 <style>
-/* --- ЗОЛОТЫЕ КАРТОЧКИ С GLASSMORPHISM --- */
-.project-card {
-  background: #1a1d24;
-  border-radius: 16px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 200px;
-  position: relative;
-  
-  /* Золотая обводка с градиентом */
-  border: 1px solid transparent;
-  background-clip: padding-box;
-  
-  /* Тонкое золотое свечение */
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.3),
-    0 0 15px rgba(196, 163, 115, 0.15);
-  
-  transition: all 0.3s ease;
+/* Сетка блока “Действовать” */
+.actions-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin: 2rem 0 !important;
 }
 
-/* Градиентная обводка через псевдоэлемент */
+/* ===== Orxaos palette (тихий premium) ===== */
+:root {
+  --orx-bg: rgba(20, 22, 28, 0.72);
+  --orx-bg-solid: #14161c;
+  --orx-gold-1: rgba(196, 163, 115, 0.55);
+  --orx-gold-2: rgba(245, 223, 177, 0.70);
+  --orx-text: rgba(245, 223, 177, 0.92);
+  --orx-text-muted: rgba(245, 223, 177, 0.72);
+}
+
+/* --- Карточки --- */
+.project-card {
+  background: var(--orx-bg) !important;
+  backdrop-filter: blur(10px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
+
+  border-radius: 16px !important;
+  padding: 28px !important;
+  min-height: 200px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+
+  position: relative !important;
+  border: 1px solid transparent !important;
+  background-clip: padding-box !important;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.38),
+    0 0 18px rgba(196, 163, 115, 0.10) !important;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
 .project-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 16px;
-  padding: 1px;
+  content: '' !important;
+  position: absolute !important;
+  inset: -1px !important;
+  border-radius: 16px !important;
+  padding: 1px !important;
+
   background: linear-gradient(
-    135deg, 
-    rgba(196, 163, 115, 0.6) 0%,
-    rgba(245, 223, 177, 0.8) 50%,
-    rgba(196, 163, 115, 0.6) 100%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+    135deg,
+    rgba(245, 223, 177, 0.32) 0%,
+    rgba(196, 163, 115, 0.16) 35%,
+    rgba(245, 223, 177, 0.10) 60%,
+    rgba(196, 163, 115, 0.28) 100%
+  ) !important;
+
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask-composite: exclude !important;
+  pointer-events: none !important;
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 8px 30px rgba(0, 0, 0, 0.4),
-    0 0 25px rgba(196, 163, 115, 0.3);
+  transform: translateY(-3px) !important;
+  box-shadow:
+    0 14px 36px rgba(0,0,0,0.45),
+    0 0 26px rgba(196, 163, 115, 0.16) !important;
 }
 
-/* Заголовки карточек */
+/* Текст карточек */
 .card-title {
-  color: #f5dfb1 !important;
+  color: var(--orx-text) !important;
   margin: 0 0 1rem 0 !important;
   font-size: 1.25rem !important;
   font-weight: 600 !important;
+  letter-spacing: 0.2px !important;
 }
 
-/* Описание карточек */
 .card-description {
   margin: 0 !important;
   line-height: 1.6 !important;
-  color: rgba(245, 223, 177, 0.8) !important;
+  color: var(--orx-text-muted) !important;
 }
 
-/* --- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК --- */
-.btn {
-  display: block;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 15px;
-  text-align: center;
-  margin-top: 1.5rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  position: relative;
-  overflow: hidden;
-  /* Улучшение для тач-устройств */
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
+/* ===== Кнопки: жёстко перебиваем VitePress (underline/артефакты) ===== */
+.vp-doc a.btn,
+.vp-doc a.btn:visited,
+.vp-doc a.btn:hover,
+.vp-doc a.btn:active,
+.vp-doc a.btn:focus,
+.vp-doc a.btn:focus-visible {
   text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none;
 }
 
-/* --- СТИЛЬ 1: ОСНОВНАЯ КНОПКА (ЗОЛОТАЯ ЯРКАЯ) --- */
-.btn-primary {
-  background: linear-gradient(135deg, #c4a373 0%, #f5dfb1 50%, #c4a373 100%);
-  color: #1a1d24 !important;
-  font-weight: 700;
-  box-shadow: 
-    0 4px 15px rgba(196, 163, 115, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+.vp-doc a.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 12px 20px !important;
+  border-radius: 10px !important;
+
+  font-weight: 650 !important;
+  font-size: 15px !important;
+
+  margin-top: 1.5rem !important;
+  cursor: pointer !important;
+
+  user-select: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease !important;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, #f5dfb1 0%, #c4a373 50%, #f5dfb1 100%);
-  box-shadow: 
-    0 6px 25px rgba(196, 163, 115, 0.5),
-    inset 0 1px 2px rgba(255, 255, 255, 0.3);
-  transform: translateY(-3px);
+.vp-doc a.btn:hover { transform: translateY(-2px) !important; }
+.vp-doc a.btn:active { transform: translateY(-1px) !important; }
+
+/* Primary: “Начать” — премиальный, без “кислоты” */
+.vp-doc a.btn-primary {
+  color: #14161c !important;
+  background: linear-gradient(135deg,
+    rgba(196, 163, 115, 0.95) 0%,
+    rgba(245, 223, 177, 0.90) 45%,
+    rgba(196, 163, 115, 0.92) 100%
+  ) !important;
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.30),
+    0 0 18px rgba(196, 163, 115, 0.12) !important;
 }
 
-.btn-primary:active {
-  transform: translateY(-1px);
-  box-shadow: 
-    0 2px 10px rgba(196, 163, 115, 0.3),
-    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+.vp-doc a.btn-primary:hover {
+  box-shadow:
+    0 14px 28px rgba(0,0,0,0.36),
+    0 0 28px rgba(196, 163, 115, 0.18) !important;
 }
 
-/* --- СТИЛЬ 2: ВТОРОСТЕПЕННАЯ КНОПКА (ТЕМНАЯ С ЗОЛОТОЙ ОБВОДКОЙ) --- */
-.btn-secondary {
-  background: #1a1d24;
-  color: #f5dfb1 !important;
-  border: 1px solid rgba(196, 163, 115, 0.5);
-  box-shadow: 
-    0 2px 10px rgba(0, 0, 0, 0.2),
-    inset 0 1px 1px rgba(245, 223, 177, 0.1);
+.vp-doc a.btn-primary:focus-visible {
+  outline: 2px solid rgba(245, 223, 177, 0.35) !important;
+  outline-offset: 3px !important;
 }
 
-.btn-secondary:hover {
-  background: linear-gradient(135deg, rgba(196, 163, 115, 0.15) 0%, rgba(245, 223, 177, 0.1) 100%);
-  border-color: rgba(196, 163, 115, 0.8);
-  color: #f5dfb1 !important;
-  box-shadow: 
-    0 4px 20px rgba(196, 163, 115, 0.2),
-    0 0 15px rgba(196, 163, 115, 0.15),
-    inset 0 1px 2px rgba(245, 223, 177, 0.2);
+/* Secondary: “Изучить / Смотреть” — тёмная стеклянная */
+.vp-doc a.btn-secondary {
+  color: var(--orx-text) !important;
+  background: rgba(20, 22, 28, 0.60) !important;
+  backdrop-filter: blur(10px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
+
+  border: 1px solid rgba(196, 163, 115, 0.32) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(245, 223, 177, 0.06),
+    0 10px 22px rgba(0,0,0,0.26) !important;
 }
 
-.btn-secondary:active {
-  transform: translateY(0);
-  box-shadow: 
-    0 1px 5px rgba(0, 0, 0, 0.2),
-    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+.vp-doc a.btn-secondary:hover {
+  border-color: rgba(245, 223, 177, 0.40) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(245, 223, 177, 0.10),
+    0 14px 28px rgba(0,0,0,0.32),
+    0 0 22px rgba(196, 163, 115, 0.12) !important;
 }
 
-/* --- Контейнер для отдельной кнопки "Начать" --- */
-.start-button-container {
-  margin-top: 2rem;
-}
+.start-button-container { margin-top: 2rem !important; }
+.start-button-container .btn { padding: 14px 32px !important; font-size: 16px !important; }
 
-.start-button-container .btn {
-  display: inline-block;
-  padding: 14px 32px;
-  font-size: 16px;
-}
-
-/* Адаптив для мобильных */
+/* Мобилка */
 @media (max-width: 768px) {
-  .project-card {
-    padding: 24px;
-    min-height: 180px;
-  }
-  
-  .card-title {
-    font-size: 1.15rem !important;
-  }
-  
-  .btn {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-  
-  .start-button-container .btn {
-    padding: 12px 24px;
-    font-size: 15px;
-  }
+  .project-card { padding: 24px !important; min-height: 180px !important; }
+  .card-title { font-size: 1.15rem !important; }
+  .vp-doc a.btn { padding: 10px 16px !important; font-size: 14px !important; }
+  .start-button-container .btn { padding: 12px 24px !important; font-size: 15px !important; }
 }
 
 @media (max-width: 480px) {
-  .project-card {
-    padding: 20px;
-  }
-  
-  .card-title {
-    font-size: 1.1rem !important;
-    margin-bottom: 0.75rem !important;
-  }
-  
-  .btn {
-    margin-top: 1rem;
-  }
+  .project-card { padding: 20px !important; }
+  .card-title { font-size: 1.1rem !important; margin-bottom: 0.75rem !important; }
+  .vp-doc a.btn { margin-top: 1rem !important; }
 }
 </style>
 
@@ -340,16 +322,16 @@ description: ДНК бренда в сайте, вывеске и интерье
 <div style="text-align: center; margin: 2rem 0;">
   <img 
     src="/ars/ars-orxaos_main_banner.png" 
-    alt="BREW intro"
+    alt="ARS Orxaos"
     style="
       width: 100%;
       max-width: 800px;
       height: auto;
       border-radius: max(12px, min(24px, 3vw));
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(196, 163, 115, 0.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.30), 0 0 20px rgba(196, 163, 115, 0.10);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     "
-    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(196, 163, 115, 0.2)'"
-    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(196, 163, 115, 0.1)'"
+    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(0, 0, 0, 0.40), 0 0 30px rgba(196, 163, 115, 0.18)'"
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.30), 0 0 20px rgba(196, 163, 115, 0.10)'"
   />
 </div>
