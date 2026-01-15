@@ -18,7 +18,7 @@ const cards = [
   {
     badge: '₽150.000',
     status: 'Заявка',
-    description: 'Логотип + айдентика. Один канал.',
+    description: 'Плюс айдентика. Один канал.',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
     colorScheme: 'blue',
@@ -27,7 +27,7 @@ const cards = [
   {
     badge: '₽250.000',
     status: 'Заявка',
-    description: 'Пакет 150K + презентация и документы.',
+    description: 'Плюс презентация и лендинг.',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
     colorScheme: 'purple',
