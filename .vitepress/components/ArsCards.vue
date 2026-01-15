@@ -141,7 +141,7 @@ onUnmounted(() => {
             <!-- Бейдж -->
             <div class="stat-main">
               <button
-                v-if="card.status === 'Хочу'"
+                v-if="card.status === 'Заявка'"
                 class="stat-metric-badge want-badge"
                 @click="openTelegramChat(card.badge)"
               >
