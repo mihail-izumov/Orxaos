@@ -14,7 +14,7 @@ description: ДНК бренда в сайте, вывеске и интерье
 <Badge type="tip" text="Ars (лат.) — мастерство, технология" />
 
 <p>
-<strong>Для тех, кто понимает, что их бизнес — это не просто набор случайных действий. </strong> <br class="mobile-break"> Это — их главное произведение. И они готовы сделать его шедевром точности и ясности.
+<strong>ДНК бренда в сайте, вывеске и интерьере. </strong> <br class="mobile-break"> Меняет не просто восприятие, а саму реальность вашего бизнеса. Помогает притянуть нужных людей и воплотить смелые идеи.
 </p>
 
 </div>
@@ -72,24 +72,6 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 </style>
 
-<br>
-
-<div style="text-align: center; margin: 2rem 0;">
-  <img 
-    src="/ars/ars-orxaos_main_banner.png" 
-    alt="BREW intro"
-    style="
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      border-radius: max(12px, min(24px, 3vw));
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    "
-    onmouseover="this.style.transform='scale(1.02)'"
-    onmouseout="this.style.transform='scale(1)'"
-  />
-</div>
 
 <br>
 
@@ -229,4 +211,21 @@ description: ДНК бренда в сайте, вывеске и интерье
 }
 </style>
 
+<br>
 
+<div style="text-align: center; margin: 2rem 0;">
+  <img 
+    src="/ars/ars-orxaos_main_banner.png" 
+    alt="BREW intro"
+    style="
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: max(12px, min(24px, 3vw));
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.02)'"
+    onmouseout="this.style.transform='scale(1)'"
+  />
+</div>
