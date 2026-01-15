@@ -34,34 +34,30 @@ description: Изучаем прошлое, бросаем вызов насто
   :autoplay="false"
 />
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0;">
-  <iframe src="https://player.vimeo.com/video/689285539" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0;">
-  <iframe src="https://player.vimeo.com/video/768432121" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
+<VideoPlayer 
+  hd-src="https://orxaos.sbs/ars/video/wps-website.mp4"
+  sd-src="https://orxaos.sbs/ars/video/wps-website.mp4"
+  poster="/ars/ignite_video_ban.jpg"
+  :autoplay="false"
+/>
 
 ## Hvorostovsky Foundation
+
+<div class="card-behance">
+  <div class="card-behance__title">Проект в деталях</div>
+  <a
+    class="card-behance__button"
+    href="https://runscale.ru/journal/cases/kak-my-prevratili-nasledie-khvorostovskogo-v-instrument-dlya-pomoshi-detyam.html"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Смотреть кейс
+  </a>
+</div>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 24px; margin-bottom: 24px; border-radius: 8px; background-color: #f0f0f0;">
   <iframe src="https://player.vimeo.com/video/1014297834" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
-
-<figure>
-  <figcaption>
-    <p>
-      Линия времени Дмитрия Хворостовского –
-      <a
-        href="https://journal.kto1.io/contents/cases/kak-my-prevratili-nasledie-khvorostovskogo-v-instrument-dlya-pomoshi-detyam"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Проект
-      </a>
-    </p>
-  </figcaption>
-</figure>
 
 ## GALA RUSSE Monaco
 
