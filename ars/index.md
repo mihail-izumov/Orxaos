@@ -103,6 +103,20 @@ description: ДНК бренда в сайте, вывеске и интерье
 
 <ArsGalleryImageSlider />
 
+<br>
+
+<div align="center">
+
+# Искусство точных решений
+
+</div>
+
+<br>
+
+<ArsMainAccordion />
+
+<br>
+
 <div class="actions-grid">
 
   <div class="project-card project-card-1">
@@ -126,18 +140,6 @@ description: ДНК бренда в сайте, вывеске и интерье
   </div>
 
 </div>
-
-<br>
-
-<div align="center">
-
-# Искусство точных решений
-
-</div>
-
-<br>
-
-<ArsMainAccordion />
 
 <style>
 /* Wrapper для ArsCards */
