@@ -196,6 +196,9 @@ onUnmounted(() => {
   border-radius: 16px;
   background: #2c2c2c;
   touch-action: pan-y pinch-zoom;
+  
+  /* Задаем пропорции контейнера */
+  aspect-ratio: 16 / 9;
 }
 
 .sliderImage {
@@ -203,10 +206,11 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   border-radius: 16px;
   object-fit: cover;
+  object-position: center;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
   pointer-events: none;
@@ -215,7 +219,7 @@ onUnmounted(() => {
 }
 
 .sliderImage:first-child {
-  position: relative;
+  position: absolute;
 }
 
 .sliderImage.active {
@@ -236,25 +240,18 @@ onUnmounted(() => {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  
-  /* Неактивная точка: нейтральный темно-серый */
   background-color: #525252; 
-  
   cursor: pointer;
   transition: all 0.3s ease;
-  
-  /* Убрана обводка */
   border: none;
 }
 
 .dot:hover {
-  /* При наведении: средний серый */
   background-color: #737373; 
   transform: scale(1.2);
 }
 
 .dot.active {
-  /* Активная точка: светло-серый (без оттенков) */
   background-color: #d4d4d4;
   width: 12px;
   height: 12px;
@@ -265,10 +262,7 @@ onUnmounted(() => {
   display: none;
   width: 100%;
   height: 3.5px;
-  
-  /* Фон прогресс-бара: нейтральный темно-серый */
   background-color: #525252;
-  
   border-radius: 2px;
   margin-top: 16px;
   overflow: hidden;
@@ -278,10 +272,7 @@ onUnmounted(() => {
 
 .progressFill {
   height: 100%;
-  
-  /* Заполнение прогресс-бара: светло-серый */
   background-color: #d4d4d4;
-  
   transition: width 0.3s ease;
   border-radius: 4px;
   pointer-events: none;
@@ -295,6 +286,11 @@ onUnmounted(() => {
   
   .sliderProgressBar {
     display: block;
+  }
+  
+  /* Можно изменить пропорции для мобильных */
+  .sliderContainer {
+    aspect-ratio: 1 / 1;
   }
 }
 </style>
