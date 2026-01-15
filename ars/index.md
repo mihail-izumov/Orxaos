@@ -93,7 +93,10 @@ description: ДНК бренда в сайте, вывеске и интерье
 Вопрос не в том, готовы ли вы к новому логотипу или сайту. А в том, каким вы видите ваш бизнес или проект.
 **Опишите видение → Обсудим возможности**
 <div class="start-button-container">
-  <a href="/start#для-консультации-и-новых-проектов" class="btn btn-primary">Начать <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  <a href="/start#для-консультации-и-новых-проектов" class="btn btn-primary">
+    Начать 
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </a>
 </div>
 </div>
 <style>
@@ -211,18 +214,12 @@ description: ДНК бренда в сайте, вывеске и интерье
   touch-action: manipulation !important;
   position: relative !important;
   transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .vp-doc a.btn:hover { transform: translateY(-2px) !important; }
 .vp-doc a.btn:active { transform: translateY(0px) !important; }
-.vp-doc a.btn svg {
-  margin-left: 8px !important;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
-}
-.vp-doc a.btn:hover svg {
-  transform: translateX(4px) !important;
-}
 /* ===== Secondary (кнопки в карточках) ===== */
 .vp-doc a.btn-secondary {
   color: var(--orx-text) !important;
@@ -279,8 +276,8 @@ description: ДНК бренда в сайте, вывеске и интерье
     0 12px 26px rgba(0,0,0,0.32),
     0 0 20px rgba(196, 163, 115, 0.14) !important;
   transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
     background 0.5s ease-out !important;
 }
 .vp-doc a.btn-primary:hover {
@@ -338,7 +335,6 @@ description: ДНК бренда в сайте, вывеске и интерье
   }
   /* ИСПРАВЛЕНИЕ: радикально перебиваем все для контейнера */
   .start-button-container {
-    /* Перебиваем родительский align="center" */
     margin-left: calc(-50vw + 50%) !important;
     margin-right: calc(-50vw + 50%) !important;
     width: 100vw !important;
@@ -357,7 +353,6 @@ description: ДНК бренда в сайте, вывеске и интерье
     justify-content: center !important;
   }
   .start-button-container .btn {
-    /* Теперь кнопка flex-ребенок на всю доступную ширину */
     flex: 1 1 auto !important;
     width: 100% !important;
     max-width: 100% !important;
