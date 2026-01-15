@@ -10,22 +10,25 @@ const cards = [
     badge: '₽50.000',
     status: 'Занято',
     description: 'Аналитика 29,600+ уникальных отзывов',
-    iconSrc: '/favicon.svg',
-    iconAlt: 'Signalka Gift'
+    iconSrc: 'orxaos-icon_1.png',
+    iconAlt: 'Orxaos icon',
+    variant: 'inactive'
   },
   {
     badge: '₽150.000',
     status: 'Хочу',
     description: 'Кофейни сейчас и целевой масштаб сети',
-    iconSrc: '/favicon.svg',
-    iconAlt: 'Heartdrop Gift'
+    iconSrc: 'orxaos-icon_1.png',
+    iconAlt: 'Orxaos icon',
+    variant: 'blue'
   },
   {
     badge: '₽250.000',
     status: 'Хочу',
     description: 'Сила эффекта на рынок Самары',
-    iconSrc: '/favicon.svg',
-    iconAlt: 'Signalka Gift'
+    iconSrc: 'orxaos-icon_1.png',
+    iconAlt: 'Orxaos icon',
+    variant: 'purple'
   }
 ]
 
@@ -40,7 +43,16 @@ const currentDateBadge = computed(() => {
   ]
   const monthName = monthNames[today.getMonth()]
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#bdbdbd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="signal-radio-icon" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M16.247 7.761a6 6 0 0 1 0 8.478"/><path d="M19.075 4.933a10 10 0 0 1 0 14.134"/><path d="M4.925 19.067a10 10 0 0 1 0-14.134"/><path d="M7.753 16.239a6 6 0 0 1 0-8.478"/><circle cx="12" cy="12" r="2"/></svg> ${day}.${month} → ${monthName} ${year}`
+  const arrowSvg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="date-arrow-icon"
+      style="display:inline-block;vertical-align:middle;margin:0 6px;">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </svg>
+  `
+
+  return `<span class="date-text">${day}.${month}</span>${arrowSvg}<span class="date-text">${monthName} ${year}</span>`
 })
 
 const showInfoModal = ref(false)
@@ -55,42 +67,47 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 <template>
   <div class="reviews-widget-content">
     <div class="main-card">
-      <div class="signal-establishment-header">
-        <h3 class="signal-cafe-name">{{ establishment.name }}</h3>
-        <div class="signal-status-badge" v-html="currentDateBadge"></div>
+      <div class="top-header">
+        <h3 class="title">{{ establishment.name }}</h3>
+        <div class="date-badge" v-html="currentDateBadge"></div>
       </div>
 
       <div class="stats-grid">
-        <div v-for="(card, idx) in cards" :key="idx" class="stat-card">
+        <div
+          v-for="(card, idx) in cards"
+          :key="idx"
+          class="stat-card"
+          :class="[`card--${card.variant}`]"
+        >
           <div class="stat-content">
-            <!-- ДЕСКТОП: фон-картинка строго по центру карточки -->
-            <div class="stat-bg-icon" aria-hidden="true">
+            <!-- Цена сверху -->
+            <div class="stat-price">{{ card.badge }}</div>
+
+            <!-- Иконка внутри карточки -->
+            <div class="stat-icon" aria-hidden="true">
               <img :src="card.iconSrc" :alt="card.iconAlt" />
             </div>
 
-            <!-- МОБИЛКА: отдельная инлайн-иконка в первой строке -->
-            <div class="stat-header">
-              <div class="stat-title">{{ card.badge }}</div>
-              <div class="stat-inline-icon" aria-hidden="true">
-                <img :src="card.iconSrc" :alt="card.iconAlt" />
-              </div>
-            </div>
-
-            <div class="stat-main">
+            <!-- Бейдж строго по центру X/Y -->
+            <div class="stat-center">
               <a
                 v-if="card.status === 'Хочу'"
-                class="stat-metric-badge want-badge"
+                class="stat-badge want-badge"
                 href="/start"
               >
                 {{ card.status }}
               </a>
 
-              <div v-else class="stat-metric-badge busy-badge">
+              <div
+                v-else
+                class="stat-badge busy-badge"
+              >
                 {{ card.status }}
               </div>
             </div>
 
-            <div class="stat-description">{{ card.description }}</div>
+            <!-- Описание прижато к низу -->
+            <div class="stat-desc">{{ card.description }}</div>
           </div>
         </div>
       </div>
@@ -133,230 +150,194 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   box-sizing: border-box;
 }
 
-/* Монохром */
+/* Контейнер */
 .main-card {
-  --bg: #2a2a2a;
-  --card: #1f1f1f;
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.62);
-  --muted2: rgba(255,255,255,0.48);
-
-  background: var(--bg);
+  background: #2a2a2a;
   border-radius: 24px;
   padding: 48px;
   width: 100%;
   box-sizing: border-box;
-  color: var(--text);
+  color: rgba(255,255,255,0.92);
 }
 
-/* Хедер */
-.signal-establishment-header {
+/* Верхний хедер */
+.top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
 }
 
-.signal-cafe-name {
+.title {
   margin: 0;
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 600;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.signal-status-badge {
-  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(0,0,0,0.15));
+/* Бейдж даты (компактнее) */
+.date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(0,0,0,0.12));
+  border: 1px solid rgba(255,255,255,0.14);
   color: rgba(255,255,255,0.78);
-  border: 1px solid rgba(255,255,255,0.16);
-  padding: 6px 16px;
-  border-radius: 20px;
+
   font-size: 12px;
-  font-weight: 700;
-  white-space: nowrap;
-  box-shadow: inset 0 1px 2px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.35);
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
+
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.35);
+  white-space: nowrap;
 }
 
-.signal-radio-icon {
+.date-text {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 4px;
 }
 
-/* Сетка */
+/* Сетка карточек */
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
 }
 
+/* Карточка */
 .stat-card {
   position: relative;
-  background: var(--card);
   border-radius: 22px;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   overflow: hidden;
-}
-
-.stat-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 22px;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 60%, rgba(255,255,255,0) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  transition: all 0.4s ease;
-  z-index: 1;
-  pointer-events: none;
+  background: #1f1f1f;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .stat-card:hover {
   transform: translateY(-6px);
 }
 
-.stat-card:hover::before {
-  background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.14) 60%, rgba(255,255,255,0) 100%);
-}
-
-/* ДЕСКТОП: всё по центру */
+/* Контент карточки */
 .stat-content {
   position: relative;
-  z-index: 2;
-  border-radius: 20px;
-  padding: 24px 20px;
-  min-height: 240px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  /* контролируем вертикальные интервалы, чтобы не "схлопывались" */
-  gap: 18px;
-
-  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%);
-  transition: background 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 22px;
+  min-height: 320px; /* чтобы был чёткий центр по вертикали */
+  padding: 26px 26px;
 }
 
-/* Свечение поверх картинки */
+/* Рамка-градиент */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  padding: 1px;
+  background: var(--card-border, linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06), rgba(255,255,255,0)));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+  pointer-events: none;
+  transition: filter 0.5s ease, background 0.5s ease;
+}
+
+/* Свечение сверху, поверх иконки */
 .stat-content::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 20px;
+  border-radius: 22px;
   pointer-events: none;
-  z-index: 3; /* выше картинки */
+  z-index: 4; /* поверх иконки */
   background:
-    radial-gradient(120% 85% at 22% 0%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.07) 38%, rgba(255,255,255,0) 70%),
-    radial-gradient(100% 70% at 55% 0%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 72%);
+    radial-gradient(130% 85% at 20% 0%, var(--top-glow-1, rgba(255,255,255,0.16)) 0%, var(--top-glow-2, rgba(255,255,255,0.07)) 40%, rgba(255,255,255,0) 72%),
+    radial-gradient(100% 75% at 55% 0%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 75%);
   mix-blend-mode: screen;
   opacity: 0.95;
-}
-
-.stat-card:hover .stat-content {
-  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.09) 0%, transparent 70%);
+  transition: opacity 0.5s ease;
 }
 
 .stat-card:hover .stat-content::after {
   opacity: 1;
-  background:
-    radial-gradient(120% 85% at 22% 0%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.10) 40%, rgba(255,255,255,0) 72%),
-    radial-gradient(100% 70% at 55% 0%, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.00) 72%);
 }
 
-/* ФОН-КАРТИНКА: строго в центре карточки + масштаб 1.5 */
-.stat-bg-icon {
+/* Цена сверху */
+.stat-price {
+  position: relative;
+  z-index: 5;
+  color: rgba(255,255,255,0.78);
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Иконка: десктоп — строго по центру, крупно */
+.stat-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 2; /* под свечением (::after), но над фоном карточки */
-  opacity: 0.34;
+  z-index: 3;
+  opacity: 0.32;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(1.5);
-  transform-origin: center center;
+  transform: translate(-50%, -50%) scale(1.55);
+  transform-origin: center;
   transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.stat-bg-icon img {
-  width: 210px;   /* базовый размер, scale(1.5) даст ~315px */
-  height: 210px;
+.stat-icon img {
+  width: 220px;
+  height: 220px;
   object-fit: contain;
   display: block;
 }
 
-.stat-card:hover .stat-bg-icon {
-  opacity: 0.50;
-  transform: translate(-50%, -58%) scale(1.5);
+.stat-card:hover .stat-icon {
+  opacity: 0.48;
+  transform: translate(-50%, -58%) scale(1.55);
 }
 
-/* Заголовок */
-.stat-header {
-  width: 100%;
-  position: relative;
-  z-index: 4; /* выше свечения */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.stat-title {
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.78);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: color 0.4s ease;
-}
-
-.stat-card:hover .stat-title {
-  color: rgba(255,255,255,0.92);
-}
-
-/* МОБИЛЬНАЯ инлайн-иконка по умолчанию скрыта на десктопе */
-.stat-inline-icon {
-  display: none;
-}
-
-/* Бейдж-центр */
-.stat-main {
-  width: 100%;
-  position: relative;
-  z-index: 4;
+/* Центр X/Y для бейджа */
+.stat-center {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 6;
+  pointer-events: none; /* чтобы не блокировать клик по ссылке вокруг */
 }
 
-/* Бейджи */
-.stat-metric-badge {
+.stat-badge {
+  pointer-events: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 18px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.95);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  font-size: clamp(14px, 2.5vw, 18px);
-  white-space: nowrap;
+
+  padding: 12px 26px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.22);
+
+  color: rgba(255,255,255,0.96);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+
   text-decoration: none;
-  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
-/* ХОЧУ: shimmer */
+/* Хочу: shimmer */
 .want-badge {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .want-badge::before {
@@ -383,34 +364,49 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 }
 
 .stat-card:hover .want-badge {
-  border-color: rgba(255,255,255,0.28);
   background: rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.98);
+  border-color: rgba(255,255,255,0.32);
   transform: translateY(-1px);
 }
 
-/* ЗАНЯТО: не подсвечивать при hover */
+/* Занято: не подсвечивать на hover — никаких правил для .busy-badge при hover */
 .busy-badge {}
 
-/* Описание: на десктопе визуально ближе к низу, но без схлопывания */
-.stat-description {
-  width: 100%;
-  position: relative;
-  z-index: 4;
-  margin-top: 22px; /* фиксируем «воздух» */
-  font-size: 13px;
-  font-weight: 400;
+/* Описание прижато к низу */
+.stat-desc {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 22px;
+  z-index: 5;
+
   color: rgba(255,255,255,0.48);
-  line-height: 1.4;
-  text-align: center;
-  transition: color 0.4s ease;
+  font-size: 16px;
+  line-height: 1.35;
 }
 
-.stat-card:hover .stat-description {
-  color: rgba(255,255,255,0.68);
+/* Варианты карточек (1 — серая, 2/3 — apple-like) */
+.card--inactive {
+  --card-border: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08), rgba(255,255,255,0));
+  --top-glow-1: rgba(255,255,255,0.16);
+  --top-glow-2: rgba(255,255,255,0.07);
 }
 
-/* Пульт */
+.card--blue {
+  background: #141518;
+  --card-border: linear-gradient(135deg, rgba(110, 210, 255, 0.55), rgba(40, 120, 255, 0.28), rgba(255,255,255,0));
+  --top-glow-1: rgba(90, 190, 255, 0.22);
+  --top-glow-2: rgba(40, 120, 255, 0.10);
+}
+
+.card--purple {
+  background: #141518;
+  --card-border: linear-gradient(135deg, rgba(200, 120, 255, 0.55), rgba(120, 70, 255, 0.28), rgba(255,255,255,0));
+  --top-glow-1: rgba(190, 110, 255, 0.22);
+  --top-glow-2: rgba(140, 90, 255, 0.10);
+}
+
+/* Пульт кнопок */
 .control-panel { margin-top: 24px; }
 
 .button-container {
@@ -441,6 +437,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   color: rgba(255, 255, 255, 0.7);
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
+
 .ticket-button:hover {
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
@@ -453,6 +450,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   border: none;
   box-shadow: none;
 }
+
 .review-button:hover {
   background: #ffffff;
   color: #000000;
@@ -483,6 +481,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   padding: 24px;
 }
+
 .modal-header { display: flex; align-items: center; margin-bottom: 12px; }
 .modal-title { font-weight: 700; font-size: 18px; }
 .modal-body { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.5; }
@@ -498,71 +497,55 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 }
 .modal-ok:hover { background: #444; }
 
-/* Мобильная версия: 3 ряда + нормальные расстояния (НЕ схлопываем) */
+/* Мобильная: иконка с тем же эффектом, но крупно справа */
 @media (max-width: 768px) {
   .main-card { padding: 20px; border-radius: 20px; }
+
+  .top-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 1.05;
+  }
 
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .stat-card,
-  .stat-card::before { border-radius: 16px; }
-
-  .stat-card:hover { transform: none; }
-
   .stat-content {
-    padding: 18px 16px;
-    min-height: auto;
-    align-items: stretch;
-    text-align: left;
-    gap: 14px; /* возвращаем воздух между рядами */
+    min-height: 220px;
+    padding: 20px 18px;
   }
 
-  /* На мобилке фон-картинку выключаем, чтобы не мешала */
-  .stat-bg-icon { display: none; }
-
-  /* Ряд 1: цена слева, иконка справа */
-  .stat-header {
-    justify-content: space-between;
+  .stat-desc {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    font-size: 15px;
   }
 
-  .stat-title {
-    font-size: 12px;
-    letter-spacing: 1.6px;
+  /* Иконка уходит вправо и остаётся крупной (не мешает левым элементам) */
+  .stat-icon {
+    left: auto;
+    right: 10px;
+    top: 52%;
+    transform: translate(0, -50%) scale(1.55);
+    transform-origin: right center;
+    opacity: 0.30;
   }
 
-  .stat-inline-icon {
-    display: block;
-    opacity: 0.85;
-    flex: 0 0 auto;
+  .stat-card:hover .stat-icon {
+    transform: translate(0, -58%) scale(1.55);
+    opacity: 0.44;
   }
 
-  .stat-inline-icon img {
-    width: 46px;
-    height: 46px;
-    object-fit: contain;
-    display: block;
+  .button-container {
+    flex-direction: column;
+    gap: 8px;
   }
-
-  /* Ряд 2: бейдж */
-  .stat-main {
-    justify-content: flex-start;
-    margin-top: 4px; /* чуть воздуха после первого ряда */
-  }
-
-  /* Ряд 3: описание — увеличенный отступ от бейджа */
-  .stat-description {
-    text-align: left;
-    margin-top: 10px;
-  }
-
-  .stat-metric-badge {
-    font-size: 1.05rem !important;
-    padding: 8px 14px !important;
-  }
-
-  .button-container { flex-direction: column; gap: 8px; }
 }
 </style>
