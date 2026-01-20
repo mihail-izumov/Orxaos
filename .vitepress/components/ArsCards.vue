@@ -55,6 +55,15 @@ const currentDateBadge = computed(() => {
   return `${day}.${month} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bdbdbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon" style="display:inline-block;vertical-align:middle;margin:0 4px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> ${monthName} ${year}`
 })
 
+// Вычисляемое значение для текущего месяца в тексте для Telegram
+const currentMonthName = computed(() => {
+  const monthNames = [
+    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+  ]
+  return monthNames[currentTime.value.getMonth()]
+})
+
 const showInfoModal = ref(false)
 const showShareModal = ref(false)
 const showCopyToast = ref(false)
@@ -96,7 +105,7 @@ const copyLink = async () => {
 }
 
 const shareTelegram = () => {
-  const text = 'Январь. 3 места. Логотип + айдентика. Ars Orxaos'
+  const text = `${currentMonthName.value}. 3 места. Логотип + айдентика. Ars Orxaos`
   const url = window.location.href
   window.open(
     `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
