@@ -64,6 +64,19 @@ const currentMonthName = computed(() => {
   return monthNames[currentTime.value.getMonth()]
 })
 
+// Подсчёт активных карточек (isActive: true)
+const activeCardsCount = computed(() => {
+  return cards.filter(card => card.isActive).length
+})
+
+// Склонение слова "место"
+const placesWord = computed(() => {
+  const count = activeCardsCount.value
+  if (count === 1) return 'место'
+  if (count >= 2 && count <= 4) return 'места'
+  return 'мест'
+})
+
 const showInfoModal = ref(false)
 const showShareModal = ref(false)
 const showCopyToast = ref(false)
@@ -105,7 +118,7 @@ const copyLink = async () => {
 }
 
 const shareTelegram = () => {
-  const text = `${currentMonthName.value}. 3 места. Логотип + айдентика. Ars Orxaos`
+  const text = `${currentMonthName.value}. ${activeCardsCount.value} ${placesWord.value}. Логотип + айдентика. Ars Orxaos`
   const url = window.location.href
   window.open(
     `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
