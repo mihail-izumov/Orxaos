@@ -55,13 +55,30 @@ const currentDateBadge = computed(() => {
   return `${day}.${month} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bdbdbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon" style="display:inline-block;vertical-align:middle;margin:0 4px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> ${monthName} ${year}`
 })
 
-// Вычисляемое значение для текущего месяца в тексте для Telegram
+// Вычисляемое значение для текущего месяца (для случаев когда места есть)
 const currentMonthName = computed(() => {
   const monthNames = [
     'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
     'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
   ]
   return monthNames[currentTime.value.getMonth()]
+})
+
+// Вычисляемое значение следующего месяца + года (для случаев когда мест нет)
+const nextMonthString = computed(() => {
+  const nextDate = new Date(currentTime.value)
+  // Переключаем на следующий месяц (JS сам обработает переход года, например Декабрь -> Январь)
+  nextDate.setMonth(nextDate.getMonth() + 1)
+  
+  const monthNames = [
+    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+  ]
+  
+  const month = monthNames[nextDate.getMonth()]
+  const year = nextDate.getFullYear()
+  
+  return `${month} ${year}`
 })
 
 // Подсчёт активных карточек (isActive: true)
@@ -118,7 +135,18 @@ const copyLink = async () => {
 }
 
 const shareTelegram = () => {
-  const text = `${currentMonthName.value}. ${activeCardsCount.value} ${placesWord.value}. Логотип + айдентика. Ars Orxaos`
+  let datePartText = ''
+  
+  if (activeCardsCount.value === 0) {
+    // Если 0 мест -> "Февраль 2026"
+    datePartText = nextMonthString.value
+  } else {
+    // Если есть места -> "Январь. 2 места"
+    datePartText = `${currentMonthName.value}. ${activeCardsCount.value} ${placesWord.value}`
+  }
+
+  const text = `${datePartText}. Логотип + айдентика. Ars Orxaos`
+  
   const url = window.location.href
   window.open(
     `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
