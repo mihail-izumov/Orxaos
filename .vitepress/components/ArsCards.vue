@@ -35,8 +35,14 @@ const cards = [
   }
 ]
 
+// Реактивное текущее время
+const currentTime = ref(new Date())
+
+// Обновление времени каждую минуту
+let timeInterval = null
+
 const currentDateBadge = computed(() => {
-  const today = new Date()
+  const today = currentTime.value
   const day = String(today.getDate()).padStart(2, '0')
   const month = String(today.getMonth() + 1).padStart(2, '0')
   const year = today.getFullYear()
@@ -106,11 +112,20 @@ const onKeydown = (e) => {
 }
 
 onMounted(() => {
-  if (typeof window !== 'undefined') window.addEventListener('keydown', onKeydown)
+  if (typeof window !== 'undefined') {
+    window.addEventListener('keydown', onKeydown)
+    // Обновляем дату каждую минуту
+    timeInterval = setInterval(() => {
+      currentTime.value = new Date()
+    }, 60000) // 60000ms = 1 минута
+  }
 })
 
 onUnmounted(() => {
-  if (typeof window !== 'undefined') window.removeEventListener('keydown', onKeydown)
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('keydown', onKeydown)
+    if (timeInterval) clearInterval(timeInterval)
+  }
   if (typeof document !== 'undefined') document.body.style.overflow = ''
 })
 </script>
