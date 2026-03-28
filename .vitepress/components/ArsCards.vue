@@ -31,7 +31,7 @@ const cards = [
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
     colorScheme: 'purple',
-    isActive: false // НЕ активна - не открывает Telegram
+    isActive: true // НЕ активна - не открывает Telegram
   }
 ]
 
