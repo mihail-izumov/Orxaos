@@ -8,7 +8,7 @@ const establishment = {
 const cards = [
   {
     badge: '₽50.000',
-    status: 'Апрель',
+    status: 'Май',
     description: 'Логотип. Одно решение.',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
@@ -17,7 +17,7 @@ const cards = [
   },
   {
     badge: '₽150.000',
-    status: 'Апрель',
+    status: 'Май',
     description: 'Логотип, айдентика, соцсети/упаковка.',
     iconSrc: '/orxaos-icon_1.png',
     iconAlt: 'Orxaos Icon',
